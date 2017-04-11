@@ -11,6 +11,8 @@ Plug 'nanotech/jellybeans.vim'
 " Sensible defaults for vim
 Plug 'tpope/vim-sensible'
 
+Plug 'scrooloose/nerdtree'
+
 " Autocompletion
 " You might need to install `$ pip install neovim` for that
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
@@ -77,6 +79,7 @@ nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>nt :NERDTree<CR>
 
 " Go to tab by number
 nnoremap <Leader>t :tabe<CR>
