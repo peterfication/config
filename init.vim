@@ -32,6 +32,9 @@ let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions', 'commands']
 let g:startify_files_number = 7
 
+Plug 'vim-scripts/vim-auto-save'
+let g:auto_save = 1  " enable AutoSave on Vim startup
+
 " Language-specific plugins
 Plug 'ap/vim-css-color'
 Plug 'JulesWang/css.vim'
