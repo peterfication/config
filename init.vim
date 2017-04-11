@@ -6,10 +6,13 @@ syntax on
 
 " # Plugins
 
+Plug 'nanotech/jellybeans.vim'
+
 " Sensible defaults for vim
 Plug 'tpope/vim-sensible'
 
 " Autocompletion
+" You might need to install `$ pip install neovim` for that
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
 
 " Make Git changes visible
@@ -19,7 +22,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 
 " Fuzzy file opener
+" You might need to install `$ brew install fzf` for that (with shell extension)
 Plug 'junegunn/fzf'
+" You need to install `$ brew install ripgrep` for that
 let $FZF_DEFAULT_COMMAND='rg --files'
 
 Plug 'mhinz/vim-startify'
@@ -45,6 +50,10 @@ Plug 'stephpy/vim-yaml'
 call plug#end()
 
 
+set termguicolors
+colorscheme jellybeans
+
+
 " # Configuration
 set updatetime=250
 set listchars=tab:▸\ ,trail:¤,nbsp:·,extends:>,precedes:<,space:·
@@ -62,7 +71,6 @@ set wildmode=longest:full,full
 let mapleader=" "
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
-nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
