@@ -54,12 +54,47 @@ set shiftwidth=2
 set expandtab " don't allow tabs at the beginning of the line but convert them into spaces
 set ruler
 set number
+set wildmenu
+set wildmode=longest:full,full
 
 
 " # Keymap
 let mapleader=" "
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>qa :qa<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
+
+" Go to tab by number
+nnoremap <Leader>t :tabe<CR>
+nnoremap H gT
+nnoremap L gt
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+
+" Use FZF for the buffer
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+nnoremap <silent> <Leader>e :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
