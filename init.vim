@@ -22,10 +22,25 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
 let $FZF_DEFAULT_COMMAND='rg --files'
 
+Plug 'mhinz/vim-startify'
+let g:startify_change_to_dir = 0
+let g:startify_list_order = ['dir', 'bookmarks', 'sessions', 'commands']
+let g:startify_files_number = 7
+
+" Language-specific plugins
+Plug 'ap/vim-css-color'
+Plug 'JulesWang/css.vim'
+Plug 'cespare/vim-toml'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'rust-lang/rust.vim'
+Plug 'stephpy/vim-yaml'
+
 " TBD
 " Plug 'junegunn/vim-easy-align'
 " https://github.com/SirVer/ultisnips
 " https://github.com/scrooloose/nerdtree
+" Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
 
@@ -37,10 +52,14 @@ set list
 set clipboard=unnamed " share the Mac OS X clipboard
 set shiftwidth=2
 set expandtab " don't allow tabs at the beginning of the line but convert them into spaces
+set ruler
+set number
 
 
 " # Keymap
 let mapleader=" "
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>wq :wq<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
