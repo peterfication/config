@@ -11,6 +11,7 @@ Work in progress ...
 ```bash
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew install neovim/neovim/neovim
+$ ln -s /usr/local/bin/nvim /usr/local/bin/vim
 
 $ curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 ```
@@ -21,5 +22,9 @@ $ curl -sf -L https://static.rust-lang.org/rustup.sh | sh
 ```bash
 $ cd
 $ git clone git@github.com:cynektix/config.git
-$ ln -s ~/config/init.vim ~/.config/nvim/init.vim --create-dirs
+$ mkdir -p ~/.config/nvim && ln -s ~/config/init.vim ~/.config/nvim/init.vim
 ```
+
+### Install vim plugins
+
+Open vim, ignore the errors and run `:PlugInstall`.
