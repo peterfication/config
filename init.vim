@@ -45,6 +45,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-yaml'
+Plug 'tpope/vim-haml'
 
 " TBD
 " Plug 'junegunn/vim-easy-align'
