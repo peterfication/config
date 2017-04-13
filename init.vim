@@ -1,8 +1,11 @@
+set nocompatible      " We're running Vim, not Vi!
+syntax on             " Enable syntax highlighting
+filetype on           " Enable filetype detection
+filetype indent on    " Enable filetype-specific indenting
+filetype plugin on    " Enable filetype-specific plugins
+
+
 call plug#begin('~/.local/share/nvim/plugged')
-
-filetype plugin indent on
-syntax on
-
 
 " # Plugins
 
@@ -78,6 +81,9 @@ set number
 set wildmenu
 set wildmode=longest:full,full
 
+" Return to last edit position when opening files
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 
 " # Keymap
 let mapleader=" "
@@ -85,7 +91,9 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>nt :NERDTree<CR>
-nnoremap <Leader>w <C-w>w
+" Go up and down visually and not by new lines (for long lines)
+nnoremap j gj
+nnoremap k gk
 
 " Go to tab by number
 nnoremap <Leader>t :tabe<CR>
