@@ -85,6 +85,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>w <C-w>w
 
 " Go to tab by number
 nnoremap <Leader>t :tabe<CR>
