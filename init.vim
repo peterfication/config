@@ -47,6 +47,7 @@ if has("persistent_undo")
 endif
 
 " Language-specific plugins
+Plug 'vim-ruby/vim-ruby'
 Plug 'ap/vim-css-color'
 Plug 'JulesWang/css.vim'
 Plug 'cespare/vim-toml'
