@@ -37,6 +37,12 @@ let g:startify_files_number = 7
 Plug 'vim-scripts/vim-auto-save'
 let g:auto_save = 1  " enable AutoSave on Vim startup
 
+Plug 'mbbill/undotree'
+if has("persistent_undo")
+    set undodir=~/.undodir/
+    set undofile
+endif
+
 " Language-specific plugins
 Plug 'ap/vim-css-color'
 Plug 'JulesWang/css.vim'
@@ -75,8 +81,6 @@ set wildmode=longest:full,full
 
 " # Keymap
 let mapleader=" "
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>wq :wq<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
