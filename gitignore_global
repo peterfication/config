@@ -1,0 +1,8 @@
+*~
+.DS_Store
+.idea
+.elasticbeanstalk/
+.classpath
+.project
+.settings
+*.swp

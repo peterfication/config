@@ -53,7 +53,9 @@ $ brew install winetricks
 $ cd
 $ git clone git@github.com:cynektix/config.git
 $ mkdir -p ~/.config/nvim && ln -s ~/config/init.vim ~/.config/nvim/init.vim
-$ ln -s ~/config/.zshrc ~/.zshrc
+$ ln -s ~/config/zshrc ~/.zshrc
+$ ln -s ~/config/gitconfig ~/.gitconfig
+$ ln -s ~/config/gitignore_global ~/.gitignore_global
 ```
 
 ### Install vim plugins

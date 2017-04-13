@@ -1,0 +1,23 @@
+[user]
+  name = Peter Gundel
+  email = peter.gundel@cynektix.de
+[core]
+  excludesfile = /Users/petergundel/.gitignore_global
+  editor = vim
+[color]
+  ui = true
+[http]
+  sslVerify = true
+[alias]
+  p = pull
+  co = checkout
+  st = status
+  ap = add -p
+  ci = commit --verbose
+  cia = commit --verbose --amend
+  br = branch
+  bd = branch -d
+  rc = rebase --continue
+  rbb = "!f() { git rebase -i HEAD~$1; }; f"
+  hist = log --graph --pretty=format:\"%h %ad | %s%d [%an]\" --date=short
+  pr = !hub pull-request
