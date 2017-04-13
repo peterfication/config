@@ -1,0 +1,3 @@
+[submodule "submodules/fzf-extras"]
+	path = submodules/fzf-extras
+	url = https://github.com/atweiden/fzf-extras
