@@ -93,6 +93,8 @@ set ruler
 set number
 set wildmenu
 set wildmode=longest:full,full
+set cursorline " Highlights the current line of the cursor
+
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
