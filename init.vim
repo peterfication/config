@@ -46,6 +46,8 @@ if has("persistent_undo")
     set undofile
 endif
 
+Plug 'junegunn/vim-emoji'
+
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
 Plug 'ap/vim-css-color'
@@ -64,6 +66,14 @@ Plug 'tpope/vim-haml'
 " Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
+
+
+" Change the git-gutter signs to emojis
+" (Has to be after `call plug#end()`)
+let g:gitgutter_sign_added = emoji#for('small_blue_diamond')
+let g:gitgutter_sign_modified = emoji#for('small_orange_diamond')
+let g:gitgutter_sign_removed = emoji#for('small_red_triangle')
+let g:gitgutter_sign_modified_removed = emoji#for('collision')
 
 
 set termguicolors
@@ -92,6 +102,7 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>s :Startify<CR>
 
 " Go up and down visually and not by new lines (for long lines)
 nnoremap j gj
@@ -117,6 +128,9 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+
+" Replace emoji strings to emojis (eg :beers: => 🍻)
+noremap <Leader>m :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 
 " Use FZF for the buffer
 function! s:buflist()
