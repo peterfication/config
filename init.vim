@@ -1,9 +1,4 @@
 set nocompatible      " We're running Vim, not Vi!
-syntax on             " Enable syntax highlighting
-filetype on           " Enable file type detection
-filetype indent on    " Enable file type-specific indenting
-filetype plugin on    " Enable file type-specific plugins
-
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -89,10 +84,7 @@ set list
 set clipboard=unnamed " share the Mac OS X clipboard
 set shiftwidth=2
 set expandtab " don't allow tabs at the beginning of the line but convert them into spaces
-set ruler
 set number
-set wildmenu
-set wildmode=longest:full,full
 set cursorline " Highlights the current line of the cursor
 
 
