@@ -1,8 +1,8 @@
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
-filetype on           " Enable filetype detection
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
+filetype on           " Enable file type detection
+filetype indent on    " Enable file type-specific indenting
+filetype plugin on    " Enable file type-specific plugins
 
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -16,7 +16,7 @@ Plug 'tpope/vim-sensible'
 
 Plug 'scrooloose/nerdtree'
 
-" Autocompletion
+" Auto completion
 " You might need to install `$ pip install neovim` for that
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
 
@@ -38,7 +38,7 @@ let g:startify_list_order = ['dir', 'bookmarks', 'sessions', 'commands']
 let g:startify_files_number = 7
 
 Plug 'vim-scripts/vim-auto-save'
-let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 1  " enable auto save on Vim startup
 
 Plug 'mbbill/undotree'
 if has("persistent_undo")
@@ -81,6 +81,8 @@ colorscheme jellybeans
 
 
 " # Configuration
+set spell spelllang=en_us
+set spellfile=~/config/vim/en.utf-8.add
 set updatetime=250
 set listchars=tab:▸\ ,trail:¤,nbsp:·,extends:>,precedes:<,space:·
 set list
@@ -96,7 +98,7 @@ set wildmode=longest:full,full
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
-" # Keymap
+" # Key map
 let mapleader=" "
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
@@ -129,7 +131,7 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
-" Replace emoji strings to emojis (eg :beers: => 🍻)
+" Replace emoji strings to emojis (eg. :beers: => 🍻)
 noremap <Leader>m :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 
 " Use FZF for the buffer
