@@ -92,9 +92,16 @@ nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>nt :NERDTree<CR>
+
 " Go up and down visually and not by new lines (for long lines)
 nnoremap j gj
 nnoremap k gk
+
+" Disable the arrow keys for training ;)
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
 
 " Go to tab by number
 nnoremap <Leader>t :tabe<CR>
