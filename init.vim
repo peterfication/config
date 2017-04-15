@@ -107,16 +107,18 @@ nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>nt :NERDTree<CR>
 nnoremap <Leader>s :Startify<CR>
+nnoremap <Leader>ü :source $MYVIMRC<CR>
+nnoremap <Leader>ö :e $MYVIMRC<CR>
 
 " Go up and down visually and not by new lines (for long lines)
 nnoremap j gj
 nnoremap k gk
 
 " Disable the arrow keys for training ;)
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
 
 " Go to tab by number
 nnoremap <Leader>t :tabe<CR>
