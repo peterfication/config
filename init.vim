@@ -105,10 +105,14 @@ let mapleader=" "
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
-nnoremap <Leader>nt :NERDTree<CR>
 nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
 nnoremap <Leader>ö :e $MYVIMRC<CR>
+
+" Toggle nerdtree with F10
+map <F12> :NERDTreeToggle<CR>
+" Current file in nerdtree
+map <F11> :NERDTreeFind<CR>
 
 " Go up and down visually and not by new lines (for long lines)
 nnoremap j gj
