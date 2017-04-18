@@ -51,7 +51,7 @@ $ brew install winetricks
 
 ```bash
 $ cd
-$ git clone git@github.com:cynektix/config.git
+$ git clone --recursive git@github.com:cynektix/config.git
 $ mkdir -p ~/.config/nvim && ln -s ~/config/init.vim ~/.config/nvim/init.vim
 $ ln -s ~/config/zshrc ~/.zshrc
 $ ln -s ~/config/gitconfig ~/.gitconfig
