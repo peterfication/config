@@ -13,7 +13,7 @@ Plug 'scrooloose/nerdtree'
 
 " Auto completion
 " You might need to install `$ pip install neovim` for that
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
 
 " Make Git changes visible
 Plug 'airblade/vim-gitgutter'
