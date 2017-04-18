@@ -118,8 +118,6 @@ nnoremap <Down> :echoe "Use j"<CR>
 
 " Go to tab by number
 nnoremap <Leader>t :tabe<CR>
-nnoremap H gT
-nnoremap L gt
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
