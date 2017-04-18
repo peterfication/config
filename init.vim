@@ -152,3 +152,14 @@ nnoremap <silent> <Leader>e :call fzf#run({
 \   'options': '+m',
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
+
+
+" Add `, :focus` to an rspec it statement
+noremap <Leader>r $bba, :focus<Esc>
+noremap <Leader>rr gg/ do<CR>i, :focus<Esc>
+" Remove `, :focus` from an rspec it statement
+noremap <Leader>R :%s/, :focus//<CR>
+noremap <Leader>RR :%s/, :focus//g<CR>
+
+" Change a comma separated line in one line for each entry
+noremap <Leader>, $a,<Esc>:s/,,/,/e<CR>:s/, /,\r      /ge<CR>
