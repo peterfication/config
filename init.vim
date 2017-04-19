@@ -86,6 +86,7 @@ set clipboard=unnamed " share the Mac OS X clipboard
 set shiftwidth=2
 set expandtab " don't allow tabs at the beginning of the line but convert them into spaces
 set number
+set relativenumber
 set cursorline " Highlights the current line of the cursor
 
 
@@ -155,11 +156,21 @@ nnoremap <silent> <Leader>e :call fzf#run({
 
 
 " Add `, :focus` to an rspec it statement
-noremap <Leader>r $bba, :focus<Esc>
-noremap <Leader>rr gg/ do<CR>i, :focus<Esc>
+noremap <Leader>rr $bba, :focus<Esc>
+noremap <Leader>rt gg/ do<CR>i, :focus<Esc>
 " Remove `, :focus` from an rspec it statement
-noremap <Leader>R :%s/, :focus//<CR>
-noremap <Leader>RR :%s/, :focus//g<CR>
+noremap <Leader>RR :s/, :focus//<CR>
+noremap <Leader>RT :%s/, :focus//g<CR>
 
 " Change a comma separated line in one line for each entry
 noremap <Leader>, $a,<Esc>:s/,,/,/e<CR>:s/, /,\r      /ge<CR>
+
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <Leader>n :call NumberToggle()<cr>
