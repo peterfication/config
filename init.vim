@@ -11,6 +11,9 @@ Plug 'tpope/vim-sensible'
 
 Plug 'scrooloose/nerdtree'
 
+" Run commands asynchronously
+Plug 'benekastah/neomake'
+
 " Auto completion
 " You might need to install `$ pip install neovim` for that
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
@@ -101,7 +104,7 @@ nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
-nnoremap <Leader>ö :e $MYVIMRC<CR>
+nnoremap <Leader>ö :tabe $MYVIMRC<CR>
 
 " Toggle nerdtree with F10
 map <F12> :NERDTreeToggle<CR>
@@ -155,13 +158,6 @@ nnoremap <silent> <Leader>e :call fzf#run({
 \ })<CR>
 
 
-" Add `, :focus` to an rspec it statement
-noremap <Leader>rr $bba, :focus<Esc>
-noremap <Leader>rt gg/ do<CR>i, :focus<Esc>
-" Remove `, :focus` from an rspec it statement
-noremap <Leader>RR :s/, :focus//<CR>
-noremap <Leader>RT :%s/, :focus//g<CR>
-
 " Change a comma separated line in one line for each entry
 noremap <Leader>, $a,<Esc>:s/,,/,/e<CR>:s/, /,\r      /ge<CR>
 
@@ -174,3 +170,16 @@ function! NumberToggle()
 endfunc
 
 nnoremap <Leader>n :call NumberToggle()<cr>
+
+
+" ## Ruby ##
+autocmd! BufWritePost *.rb Neomake rubocop
+autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
+autocmd BufNewFile,BufRead *.thor set filetype=ruby
+
+" Add `, :focus` to an rspec it statement
+noremap <Leader>rr $bba, :focus<Esc>
+noremap <Leader>rt gg/ do<CR>i, :focus<Esc>
+" Remove `, :focus` from an rspec it statement
+noremap <Leader>RR :s/, :focus//<CR>
+noremap <Leader>RT :%s/, :focus//g<CR>
