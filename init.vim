@@ -8,7 +8,7 @@ Plug 'nanotech/jellybeans.vim'
 
 " Sensible defaults for vim
 Plug 'tpope/vim-sensible'
-
+Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
 
 " Run commands asynchronously
