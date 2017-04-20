@@ -62,11 +62,11 @@ alias e="vim"
 
 
 alias dcup='docker-compose up'
-alias docker-rspec='docker-compose run test bundle exec rspec'
-alias docker-rspec-web='docker-compose run web bundle exec rspec'
-alias docker-routes='docker-compose run web bundle exec rake routes'
-alias docker-bundle='docker-compose run web bundle'
-alias docker-rm='docker-compose run web rm -Rf tmp/pids'
+alias dcrspec='docker-compose run test bundle exec rspec'
+alias dcrspec-web='docker-compose run web bundle exec rspec'
+alias dcroutes='docker-compose run web bundle exec rake routes'
+alias dcbundle='bundle && docker-compose run web bundle'
+alias dcrm='docker-compose run web rm -Rf tmp/pids'
 
 alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
 
