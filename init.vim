@@ -35,9 +35,6 @@ let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions', 'commands']
 let g:startify_files_number = 7
 
-Plug 'vim-scripts/vim-auto-save'
-let g:auto_save = 1  " enable auto save on Vim startup
-
 Plug 'mbbill/undotree'
 if has("persistent_undo")
     set undodir=~/.undodir/
@@ -95,11 +92,15 @@ set cursorline " Highlights the current line of the cursor
 
 " Return to last edit position when opening files
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
+" Remove trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+" Save on escaping from insert mode
+inoremap <Esc> <Esc>:w<CR>
 
 " # Key map
 let mapleader=" "
 nnoremap <Leader>q :q<CR>
+nnoremap <Leader>w :w<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>f :FZF<CR>
 nnoremap <Leader>s :Startify<CR>
