@@ -72,6 +72,7 @@ alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticb
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+bindkey -v # Enable Vim mode => Press Esc to get into normal mode
 
 [ -f ~/config/fzf.zsh ] && source ~/config/fzf.zsh
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
