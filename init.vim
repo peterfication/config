@@ -1,4 +1,5 @@
-set nocompatible      " We're running Vim, not Vi!
+set nocompatible " We're running Vim, not Vi!
+filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -59,7 +60,7 @@ Plug 'vim-scripts/YankRing.vim'
 
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
-Plug 'ap/vim-css-color'
+runtime macros/matchit.vim
 Plug 'JulesWang/css.vim'
 Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
@@ -196,3 +197,18 @@ noremap <Leader>rt gg/ do<CR>i, :focus<Esc>
 " Remove `, :focus` from an rspec it statement
 noremap <Leader>RR :s/, :focus//<CR>
 noremap <Leader>RT :%s/, :focus//g<CR>
+
+" Create the parent directory on save if it does not exist
+" See http://stackoverflow.com/a/4294176
+function! s:MkNonExDir(file, buf)
+    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+        let dir=fnamemodify(a:file, ':h')
+        if !isdirectory(dir)
+            call mkdir(dir, 'p')
+        endif
+    endif
+endfunction
+augroup BWCCreateDir
+    autocmd!
+    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
+augroup END
