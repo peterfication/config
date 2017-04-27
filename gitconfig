@@ -10,6 +10,8 @@
   sslVerify = true
 [alias]
   p = pull
+  po = push origin
+  pfo = push -f origin
   co = checkout
   st = status
   ap = add -p
