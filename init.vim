@@ -30,6 +30,9 @@ Plug 'tpope/vim-fugitive'
 " Edit surroundings
 Plug 'tpope/vim-surround'
 
+" Make Vim play nicely with iTerm 2 and tmux.
+Plug 'sjl/vitality.vim'
+
 " Fuzzy file opener
 " You might need to install `$ brew install fzf` for that (with shell extension)
 Plug 'junegunn/fzf'
@@ -114,7 +117,9 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Remove trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 " Save on escaping from insert mode
-inoremap <Esc> <Esc>:w<CR>
+" inoremap <Esc> <Esc>:w<CR>
+" Save all buffers on focus lost and don't display errors
+au FocusLost * silent! wa
 
 " # Key map
 let mapleader=" "
