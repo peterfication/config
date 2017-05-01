@@ -9,11 +9,14 @@ Plug 'nanotech/jellybeans.vim'
 
 " Sensible defaults for vim
 Plug 'tpope/vim-sensible'
+
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
 
 " Run commands asynchronously
 Plug 'benekastah/neomake'
+
+Plug 'vim-airline/vim-airline'
 
 " Auto completion
 " You might need to install `$ pip install neovim` for that
@@ -21,6 +24,8 @@ Plug 'benekastah/neomake'
 
 " Make Git changes visible
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+" Plug 'jreybert/vimagit'
 
 " Edit surroundings
 Plug 'tpope/vim-surround'
