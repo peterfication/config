@@ -83,6 +83,9 @@ Plug 'jiangmiao/auto-pairs'
 " Comment out code with gcc
 Plug 'tpope/vim-commentary'
 
+" Repeat plugin commands with .
+Plug 'tpope/vim-repeat'
+
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
 runtime macros/matchit.vim
