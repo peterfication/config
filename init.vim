@@ -106,6 +106,7 @@ set expandtab " don't allow tabs at the beginning of the line but convert them i
 set number
 set relativenumber
 set cursorline " Highlights the current line of the cursor
+set showcmd " Show (partial) command in the last line of the screen.
 
 
 " Return to last edit position when opening files
