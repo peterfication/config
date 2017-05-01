@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline'
 " Auto completion
 " You might need to install `$ pip install neovim` for that
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
+Plug 'ajh17/VimCompletesMe'
 
 " Make Git changes visible
 Plug 'airblade/vim-gitgutter'
