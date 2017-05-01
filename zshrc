@@ -70,6 +70,8 @@ alias dcrm='docker-compose run web rm -Rf tmp/pids'
 
 alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
 
+# Restart the camera on a Mac when it fails
+alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssistant'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 bindkey -v # Enable Vim mode => Press Esc to get into normal mode
