@@ -67,7 +67,11 @@ endif
 
 Plug 'junegunn/vim-emoji'
 
+" Clipboard history
 Plug 'vim-scripts/YankRing.vim'
+
+" Auto complete brackets
+Plug 'jiangmiao/auto-pairs'
 
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
