@@ -11,7 +11,9 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'tpope/vim-sensible'
 
 Plug 'editorconfig/editorconfig-vim'
+
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Run commands asynchronously
 Plug 'benekastah/neomake'
