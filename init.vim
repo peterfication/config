@@ -80,6 +80,8 @@ Plug 'vim-scripts/YankRing.vim'
 
 " Auto complete brackets
 Plug 'jiangmiao/auto-pairs'
+" Comment out code with gcc
+Plug 'tpope/vim-commentary'
 
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
