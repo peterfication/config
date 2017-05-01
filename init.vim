@@ -22,6 +22,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='molokai'
 
+" Smart motions with s
+Plug 'justinmk/vim-sneak'
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+
+
 " Auto completion
 " You might need to install `$ pip install neovim` for that
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
