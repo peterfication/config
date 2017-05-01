@@ -17,6 +17,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'benekastah/neomake'
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='molokai'
 
 " Auto completion
 " You might need to install `$ pip install neovim` for that
