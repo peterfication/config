@@ -60,7 +60,7 @@ let $FZF_DEFAULT_COMMAND='rg --files'
 " --follow: Follow symlinks
 " --glob: Additional conditions for search (in this case ignore everything in the .git/ folder)
 " --color: Search color options
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 Plug 'mhinz/vim-startify'
 let g:startify_change_to_dir = 0
@@ -147,7 +147,11 @@ let mapleader=" "
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>b :b#<CR>
+nnoremap <Leader>B :bd<CR>
 nnoremap <Leader>f :FZF<CR>
+nnoremap <Leader>F :Find<CR>
+" Search for word under cursor in files
+nnoremap <Leader>G :Find <C-R><C-W><CR>
 nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
 nnoremap <Leader>ö :tabe $MYVIMRC<CR>
