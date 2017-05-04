@@ -131,6 +131,8 @@ set relativenumber
 set cursorline " Highlights the current line of the cursor
 set showcmd " Show (partial) command in the last line of the screen.
 set hidden " Make it possible to open another buffer without saving the current one
+set splitright
+set splitbelow
 
 
 " Return to last edit position when opening files
