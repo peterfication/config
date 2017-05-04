@@ -1,4 +1,5 @@
 set nocompatible " We're running Vim, not Vi!
+filetype plugin on
 filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -6,9 +7,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " # Plugins
 
 Plug 'nanotech/jellybeans.vim'
-
-" Sensible defaults for vim
-Plug 'tpope/vim-sensible'
 
 Plug 'editorconfig/editorconfig-vim'
 
