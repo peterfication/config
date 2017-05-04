@@ -10,6 +10,8 @@ Plug 'nanotech/jellybeans.vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'tpope/vim-abolish'
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
