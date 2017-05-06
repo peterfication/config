@@ -56,6 +56,7 @@ $ mkdir -p ~/.config/nvim && ln -s ~/config/init.vim ~/.config/nvim/init.vim
 $ ln -s ~/config/zshrc ~/.zshrc
 $ ln -s ~/config/gitconfig ~/.gitconfig
 $ ln -s ~/config/gitignore_global ~/.gitignore_global
+$ ln -s ~/config/ctags ~/.ctags
 ```
 
 ### Install vim plugins
