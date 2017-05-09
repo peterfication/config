@@ -52,10 +52,11 @@ plugins=(git)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:$HOME/.cargo/bin"
 export NVM_DIR=~/.nvm
 source /usr/local/opt/nvm/nvm.sh
 export FZF_DEFAULT_COMMAND="rg --files"
+export PATH="$PATH:/Library/TeX/texbin"
 
 export EDITOR='vim'
 alias e="vim"
