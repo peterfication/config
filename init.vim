@@ -30,7 +30,7 @@ let g:sneak#s_next = 1
 Plug 'fntlnz/atags.vim'
 " Generate tags everytime a file is being written
 autocmd BufWritePost * call atags#generate()
-command UpdateTags :call atags#generate()<cr>
+command! UpdateTags :call atags#generate()<cr>
 
 " Auto completion
 " You might need to install `$ pip install neovim` for that
