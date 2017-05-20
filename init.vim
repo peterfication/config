@@ -21,6 +21,7 @@ Plug 'benekastah/neomake'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='molokai'
+let g:airline#extensions#tabline#enabled = 1
 
 " Smart motions with s
 Plug 'justinmk/vim-sneak'
@@ -166,6 +167,10 @@ nnoremap <Leader>G :Find <C-R><C-W><CR>
 nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
 nnoremap <Leader>ö :tabe $MYVIMRC<CR>
+" Cycle through open buffers and close them
+nnoremap <C-J> :bnext<CR>
+nnoremap <C-K> :bprevious<CR>
+nnoremap <C-L> :bd<CR>
 
 " Toggle nerdtree with F10
 map <F12> :NERDTreeToggle<CR>
