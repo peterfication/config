@@ -61,8 +61,9 @@ export PATH="$PATH:/Library/TeX/texbin"
 export EDITOR='vim'
 alias e="vim"
 
-
+alias g='git'
 alias dcup='docker-compose up'
+alias dcrw='docker-compose run web'
 alias dcrspec='docker-compose run test bundle exec rspec'
 alias dcrspec-web='docker-compose run web bundle exec rspec'
 alias dcroutes='docker-compose run web bundle exec rake routes'
