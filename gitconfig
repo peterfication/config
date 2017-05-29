@@ -11,12 +11,16 @@
 [alias]
   p = pull
   co = checkout
+  cob = checkout -b
   st = status
   ap = add -p
   ci = commit --verbose
   cia = commit --verbose --amend
   br = branch
+  b = branch
   bd = branch -d
+  bD = branch -D
+  praise = blame
   rc = rebase --continue
   rbb = "!f() { git rebase -i HEAD~$1; }; f"
   po = !git push origin `git rev-parse --abbrev-ref HEAD`
