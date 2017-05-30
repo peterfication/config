@@ -13,7 +13,7 @@
   co = checkout
   cob = checkout -b
   st = status
-  ap = add -p
+  ap = !git -c interactive.diffFilter=\"git diff --word-diff -w --color-words\" add -p
   ci = commit --verbose
   cia = commit --verbose --amend
   br = branch
