@@ -4,6 +4,8 @@
 [core]
   excludesfile = /Users/petergundel/.gitignore_global
   editor = vim
+[status]
+  showUntrackedFiles = all
 [color]
   ui = true
 [http]
@@ -13,13 +15,14 @@
   co = checkout
   cob = checkout -b
   st = status
-  ap = !git -c interactive.diffFilter=\"git diff --word-diff -w --color-words\" add -p
+  ap = add -p
   ci = commit --verbose
   cia = commit --verbose --amend
   br = branch
   b = branch
+  ad = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git branch -d $CURRENT; }; f"
   bd = branch -d
-  bD = branch -D
+  bdd = branch -D
   praise = blame
   rc = rebase --continue
   rbb = "!f() { git rebase -i HEAD~$1; }; f"
