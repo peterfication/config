@@ -26,6 +26,7 @@
   praise = blame
   rc = rebase --continue
   rbb = "!f() { git rebase -i HEAD~$1; }; f"
+  rbm = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git checkout $CURRENT; git rebase master; }; f"
   po = !git push origin `git rev-parse --abbrev-ref HEAD`
   pfo = !git push -f origin `git rev-parse --abbrev-ref HEAD`
   hist = log --graph --pretty=format:\"%h %ad | %s%d [%an]\" --date=short
