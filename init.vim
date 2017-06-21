@@ -28,15 +28,15 @@ Plug 'justinmk/vim-sneak'
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 
-Plug 'fntlnz/atags.vim'
-let g:atags_build_commands_list = [
-    \ 'ri -g "" | ctags -L - --fields=+l -f tags.tmp',
-    \ 'awk "length($0) < 400" tags.tmp > tags',
-    \ 'rm tags.tmp'
-    \ ]
-" Generate tags everytime a file is being written
-autocmd BufWritePost * call atags#generate()
-command! UpdateTags :call atags#generate()<cr>
+" Plug 'fntlnz/atags.vim'
+" let g:atags_build_commands_list = [
+"     \ 'ri -g "" | ctags -L - --fields=+l -f tags.tmp',
+"     \ 'awk "length($0) < 400" tags.tmp > tags',
+"     \ 'rm tags.tmp'
+"     \ ]
+" " Generate tags everytime a file is being written
+" autocmd BufWritePost * call atags#generate()
+" command! UpdateTags :call atags#generate()<cr>
 
 " Auto completion
 " You might need to install `$ pip install neovim` for that
