@@ -128,6 +128,7 @@ colorscheme jellybeans
 
 
 " # Configuration
+set noswapfile
 set spell spelllang=en_us
 set spellfile=~/config/vim/en.utf-8.add
 set updatetime=250
