@@ -77,11 +77,11 @@ let g:startify_change_to_dir = 0
 let g:startify_list_order = ['dir', 'bookmarks', 'sessions', 'commands']
 let g:startify_files_number = 7
 
-Plug 'mbbill/undotree'
-if has("persistent_undo")
-    set undodir=~/.undodir/
-    set undofile
-endif
+" Plug 'mbbill/undotree'
+" if has("persistent_undo")
+"     set undodir=~/.undodir/
+"     set undofile
+" endif
 
 Plug 'junegunn/vim-emoji'
 
