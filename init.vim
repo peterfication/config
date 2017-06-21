@@ -86,7 +86,7 @@ let g:startify_files_number = 7
 Plug 'junegunn/vim-emoji'
 
 " Clipboard history
-Plug 'vim-scripts/YankRing.vim'
+" Plug 'vim-scripts/YankRing.vim'
 
 " Auto complete brackets
 Plug 'jiangmiao/auto-pairs'
