@@ -1,5 +1,4 @@
 set nocompatible " We're running Vim, not Vi!
-filetype plugin on
 filetype plugin indent on
 
 call plug#begin('~/.local/share/nvim/plugged')
@@ -98,6 +97,11 @@ Plug 'tpope/vim-repeat'
 
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
+let g:rubycomplete_rails = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_include_object = 1
+let g:rubycomplete_include_objectspace = 1
 runtime macros/matchit.vim
 Plug 'JulesWang/css.vim'
 Plug 'cespare/vim-toml'
@@ -243,6 +247,8 @@ nnoremap <Leader>n :call NumberToggle()<cr>
 autocmd! BufWritePost *.rb Neomake rubocop
 autocmd BufNewFile,BufRead *.jbuilder set filetype=ruby
 autocmd BufNewFile,BufRead *.thor set filetype=ruby
+autocmd FileType ruby compiler ruby
+noremap <Leader>o o<CR>end<Esc>-cc
 
 " Add `, :focus` to an rspec it statement
 noremap <Leader>rr $bba, :focus<Esc>
