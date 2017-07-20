@@ -173,9 +173,9 @@ nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
 nnoremap <Leader>ö :tabe $MYVIMRC<CR>
 " Cycle through open buffers and close them
-nnoremap <C-J> :bnext<CR>
-nnoremap <C-K> :bprevious<CR>
-nnoremap <C-L> :bd<CR>
+nnoremap <C-K> :bnext<CR>
+nnoremap <C-J> :bprevious<CR>
+nnoremap <C-C> :bd<CR>
 
 " Toggle nerdtree with F10
 map <F12> :NERDTreeToggle<CR>
