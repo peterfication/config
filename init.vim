@@ -110,6 +110,7 @@ Plug 'mxw/vim-jsx'
 Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-haml'
+Plug 'elixir-lang/vim-elixir'
 
 " JS
 let g:jsx_ext_required = 0
