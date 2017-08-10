@@ -79,5 +79,6 @@ alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssis
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # bindkey -v # Enable Vim mode => Press Esc to get into normal mode
 
-[ -f ~/config/fzf.zsh ] && source ~/config/fzf.zsh
+[ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
+[ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh

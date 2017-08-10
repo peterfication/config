@@ -57,6 +57,7 @@ $ ln -s ~/config/zshrc ~/.zshrc
 $ ln -s ~/config/gitconfig ~/.gitconfig
 $ ln -s ~/config/gitignore_global ~/.gitignore_global
 $ ln -s ~/config/ctags ~/.ctags
+$ ln -s ~/config/tmux.conf ~/.tmux.conf
 ```
 
 ### Install vim plugins
