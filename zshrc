@@ -87,3 +87,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 [ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
 [ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh
+[ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
