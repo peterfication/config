@@ -48,6 +48,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# Enable Ctrl-f to edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^f' edit-command-line
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
@@ -62,6 +66,7 @@ export EDITOR='vim'
 alias e="vim"
 
 alias g='git'
+alias tm='tmux'
 alias dcup='docker-compose up'
 alias dcrw='docker-compose run web'
 alias dcrspec='docker-compose run test bundle exec rspec'
