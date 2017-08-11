@@ -63,6 +63,7 @@ export FZF_DEFAULT_COMMAND="rg --files"
 export PATH="$PATH:/Library/TeX/texbin"
 
 export EDITOR='vim'
+export VISUAL='vim'
 alias e="vim"
 
 alias g='git'
@@ -75,6 +76,9 @@ alias dcroutes='docker-compose run web bundle exec rake routes'
 alias dcbundle='bundle && docker-compose run web bundle'
 alias dcrm='docker-compose run web rm -Rf tmp/pids'
 alias docker-machine-cleanup='docker volume rm $(docker volume ls -qf dangling=true); docker rmi $(docker images | grep "^<none>" | awk "{print $3}"); docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+
+alias heroku-logs="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf | xargs heroku logs -t -a"
+alias heroku-bash="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf | xargs heroku logs -t -a"
 
 alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
 

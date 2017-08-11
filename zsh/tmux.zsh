@@ -26,7 +26,7 @@ function tsd() {
   tmux split-pane -d -v 'eval "$(docker-machine env store2be)"; zsh'
 
   # Setup docker synching
-  tmux new-window -d 'eval "$(docker-machine env store2be)" && docker-osx-dev'
+  tmux new-window -n docker-osx-dev -d 'eval "$(docker-machine env store2be)" && docker-osx-dev'
 }
 
 # fs [FUZZY PATTERN] - Select selected tmux session
