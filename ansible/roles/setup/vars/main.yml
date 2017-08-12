@@ -1,0 +1,60 @@
+---
+# list of applications to install
+general:
+  local_home: "{{ lookup('env','HOME') }}"
+
+# homebrew applications
+applications:
+  - ctags
+  - curl
+  - docker
+  - docker-compose
+  - docker-machine
+  - elixir
+  - erlang
+  - exa # ls replacement in Rust
+  - fzf
+  - git
+  - git-ftp
+  - go
+  - heroku
+  - hub
+  - kops
+  - kubectl
+  - kubernetes-helm
+  - less # Use a newer version than the system one for emojis 😁
+  - loc # cloc replacement in Rust
+  - neovim
+  - node
+  - nvm
+  - reattach-to-user-namespace # For tmux clipboard sharing
+  - ripgrep # Fast ag or ack written in Rust
+  - tmux
+  - tree
+  - wget
+  - yarn
+  - zsh
+
+# homebrew cask applications
+cask_applications:
+  - alfred
+  - docker
+  - dropbox
+  - firefox
+  - flux
+  - keepingyouawake
+  - google-chrome
+  - google-drive
+  - iterm2
+  - keybase
+  - keycastr
+  - minikube
+  - ngrok
+  - psequel
+  - slack
+  - skype
+  - smcfancontrol
+  - spotify
+  - virtualbox
+  - vlc
+  - whatsapp

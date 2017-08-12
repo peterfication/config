@@ -1,0 +1,11 @@
+- name: Install applications
+  include: apps.yml
+
+- name: Install pip applications
+  include: pip.yml
+
+- name: Add configuration
+  include: configuration.yml
+
+- name: Configure dotfiles
+  include: dotfiles.yml

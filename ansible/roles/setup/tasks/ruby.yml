@@ -1,0 +1,14 @@
+---
+- name: Install rvm
+  shell: >
+    curl -L https://get.rvm.io | bash
+    creates=~/.rvm
+
+- name: Update rvm
+  command: rvm get head
+
+- name: Install Rubies
+  command: rvm install {{ item }}
+  with_items:
+    - 2.3.0
+    - 2.3.1
