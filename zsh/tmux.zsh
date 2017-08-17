@@ -10,7 +10,7 @@ function tmux_new_with_name() {
 function ts() {
   tmux_new_with_name `pwd`
   DIR_NAME=`pwd | grep -o [a-z0-9_-]*$`
-  tmux a -t $DIR_NAME
+  tmux -2 a -t $DIR_NAME
 }
 
 function tss() {
