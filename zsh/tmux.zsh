@@ -23,7 +23,8 @@ function tsd() {
   # Setup main window
   tmux split-pane -h git sh
   tmux send-keys -t 1.0 vim Enter
-  tmux split-pane -d -v 'eval "$(docker-machine env store2be)"; zsh'
+  tmux split-pane -d -v
+  tmux send-keys -t 1.2 "eval '$(docker-machine env store2be)'" Enter
 
   # Setup docker synching
   tmux new-window -n docker-osx-dev -d 'eval "$(docker-machine env store2be)" && docker-osx-dev'
