@@ -21,6 +21,7 @@
   br = branch
   b = branch
   ad = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git branch -d $CURRENT; }; f"
+  ads = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout staging; git pull; git branch -d $CURRENT; }; f"
   bd = branch -d
   bdd = branch -D
   praise = blame
