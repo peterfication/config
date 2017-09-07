@@ -182,6 +182,8 @@ nnoremap <Leader>G :Find <C-R><C-W><CR>
 nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
 nnoremap <Leader>ö :tabe $MYVIMRC<CR>
+" Pretty print json
+nnoremap <Leader>j :%!python -m json.tool<CR>
 " Cycle through open buffers and close them
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
