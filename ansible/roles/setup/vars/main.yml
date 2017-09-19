@@ -27,6 +27,7 @@ applications:
   - neovim
   - node
   - nvm
+  - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
   - ripgrep # Fast ag or ack written in Rust
   - tmux
