@@ -67,7 +67,7 @@ export VISUAL='vim'
 alias e="vim"
 
 alias g='git'
-alias tm='tmux'
+alias tm='tmux -2'
 alias dcup='docker-compose up'
 alias dcrw='docker-compose run web'
 alias dcrspec='docker-compose run test bundle exec rspec'
