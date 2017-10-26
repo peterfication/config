@@ -314,3 +314,6 @@ endfunction
 
 noremap <silent> Ü :call <SID>swap_up()<CR>
 noremap <silent> Ä :call <SID>swap_down()<CR>
+
+" Use it with `$ ls | vim -`
+:command PrepareRenameFiles %s/.*/mv -i "&" "&"/g
