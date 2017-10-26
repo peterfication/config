@@ -146,8 +146,8 @@ colorscheme jellybeans
 
 " # Configuration
 set noswapfile
-set spell spelllang=en_us
-set spellfile=~/config/vim/en.utf-8.add
+" set spell spelllang=en_us
+" set spellfile=~/config/vim/en.utf-8.add
 set updatetime=250
 set listchars=tab:▸\ ,trail:¤,nbsp:·,extends:>,precedes:<,space:·
 set list
