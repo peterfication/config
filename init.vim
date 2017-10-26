@@ -198,9 +198,6 @@ map <F12> :NERDTreeToggle<CR>
 " Current file in nerdtree
 map <F11> :NERDTreeFind<CR>
 
-" Show YankRing
-nnoremap <Leader>p :YRShow<CR>
-
 " Go up and down visually and not by new lines (for long lines)
 nnoremap j gj
 nnoremap k gk
