@@ -187,7 +187,9 @@ nnoremap <Leader>s :Startify<CR>
 nnoremap <Leader>ü :source $MYVIMRC<CR>
 nnoremap <Leader>ö :tabe $MYVIMRC<CR>
 " Pretty print json
-nnoremap <Leader>j :%!python -m json.tool<CR>
+nnoremap <Leader>jj :%!python -m json.tool<CR>
+" Pretty print xml
+nnoremap <Leader>jx :%s/</\r</g<CR>gg=G
 " Cycle through open buffers and close them
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
