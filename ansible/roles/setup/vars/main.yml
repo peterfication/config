@@ -35,6 +35,7 @@ applications:
   - tree
   - wget
   - yarn
+  - youtube-dl
   - zsh
 
 # homebrew cask applications

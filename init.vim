@@ -40,7 +40,7 @@ let g:sneak#s_next = 1
 " Auto completion
 " You might need to install `$ pip install neovim` for that
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
-Plug 'ajh17/VimCompletesMe'
+" Plug 'ajh17/VimCompletesMe'
 
 " Make Git changes visible
 Plug 'airblade/vim-gitgutter'
@@ -53,11 +53,15 @@ Plug 'tpope/vim-surround'
 " Make Vim play nicely with iTerm 2 and tmux.
 Plug 'sjl/vitality.vim'
 
+" Plug 'prettier/vim-prettier', {
+"   \ 'do': 'yarn install',
+"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+
 " Fuzzy file opener
 " You might need to install `$ brew install fzf` for that (with shell extension)
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-" You need to install `$ brew install ripgrep` for that
+" You need to install `$ brew install rigrep` for that
 let $FZF_DEFAULT_COMMAND='rg --files'
 " --column: Show column number
 " --line-number: Show line number
@@ -142,8 +146,8 @@ colorscheme jellybeans
 
 " # Configuration
 set noswapfile
-set spell spelllang=en_us
-set spellfile=~/config/vim/en.utf-8.add
+" set spell spelllang=en_us
+" set spellfile=~/config/vim/en.utf-8.add
 set updatetime=250
 set listchars=tab:▸\ ,trail:¤,nbsp:·,extends:>,precedes:<,space:·
 set list
@@ -193,9 +197,6 @@ nnoremap <C-C> :bd<CR>
 map <F12> :NERDTreeToggle<CR>
 " Current file in nerdtree
 map <F11> :NERDTreeFind<CR>
-
-" Show YankRing
-nnoremap <Leader>p :YRShow<CR>
 
 " Go up and down visually and not by new lines (for long lines)
 nnoremap j gj
@@ -314,3 +315,6 @@ endfunction
 
 noremap <silent> Ü :call <SID>swap_up()<CR>
 noremap <silent> Ä :call <SID>swap_down()<CR>
+
+" Use it with `$ ls | vim -`
+:command PrepareRenameFiles %s/.*/mv -i "&" "&"/g
