@@ -80,6 +80,9 @@ alias docker-machine-cleanup='docker volume rm $(docker volume ls -qf dangling=t
 alias heroku-logs="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf --header='Select the app you want to tail the logs' | xargs heroku logs -t -a"
 alias heroku-bash="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf --header='Select the app you want to bash into' | xargs heroku run bash -a"
 
+# See https://github.com/alphabetum/notes
+alias fnotes="notes | sed -E "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | grep '^\[' | fzf --ansi | sed 's/ .*$//g' | sed -E 's/\[|\]//g' | xargs notes edit"
+
 alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
 
 # Restart the camera on a Mac when it fails
