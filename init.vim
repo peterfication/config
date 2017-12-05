@@ -99,6 +99,13 @@ Plug 'tpope/vim-commentary'
 " Repeat plugin commands with .
 Plug 'tpope/vim-repeat'
 
+" Code templates
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+" For Ruby see https://github.com/honza/vim-snippets/blob/master/snippets/ruby.snippets
+
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
 let g:rubycomplete_rails = 1
