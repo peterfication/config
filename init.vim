@@ -232,7 +232,7 @@ nnoremap k gk
 " noremap <leader>0 :tablast<cr>
 
 " Replace emoji strings to emojis (eg. :beers: => 🍻)
-noremap <Leader>m :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
+noremap <Leader>m :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>gg
 
 " Use FZF for the buffer
 function! s:buflist()
