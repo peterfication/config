@@ -198,6 +198,9 @@ nnoremap <Leader>ö :tabe $MYVIMRC<CR>
 nnoremap <Leader>jj :%!python -m json.tool<CR>
 " Pretty print xml
 nnoremap <Leader>jx :%s/</\r</g<CR>gg=G
+" grep search
+nnoremap <Leader>gr :grep  .<left><left>
+nnoremap <Leader>GR :cope<CR>
 " Cycle through open buffers and close them
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
