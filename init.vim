@@ -117,6 +117,7 @@ runtime macros/matchit.vim
 Plug 'JulesWang/css.vim'
 Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-yaml'
