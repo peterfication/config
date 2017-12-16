@@ -84,6 +84,9 @@ alias heroku-bash="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf --header=
 alias fnotes="notes | sed -E "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | grep '^\[' | fzf --ansi | sed 's/ .*$//g' | sed -E 's/\[|\]//g' | xargs notes edit"
 snotes() { rg -i --vimgrep $1 ~/.notes/home | fzf | sed 's/:.*//' | xargs notes edit}
 
+alias pnotes="cd ~/notes && vim"
+alias psnotes="cd ~/notes && git add . && git commit -m Sync && git push origin master"
+
 alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
 
 # Restart the camera on a Mac when it fails
