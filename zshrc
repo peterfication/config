@@ -85,7 +85,7 @@ alias fnotes="notes | sed -E "s/[[:cntrl:]]\[[0-9]{1,3}m//g" | grep '^\[' | fzf 
 snotes() { rg -i --vimgrep $1 ~/.notes/home | fzf | sed 's/:.*//' | xargs notes edit}
 
 alias pnotes="cd ~/notes && vim"
-alias psnotes="cd ~/notes && git add . && git commit -m Sync && git push origin master"
+alias psnotes='cd ~/notes && git add . && git commit -m "Sync `date +"%Y-%m-%d %T"`" && git push origin master'
 
 alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
 

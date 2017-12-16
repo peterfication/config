@@ -14,7 +14,7 @@ function ts() {
 }
 
 function tss() {
-  tmux split-pane -h git sh
+  tmux split-pane -h gitsh
   tmux send-keys -t 1.0 vim Enter
   tmux split-pane -d -v
 }
