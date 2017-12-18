@@ -21,7 +21,7 @@ function tss() {
 
 function tsd() {
   # Setup main window
-  tmux split-pane -h git sh
+  tmux split-pane -h gitsh
   tmux send-keys -t 1.0 vim Enter
   tmux split-pane -d -v
   tmux send-keys -t 1.2 "eval '$(docker-machine env store2be)'" Enter
