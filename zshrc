@@ -55,7 +55,7 @@ bindkey '^f' edit-command-line
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.cargo/bin"
 export NVM_DIR=~/.nvm
 source /usr/local/opt/nvm/nvm.sh
@@ -94,6 +94,8 @@ alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssis
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # bindkey -v # Enable Vim mode => Press Esc to get into normal mode
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 [ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
