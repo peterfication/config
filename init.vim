@@ -105,6 +105,8 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 " For Ruby see https://github.com/honza/vim-snippets/blob/master/snippets/ruby.snippets
+"
+Plug 'godlygeek/tabular'
 
 " Language-specific plugins
 Plug 'vim-ruby/vim-ruby'
@@ -123,6 +125,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-haml'
 Plug 'elixir-lang/vim-elixir'
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled = 1
 
 " JS
 let g:jsx_ext_required = 0
