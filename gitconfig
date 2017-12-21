@@ -1,9 +1,11 @@
 [user]
   name = Peter Gundel
-  email = peter.gundel@cynektix.de
+  email = mail@petergundel.de
 [core]
   excludesfile = /Users/petergundel/.gitignore_global
   editor = vim
+[commit]
+  gpgsign = true
 [diff]
   tool = vimdiff
 [difftool]
