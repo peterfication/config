@@ -1,6 +1,7 @@
 [user]
   name = Peter Gundel
   email = mail@petergundel.de
+  signingkey = 9CC4452B
 [core]
   excludesfile = /Users/petergundel/.gitignore_global
   editor = vim

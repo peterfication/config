@@ -18,6 +18,8 @@ applications:
   - git
   - git-ftp
   - go
+  - gpg
+  - gpg-agent
   - heroku
   - hub
   - kops
@@ -28,6 +30,7 @@ applications:
   - neovim
   - node
   - nvm
+  - pinentry-mac # For GPG
   - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
   - ripgrep # Fast ag or ack written in Rust

@@ -95,9 +95,10 @@ alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssis
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # bindkey -v # Enable Vim mode => Press Esc to get into normal mode
 
-# Needed for gpg to run :/
-# See https://github.com/keybase/keybase-issues/issues/1712#issuecomment-141226705
+# Needed for gpg to run
+# See https://linux.die.net/man/1/gpg-agent
 export GPG_TTY=$(tty)
+alias pgp="gpg"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
