@@ -58,6 +58,9 @@ $ ln -s ~/config/gitconfig ~/.gitconfig
 $ ln -s ~/config/gitignore_global ~/.gitignore_global
 $ ln -s ~/config/ctags ~/.ctags
 $ ln -s ~/config/tmux.conf ~/.tmux.conf
+$ mkdir -p ~/.gnupg
+$ ln -s ~/config/gpg.conf ~/.gnupg/gpg.conf
+$ ln -s ~/config/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 ```
 
 ### Install vim plugins
