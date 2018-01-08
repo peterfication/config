@@ -87,6 +87,7 @@ let g:startify_files_number = 7
 " endif
 
 Plug 'junegunn/vim-emoji'
+Plug 'tpope/vim-characterize'
 
 " Clipboard history
 " Plug 'vim-scripts/YankRing.vim'
