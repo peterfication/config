@@ -194,7 +194,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>B :bd<CR>
 nnoremap <Leader>f :FZF<CR>
-nnoremap <Leader>F :Find<CR>
+nnoremap <Leader>F :BLines<CR>
 " Search for word under cursor in files
 nnoremap <Leader>G :Find <C-R><C-W><CR>
 nnoremap <Leader>s :Startify<CR>
@@ -207,6 +207,7 @@ nnoremap <Leader>jx :%s/</\r</g<CR>gg=G
 " grep search
 nnoremap <Leader>gr :grep  .<left><left>
 nnoremap <Leader>GR :cope<CR>
+nnoremap <Leader>1 100\|
 " Cycle through open buffers and close them
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
