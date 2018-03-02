@@ -50,7 +50,6 @@ cask_applications:
   - flux
   - keepingyouawake
   - google-chrome
-  - google-drive
   - iterm2
   - keybase
   - keycastr
@@ -62,5 +61,6 @@ cask_applications:
   - smcfancontrol
   - spotify
   - virtualbox
+  - visual-studio-code
   - vlc
   - whatsapp
