@@ -32,6 +32,7 @@ applications:
   - node
   - nvm
   - pinentry-mac # For GPG
+  - qrencode
   - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
   - ripgrep # Fast ag or ack written in Rust
