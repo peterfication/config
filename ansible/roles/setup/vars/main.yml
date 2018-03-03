@@ -52,7 +52,7 @@ cask_applications:
   - imageoptim
   - keepingyouawake
   - google-chrome
-  - google-drive
+  - imageoptim
   - iterm2
   - keybase
   - keycastr
@@ -64,5 +64,6 @@ cask_applications:
   - smcfancontrol
   - spotify
   - virtualbox
+  - visual-studio-code
   - vlc
   - whatsapp
