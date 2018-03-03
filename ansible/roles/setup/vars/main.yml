@@ -20,6 +20,7 @@ applications:
   - go
   - gpg
   - gpg-agent
+  - grip # Github readme preview
   - heroku
   - hub
   - kops
@@ -48,6 +49,7 @@ cask_applications:
   - dropbox
   - firefox
   - flux
+  - imageoptim
   - keepingyouawake
   - google-chrome
   - google-drive
