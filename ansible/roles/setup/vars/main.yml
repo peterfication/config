@@ -49,11 +49,10 @@ cask_applications:
   - dropbox
   - firefox
   - flux
-  - imageoptim
-  - keepingyouawake
   - google-chrome
   - imageoptim
   - iterm2
+  - keepingyouawake
   - keybase
   - keycastr
   - minikube
