@@ -16,6 +16,7 @@ applications:
   - fd
   - fzf
   - git
+  - git-crypt
   - git-ftp
   - go
   - gpg
