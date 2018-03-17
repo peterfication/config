@@ -129,6 +129,12 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 
+Plug 'sbdchd/neoformat'
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.js undojoin | Neoformat
+augroup END
+
 " JS
 let g:jsx_ext_required = 0
 " This needs eslint and all the plugins to be installed globally
