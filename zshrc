@@ -111,3 +111,9 @@ alias pgp="gpg"
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
 [ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/petergundel/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/petergundel/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/petergundel/google-cloud-sdk/completion.zsh.inc'; fi
