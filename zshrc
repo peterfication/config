@@ -53,7 +53,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^f' edit-command-line
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.cargo/bin"
