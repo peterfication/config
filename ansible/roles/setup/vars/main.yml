@@ -22,6 +22,7 @@ applications:
   - gpg
   - gpg-agent
   - grip # Github readme preview
+  - gron # grep flattenend JSON
   - heroku
   - hub
   - kops
