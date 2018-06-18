@@ -133,6 +133,9 @@ Plug 'sbdchd/neoformat'
 augroup fmt
   autocmd!
   autocmd BufWritePre *.js undojoin | Neoformat
+  autocmd BufWritePre *.jsx undojoin | Neoformat
+  autocmd BufWritePre *.ts undojoin | Neoformat
+  autocmd BufWritePre *.tsx undojoin | Neoformat
 augroup END
 
 " JS

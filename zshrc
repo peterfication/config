@@ -53,7 +53,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^f' edit-command-line
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.cargo/bin"
@@ -111,6 +111,7 @@ alias pgp="gpg"
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
 [ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
+[ -f ~/google-cloud-sdk/completion.zsh.inc ] && source ~/google-cloud-sdk/completion.zsh.inc
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/petergundel/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/petergundel/google-cloud-sdk/path.zsh.inc'; fi
