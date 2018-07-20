@@ -11,7 +11,7 @@
 
 - name: Tap homebrew caskroom/cask
   homebrew_tap:
-    tap: "caskroom/cask"
+    tap: "homebrew/cask"
 
 - name: Tap homebrew neovim/homebrew-neovim
   homebrew_tap:

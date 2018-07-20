@@ -1,6 +1,7 @@
 ---
-# setup my macbook just the way I like it
-
-- hosts: mac
+- name: Run the local setup scripts
+  hosts: localhost
+  become: yes
+  become_user: "{{ lookup('env','USER') }}"
   roles:
-    - setup
+    - { role: setup, become: false }

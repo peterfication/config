@@ -1,2 +1,70 @@
 ---
-# TODO: Setting up the symlinks to my config files
+- name: Setup .gitconfig
+  file:
+    dest: "~/.gitconfig"
+    src: "~/config/gitconfig"
+    state: link
+    force: true
+
+- name: Setup .gitignore_global
+  file:
+    dest: "~/.gitignore_global"
+    src: "~/config/gitignore_global"
+    state: link
+    force: true
+
+- name: Setup Vim as Neovim
+  file:
+    dest: "/usr/local/bin/vim"
+    src: "/usr/local/bin/nvim"
+    state: link
+
+- name: Create Vim config dir
+  file:
+    path: "{{general.local_home}}/.config/nvim"
+    state: directory
+
+- name: Setup Vim config
+  file:
+    dest: "~/.config/nvim/init.vim"
+    src: "~/config/init.vim"
+    state: link
+    force: true
+
+- name: Run Vim PlugInstall
+  command: vim +PlugInstall +qa
+  no_log: true
+  changed_when: false
+
+- name: Setup ZSH config
+  file:
+    dest: "~/.zshrc"
+    src: "~/config/zshrc"
+    state: link
+    force: true
+
+- name: Setup Tmux config
+  file:
+    dest: "~/.tmux.conf"
+    src: "~/config/tmux.conf"
+    state: link
+    force: true
+
+- name: Create GPG config dir
+  file:
+    path: "{{general.local_home}}/.gnupg"
+    state: directory
+
+- name: Setup GPG config
+  file:
+    dest: "~/.gnupg/gpg.conf"
+    src: "~/config/gpg.conf"
+    state: link
+    force: true
+
+- name: Setup GPG agent config
+  file:
+    dest: "~/.gnupg/gpg-agent.conf"
+    src: "~/config/gpg-agent.conf"
+    state: link
+    force: true

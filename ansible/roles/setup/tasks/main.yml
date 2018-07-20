@@ -1,11 +1,21 @@
-- name: Install applications
-  include: apps.yml
-
+# pip has to be first because of Ansible requirements
 - name: Install pip applications
   include: pip.yml
+
+- name: Install applications
+  include: apps.yml
 
 - name: Add configuration
   include: configuration.yml
 
 - name: Configure dotfiles
   include: dotfiles.yml
+
+- name: Install Ruby applications
+  include: ruby.yml
+
+- name: Install Rust applications
+  include: rust.yml
+
+- name: Install Javascript applications
+  include: javascript.yml

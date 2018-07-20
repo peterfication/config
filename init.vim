@@ -163,7 +163,7 @@ call plug#end()
 
 
 set termguicolors
-colorscheme jellybeans
+silent! colorscheme jellybeans
 
 
 " # Configuration

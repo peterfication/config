@@ -1,15 +1,58 @@
 ---
-- name: Setting up zsh with oh-my-zsh
-  git:
-    repo: https://github.com/robbyrussell/oh-my-zsh.git
-    dest: "{{general.local_home}}/.oh-my-zsh"
+- name: Defining standard shell
+  shell: which zsh
+  changed_when: false
+  register: standard_shell
 
-- name: Create ruby directory
+- name: Checking /etc/shells
+  shell: >
+    grep '^{{ standard_shell.stdout }}$' /etc/shells
+  register: standard_shell_exists_in_etc_shells
+  changed_when: false
+  failed_when: standard_shell_exists_in_etc_shells.rc not in [0, 1]
+
+- name: Adding standard shell
+  become: yes
+  become_user: root
+  lineinfile:
+    dest: /etc/shells
+    line: "{{ standard_shell.stdout }}"
+    state: present
+    owner: root
+    group: wheel
+    mode: 0644
+  when: standard_shell_exists_in_etc_shells.rc == 1
+
+- name: Setting standard shell
+  changed_when: false
+  shell: >
+    chsh -s {{ standard_shell.stdout }} {{ lookup('env','USER') }}
+
+- name: Setting up zsh with oh-my-zsh
+  changed_when: false
+  shell: >
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+- name: Create Ruby directory
   file:
     path: "{{general.local_home}}/ruby"
     state: directory
 
-- name: Setting up vim-plug
+- name: Create Javascript directory
+  file:
+    path: "{{general.local_home}}/javascript"
+    state: directory
+
+- name: Create Rust directory
+  file:
+    path: "{{general.local_home}}/rust"
+    state: directory
+
+- name: Setting up vim-plug - make dir
+  file:
+    path: "{{general.local_home}}/.local/share/nvim/site/autoload"
+    state: directory
+- name: Setting up vim-plug - download
   get_url:
     url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     dest: "{{general.local_home}}/.local/share/nvim/site/autoload/plug.vim"

@@ -1,14 +1,24 @@
 ---
+- name: Add GPG key for rvm
+  command: gpg --keyserver hkp://pgp.mit.edu --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+  changed_when: false
+
 - name: Install rvm
   shell: >
     curl -L https://get.rvm.io | bash
     creates=~/.rvm
 
 - name: Update rvm
+  changed_when: false
   command: rvm get head
 
 - name: Install Rubies
   command: rvm install {{ item }}
-  with_items:
-    - 2.3.0
-    - 2.3.1
+  changed_when: false
+  with_items: "{{ruby_versions}}"
+
+- name: Install gems
+  gem:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ruby_gems}}"

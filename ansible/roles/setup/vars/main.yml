@@ -25,7 +25,6 @@ applications:
   - gron # grep flattenend JSON
   - heroku
   - hub
-  - kops
   - kubectl
   - kubernetes-helm
   - less # Use a newer version than the system one for emojis 😁
@@ -34,6 +33,8 @@ applications:
   - node
   - nvm
   - pinentry-mac # For GPG
+  - python@2
+  - python # Python 3
   - qrencode
   - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
@@ -41,6 +42,8 @@ applications:
   - tmux
   - tree
   - wget
+  - wine
+  - winetricks
   - yarn
   - youtube-dl
   - zsh
@@ -48,6 +51,7 @@ applications:
 # homebrew cask applications
 cask_applications:
   - alfred
+  - dashlane
   - docker
   - dropbox
   - firefox
@@ -57,15 +61,33 @@ cask_applications:
   - iterm2
   - keepingyouawake
   - keybase
-  - keycastr
-  - minikube
   - ngrok
-  - psequel
   - slack
   - skype
   - smcfancontrol
+  - tableplus
   - spotify
   - virtualbox
   - visual-studio-code
   - vlc
   - whatsapp
+
+pip_packages:
+  - awscli
+  - pexpect
+
+ruby_versions:
+  - 2.5.0
+
+ruby_gems:
+  - bundler
+  - bundler-audit
+
+rust_packages:
+  - lorikeet
+
+rust_packages_git:
+  - "https://github.com/store2be/click.git"
+
+npm_packages:
+  - prettier
