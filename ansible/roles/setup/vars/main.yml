@@ -86,6 +86,7 @@ ruby_versions:
 ruby_gems:
   - bundler
   - bundler-audit
+  - rubocop
 
 rust_packages:
   - lorikeet
