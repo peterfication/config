@@ -221,6 +221,8 @@ nnoremap <Leader>1 100\|
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
 nnoremap <C-C> :bd<CR>
+" snake_case to camelCase on current line
+nnoremap <Leader>C :s#_\(\l\)#\u\1#g<CR>:s/_//g<CR>
 
 " Toggle nerdtree with F10
 map <F12> :NERDTreeToggle<CR>
