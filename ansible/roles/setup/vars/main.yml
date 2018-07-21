@@ -34,6 +34,7 @@ applications:
   - node
   - nvm
   - pinentry-mac # For GPG
+  - postgres
   - python@2
   - python # Python 3
   - qrencode
@@ -96,6 +97,7 @@ rust_packages_git:
 
 npm_packages:
   - eslint
+  - node-gyp
   - prettier
   - tslint
   - typescript
