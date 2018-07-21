@@ -17,3 +17,8 @@
   homebrew_tap:
     tap: "neovim/homebrew-neovim"
     state: present
+
+- name: Tap homebrew thoughtbot/formulae
+  homebrew_tap:
+    tap: "thoughtbot/formulae"
+    state: present

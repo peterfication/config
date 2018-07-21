@@ -18,6 +18,7 @@ applications:
   - git
   - git-crypt
   - git-ftp
+  - gitsh
   - go
   - gpg
   - gpg-agent
