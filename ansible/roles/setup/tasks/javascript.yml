@@ -1,4 +1,7 @@
 ---
+- name: Install node
+  command: nvm install 10.7
+
 - name: Install npm packages
   command: yarn global add {{ item }}
   changed_when: false
