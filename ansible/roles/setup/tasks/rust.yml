@@ -3,7 +3,7 @@
   changed_when: false
   shell: >
     curl https://sh.rustup.rs -sSf | sh -s -- -y
-    creates=~/.rvm
+    creates=~/.cargo
 
 - name: Install cargo packages
   shell: >
