@@ -1,4 +1,11 @@
 ---
+- name: Setup SSH config
+  file:
+    dest: "~/.ssh/config"
+    src: "~/config/ssh/config"
+    state: link
+    force: true
+
 - name: Setup .gitconfig
   file:
     dest: "~/.gitconfig"
