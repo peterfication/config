@@ -51,11 +51,13 @@ applications:
 # homebrew cask applications
 cask_applications:
   - alfred
+    # - bettertouchtool # https://bettertouchtool.net/releases/btt2.340.zip
   - dashlane
   - docker
   - dropbox
   - firefox
   - flux
+  - flycut
   - google-chrome
   - imageoptim
   - iterm2

@@ -1,4 +1,6 @@
-# See https://github.com/herrbischoff/awesome-macos-command-line<Paste>
+# Resources:
+# - https://github.com/herrbischoff/awesome-macos-command-line
+# - https://gist.github.com/brandonb927/3195465
 
 #################
 # General UI/UX #
@@ -37,9 +39,20 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+# Enable full keyboard access for all controls
+# (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain KeyRepeat -int 0
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Setting trackpad & mouse speed to a reasonable number
+defaults write -g com.apple.trackpad.scaling 2
+defaults write -g com.apple.mouse.scaling 2.5
 
 ##########
 # Screen #
@@ -67,8 +80,14 @@ defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.finder NewWindowTarget -string "PfDe"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
 
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show dotfiles in Finder by default?
+defaults write com.apple.finder AppleShowAllFiles TRUE
 
 # Finder: show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
@@ -102,8 +121,8 @@ defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
+# Use column view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `Clmv`, `Flwv`, `Nlsv`
 defaults write com.apple.finder FXPreferredViewStyle -string "Flwv"
 
 # Disable the warning before emptying the Trash
@@ -174,6 +193,36 @@ defaults write com.apple.dock wvous-bl-modifier -int 4
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 
+############
+# Menu bar #
+############
+
+# Set clock format (eg. Sat 21 Jul 14:33:12)
+defaults write com.apple.menuextra.clock "DateFormat" 'EEE d MMM HH:mm:ss'
+
+# Show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
+defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Displays.menu" "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/Volume.menu" "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/TextInput.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+# Hide Spotlight tray-icon (and subsequent helper)
+# Does not work because of SIP, see
+# - https://www.howtogeek.com/230424/how-to-disable-system-integrity-protection-on-a-mac-and-why-you-shouldnt/
+# - https://derflounder.wordpress.com/2015/10/01/system-integrity-protection-adding-another-layer-to-apples-security-model/
+# sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
+
+###############
+# Login Items #
+###############
+
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/BetterTouchTool.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Flux.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/smcFanControl.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Flycut.app", hidden:false}'
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Alfred 3.app", hidden:false}'
+
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
@@ -182,6 +231,7 @@ for app in "Activity Monitor" \
   "Dock" \
   "Finder" \
   "Photos" \
+  "SystemUIServer" \
   "Terminal"; do
 killall "${app}" &> /dev/null
 done
