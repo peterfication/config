@@ -26,6 +26,7 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
 - Install [Postgres.app](https://postgresapp.com/)
 - Setup mail
+- Setup VS Code Settings Sync
 
 ### TODO
 
