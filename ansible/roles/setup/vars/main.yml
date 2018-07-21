@@ -95,4 +95,7 @@ rust_packages_git:
   - "https://github.com/store2be/click.git"
 
 npm_packages:
+  - eslint
   - prettier
+  - tslint
+  - typescript
