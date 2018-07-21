@@ -65,6 +65,7 @@ cask_applications:
   - keepingyouawake
   - keybase
   - ngrok
+  - postbox
   - slack
   - skype
   - smcfancontrol
