@@ -1,0 +1,181 @@
+{
+  "BTTPresetName" : "Default",
+  "BTTPresetUUID" : "C2004DFA-94D7-4D0A-B99B-1526A55B05F9",
+  "BTTPresetContent" : [
+    {
+      "BTTAppBundleIdentifier" : "com.apple.finder",
+      "BTTAppName" : "Finder",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.apple.Preview",
+      "BTTAppName" : "Preview",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 124,
+          "BTTPredefinedActionName" : "Trigger Menubar Menu-Item",
+          "BTTMenubarPath" : "Tools; Adjust Size;",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 15,
+          "BTTShortcutModifierKeys" : 1048576,
+          "BTTOrder" : 0,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "BT.G",
+      "BTTAppName" : "Global",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+        {
+          "BTTTriggerType" : 128,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 19,
+          "BTTPredefinedActionName" : "Maximize Window Left",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 1,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 111,
+          "BTTTriggerTypeDescription" : "5 Finger Tap",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 21,
+          "BTTPredefinedActionName" : "Maximize Window",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 0,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 130,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 95,
+          "BTTPredefinedActionName" : "Maximize Window to Bottom Half",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 4,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 13,
+          "BTTPredefinedActionName" : "Sleep Display",
+          "BTTEnabled" : 1,
+          "BTTShortcutKeyCode" : 49,
+          "BTTShortcutModifierKeys" : 1835008,
+          "BTTOrder" : 0,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 131,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 92,
+          "BTTPredefinedActionName" : "Resize Window to Top Right Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 524288,
+          "BTTOrder" : 5,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 131,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 96,
+          "BTTPredefinedActionName" : "Maximize Window to Top Half",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 3,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 130,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 91,
+          "BTTPredefinedActionName" : "Resize Window to Bottom Left Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 262144,
+          "BTTOrder" : 8,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 130,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Down",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 93,
+          "BTTPredefinedActionName" : "Resize Window to Bottom Right Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 524288,
+          "BTTOrder" : 7,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 129,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Right",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 20,
+          "BTTPredefinedActionName" : "Maximize Window Right",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 1048576,
+          "BTTOrder" : 2,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : 131,
+          "BTTTriggerTypeDescription" : "5 Finger Swipe Up",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 90,
+          "BTTPredefinedActionName" : "Resize Window to Top Left Quarter \/ Corner",
+          "BTTEnabled" : 1,
+          "BTTRequiredModifierKeys" : 262144,
+          "BTTOrder" : 6,
+          "BTTIconData" : "Standard Close Icon",
+          "BTTAlternateIconData" : ""
+        }
+      ]
+    },
+    {
+      "BTTAppBundleIdentifier" : "com.google.Chrome",
+      "BTTAppName" : "Google Chrome",
+      "BTTAppProcessMatchMode" : 2,
+      "BTTAppProcessName" : "Google Chrome",
+      "BTTAppSpecificSettings" : {
+
+      },
+      "BTTTriggers" : [
+
+      ]
+    }
+  ],
+  "BTTPresetSnapAreas" : [
+
+  ]
+}
