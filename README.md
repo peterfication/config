@@ -25,6 +25,7 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - [Install BetterTouchTool](https://bettertouchtool.net/releases/btt2.340.zip) with its license and import the presets and setup `Windows Moving & Resizing` settings
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
 - Install [Postgres.app](https://postgresapp.com/)
+- Install [Lightroom 3](https://supportdownloads.adobe.com/product.jsp?product=113&platform=Mac)
 - Setup Postbox and calendar
 - Setup VS Code Settings Sync
 - Clone all relevant repos
