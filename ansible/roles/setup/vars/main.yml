@@ -72,6 +72,7 @@ cask_applications:
   - smcfancontrol
   - tableplus
   - spotify
+  - veracrypt
   - virtualbox
   - visual-studio-code
   - vlc
