@@ -30,6 +30,7 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - Setup VS Code Settings Sync
 - Clone all relevant repos
 - Yarn, bundle and docker-compose build them
+- Set up [Leo searches](alfred/leo-searches.md) in Alfred
 
 ### TODO
 
