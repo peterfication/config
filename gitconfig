@@ -41,6 +41,6 @@
   pfo = !git push -u --force-with-lease origin `git rev-parse --abbrev-ref HEAD`
   pffo = !git push -u --force origin `git rev-parse --abbrev-ref HEAD`
   hist = log --graph --pretty=format:\"%h %ad | %s%d [%an]\" --date=short
-  pr = !hub_pre pull-request
+  pr = !hub pull-request
   prs = !hub pull-request -b staging
   peak = !git log -1 --format=\"%H\" | tr -d \"\n\" | pbcopy
