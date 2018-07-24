@@ -27,6 +27,7 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - Install [Postgres.app](https://postgresapp.com/)
 - Install [Lightroom 3](https://supportdownloads.adobe.com/product.jsp?product=113&platform=Mac)
 - Setup Postbox and calendar
+- Setup the important Slack teams
 - Setup VS Code Settings Sync
 - Clone all relevant repos
 - Yarn, bundle and docker-compose build them
