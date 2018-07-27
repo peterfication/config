@@ -101,5 +101,6 @@ npm_packages:
   - eslint
   - node-gyp
   - prettier
+  - snyk
   - tslint
   - typescript
