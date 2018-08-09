@@ -100,6 +100,7 @@ rust_packages_git:
 
 npm_packages:
   - eslint
+  - gatsby-cli
   - node-gyp
   - prettier
   - snyk
