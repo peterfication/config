@@ -41,6 +41,7 @@ applications:
   - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
   - ripgrep # Fast ag or ack written in Rust
+  - terraform
   - tmux
   - tree
   - wget
