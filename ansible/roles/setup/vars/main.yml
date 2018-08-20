@@ -26,6 +26,7 @@ applications:
   - gron # grep flattenend JSON
   - heroku
   - hub
+  - jq
   - kubectl
   - kubernetes-helm
   - less # Use a newer version than the system one for emojis 😁
