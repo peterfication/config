@@ -69,6 +69,7 @@ cask_applications:
   - keybase
   - ngrok
   - postbox
+  - postman
   - slack
   - skype
   - smcfancontrol
