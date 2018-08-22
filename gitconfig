@@ -38,6 +38,7 @@
   rbm = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git checkout $CURRENT; git rebase master; }; f"
   rbs = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout staging; git pull; git checkout $CURRENT; git rebase staging; }; f"
   po = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+  pot = po --tags
   pfo = !git push -u --force-with-lease origin `git rev-parse --abbrev-ref HEAD`
   pffo = !git push -u --force origin `git rev-parse --abbrev-ref HEAD`
   hist = log --graph --pretty=format:\"%h %ad | %s%d [%an]\" --date=short
