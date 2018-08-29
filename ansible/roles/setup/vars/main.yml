@@ -70,6 +70,7 @@ cask_applications:
   - ngrok
   - postbox
   - postman
+  - qlstephen # From https://github.com/sindresorhus/quick-look-plugins
   - slack
   - skype
   - smcfancontrol
