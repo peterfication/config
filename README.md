@@ -38,3 +38,4 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 ### TODO
 
 - iTerm config
+- https://github.com/nikitavoloboev/my-mac-os
