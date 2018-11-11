@@ -39,10 +39,12 @@ applications:
   - python@2
   - python # Python 3
   - qrencode
+  - rclone
   - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
   - ripgrep # Fast ag or ack written in Rust
   - terraform
+  - terraform-docs
   - tmux
   - tree
   - wget
