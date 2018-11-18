@@ -90,7 +90,7 @@ pip_packages:
   - pexpect
 
 ruby_versions:
-  - 2.5.0
+  - 2.5.3
 
 ruby_gems:
   - bundler
