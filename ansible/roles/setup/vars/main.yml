@@ -24,7 +24,7 @@ applications:
   # - gpg-agent
   - grip # Github readme preview
   - gron # grep flattenend JSON
-  - heroku
+  - heroku/brew/heroku
   - hub
   - jq
   - kubectl
