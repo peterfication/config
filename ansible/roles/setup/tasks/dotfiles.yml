@@ -75,3 +75,10 @@
     src: "~/config/gpg-agent.conf"
     state: link
     force: true
+
+- name: Setup Rubocop
+  file:
+    dest: "~/.rubocop.yml"
+    src: "~/config/rubocop.yml"
+    state: link
+    force: true

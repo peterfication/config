@@ -21,10 +21,10 @@ applications:
   - gitsh
   - go
   - gpg
-  - gpg-agent
+  # - gpg-agent
   - grip # Github readme preview
   - gron # grep flattenend JSON
-  - heroku
+  - heroku/brew/heroku
   - hub
   - jq
   - kubectl
@@ -90,7 +90,7 @@ pip_packages:
   - pexpect
 
 ruby_versions:
-  - 2.5.0
+  - 2.5.3
 
 ruby_gems:
   - bundler

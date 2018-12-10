@@ -23,10 +23,10 @@
     state: present
   with_items: "{{ruby_gems}}"
   environment:
-    PATH: "{{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.0/bin:\
-           {{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.0@global/bin:\
-           {{ ansible_env.HOME }}/.rvm/rubies/ruby-2.5.0/bin:\
+    PATH: "{{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.3/bin:\
+           {{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.3@global/bin:\
+           {{ ansible_env.HOME }}/.rvm/rubies/ruby-2.5.3/bin:\
            {{ ansible_env.HOME }}/.rvm/bin:\
            {{ lookup('env', 'PATH') }}"
-    GEM_PATH: "{{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.0:\
-               {{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.0@global"
+    GEM_PATH: "{{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.3:\
+               {{ ansible_env.HOME }}/.rvm/gems/ruby-2.5.3@global"

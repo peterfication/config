@@ -1,2 +1,3 @@
 *.example filter=git-crypt diff=git-crypt
 licences/* filter=git-crypt diff=git-crypt
+zsh/local.zsh.example filter=git-crypt diff=git-crypt
