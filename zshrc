@@ -105,6 +105,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export GPG_TTY=$(tty)
 alias pgp="gpg"
 
+# Remove files a little bit more secure
+alias shred="rm -rPv"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 [ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
