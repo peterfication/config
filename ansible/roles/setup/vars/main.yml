@@ -25,6 +25,7 @@ applications:
   - grip # Github readme preview
   - gron # grep flattenend JSON
   - heroku/brew/heroku
+  - hexyl
   - hub
   - jq
   - kubectl
