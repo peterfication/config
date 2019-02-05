@@ -301,6 +301,10 @@ noremap <Leader>rt gg/ do<CR>i, :focus<Esc>
 noremap <Leader>RR :s/, :focus//<CR>
 noremap <Leader>RT :%s/, :focus//g<CR>
 
+" Gitmoji tool
+" https://github.com/tomhoule/gitmoji-selector
+nmap <Leader>q "=system('gitmoji-selector')<C-M>p
+
 " Create the parent directory on save if it does not exist
 " See http://stackoverflow.com/a/4294176
 function! s:MkNonExDir(file, buf)
