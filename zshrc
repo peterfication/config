@@ -123,3 +123,5 @@ if [ -f '/Users/petergundel/google-cloud-sdk/path.zsh.inc' ]; then source '/User
 if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/petergundel/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+gam() { "/Users/petergundel/bin/gam/gam" "$@" ; }
