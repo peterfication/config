@@ -59,6 +59,7 @@ applications:
 cask_applications:
   - alfred
     # - bettertouchtool # https://bettertouchtool.net/releases/btt2.340.zip
+  - cyberduck
   - dashlane
   - docker
   - dropbox
