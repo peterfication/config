@@ -71,6 +71,7 @@ cask_applications:
   - iterm2
   - keepingyouawake
   - keybase
+  - kitty
   - ngrok
   - postbox
   - postman
