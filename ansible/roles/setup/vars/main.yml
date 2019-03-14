@@ -36,7 +36,6 @@ applications:
   - node
   - nvm
   - pinentry-mac # For GPG
-  - postgres
   - python@2
   - python # Python 3
   - qrencode
@@ -74,6 +73,7 @@ cask_applications:
   - kitty
   - ngrok
   - postbox
+  - postgres
   - postman
   - qlstephen # From https://github.com/sindresorhus/quick-look-plugins
   - slack
