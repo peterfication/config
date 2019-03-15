@@ -22,3 +22,8 @@
   homebrew_tap:
     tap: "thoughtbot/formulae"
     state: present
+
+- name: Tap homebrew koekeishiya/formulae
+  homebrew_tap:
+    tap: "koekeishiya/formulae"
+    state: present
