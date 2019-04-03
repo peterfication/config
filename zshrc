@@ -125,3 +125,13 @@ if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then source 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 gam() { "/Users/petergundel/bin/gam/gam" "$@" ; }
+
+# Change to a git repository's root directory from anywhere inside it
+function cdb() {
+  inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
+  if [ $inside_git_repo ]; then
+    cd `git rev-parse --show-toplevel`
+  else
+    echo "Not a git project"
+  fi
+}
