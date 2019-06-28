@@ -138,3 +138,14 @@ function cdb() {
     echo "Not a git project"
   fi
 }
+
+# Kubernetes
+source <(kubectl completion zsh)
+alias kwp="kubectl get pods --watch --all-namespaces -l"
+
+function pman() {
+  man -t ${1} | open -f -a /Applications/Preview.app
+}
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
