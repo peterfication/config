@@ -18,7 +18,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Run commands asynchronously
 Plug 'benekastah/neomake'
 
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
