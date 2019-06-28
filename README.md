@@ -22,6 +22,8 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 
 - Change caps lock in `System Preferences > Keyboard > Modifier Keys` to escape
 - Create local.zsh from example
+- Clone base16 theme `git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell`
+- Set up iTerm2 with a base16 color scheme from https://github.com/martinlindhe/base16-iterm2
 - [Install BetterTouchTool](https://bettertouchtool.net/releases/btt2.340.zip) with its license and import the presets and setup `Windows Moving & Resizing` settings
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
 - Setup [docker-osx-dev](https://github.com/brikis98/docker-osx-dev) (Docker.app is still way too slow)

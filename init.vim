@@ -5,7 +5,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " # Plugins
 
-Plug 'nanotech/jellybeans.vim'
+" Plug 'nanotech/jellybeans.vim'
+Plug 'chriskempson/base16-vim'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -165,7 +166,12 @@ call plug#end()
 
 
 set termguicolors
-silent! colorscheme jellybeans
+colorscheme base16-default-dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+" silent! colorscheme jellybeans
 
 
 " # Configuration
