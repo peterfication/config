@@ -69,6 +69,7 @@ cask_applications:
   - google-chrome
   - imageoptim
   - iterm2
+  - just
   - keepingyouawake
   - keybase
   - kitty
@@ -103,6 +104,9 @@ ruby_gems:
 
 rust_packages:
   - lorikeet
+  - rga
+  - exa
+  - ripgrep_all
 
 rust_packages_git:
   - "https://github.com/store2be/click.git"
