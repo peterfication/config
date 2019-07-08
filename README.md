@@ -35,7 +35,6 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - Clone all relevant repos
 - Yarn, bundle and docker-compose build them
 - Set up [Leo searches](alfred/leo-searches.md) in Alfred
-- Log into Keybase
 
 ### TODO
 

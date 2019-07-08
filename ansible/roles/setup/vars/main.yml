@@ -72,7 +72,7 @@ cask_applications:
   - iterm2
   - just
   - keepingyouawake
-  - keybase
+  # - keybase
   - kitty
   - ngrok
   - postbox
