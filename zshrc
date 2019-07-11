@@ -161,3 +161,11 @@ kp() {
     kp
   fi
 }
+
+find-command() {
+  local command=$(compgen -c | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:command]'")
+  LBUFFER="${command} "
+}
+autoload -U find-command
+zle -N find-command
+bindkey '^o' find-command
