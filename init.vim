@@ -208,6 +208,7 @@ au FocusLost * silent! wa
 let mapleader=" "
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>W :noa w<CR>
 nnoremap <Leader>b :b#<CR>
 nnoremap <Leader>B :bd<CR>
 nnoremap <Leader>f :FZF<CR>
