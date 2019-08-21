@@ -33,6 +33,9 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - Setup the important Slack teams
 - Setup VS Code Settings Sync
 - Clone all relevant repos
+- Install [TMUX plugin manager](https://github.com/tmux-plugins/tpm):
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  => `TMUX prefix + I` to install the TMUX plugins.
 - Yarn, bundle and docker-compose build them
 - Set up [Leo searches](alfred/leo-searches.md) in Alfred
 
