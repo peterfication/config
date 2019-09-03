@@ -28,6 +28,7 @@ applications:
   - heroku/brew/heroku
   - hexyl
   - hub
+  - hyperfine
   - jq
   - kubectl
   - kubernetes-helm
