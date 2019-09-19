@@ -45,3 +45,4 @@
   pr = !hub pull-request
   prs = !hub pull-request -b staging
   peak = !git log -1 --format=\"%H\" | tr -d \"\n\" | pbcopy
+  most = !git log --since=\"1 year ago\" --pretty=format: --name-only | sort | uniq -c | sort -rg | head -30
