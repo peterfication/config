@@ -107,9 +107,10 @@ ruby_gems:
   - rubocop
 
 rust_packages:
-  - lorikeet
-  - rga
   - exa
+  - lorikeet
+  - nu
+  - rga
   - ripgrep_all
 
 rust_packages_git:
