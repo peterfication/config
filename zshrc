@@ -169,3 +169,5 @@ find-command() {
 autoload -U find-command
 zle -N find-command
 bindkey '^o' find-command
+
+alias list-large-folders="sudo du -k * | awk '$1 > 500000' | sort -nr"
