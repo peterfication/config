@@ -5,6 +5,7 @@ general:
 
 # homebrew applications
 applications:
+  - broot
   - chunkwm
   - ctags
   - curl
