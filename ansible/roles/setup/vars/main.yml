@@ -88,6 +88,7 @@ cask_applications:
   - skype
   - smcfancontrol
   - tableplus
+  - trailer # Github notifications https://github.com/ptsochantaris/trailer
   - spotify
   - veracrypt
   - virtualbox
