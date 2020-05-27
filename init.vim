@@ -18,7 +18,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Run commands asynchronously
 Plug 'benekastah/neomake'
 
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+let g:coc_global_extensions = ['coc-tsserver']
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -125,6 +126,9 @@ Plug 'cespare/vim-toml'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
+Plug 'ianks/vim-tsx'
+Plug 'jparise/vim-graphql'
+
 Plug 'rust-lang/rust.vim'
 Plug 'stephpy/vim-yaml'
 Plug 'tpope/vim-haml'
@@ -362,3 +366,18 @@ noremap <silent> Ä :call <SID>swap_down()<CR>
 
 " Use it with `$ ls | vim -`
 :command PrepareRenameFiles %s/.*/mv -i "&" "&"/g
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K for show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
