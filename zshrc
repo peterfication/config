@@ -129,7 +129,7 @@ if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then source 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-gam() { "/Users/petergundel/bin/gam/gam" "$@" ; }
+# gam() { "/Users/petergundel/bin/gam/gam" "$@" ; }
 
 # Change to a git repository's root directory from anywhere inside it
 function cdb() {
