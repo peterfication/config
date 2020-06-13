@@ -19,6 +19,8 @@
   sslVerify = true
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
+[pull]
+  ff = only
 [alias]
   p = pull
   d = difftool
