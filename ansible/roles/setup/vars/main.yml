@@ -79,6 +79,7 @@ cask_applications:
   - keepingyouawake
   # - keybase
   - kitty
+  - lunar
   - ngrok
   - postbox
   - postgres
