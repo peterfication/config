@@ -18,6 +18,7 @@ applications:
   - fd
   - fff
   - fzf
+  - gh
   - git
   - git-crypt
   - git-ftp
