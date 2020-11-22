@@ -3,8 +3,8 @@
   email = mail@petergundel.de
   signingkey = 9CC4452B
 [core]
-  excludesfile = /Users/petergundel/.gitignore_global
-  editor = vim
+  excludesfile = /Users/peter/.gitignore_global
+  editor = nvim
 [commit]
   gpgsign = true
 [diff]
