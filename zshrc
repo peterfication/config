@@ -50,6 +50,8 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
@@ -60,13 +62,17 @@ bindkey '^f' edit-command-line
 
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 source $ZSH/oh-my-zsh.sh
+
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+source $HOME/.cargo/env
 export PATH="$PATH:$HOME/.cargo/bin"
 export NVM_DIR=~/.nvm
-source /usr/local/opt/nvm/nvm.sh
-export FZF_DEFAULT_COMMAND="rg --files"
+[ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH:/Library/TeX/texbin"
 
+alias vim=nvim
 export EDITOR='vim'
 export VISUAL='vim'
 alias e="vim"
@@ -115,6 +121,8 @@ alias shred="rm -rPv"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 [ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
 [ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh
@@ -142,8 +150,11 @@ function cdb() {
 }
 
 # Kubernetes
-source <(kubectl completion zsh)
-alias kwp="kubectl get pods --watch --all-namespaces -l"
+if command -v kubectl &> /dev/null
+then
+  source <(kubectl completion zsh)
+  alias kwp="kubectl get pods --watch --all-namespaces -l"
+fi
 
 function pman() {
   man -t ${1} | open -f -a /Applications/Preview.app
