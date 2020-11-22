@@ -381,3 +381,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Copy to system clipboard with Y in visual mode
+" Y in normal mode still yanks the whole line into the vim buffer
+if filereadable('/usr/bin/xclip')
+  vnoremap Y :w !xclip -r -i -sel c<CR><CR>
+endif
