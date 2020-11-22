@@ -2,4 +2,5 @@
 
 - albert
 - copyq
+- keychain
 - xclip

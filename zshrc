@@ -186,3 +186,8 @@ bindkey '^o' find-command
 alias list-large-folders="sudo du -k * | awk '$1 > 500000' | sort -nr"
 
 # source /Users/petergundel/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+if command -v keychain &> /dev/null
+then
+  eval $(keychain --eval --quiet id_rsa)
+fi
