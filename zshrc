@@ -121,8 +121,6 @@ alias shred="rm -rPv"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 [ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
 [ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
 [ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh
