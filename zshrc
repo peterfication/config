@@ -129,12 +129,6 @@ source /usr/share/fzf/key-bindings.zsh
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
 [ -f ~/google-cloud-sdk/completion.zsh.inc ] && source ~/google-cloud-sdk/completion.zsh.inc
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/petergundel/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/petergundel/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/petergundel/google-cloud-sdk/completion.zsh.inc'; fi
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # gam() { "/Users/petergundel/bin/gam/gam" "$@" ; }
@@ -196,3 +190,9 @@ if command -v xdg-open &> /dev/null
 then
   alias open='xdg-open'
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/peter/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/peter/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/peter/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/peter/google-cloud-sdk/completion.zsh.inc'; fi

@@ -47,6 +47,15 @@ applications:
   - rclone
   - readline
   - reattach-to-user-namespace # For tmux clipboard sharing
+
+  - rga
+  - rga-fzf
+  - pandoc
+  - poppler
+  # - pdftotext
+  - tesseract
+  - ffmpeg
+
   - ripgrep # Fast ag or ack written in Rust
   - terraform
   - terraform-docs
