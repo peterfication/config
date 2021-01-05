@@ -15,3 +15,17 @@ export FZF_DEFAULT_COMMAND="rg --files"
 [ -f /usr/local/opt/fzf/shell/key-bindings.zsh ] && source /usr/local/opt/fzf/shell/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+
+rga-fzf() {
+RG_PREFIX="rga --files-with-matches"
+local file
+file="$(
+FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+  fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+  --phony -q "$1" \
+  --bind "change:reload:$RG_PREFIX {q}" \
+  --preview-window="70%:wrap"
+  )" &&
+    echo "opening $file" &&
+    xdg-open "$file"
+  }
