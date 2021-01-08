@@ -198,3 +198,11 @@ if [ -f '/Users/peter/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/peter/goo
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/peter/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/peter/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH="$(pwd)/tools/git-fuzzy/bin:$PATH"
+alias gf="git fuzzy"
+export GIT_FUZZY_STATUS_ADD_KEY="Ctrl-S"
+export GIT_FUZZY_STATUS_EDIT_KEY="Ctrl-E"
+export GIT_FUZZY_STATUS_COMMIT_KEY="Ctrl-C"
+export GIT_FUZZY_STATUS_RESET_KEY="Ctrl-R"
+export GIT_FUZZY_STATUS_DISCARD_KEY="Ctrl-U"
