@@ -53,7 +53,10 @@ ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
 source ~/.zplug/init.zsh
-zplug load --verbose
+zplug "plugins/git", from:oh-my-zsh
+zplug load
+# For debugging:
+# zplug load --verbose
 zplug install
 
 BASE16_SHELL=$HOME/.config/base16-shell/
