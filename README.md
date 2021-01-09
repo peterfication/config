@@ -8,6 +8,15 @@ This is just a repository for my local config files.
 - https://makandracards.com/makandra/37763-gpg-extract-private-key-and-import-on-different-machine
 
 ```bash
+touch gpg.key
+vim gpg.key
+# Fill private GPG key
+gpg --import gpg.key
+gpg --edit-key 46FF813D9CC4452B
+rm gpg.key
+```
+
+```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 # We need an updated Python 2 because of a bug so we can't use the OS X one
 brew install python@2
@@ -22,7 +31,7 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 
 - Change caps lock in `System Preferences > Keyboard > Modifier Keys` to escape
 - Create local.zsh from example
-- Clone base16 theme `git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell`
+- Clone base16 theme `git clone https://github.com/martinlindhe/base16-iterm2.git ~/.config/base16-shell`
 - Set up iTerm2 with a base16 color scheme from https://github.com/martinlindhe/base16-iterm2
 - [Install BetterTouchTool](https://bettertouchtool.net/releases/btt2.340.zip) with its license and import the presets and setup `Windows Moving & Resizing` settings
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
