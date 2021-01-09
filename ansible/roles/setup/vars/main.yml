@@ -110,7 +110,6 @@ cask_applications:
 
 pip_packages:
   - awscli
-  - pexpect
 
 ruby_versions:
   - 2.5.3
