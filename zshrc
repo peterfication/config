@@ -196,12 +196,6 @@ then
   alias open='xdg-open'
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/peter/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/peter/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/peter/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/peter/google-cloud-sdk/completion.zsh.inc'; fi
-
 export PATH="$(pwd)/tools/git-fuzzy/bin:$PATH"
 alias gf="git fuzzy"
 export GIT_FUZZY_STATUS_ADD_KEY="Ctrl-S"
@@ -209,3 +203,13 @@ export GIT_FUZZY_STATUS_EDIT_KEY="Ctrl-E"
 export GIT_FUZZY_STATUS_COMMIT_KEY="Ctrl-C"
 export GIT_FUZZY_STATUS_RESET_KEY="Ctrl-R"
 export GIT_FUZZY_STATUS_DISCARD_KEY="Ctrl-U"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/petergundel/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/petergundel/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petergundel/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Bash tab completion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
