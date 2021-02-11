@@ -32,7 +32,7 @@
   cia = commit --verbose --amend
   br = branch
   b = branch
-  ad = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git branch -d $CURRENT; }; f"
+  ad = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout main; git pull; git branch -d $CURRENT; }; f"
   ads = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout staging; git pull; git branch -d $CURRENT; }; f"
   adsd = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout develop; git pull; git branch -d $CURRENT; }; f"
   bd = branch -d
@@ -40,7 +40,7 @@
   praise = blame
   rc = rebase --continue
   rbb = "!f() { git rebase -i HEAD~$1; }; f"
-  rbm = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout master; git pull; git checkout $CURRENT; git rebase master; }; f"
+  rbm = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout main; git pull; git checkout $CURRENT; git rebase main; }; f"
   rbs = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout staging; git pull; git checkout $CURRENT; git rebase staging; }; f"
   rbd = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout develop; git pull; git checkout $CURRENT; git rebase develop; }; f"
   po = !git push -u origin `git rev-parse --abbrev-ref HEAD`
