@@ -57,9 +57,9 @@ Plug 'tpope/vim-surround'
 " Make Vim play nicely with iTerm 2 and tmux.
 Plug 'sjl/vitality.vim'
 
-" Plug 'prettier/vim-prettier', {
-"   \ 'do': 'yarn install',
-"   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
 " Fuzzy file opener
 " You might need to install `$ brew install fzf` for that (with shell extension)
@@ -136,22 +136,24 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled = 1
 
-Plug 'sbdchd/neoformat'
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.js undojoin | Neoformat
-  autocmd BufWritePre *.jsx undojoin | Neoformat
-  autocmd BufWritePre *.ts undojoin | Neoformat
-  autocmd BufWritePre *.tsx undojoin | Neoformat
-augroup END
+" Plug 'sbdchd/neoformat'
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre *.js undojoin | Neoformat
+"   autocmd BufWritePre *.jsx undojoin | Neoformat
+"   autocmd BufWritePre *.ts undojoin | Neoformat
+"   autocmd BufWritePre *.tsx undojoin | Neoformat
+" augroup END
 
 " JS
 let g:jsx_ext_required = 0
 " This needs eslint and all the plugins to be installed globally
 " yarn global add eslint eslint-config-airbnb eslint-config-airbnb-base ...
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_javascript_jsx_enabled_makers = ['eslint']
-autocmd! BufWritePost *.js Neomake
+" let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_javascript_jsx_enabled_makers = ['eslint']
+" autocmd! BufWritePost *.js Neomake
+
+autocmd! BufWritePost *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " TBD
 " Plug 'junegunn/vim-easy-align'
