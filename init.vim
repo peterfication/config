@@ -18,6 +18,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Run commands asynchronously
 Plug 'benekastah/neomake'
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql'] }
+
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 let g:coc_global_extensions = ['coc-tsserver']
 
@@ -57,9 +61,6 @@ Plug 'tpope/vim-surround'
 " Make Vim play nicely with iTerm 2 and tmux.
 Plug 'sjl/vitality.vim'
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
 " Fuzzy file opener
 " You might need to install `$ brew install fzf` for that (with shell extension)
@@ -153,8 +154,6 @@ let g:jsx_ext_required = 0
 " let g:neomake_javascript_jsx_enabled_makers = ['eslint']
 " autocmd! BufWritePost *.js Neomake
 
-autocmd! BufWritePost *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 " TBD
 " Plug 'junegunn/vim-easy-align'
 " https://github.com/SirVer/ultisnips
@@ -162,6 +161,8 @@ autocmd! BufWritePost *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.g
 " Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
+
+autocmd! BufWritePost *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " Change the git-gutter signs to emojis
 " (Has to be after `call plug#end()`)
