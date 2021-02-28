@@ -53,3 +53,5 @@
   prd = !hub pull-request -b develop
   peak = !git log -1 --format=\"%H\" | tr -d \"\n\" | pbcopy
   most = !git log --since=\"1 year ago\" --pretty=format: --name-only | sort | uniq -c | sort -rg | head -30
+[init]
+	defaultBranch = main
