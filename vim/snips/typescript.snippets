@@ -5,6 +5,12 @@ snippet loggerNest "logger in NestJS" b
   private readonly logger = new Logger(${1:className}.name);
 endsnippet
 
+snippet injectServiceNest "Inject service in NestJS provider" b
+  constructor(
+    private ${1:serviceName}: ${2:ServiceName}
+  ) {}
+endsnippet
+
 # Jest
 snippet descJest "describe Jest" b
 describe('${1:description}', () => {
