@@ -97,6 +97,10 @@ Plug 'ianks/vim-tsx'
 " This runs ctags. And it's super resource heavy.
 Plug 'ludovicchabant/vim-gutentags'
 
+" Auto complete brackets
+Plug 'townk/vim-autoclose'
+" Plug 'jiangmiao/auto-pairs'
+
 " Run commands asynchronously
 " Plug 'benekastah/neomake'
 
@@ -114,9 +118,6 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Awesome substitutions
 " Plug 'tpope/vim-abolish'
-
-" Auto complete brackets
-" Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
