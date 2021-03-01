@@ -10,3 +10,4 @@
 *.swp
 tags
 tags.tmp
+tags.lock

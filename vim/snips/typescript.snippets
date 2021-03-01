@@ -1,0 +1,43 @@
+priority -50
+
+# NestJs
+snippet loggerNest "logger in NestJS" b
+  private readonly logger = new Logger(${1:className}.name);
+endsnippet
+
+# Jest
+snippet descJest "describe Jest" b
+describe('${1:description}', () => {
+  $0
+});
+endsnippet
+
+snippet itJest "it Jest" b
+it('${1:description}', () => {
+  $0
+});
+endsnippet
+
+snippet beforeEachJest "beforeEach Jest" b
+beforeEach(() => {
+  $0
+});
+endsnippet
+
+snippet afterEachJest "afterEach Jest" b
+afterEach(() => {
+  $0
+});
+endsnippet
+
+snippet beforeAllJest "beforeAll Jest" b
+beforeAll(() => {
+  $0
+});
+endsnippet
+
+snippet afterAllJest "afterAll Jest" b
+afterAll(() => {
+  $0
+});
+endsnippet
