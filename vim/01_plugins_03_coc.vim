@@ -41,6 +41,7 @@ nnoremap <silent> <space>CD :<C-u>CocFzfList diagnostics --current-buf<CR>
 nnoremap <silent> <space>CC :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>CS :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <space>CL :<C-u>CocFzfList location<CR>
+nnoremap <silent> <space>CA :<C-u>CocFzfList actions<CR>
 
 " Somehow I can't get this to work :/
 " This needs UniversalCtags to be installed
