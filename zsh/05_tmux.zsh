@@ -1,3 +1,5 @@
+alias tm='tmux -2'
+
 setopt shwordsplit
 
 function tmux_new_with_name() {
@@ -14,20 +16,9 @@ function ts() {
 }
 
 function tss() {
-  tmux split-pane -h gitsh
+  tmux split-pane -h
   tmux send-keys -t 1.0 vim Enter
   tmux split-pane -d -v
-}
-
-function tsd() {
-  # Setup main window
-  tmux split-pane -h gitsh
-  tmux send-keys -t 1.0 vim Enter
-  tmux split-pane -d -v
-  tmux send-keys -t 1.2 "eval '$(docker-machine env store2be)'" Enter
-
-  # Setup docker synching
-  tmux new-window -n docker-osx-dev -d 'eval "$(docker-machine env store2be)" && docker-osx-dev'
 }
 
 # fs [FUZZY PATTERN] - Select selected tmux session
@@ -39,4 +30,3 @@ fs() {
     fzf --query="$1" --select-1 --exit-0) &&
   tmux switch-client -t "$session"
 }
-

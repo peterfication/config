@@ -22,6 +22,8 @@ applications:
   - gh
   - git
   - git-crypt
+  - git-delta
+  - git-extras
   - git-ftp
   - gitsh
   - go

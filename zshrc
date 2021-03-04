@@ -1,215 +1,29 @@
 export LC_ALL=en_US.UTF-8
 
-# Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
-source ~/.zplug/init.zsh
-zplug "plugins/git", from:oh-my-zsh
-zplug load
-# For debugging:
-# zplug load --verbose
-zplug install
-
-BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
-
-# Enable Ctrl-f to edit command line
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^f' edit-command-line
-
+export DEFAULT_USER=petergundel
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-source $ZSH/oh-my-zsh.sh
 
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
-source $HOME/.cargo/env
-export PATH="$PATH:$HOME/.cargo/bin"
-export NVM_DIR=~/.nvm
-[ -f /usr/local/opt/nvm/nvm.sh ] && source /usr/local/opt/nvm/nvm.sh
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="$PATH:/Library/TeX/texbin"
+source ~/config/zsh/00_oh_my_zsh.zsh
+source ~/config/zsh/01_zplug.zsh
+source ~/config/zsh/02_general.zsh
+source ~/config/zsh/03_alias.zsh
+source ~/config/zsh/04_exa_ls.zsh
+source ~/config/zsh/05_tmux.zsh
+source ~/config/zsh/06_fzf.zsh
+source ~/config/zsh/07_git.zsh
 
-alias vim=nvim
-export EDITOR='vim'
-export VISUAL='vim'
-alias e="vim"
+source ~/config/zsh/10_gpg.zsh
 
-alias g='git'
-alias tm='tmux -2'
-alias dcup='docker-compose up'
-alias dcrw='docker-compose run web'
-alias dcrspec='docker-compose run web bundle exec rspec'
-alias dcroutes='docker-compose run web bundle exec rake routes'
-alias dcbundle='bundle && docker-compose run web bundle'
-alias dcrm='docker-compose run web rm -Rf tmp/pids'
-alias docker-machine-cleanup='docker volume rm $(docker volume ls -qf dangling=true); docker rmi $(docker images | grep "^<none>" | awk "{print $3}"); docker rm $(docker ps -qa --no-trunc --filter "status=exited")'
+# source ~/config/zsh/70_gcloud.zsh
+# source ~/config/zsh/71_aws.zsh
+# source ~/config/zsh/72_k8s.zsh
+source ~/config/zsh/73_terraform.zsh
 
-alias heroku-logs="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf --header='Select the app you want to tail the logs' | xargs heroku logs -t -a"
-alias heroku-bash="heroku apps --all | grep '(' | sed 's/ .*$//' | fzf --header='Select the app you want to bash into' | xargs heroku run bash -a"
+source ~/config/zsh/80_node.zsh
+# source ~/config/zsh/81_ruby.zsh
+# source ~/config/zsh/82_rust.zsh
 
-alias notes="cd ~/notes && vim"
-snotes() {
-  cd ~/notes
-  git add .
-  git stash
-  git pull origin master
-  git stash pop
-  git add .
-  git commit -m "Sync `date +"%Y-%m-%d %T"`"
-  git push origin master
-}
+source ~/config/zsh/98_base16_shell.zsh
+source ~/config/zsh/99_agnoster.zsh
 
-
-alias cloc-ruby='cloc . --exclude-dir=tmp,log,spec,.idea,.ebextensions,.elasticbeanstalk,.git,vendor'
-
-# Restart the camera on a Mac when it fails
-alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssistant'
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# bindkey -v # Enable Vim mode => Press Esc to get into normal mode
-
-# Needed for gpg to run
-# See https://linux.die.net/man/1/gpg-agent
-export GPG_TTY=$(tty)
-alias pgp="gpg"
-
-# Remove files a little bit more secure
-alias shred="rm -rPv"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-[ -f ~/config/zsh/fzf.zsh ] && source ~/config/zsh/fzf.zsh
-[ -f ~/config/submodules/fzf-extras/fzf-extras.sh ] && source ~/config/submodules/fzf-extras/fzf-extras.sh
-[ -f ~/config/zsh/tmux.zsh ] && source ~/config/zsh/tmux.zsh
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
-[ -f ~/google-cloud-sdk/completion.zsh.inc ] && source ~/google-cloud-sdk/completion.zsh.inc
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# gam() { "/Users/petergundel/bin/gam/gam" "$@" ; }
-
-# Change to a git repository's root directory from anywhere inside it
-function cdb() {
-  inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
-  if [ $inside_git_repo ]; then
-    cd `git rev-parse --show-toplevel`
-  else
-    echo "Not a git project"
-  fi
-}
-
-# Kubernetes
-if command -v kubectl &> /dev/null
-then
-  source <(kubectl completion zsh)
-  alias kwp="kubectl get pods --watch --all-namespaces -l"
-fi
-
-function pman() {
-  man -t ${1} | open -f -a /Applications/Preview.app
-}
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-
-# From https://medium.com/@sidneyliebrand/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861
-# mnemonic: [K]ill [P]rocess
-kp() {
-  local pid=$(ps -ef | sed 1d | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[kill:process]'" | awk '{print $2}')
-
-  if [ "x$pid" != "x" ]
-  then
-    echo $pid | xargs kill -${1:-9}
-    kp
-  fi
-}
-
-find-command() {
-  local command=$(compgen -c | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:command]'")
-  LBUFFER="${command} "
-}
-autoload -U find-command
-zle -N find-command
-bindkey '^o' find-command
-
-alias list-large-folders="sudo du -k * | awk '$1 > 500000' | sort -nr"
-
-# source /Users/petergundel/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
-if command -v keychain &> /dev/null
-then
-  eval $(keychain --eval --quiet id_rsa)
-fi
-
-if command -v xdg-open &> /dev/null
-then
-  alias open='xdg-open'
-fi
-
-export PATH="$(pwd)/tools/git-fuzzy/bin:$PATH"
-alias gf="git fuzzy"
-export GIT_FUZZY_STATUS_ADD_KEY="Ctrl-S"
-export GIT_FUZZY_STATUS_EDIT_KEY="Ctrl-E"
-export GIT_FUZZY_STATUS_COMMIT_KEY="Ctrl-C"
-export GIT_FUZZY_STATUS_RESET_KEY="Ctrl-R"
-export GIT_FUZZY_STATUS_DISCARD_KEY="Ctrl-U"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/petergundel/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/petergundel/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/petergundel/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/petergundel/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Bash tab completion
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform

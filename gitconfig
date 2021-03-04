@@ -2,30 +2,64 @@
   name = Peter Gundel
   email = mail@petergundel.de
   signingkey = 9CC4452B
+
 [core]
   excludesfile = /Users/peter/.gitignore_global
-  editor = nvim
+  editor = vim
+  pager = delta
+
+[init]
+  defaultBranch = main
+
 [commit]
   gpgsign = true
+
+[interactive]
+  diffFilter = delta --color-only
+
 [diff]
-  tool = vimdiff
+  tool = delta
+
 [difftool]
   prompt = false
+
+[delta]
+  features = side-by-side line-numbers decorations
+  side-by-side = true
+  syntax-theme = Solarized (dark)
+  plus-style = syntax "#003800"
+  minus-style = syntax "#3f0001"
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow ul
+  file-decoration-style = none
+  hunk-header-decoration-style = cyan box ul
+
+[delta "line-numbers"]
+  line-numbers-left-style = cyan
+  line-numbers-right-style = cyan
+  line-numbers-minus-style = 124
+  line-numbers-plus-style = 28
+
 [status]
   showUntrackedFiles = all
-[color]
-  ui = true
+
 [http]
   sslVerify = true
+
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
+
 [pull]
   ff = only
+
 [alias]
   p = pull
   d = difftool
   co = checkout
   cob = checkout -b
+  s = status
   st = status
   ap = add -p
   ci = commit --verbose
@@ -53,5 +87,3 @@
   prd = !hub pull-request -b develop
   peak = !git log -1 --format=\"%H\" | tr -d \"\n\" | pbcopy
   most = !git log --since=\"1 year ago\" --pretty=format: --name-only | sort | uniq -c | sort -rg | head -30
-[init]
-	defaultBranch = main

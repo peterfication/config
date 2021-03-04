@@ -1,0 +1,66 @@
+#!/bin/bash
+
+[ ! -d "$HOME/.zplug" ] && git clone https://github.com/zplug/zplug.git ~/.zplug
+
+source ~/.zplug/init.zsh
+
+# READMEs available here:
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins
+#
+# More plugins:
+# https://github.com/unixorn/awesome-zsh-plugins#plugins
+
+zplug "plugins/copydir", from:oh-my-zsh
+zplug "plugins/copyfile", from:oh-my-zsh
+zplug "plugins/osx", from:oh-my-zsh
+# man-preview
+# rmdsstore # Remove .DS_Store files recursively in a directory
+# spotify
+# showfiles
+# quick-look
+zplug "g-plane/icd"
+
+zplug "plugins/fzf", from:oh-my-zsh
+zplug "Aloxaf/fzf-tab"
+# zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/dotenv", from:oh-my-zsh
+# Might be interesting: https://github.com/Tarrasch/zsh-autoenv
+zplug "plugins/git", from:oh-my-zsh
+# Have a look at this: https://github.com/davidde/git
+zplug "plugins/git-extras", from:oh-my-zsh
+# Needs brew install git-extras
+zplug "bigH/git-fuzzy", as:command, use:"bin/git-fuzzy"
+# zplug "plugins/rvm", from:oh-my-zsh
+# zplug "plugins/bundler", from:oh-my-zsh
+# zplug "plugins/gem", from:oh-my-zsh
+# zplug "plugins/rails", from:oh-my-zsh
+# zplug "plugins/rake-fast", from:oh-my-zsh
+# zplug "plugins/thor", from:oh-my-zsh
+zplug "plugins/nvm", from:oh-my-zsh
+zplug "plugins/yarn", from:oh-my-zsh
+# zplug "plugins/docker", from:oh-my-zsh
+# zplug "plugins/rustup", from:oh-my-zsh
+# zplug "plugins/rust", from:oh-my-zsh
+# zplug "plugins/cargo", from:oh-my-zsh
+
+zplug "plugins/terraform", from:oh-my-zsh
+# zplug "plugins/helm", from:oh-my-zsh
+# zplug "plugins/heroku", from:oh-my-zsh
+zplug "plugins/kubectl", from:oh-my-zsh
+# Have a look at the alias:
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
+# zplug "plugins/minikube", from:oh-my-zsh
+# zplug "plugins/gcloud", from:oh-my-zsh
+
+# zplug "amstrad/oh-my-matrix"
+
+zplug load
+
+# For debugging:
+# zplug load --verbose
+
+zplug install
+
+# https://dystroy.org/broot/documentation/configuration/#verbs-shortcuts-and-keys
+# ~/.config/broot/conf.hjson
+source /Users/petergundel/.config/broot/launcher/bash/br
