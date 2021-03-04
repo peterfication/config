@@ -14,7 +14,7 @@ nnoremap <C-J> :bprevious<CR>
 " Close current buffer
 nnoremap <C-C> :bd<CR>
 
-:command CloseAllBuffers bufdo! bd
+:command! CloseAllBuffers bufdo! bd
 
 " Save current buffer
 nnoremap <Leader>w :w<CR>
