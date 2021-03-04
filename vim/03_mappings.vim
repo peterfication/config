@@ -42,3 +42,7 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Github
+:command! GithubRepoViewWeb !gh repo view --web
+:command! GithubPrView !gh pr view
