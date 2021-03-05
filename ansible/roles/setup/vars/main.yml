@@ -6,6 +6,7 @@ general:
 # homebrew applications
 applications:
   - broot
+  - bash
   - bat
   - chunkwm
   - ctags

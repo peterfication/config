@@ -2,10 +2,20 @@ alias tm='tmux -2'
 
 setopt shwordsplit
 
+# Super Guide to the split-window tmux Subcommand (and Beyond)
+# https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e
+
 function tmux_new_with_name() {
   for TS_DIR in $1; do
     DIR_NAME=`echo $TS_DIR | grep -o "[a-zA-Z0-9_.-]*$" | sed -r 's/[.]+/-/g'`
-    eval "tmux new-session -d -c ${TS_DIR} -s $DIR_NAME -n main"
+    echo "Create session '${DIR_NAME}' with window 'vim'"
+    eval "tmux new-session -d -c ${TS_DIR} -s ${DIR_NAME} -n console"
+
+    echo "Split window 'console' in session '${DIR_NAME}'"
+    eval "tmux split-window -h"
+
+    echo "Create window 'vim' in session '${DIR_NAME}'"
+    eval "tmux new-window -t ${DIR_NAME} -c ${TS_DIR} -n vim 'vim'"
   done
 }
 

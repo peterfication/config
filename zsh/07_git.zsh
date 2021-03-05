@@ -11,6 +11,7 @@ function cdb() {
 alias g='git'
 alias gs="git status"
 alias gap="git add -p"
+alias gall="git add ."
 alias gci="git ci"
 alias gcia="git cia"
 
