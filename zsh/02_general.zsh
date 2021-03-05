@@ -7,3 +7,5 @@ export EDITOR='vim'
 export VISUAL='vim'
 alias e="vim"
 alias vim=nvim
+
+setopt shwordsplit

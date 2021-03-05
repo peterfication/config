@@ -1,21 +1,19 @@
 alias tm='tmux -2'
 
-setopt shwordsplit
-
 # Super Guide to the split-window tmux Subcommand (and Beyond)
 # https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e
 
 function tmux_new_with_name() {
   for TS_DIR in $1; do
     DIR_NAME=`echo $TS_DIR | grep -o "[a-zA-Z0-9_.-]*$" | sed -r 's/[.]+/-/g'`
-    echo "Create session '${DIR_NAME}' with window 'vim'"
+    echo "Create session '${DIR_NAME}' with window 'vim' and folder '${TS_DIR}'"
     eval "tmux new-session -d -c ${TS_DIR} -s ${DIR_NAME} -n console"
 
     echo "Split window 'console' in session '${DIR_NAME}'"
-    eval "tmux split-window -h"
+    eval "tmux split-window -h -t ${DIR_NAME} -c ${TS_DIR}"
 
-    echo "Create window 'vim' in session '${DIR_NAME}'"
-    eval "tmux new-window -t ${DIR_NAME} -c ${TS_DIR} -n vim 'vim'"
+    echo "Create window 'vim' in session '${DIR_NAME}' with folder '${TS_DIR}'"
+    eval "tmux new-window -t ${DIR_NAME}: -c ${TS_DIR} -n vim 'vim'"
   done
 }
 
@@ -23,6 +21,13 @@ function ts() {
   tmux_new_with_name `pwd`
   DIR_NAME=`pwd | grep -o "[a-zA-Z0-9._-]*$" | sed -r 's/[.]+/-/g'`
   tmux -2 a -t $DIR_NAME
+}
+
+# This function is for tmux session creations. See tmux/04_mappings.tmux
+function ts_from_arg() {
+  tmux_new_with_name $1
+  DIR_NAME=`$1 | grep -o "[a-zA-Z0-9._-]*$" | sed -r 's/[.]+/-/g'`
+  # tmux -2 a -t $DIR_NAME
 }
 
 function tss() {
