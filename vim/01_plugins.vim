@@ -121,6 +121,9 @@ Plug 'townk/vim-autoclose'
 " Awesome substitutions
 " Plug 'tpope/vim-abolish'
 
+" For tmux styles generation
+" Plug 'edkolev/tmuxline.vim'
+
 call plug#end()
 
 source ~/config/vim/01_plugins_01_nerdtree.vim
