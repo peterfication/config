@@ -31,16 +31,17 @@ applications:
   - gpg
   # - gpg-agent
   - grip # Github readme preview
+  - grep
   - gron # grep flattenend JSON
   - heroku/brew/heroku
   - hexyl
-  - hub
   - hyperfine
   - jq
   - kubectl
   - kubernetes-helm
   - less # Use a newer version than the system one for emojis 😁
   - loc # cloc replacement in Rust
+  - most
   - neovim
   - node
   - nvm
