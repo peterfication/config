@@ -56,6 +56,9 @@ zplug "plugins/kubectl", from:oh-my-zsh
 
 zplug load
 
+# Don't use icd as default
+unalias cd
+
 # For debugging:
 # zplug load --verbose
 
