@@ -25,7 +25,8 @@ alias gfs="git fuzzy status"
 export GF_BASE_BRANCH=main
 export GF_LOG_MENU_PARAMS='--pretty="%Cred%h%Creset %Cgreen[%ad]%Creset -%C(yellow bold)%d%Creset %s %C(blue)<%an>%Creset" --date=short --topo-order'
 
-export GIT_FUZZY_BRANCH_CHECKOUT_KEY="Ctrl-B"
+export GIT_FUZZY_BRANCH_CHECKOUT_KEY="enter"
+export GIT_FUZZY_BRANCH_DELETE_BRANCH_KEY="Ctrl-D"
 export GIT_FUZZY_STATUS_ADD_KEY="Ctrl-S"
 export GIT_FUZZY_STATUS_EDIT_KEY="Ctrl-E"
 export GIT_FUZZY_STATUS_COMMIT_KEY="Ctrl-C"
