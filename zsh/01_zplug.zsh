@@ -66,4 +66,15 @@ zplug install
 
 # https://dystroy.org/broot/documentation/configuration/#verbs-shortcuts-and-keys
 # ~/.config/broot/conf.hjson
-source /Users/petergundel/.config/broot/launcher/bash/br
+if [ -L ~/.config/broot/launcher/bash/br ]; then
+  source ~/.config/broot/launcher/bash/br
+else
+  echo "broot/br is not installed. Install it with:"
+  echo ""
+  echo "  brew install broot"
+  echo ""
+  echo "To fully install it, you need to run it:"
+  echo ""
+  echo "  br"
+  echo ""
+fi
