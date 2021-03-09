@@ -27,6 +27,8 @@ Plug 'airblade/vim-gitgutter'
 
 " Language server integration
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
+" coc-spell-checker:
+" - https://github.com/iamcco/coc-spell-checker#add-on-dictionaries
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-eslint',
@@ -35,6 +37,7 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-graphql',
   \ 'coc-solargraph',
+  \ 'coc-spell-checker',
   \ 'coc-emoji'
 \ ]
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
@@ -58,7 +61,7 @@ Plug 'prettier/vim-prettier', {
 \ }
 
 " Snippets
-" Snippet eninge
+" Snippet engine
 Plug 'SirVer/ultisnips'
 " The actual snippets
 Plug 'honza/vim-snippets'
