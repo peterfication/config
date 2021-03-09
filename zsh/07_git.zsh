@@ -15,6 +15,8 @@ alias gall="git add ."
 alias gci="git ci"
 alias gcia="git cia"
 
+unalias gp
+
 # export PATH="$(pwd)/tools/git-fuzzy/bin:$PATH"
 
 alias gf="git fuzzy"
