@@ -1,5 +1,16 @@
 alias tm='tmux -2'
 
+if [ -f ~/.tmux/plugins/tpm/tpm ]; then
+  # tpm is already installed
+else
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  echo ""
+  echo "tpm has been installed."
+  echo ""
+  echo "Install tmux plugins with 'prefix + I'"
+  echo ""
+fi
+
 # Super Guide to the split-window tmux Subcommand (and Beyond)
 # https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e
 
