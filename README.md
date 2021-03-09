@@ -30,7 +30,7 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 ### Manual steps
 
 - Change caps lock in `System Preferences > Keyboard > Modifier Keys` to escape
-- Create local.zsh from example
+- Change left alt key to `Esc+` in `iTerm2 settings > Profiles > Keys > Right option key`
 - Clone base16 theme `git clone https://github.com/martinlindhe/base16-iterm2.git ~/.config/base16-shell`
 - Set up iTerm2 with a base16 color scheme from https://github.com/martinlindhe/base16-iterm2
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
