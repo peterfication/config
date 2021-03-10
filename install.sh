@@ -6,6 +6,8 @@
 ./install/09_fonts.sh
 ./install/10_ruby.sh
 ./install/11_node.sh
+./install/12_python.sh
+./install/13_rust.sh
 
 # TODO
 # - symlinks

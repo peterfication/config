@@ -30,7 +30,6 @@ else
 fi
 
 rvm alias create default 2.7.2
-rvm use 2.7.2
 
 echo
 echo "Installing gems ..."

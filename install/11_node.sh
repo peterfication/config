@@ -9,4 +9,4 @@ volta install prettier
 volta install eslint
 volta install typescript
 volta install neovim
-volta install fkill
+volta install fkill-cli
