@@ -1,4 +1,4 @@
-# My local config files for Mac OS X
+# My local config files for UNIX (mostly Mac OS (X))
 
 This is just a repository for my local config files.
 
