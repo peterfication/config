@@ -2,10 +2,11 @@
 
 This is just a repository for my local config files.
 
-## Install everything with Ansible
+## Steps
 
-*Before: Add SSH and GPG keys*
-- https://makandracards.com/makandra/37763-gpg-extract-private-key-and-import-on-different-machine
+### Add SSH and GPG keys
+
+https://makandracards.com/makandra/37763-gpg-extract-private-key-and-import-on-different-machine
 
 ```bash
 touch gpg.key
@@ -16,6 +17,8 @@ gpg --import gpg.key
 gpg --edit-key 46FF813D9CC4452B
 rm -P gpg.key
 ```
+
+### Clone config and install
 
 ```bash
 git clone git@github.com:peterfication/config.git
