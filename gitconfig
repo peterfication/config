@@ -66,6 +66,7 @@
   cia = commit --verbose --amend
   br = branch
   b = branch
+  fprune = fetch origin --prune
   ad = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout main; git pull; git branch -d $CURRENT; }; f"
   ads = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout staging; git pull; git branch -d $CURRENT; }; f"
   adsd = "!f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout develop; git pull; git branch -d $CURRENT; }; f"
