@@ -1,5 +1,12 @@
 # My adaption of the agnoster theme with clock on the right.
 
+# Custom colors. They are meant to align with the standard
+# airline theme of Vim.
+#
+# A list of abailable colors can be obtained by the command
+#   spectrum_ls
+YELLOW_LIGHT=228
+
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
 # agnoster's Theme - https://gist.github.com/3712874
@@ -91,7 +98,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)%n@%m"
+    prompt_segment black default "%(!.%{%F{$YELLOW_LIGHT}%}.)%n@%m"
   fi
 }
 
@@ -113,7 +120,7 @@ prompt_git() {
     dirty=$(parse_git_dirty)
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
-      prompt_segment yellow black
+      prompt_segment $YELLOW_LIGHT black
     else
       prompt_segment green $CURRENT_FG
     fi
@@ -157,10 +164,10 @@ prompt_bzr() {
     status_all=$(echo -n "$bzr_status" | head -n1 | wc -m)
     revision=$(bzr log -r-1 --log-format line | cut -d: -f1)
     if [[ $status_mod -gt 0 ]] ; then
-      prompt_segment yellow black "bzr@$revision ✚"
+      prompt_segment $YELLOW_LIGHT black "bzr@$revision ✚"
     else
       if [[ $status_all -gt 0 ]] ; then
-        prompt_segment yellow black "bzr@$revision"
+        prompt_segment $YELLOW_LIGHT black "bzr@$revision"
       else
         prompt_segment green black "bzr@$revision"
       fi
@@ -179,7 +186,7 @@ prompt_hg() {
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
-        prompt_segment yellow black
+        prompt_segment $YELLOW_LIGHT black
         st='±'
       else
         # if working copy is clean
@@ -194,7 +201,7 @@ prompt_hg() {
         prompt_segment red black
         st='±'
       elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
+        prompt_segment $YELLOW_LIGHT black
         st='±'
       else
         prompt_segment green $CURRENT_FG
@@ -225,7 +232,7 @@ prompt_status() {
   local -a symbols
 
   [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{$YELLOW_LIGHT}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
   [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
@@ -233,21 +240,21 @@ prompt_status() {
 
 #AWS Profile:
 # - display current AWS_PROFILE name
-# - displays yellow on red if profile name contains 'production' or
+# - displays $YELLOW_LIGHT on red if profile name contains 'production' or
 #   ends in '-prod'
 # - displays black on green otherwise
 prompt_aws() {
   [[ -z "$AWS_PROFILE" || "$SHOW_AWS_PROMPT" = false ]] && return
   case "$AWS_PROFILE" in
-    *-prod|*production*) prompt_segment red yellow  "AWS: $AWS_PROFILE" ;;
+    *-prod|*production*) prompt_segment red $YELLOW_LIGHT  "AWS: $AWS_PROFILE" ;;
     *) prompt_segment green black "AWS: $AWS_PROFILE" ;;
   esac
 }
 
 prompt_time() {
-  echo -n "%{%F{yellow}%}"
+  echo -n "%{%F{$YELLOW_LIGHT}%}"
   echo -n "\ue0b2"
-  echo -n "%{%K{yellow}%}%{%F{black}%}"
+  echo -n "%{%K{$YELLOW_LIGHT}%}%{%F{black}%}"
   echo -n " "
   echo -n "$(date '+%X ')"
 }
