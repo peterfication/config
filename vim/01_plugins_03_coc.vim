@@ -54,3 +54,5 @@ nnoremap <silent> <space>CO :<C-u>CocFzfList outline<CR>
 " https://github.com/iamcco/coc-spell-checker
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>iw :CocCommand cSpell.addIgnoreWordToUser <C-R><C-W>
+vmap <leader>iw :CocCommand cSpell.addIgnoreWordToUser <C-R><C-W>
