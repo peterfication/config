@@ -9,3 +9,9 @@ alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale' # all + e
 # speciality views
 alias lS='exa -1'			                                                  # one column, just names
 alias lt='exa --tree --level=2'                                         # tree
+
+# htop alternative written in Rust
+# https://github.com/ClementTsang/bottom
+# brew tap clementtsang/bottom
+# brew install bottom
+# Run: btm
