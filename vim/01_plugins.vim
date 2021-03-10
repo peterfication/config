@@ -102,9 +102,9 @@ Plug 'ianks/vim-tsx'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Auto complete brackets
+Plug 'jiangmiao/auto-pairs'
 " TODO This one does not work somehow with quotes
-Plug 'townk/vim-autoclose'
-" Plug 'jiangmiao/auto-pairs'
+" Plug 'townk/vim-autoclose'
 
 " Run commands asynchronously
 " Plug 'benekastah/neomake'
