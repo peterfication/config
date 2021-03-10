@@ -12,19 +12,16 @@ touch gpg.key
 vim gpg.key
 # Fill private GPG key
 gpg --import gpg.key
+# Fully trust the key
 gpg --edit-key 46FF813D9CC4452B
-rm gpg.key
+rm -P gpg.key
 ```
 
 ```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# We need an updated Python 2 because of a bug so we can't use the OS X one
-brew install python@2
-brew install ansible
 git clone git@github.com:peterfication/config.git
 cd config
-ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 ./mac_os_defaults.sh
+./install.sh
 ```
 
 ### Manual steps
@@ -33,14 +30,11 @@ ansible-playbook -K ansible/playbook.yml -i ansible/hosts -vv
 - Change left alt key to `Esc+` in `iTerm2 settings > Profiles > Keys > Right option key`
 - Clone base16 theme `git clone https://github.com/martinlindhe/base16-iterm2.git ~/.config/base16-shell`
 - Set up iTerm2 with a base16 color scheme from https://github.com/martinlindhe/base16-iterm2
+- Change font to Powerline font "Fira Mono" in iTerm2
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
 - Install [Postgres.app](https://postgresapp.com/)
-- Install [Lightroom 3](https://supportdownloads.adobe.com/product.jsp?product=113&platform=Mac)
-- Setup Postbox and calendar
-- Yarn, bundle and docker-compose build them
 - Set up [Leo searches](alfred/leo-searches.md) in Alfred
 
 ### TODO
 
 - iTerm config
-- https://github.com/nikitavoloboev/my-mac-os

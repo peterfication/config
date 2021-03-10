@@ -17,8 +17,6 @@ alias gcia="git cia"
 
 unalias gp
 
-# export PATH="$(pwd)/tools/git-fuzzy/bin:$PATH"
-
 alias gf="git fuzzy"
 alias gfb="git fuzzy branch"
 alias gfl="git fuzzy log"
