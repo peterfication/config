@@ -10,6 +10,8 @@ It is heavily focused around the usage of [fzf](https://github.com/junegunn/fzf)
 - [git-fuzzy](https://github.com/bigH/git-fuzzy)
 - [tmux session handling with fzf](tmux/04_mappings.tmux)
 
+<img width="1792" alt="preview" src="https://user-images.githubusercontent.com/4454052/110747799-2594ee80-823f-11eb-9aef-8319e425202d.png">
+
 ## Steps
 
 ### Add SSH and GPG keys
