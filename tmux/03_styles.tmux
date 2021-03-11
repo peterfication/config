@@ -7,6 +7,9 @@ set-option -ga terminal-overrides ",xterm-256color:Tc"
 # Update Interval
 set -g status-interval 1
 
+set -g window-style 'fg=colour242,bg=colour237'
+set -g window-active-style 'bg=black,fg=colour247'
+
 # This tmux statusbar config was created by tmuxline.vim
 # on Mon, 08 Mar 2021
 # https://github.com/edkolev/tmuxline.vim
