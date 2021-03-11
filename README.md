@@ -2,6 +2,14 @@
 
 This is just a repository for my local config files.
 
+It is heavily focused around the usage of [fzf](https://github.com/junegunn/fzf):
+
+- [fzf-tab](https://github.com/Aloxaf/fzf-tab)
+- [fzf-vim](https://github.com/junegunn/fzf.vim)
+- [coc-fzf](https://github.com/antoinemadec/coc-fzf)
+- [git-fuzzy](https://github.com/bigH/git-fuzzy)
+- [tmux session handling with fzf](tmux/04_mappings.tmux)
+
 ## Steps
 
 ### Add SSH and GPG keys
