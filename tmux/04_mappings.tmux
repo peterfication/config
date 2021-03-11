@@ -10,12 +10,8 @@ bind-key C-f run-shell -b "tmux ls -F \"##S\" | fzf-tmux -- --header '[Switch se
 # Kill sessions with the help of fzf
 bind-key C-d run-shell -b "tmux ls -F \"##S\" | fzf-tmux -- --header '[Kill session]' | xargs tmux kill-session -t"
 
-# - A key binding that opens icd and on enter creates a ts session with this dir
-bind-key C-t run-shell -b "cat $HOME/.history.icd | fzf-tmux -- --header '[Create session]' | xargs -0 bash -c 'source ~/config/zsh/05_tmux.zsh && tmux display \"$@\" && ts_from_arg \"$@\"' - "
-# TODO
-# - Show better tmux display: Session created (in ts_from_arg instead of here)
-# - Switch to this new session
-# - Get rid of the output there?
+# A key binding that opens the icd history and on enter creates a ts session with this dir
+bind-key C-t run-shell -b "cat $HOME/.history.icd | fzf-tmux -- --header '[Create session]' | xargs -0 bash -c 'source ~/config/zsh/05_tmux.zsh && tmux display \"Session created for $@\" && ts_from_arg \"$@\"' - "
 
 #### WINDOWNS ####
 

@@ -1,8 +1,7 @@
 alias tm='tmux -2'
 
-if [ -f ~/.tmux/plugins/tpm/tpm ]; then
-  # tpm is already installed
-else
+if ! [ -f ~/.tmux/plugins/tpm/tpm ]
+then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   echo ""
   echo "tpm has been installed."
