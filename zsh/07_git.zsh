@@ -8,6 +8,28 @@ function cdb() {
   fi
 }
 
+function git_tmp_shallow() {
+  for GIT_URL in $1; do
+    REPO_NAME=`basename $GIT_URL`
+
+    mkdir -p $HOME/tmp
+    rm -rf "$HOME/tmp/${REPO_NAME}" > /dev/null
+
+    echo ""
+    echo "Cloning ${GIT_URL} into $HOME/tmp/${REPO_NAME}"
+    echo ""
+    echo "git clone -–depth 1 -- ${GIT_URL} $HOME/tmp/${REPO_NAME}"
+    echo ""
+    git clone --depth 1 -- ${GIT_URL} "$HOME/tmp/${REPO_NAME}"
+    echo ""
+    cd "$HOME/tmp/${REPO_NAME}"
+
+    # This does not work somehow with the directory.
+    # tmux_new_with_name "$HOME/tmp/${REPO_NAME}"
+    # tm a -t ${REPO_NAME}
+  done
+}
+
 alias g='git'
 alias gs="git status"
 alias gap="git add -p"
