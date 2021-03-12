@@ -40,6 +40,7 @@ endfunction
 
 " Open the CoC sources in an FZF view
 nnoremap <silent> <space>CD :<C-u>CocFzfList diagnostics --current-buf<CR>
+nnoremap <silent> <space>Cd :<C-u>CocFzfList diagnostics<CR>
 nnoremap <silent> <space>CC :<C-u>CocFzfList commands<CR>
 nnoremap <silent> <space>CS :<C-u>CocFzfList symbols<CR>
 nnoremap <silent> <space>CL :<C-u>CocFzfList location<CR>
