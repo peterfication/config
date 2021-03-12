@@ -101,6 +101,9 @@ Plug 'ianks/vim-tsx'
 " This runs ctags. And it's super resource heavy.
 Plug 'ludovicchabant/vim-gutentags'
 
+" Awesome substitutions
+Plug 'tpope/vim-abolish'
+
 " Auto complete brackets
 Plug 'jiangmiao/auto-pairs'
 " TODO This one does not work somehow with quotes
@@ -120,9 +123,6 @@ Plug 'jiangmiao/auto-pairs'
 
 " Clipboard history
 " Plug 'vim-scripts/YankRing.vim'
-
-" Awesome substitutions
-" Plug 'tpope/vim-abolish'
 
 " For tmux styles generation
 " Plug 'edkolev/tmuxline.vim'
