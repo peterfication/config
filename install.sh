@@ -11,5 +11,7 @@
 
 # TODO
 # - symlinks
+#   - init.vim
+#   - coc-settings.json
 # - vimplug
 # - Change shell to ZSH
