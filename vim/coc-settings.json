@@ -1,4 +1,5 @@
 {
         "cSpellExt.enableDictionaries": ["german"],
-        "cSpell.language": "en,de"
+        "cSpell.language": "en,de",
+        "cSpell.ignoreRegExpList": ["/Plug '.*'/"]
 }
