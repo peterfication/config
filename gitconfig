@@ -4,7 +4,7 @@
   signingkey = 9CC4452B
 
 [core]
-  excludesfile = /Users/peter/.gitignore_global
+  excludesfile = ~/config/gitignore_global
   editor = vim
   pager = delta
 
