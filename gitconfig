@@ -49,7 +49,7 @@
   sslVerify = true
 
 [blame]
-  ignoreRevsFile = .git-blame-ignore-revs
+  XignoreRevsFile = .git-blame-ignore-revs
 
 [pull]
   ff = only
