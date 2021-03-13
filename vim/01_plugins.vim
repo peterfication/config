@@ -38,6 +38,7 @@ let g:coc_global_extensions = [
   \ 'coc-graphql',
   \ 'coc-solargraph',
   \ 'coc-spell-checker',
+  \ 'coc-cspell-dicts',
   \ 'coc-emoji'
 \ ]
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
