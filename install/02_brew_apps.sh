@@ -16,7 +16,7 @@ brew_apps=(
   veracrypt
   visual-studio-code
   vlc
-  zoomus
+  zoom
 
   # Backup
   # docker
