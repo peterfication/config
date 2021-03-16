@@ -24,6 +24,9 @@ brew_tools=(
   gpg
   pinentry-mac
 
+  # PDFs
+  pandoc
+
   # Rust things
   bat # cat/less replacement written in Rust
   broot

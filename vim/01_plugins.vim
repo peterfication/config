@@ -111,6 +111,10 @@ Plug 'jiangmiao/auto-pairs'
 " TODO This one does not work somehow with quotes
 " Plug 'townk/vim-autoclose'
 
+" PDF commands
+" Plug 'vim-pandoc/vim-pandoc'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 " Run commands asynchronously
 " Plug 'benekastah/neomake'
 
