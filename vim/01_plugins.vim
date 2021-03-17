@@ -102,6 +102,7 @@ Plug 'sheerun/vim-polyglot'
 " Auto generate tags
 " This runs ctags. And it's super resource heavy.
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'preservim/tagbar'
 
 " Awesome substitutions
 Plug 'tpope/vim-abolish'

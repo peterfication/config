@@ -1,3 +1,7 @@
+" # Tagbar
+nnoremap <Leader>z :TagbarToggle<CR>
+
+" # Gutentags
 " Tips from
 " https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
 "
