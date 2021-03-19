@@ -14,6 +14,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Statusline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'mkitt/tabline.vim'
 
 " FZF
 Plug 'junegunn/fzf'
