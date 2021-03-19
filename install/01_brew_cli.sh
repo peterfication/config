@@ -42,6 +42,8 @@ brew_tools=(
   terraform
   terraform-docs
   python
+  # https://github.com/wagoodman/dive
+  dive
 
   # Other
   fzf
