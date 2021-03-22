@@ -8,6 +8,7 @@ brew_apps=(
   flux
   flycut
   chromium
+  chrome
   iterm2
   keepingyouawake
   tableplus
@@ -17,6 +18,10 @@ brew_apps=(
   visual-studio-code
   vlc
   zoom
+
+  # Design tools
+  # sketch
+  # affinity-designer-beta
 
   # Backup
   # docker
