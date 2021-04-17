@@ -103,3 +103,5 @@ function pr-checkout() {
     gh pr checkout "$pr_number"
   fi
 }
+
+# Some nice aliases maybe: https://github.com/kbd/setup/blob/e23b3e8e2363284c3c766c0be2211f46c745354a/HOME/.config/git/config#L110
