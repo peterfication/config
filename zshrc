@@ -12,6 +12,7 @@ source ~/config/zsh/05_tmux.zsh
 source ~/config/zsh/06_fzf.zsh
 source ~/config/zsh/07_git.zsh
 source ~/config/zsh/08_gnu_tools.zsh
+source ~/config/zsh/09_other.zsh
 
 source ~/config/zsh/10_gpg.zsh
 

@@ -7,3 +7,7 @@
 
 # https://www.hammerspoon.org/
 # OS X scripting
+
+# Init zoxide
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"

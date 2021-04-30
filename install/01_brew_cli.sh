@@ -36,6 +36,7 @@ brew_tools=(
   ripgrep # grep replacement, same as rga
   # loc # cloc replacement
   # hyperfine
+  zoxide
 
   # Programming/infrastructure languages
   kubectl
