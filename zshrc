@@ -22,7 +22,7 @@ source ~/config/zsh/73_terraform.zsh
 
 source ~/config/zsh/80_node.zsh
 # source ~/config/zsh/81_ruby.zsh
-# source ~/config/zsh/82_rust.zsh
+source ~/config/zsh/82_rust.zsh
 
 source ~/config/zsh/98_base16_shell.zsh
 source ~/config/zsh/99_agnoster.zsh
