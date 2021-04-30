@@ -2,3 +2,5 @@
 
 # lorikeet
 # click
+
+cargo install zellij
