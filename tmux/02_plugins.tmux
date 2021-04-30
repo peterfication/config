@@ -5,5 +5,7 @@ set -g @plugin 'tmux-plugins/tmux-urlview'
 # Select console output line with CTRL+b + TAB
 set -g @plugin 'laktak/extrakto'
 
+set -g @plugin 'sainnhe/tmux-fzf'
+
 # Check out:
 # - https://github.com/thewtex/tmux-mem-cpu-load
