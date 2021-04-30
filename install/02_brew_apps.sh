@@ -14,6 +14,8 @@ brew_apps=(
   tableplus
   postman
   spotify
+  # https://github.com/exelban/stats
+  stats
   veracrypt
   visual-studio-code
   vlc
