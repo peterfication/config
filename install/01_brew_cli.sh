@@ -42,6 +42,10 @@ brew_tools=(
   kubectl
   terraform
   terraform-docs
+  fluxcd/tap/flux
+  weaveworks/tap/eksctl
+  aws-iam-authenticator
+  kubeseal
   python
   # https://github.com/wagoodman/dive
   dive
@@ -56,6 +60,7 @@ brew_tools=(
   tmux
   urlview # For tmux URLs selection
   youtube-dl
+  watch
   zsh
 
   # Backup
