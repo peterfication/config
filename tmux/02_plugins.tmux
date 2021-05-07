@@ -5,6 +5,8 @@ set -g @plugin 'tmux-plugins/tmux-urlview'
 # Select console output line with CTRL+b + TAB
 set -g @plugin 'laktak/extrakto'
 
+# https://github.com/sainnhe/tmux-fzf
+# CTRL+b + SHIFT+f
 set -g @plugin 'sainnhe/tmux-fzf'
 
 # Check out:

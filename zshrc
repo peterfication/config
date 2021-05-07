@@ -17,7 +17,7 @@ source ~/config/zsh/09_other.zsh
 source ~/config/zsh/10_gpg.zsh
 
 # source ~/config/zsh/70_gcloud.zsh
-# source ~/config/zsh/71_aws.zsh
+source ~/config/zsh/71_aws.zsh
 # source ~/config/zsh/72_k8s.zsh
 source ~/config/zsh/73_terraform.zsh
 
