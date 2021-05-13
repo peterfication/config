@@ -40,6 +40,7 @@ brew_tools=(
 
   # Programming/infrastructure languages
   kubectl
+  k9s
   terraform
   terraform-docs
   fluxcd/tap/flux
