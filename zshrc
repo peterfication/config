@@ -20,6 +20,7 @@ source ~/config/zsh/10_gpg.zsh
 source ~/config/zsh/71_aws.zsh
 # source ~/config/zsh/72_k8s.zsh
 source ~/config/zsh/73_terraform.zsh
+source ~/config/zsh/74_flux.zsh
 
 source ~/config/zsh/80_node.zsh
 # source ~/config/zsh/81_ruby.zsh
