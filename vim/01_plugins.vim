@@ -58,7 +58,8 @@ Plug 'prettier/vim-prettier', {
     \ 'scss',
     \ 'json',
     \ 'graphql',
-    \ 'ruby'
+    \ 'ruby',
+    \ 'markdown'
   \ ]
 \ }
 
