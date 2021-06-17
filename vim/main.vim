@@ -7,6 +7,8 @@ let mapleader=" "
 " Enable filetype plugins
 filetype plugin indent on
 
+packadd matchit
+
 source $HOME/config/vim/01_plugins.vim
 source $HOME/config/vim/02_general.vim
 source $HOME/config/vim/03_mappings.vim

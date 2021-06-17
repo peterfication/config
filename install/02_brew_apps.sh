@@ -21,6 +21,8 @@ brew_apps=(
   vlc
   zoom
 
+  oracle-jdk
+
   # Design tools
   # sketch
   # affinity-designer-beta

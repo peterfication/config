@@ -40,7 +40,8 @@ let g:coc_global_extensions = [
   \ 'coc-solargraph',
   \ 'coc-spell-checker',
   \ 'coc-cspell-dicts',
-  \ 'coc-emoji'
+  \ 'coc-emoji',
+  \ 'coc-xml'
 \ ]
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 " See https://github.com/neoclide/coc.nvim/issues/39
@@ -59,6 +60,7 @@ Plug 'prettier/vim-prettier', {
     \ 'json',
     \ 'graphql',
     \ 'ruby',
+    \ 'xml',
     \ 'markdown'
   \ ]
 \ }
