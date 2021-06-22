@@ -22,6 +22,7 @@ zplug "g-plane/icd"
 
 zplug "plugins/fzf", from:oh-my-zsh
 zplug "Aloxaf/fzf-tab"
+zplug "plugins/zoxide", from:oh-my-zsh
 # zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
 # Might be interesting: https://github.com/Tarrasch/zsh-autoenv
