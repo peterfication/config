@@ -56,6 +56,8 @@ brew_tools=(
   gh
   git-crypt
   git-extras
+  jesseduffield/lazygit/lazygit
+  jesseduffield/lazydocker/lazydocker
   jq
   neovim
   tmux

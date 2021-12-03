@@ -24,6 +24,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
+Plug 'kdheepak/lazygit.nvim'
 " Plug 'jreybert/vimagit'
 
 " Language server integration
