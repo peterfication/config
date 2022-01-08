@@ -56,6 +56,7 @@ brew_tools=(
   gh
   git-crypt
   git-extras
+  hammerspoon
   jesseduffield/lazygit/lazygit
   jesseduffield/lazydocker/lazydocker
   jq
