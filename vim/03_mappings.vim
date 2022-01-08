@@ -8,6 +8,8 @@ nnoremap k gk
 " Bugger navigation
 " Go back to last buffer
 nnoremap <Leader>b :b#<CR>
+" Open new empty buffer
+nnoremap <Leader>B :enew<CR>
 " Cycle through open buffers and close them
 nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
