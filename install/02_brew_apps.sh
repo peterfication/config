@@ -12,6 +12,7 @@ brew_apps=(
   iterm2
   keepingyouawake
   tableplus
+  obsidian # and https://syncthing.net/
   postman
   spotify
   # https://github.com/exelban/stats
