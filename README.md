@@ -51,3 +51,4 @@ cd config
 ### TODO
 
 - iTerm config
+- https://github.com/yutkat/dotfiles
