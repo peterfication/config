@@ -28,4 +28,10 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
 end)
 
 -- # TODO
+-- https://www.hammerspoon.org/Spoons/Commander.html
+-- https://www.hammerspoon.org/Spoons/DeepLTranslate.html
+-- https://www.hammerspoon.org/Spoons/Emojis.html
+-- https://www.hammerspoon.org/Spoons/MiroWindowsManager.html
+-- https://www.hammerspoon.org/Spoons/Shade.html
+-- https://github.com/ashfinal/awesome-hammerspoon
 -- https://zzamboni.org/post/my-hammerspoon-configuration-with-commentary/
