@@ -13,6 +13,7 @@
 
 [commit]
   gpgsign = true
+  verbose = true
 
 [interactive]
   diffFilter = delta --color-only
