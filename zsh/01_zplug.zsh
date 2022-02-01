@@ -31,6 +31,7 @@ zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/git-extras", from:oh-my-zsh
 # Needs brew install git-extras
 zplug "bigH/git-fuzzy", as:command, use:"bin/git-fuzzy"
+zplug "wfxr/forgit"
 # zplug "plugins/rvm", from:oh-my-zsh
 # zplug "plugins/bundler", from:oh-my-zsh
 # zplug "plugins/gem", from:oh-my-zsh

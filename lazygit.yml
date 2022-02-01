@@ -1,0 +1,8 @@
+# In order to initially set up the config file, symlink this config
+# sudo ln -s ~/config/lazygit.yml $HOME/Library/ApplicationSupport/lazygit/config.yml
+customCommands:
+  - key: '<c-f>'
+    command: 'source $HOME/.zplug/repos/wfxr/forgit/forgit.plugin.zsh && forgit::log'
+    description: 'Fuzzy find a commit'
+    context: 'global'
+    subprocess: true
