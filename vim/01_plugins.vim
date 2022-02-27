@@ -1,6 +1,8 @@
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'tpope/vim-sensible'
+
 " Load the base16 colorschemes
 Plug 'chriskempson/base16-vim'
 

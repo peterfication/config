@@ -9,6 +9,10 @@ filetype plugin indent on
 
 packadd matchit
 
+" Get back old Y behavior
+" https://www.reddit.com/r/neovim/comments/petq61/neovim_060_y_not_yanking_line_but_to_end_of_line/
+nnoremap Y Y
+
 source $HOME/config/vim/01_plugins.vim
 source $HOME/config/vim/02_general.vim
 source $HOME/config/vim/03_mappings.vim
