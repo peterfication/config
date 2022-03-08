@@ -65,6 +65,7 @@ brew_tools=(
   urlview # For tmux URLs selection
   youtube-dl
   watch
+  zbar
   zsh
 
   # Backup
