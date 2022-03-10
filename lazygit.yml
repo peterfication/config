@@ -6,3 +6,15 @@ customCommands:
     description: 'Fuzzy find a commit'
     context: 'global'
     subprocess: true
+  - key: '<c-x>'
+    command: "f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout main; git pull; git branch -d $CURRENT; }; if [[ {{index .PromptResponses 0}} = 'Yes' ]]; then f; else echo Canceled; fi"
+    description: 'Pull main and delete current branch (after the PR got merged)'
+    context: 'localBranches'
+    stream: true
+    loadingText: 'Pulling latest main and deleting ...'
+    prompts:
+      - type: 'menu'
+        title: 'Are you sure you want to delete the current branch?'
+        options:
+          - value: 'Yes'
+          - value: 'No'
