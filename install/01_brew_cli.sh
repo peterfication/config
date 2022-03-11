@@ -64,6 +64,7 @@ brew_tools=(
   tmux
   urlview # For tmux URLs selection
   youtube-dl
+  yt-dlp
   watch
   zbar
   zsh
