@@ -149,3 +149,4 @@ source ~/config/vim/01_plugins_03_coc.vim
 source ~/config/vim/01_plugins_04_snippets.vim
 source ~/config/vim/01_plugins_05_tags.vim
 source ~/config/vim/01_plugins_06_statusline.vim
+source ~/config/vim/01_plugins_07_lazygit.vim
