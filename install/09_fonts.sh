@@ -18,3 +18,5 @@ else
   cd ..
   rm -rf fonts
 fi
+
+# TODO https://www.nerdfonts.com/font-downloads => FiraMono Nerd Font

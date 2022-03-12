@@ -141,6 +141,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " For tmux styles generation
 " Plug 'edkolev/tmuxline.vim'
 
+Plug 'ryanoasis/vim-devicons'
+
 call plug#end()
 
 source ~/config/vim/01_plugins_01_nerdtree.vim

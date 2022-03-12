@@ -43,7 +43,7 @@ cd config
 - Change left alt key to `Esc+` in `iTerm2 settings > Profiles > Keys > Right option key`
 - Clone base16 theme `git clone https://github.com/martinlindhe/base16-iterm2.git ~/.config/base16-shell`
 - Set up iTerm2 with a base16 color scheme from https://github.com/martinlindhe/base16-iterm2
-- Change font to Powerline font "Fira Mono" in iTerm2
+- Change font to NerdFont font "Fira Mono NerdFont" in iTerm2
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
 - Install [Postgres.app](https://postgresapp.com/)
 - Set up [Leo searches](alfred/leo-searches.md) in Alfred
