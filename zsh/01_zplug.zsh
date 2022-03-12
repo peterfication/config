@@ -11,6 +11,7 @@ source ~/.zplug/init.zsh
 # https://github.com/unixorn/awesome-zsh-plugins#plugins
 
 zplug "jeffreytse/zsh-vi-mode"
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
 zplug "plugins/copypath", from:oh-my-zsh
 zplug "plugins/copyfile", from:oh-my-zsh
