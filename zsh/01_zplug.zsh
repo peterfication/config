@@ -10,7 +10,9 @@ source ~/.zplug/init.zsh
 # More plugins:
 # https://github.com/unixorn/awesome-zsh-plugins#plugins
 
-zplug "plugins/copydir", from:oh-my-zsh
+zplug "jeffreytse/zsh-vi-mode"
+
+zplug "plugins/copypath", from:oh-my-zsh
 zplug "plugins/copyfile", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
 # man-preview
@@ -22,6 +24,15 @@ zplug "g-plane/icd"
 
 zplug "plugins/fzf", from:oh-my-zsh
 zplug "Aloxaf/fzf-tab"
+zplug "u1and0/fzf-extras",\
+    use:"fzf*",\
+    defer:2,\
+    hook-load:"""
+        alias gz='fzf-gitlog-widget'
+        alias gx='fzf-gitlog-multi-widget'
+        alias zz='zd -z'
+    """
+
 zplug "plugins/zoxide", from:oh-my-zsh
 # zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh

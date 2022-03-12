@@ -6,6 +6,7 @@
 # A list of abailable colors can be obtained by the command
 #   spectrum_ls
 YELLOW_LIGHT=228
+TURQUOISE=050
 
 # vim:ft=zsh ts=2 sw=2 sts=2
 #
@@ -251,6 +252,19 @@ prompt_aws() {
   esac
 }
 
+# ZVM (vi mode) status
+echo -ne '\e[5 q' # TODO Fix the cursor :/
+prompt_zvm() {
+  # For Nerd Font hex values, see https://www.nerdfonts.com/cheat-sheet
+  if [[ $ZVM_MODE  == 'n' ]]; then
+    prompt_segment $YELLOW_LIGHT black "\ue62b"
+    echo -ne '\e[2 q' # TODO Fix the cursor :/
+  else
+    echo -ne '\e[6 q' # TODO Fix the cursor :/
+    prompt_segment $TURQUOISE black "\ue796"
+  fi
+}
+
 prompt_time() {
   echo -n "%{%F{$YELLOW_LIGHT}%}"
   echo -n "\ue0b2"
@@ -270,6 +284,7 @@ build_prompt() {
   prompt_git
   prompt_bzr
   prompt_hg
+  prompt_zvm
   prompt_end
 }
 
