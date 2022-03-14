@@ -30,8 +30,42 @@ nnoremap <Leader>HC :History:<CR>
 nnoremap <Leader>HS :History/<CR>
 
 " Git commits
-nnoremap <Leader>g :Commits<CR>
-nnoremap <Leader>G :BCommits<CR>
+" nnoremap <Leader>g :Commits<CR>
+" nnoremap <Leader>G :BCommits<CR>
+nnoremap <silent> <leader>GG :GFiles?<CR>
+nnoremap <silent> <leader>gh :GitGutterQuickFix<CR>:FzfQFEdit<CR>
+nnoremap <silent> <leader>GH :GitGutterQuickFixCurrentFile<CR>:FzfQFEdit<CR>
+nmap gn <Plug>(GitGutterNextHunk)
+nmap gp <Plug>(GitGutterPrevHunk)
 
 " Snippets
 nnoremap <Leader>s :Snippets<CR>
+
+" From https://gist.github.com/davidmh/f35fba1f9cde176d1ec9b4919769653a
+function! s:format_qf_line(line)
+  let parts = split(a:line, ':')
+  return { 'filename': parts[0]
+         \,'lnum': parts[1]
+         \,'col': parts[2]
+         \,'text': join(parts[3:], ':')
+         \ }
+endfunction
+
+function! s:qf_to_fzf(key, line) abort
+  let l:filepath = expand('#' . a:line.bufnr . ':p')
+  return l:filepath . ':' . a:line.lnum . ':' . a:line.col . ':' . a:line.text
+endfunction
+
+function! s:fzf_to_edit(filtered_list) abort
+  let list = map(a:filtered_list, 's:format_qf_line(v:val)')
+  if len(list) > 0
+    execute "e +" . list[0].lnum . " " . list[0].filename
+  endif
+endfunction
+
+command! FzfQFEdit call fzf#run({
+      \ 'source': map(getqflist(), function('<sid>qf_to_fzf')),
+      \ 'sink*':   function('<sid>fzf_to_edit'),
+      \ 'window': {'width': 0.9, 'height': 0.6},
+      \ 'options': '--reverse --multi --prompt "Git hunks > "',
+      \ })
