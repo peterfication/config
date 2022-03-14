@@ -67,5 +67,5 @@ command! FzfQFEdit call fzf#run({
       \ 'source': map(getqflist(), function('<sid>qf_to_fzf')),
       \ 'sink*':   function('<sid>fzf_to_edit'),
       \ 'window': {'width': 0.9, 'height': 0.6},
-      \ 'options': '--reverse --multi --prompt "Git hunks > "',
+      \ 'options': ['--preview', '~/config/zsh/fzf/preview.sh {}', '--reverse', '--multi', '--prompt', 'Git hunks>'],
       \ })
