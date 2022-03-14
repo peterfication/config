@@ -43,6 +43,7 @@ brew_tools=(
   k9s
   terraform
   terraform-docs
+  terraform-ls # Terraform language server
   fluxcd/tap/flux
   weaveworks/tap/eksctl
   aws-iam-authenticator
