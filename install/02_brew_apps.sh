@@ -9,6 +9,7 @@ brew_apps=(
   flycut
   chromium
   chrome
+  eqmac
   iterm2
   keepingyouawake
   tableplus
