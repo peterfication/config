@@ -21,6 +21,7 @@ brew_apps=(
   veracrypt
   visual-studio-code
   vlc
+  xbar
   zoom
 
   oracle-jdk
