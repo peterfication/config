@@ -44,7 +44,8 @@ let g:coc_global_extensions = [
   \ 'coc-spell-checker',
   \ 'coc-cspell-dicts',
   \ 'coc-emoji',
-  \ 'coc-xml'
+  \ 'coc-xml',
+  \ 'coc-yaml'
 \ ]
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 " See https://github.com/neoclide/coc.nvim/issues/39

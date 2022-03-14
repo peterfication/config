@@ -10,5 +10,6 @@
                         "initializationOptions": {},
                         "settings": {}
                 }
-        }
+        },
+        "yaml.schemas": {}
 }
