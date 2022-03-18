@@ -41,13 +41,14 @@ brew_tools=(
   # Programming/infrastructure languages
   kubectl
   k9s
+  derailed/popeye/popeye
+  kubeseal
   terraform
   terraform-docs
   terraform-ls # Terraform language server
   fluxcd/tap/flux
   weaveworks/tap/eksctl
   aws-iam-authenticator
-  kubeseal
   python
   # https://github.com/wagoodman/dive
   dive
