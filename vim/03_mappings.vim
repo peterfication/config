@@ -5,7 +5,7 @@ nnoremap <Leader>ü :source ~/config/vim/main.vim<CR>
 nnoremap j gj
 nnoremap k gk
 
-" Bugger navigation
+" Buffer navigation
 " Go back to last buffer
 nnoremap <Leader>b :b#<CR>
 " Open new empty buffer
@@ -15,6 +15,13 @@ nnoremap <C-K> :bnext<CR>
 nnoremap <C-J> :bprevious<CR>
 " Close current buffer
 nnoremap <C-C> :bd<CR>
+
+" Tab navigation
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
 
 :command! CloseAllBuffers bufdo! bd
 
