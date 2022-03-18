@@ -29,6 +29,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'kdheepak/lazygit.nvim'
 " Plug 'jreybert/vimagit'
 
+" Smart motions with s
+" Plug 'justinmk/vim-sneak'
+Plug 'ggandor/lightspeed.nvim'
+
 " Language server integration
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
 " coc-spell-checker:
@@ -131,9 +135,6 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " Run commands asynchronously
 " Plug 'benekastah/neomake'
-
-" Smart motions with s
-" Plug 'justinmk/vim-sneak'
 
 " Plug 'mbbill/undotree'
 " if has("persistent_undo")
