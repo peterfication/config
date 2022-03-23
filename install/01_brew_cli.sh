@@ -34,6 +34,7 @@ brew_tools=(
   fd # find replacement
   git-delta # Git pager
   ripgrep # grep replacement, same as rga
+  watchexec
   # loc # cloc replacement
   # hyperfine
   zoxide
