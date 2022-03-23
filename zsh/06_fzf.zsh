@@ -30,3 +30,5 @@ find-command() {
   local command=$(compgen -c | eval "fzf ${FZF_DEFAULT_OPTS} --header='[find:command]'")
   LBUFFER="${command} "
 }
+
+alias fzrepl="~/config/zsh/fzf/fzrepl.sh"
