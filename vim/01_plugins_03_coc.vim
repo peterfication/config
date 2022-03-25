@@ -57,3 +57,13 @@ vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>iw :CocCommand cSpell.addIgnoreWordToUser <C-R><C-W>
 vmap <leader>iw :CocCommand cSpell.addIgnoreWordToUser <C-R><C-W>
+
+function! CocToggle()
+    if g:coc_enabled
+        CocDisable
+    else
+        CocEnable
+    endif
+endfunction
+command! CocToggle :call CocToggle()
+nnoremap <silent> <space>CT :CocToggle<CR>
