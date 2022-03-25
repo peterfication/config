@@ -30,7 +30,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'airblade/vim-gitgutter'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'sindrets/diffview.nvim'
 " Plug 'jreybert/vimagit'
+" Plug 'TimUntersberger/neogit'
 
 " Smart motions with s
 " Plug 'justinmk/vim-sneak'
