@@ -28,16 +28,6 @@ nnoremap <leader>5 5gt
 " Save current buffer
 nnoremap <Leader>w :w<CR>
 
-" Quicklist
-" Cycle through the quicklist
-noremap <A-j> :cnext<CR>
-noremap <A-k> :cprevious<CR>
-
-" Location list
-" Cycle through the location list
-noremap <A-J> :lnext<CR>
-noremap <A-K> :lprevious<CR>
-
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.

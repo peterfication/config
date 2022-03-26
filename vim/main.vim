@@ -17,6 +17,7 @@ source $HOME/config/vim/01_plugins.vim
 source $HOME/config/vim/02_general.vim
 source $HOME/config/vim/03_mappings.vim
 source $HOME/config/vim/04_filetypes.vim
+source $HOME/config/vim/05_quickfix.vim
 
 " Check out:
 " - https://github.com/amix/vimrc

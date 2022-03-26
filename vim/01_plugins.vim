@@ -10,6 +10,8 @@ Plug 'RRethy/vim-illuminate'
 " Respect the .editorconfig files
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " File tree plugin
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -32,6 +34,8 @@ Plug 'mg979/vim-visual-multi'
 " Plug 'gennaro-tedesco/nvim-peekup'
 " Plug 'tversteeg/registers.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
+Plug 'milkypostman/vim-togglelist'
+Plug 'kevinhwang91/nvim-bqf'
 
 " Git
 Plug 'tpope/vim-fugitive'

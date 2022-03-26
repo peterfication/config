@@ -10,5 +10,4 @@ require('neoclip').setup({
 EOF
 
 nnoremap <silent> <leader><space> :Telescope builtin<CR>
-nnoremap <silent> <leader>q :Telescope quickfix<CR>
 nnoremap <silent> <leader>p :Telescope neoclip<CR>
