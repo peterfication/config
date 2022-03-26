@@ -1,4 +1,4 @@
-" Share the sytem clipboard
+" Share the system clipboard
 set clipboard=unnamed
 
 " Set colors
@@ -48,11 +48,10 @@ else
   set signcolumn=yes
 endif
 
-
-set listchars=tab:▸\ ,trail:¤,nbsp:·,extends:>,precedes:<,space:·
+set list
+set listchars=tab:▸\ ,trail:¤,nbsp:·,extends:>,precedes:<,space:·,eol:⏎
 set splitright
 set splitbelow
 
 " Remove trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
-
