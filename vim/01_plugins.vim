@@ -5,6 +5,7 @@ Plug 'tpope/vim-sensible'
 
 " Load the base16 colorschemes
 Plug 'chriskempson/base16-vim'
+Plug 'RRethy/vim-illuminate'
 
 " Respect the .editorconfig files
 Plug 'editorconfig/editorconfig-vim'
