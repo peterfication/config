@@ -16,6 +16,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'petertriho/nvim-scrollbar'
+
+Plug 'dhruvasagar/vim-zoom'
 
 " Statusline
 Plug 'vim-airline/vim-airline'

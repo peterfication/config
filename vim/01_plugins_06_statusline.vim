@@ -18,3 +18,7 @@ require("bufferline").setup{
   }
 }
 EOF
+
+lua << EOF
+require("scrollbar").setup()
+EOF
