@@ -56,6 +56,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-css',
+  \ 'coc-go',
   \ 'coc-graphql',
   \ 'coc-solargraph',
   \ 'coc-spell-checker',
