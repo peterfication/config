@@ -13,6 +13,7 @@ Plug 'editorconfig/editorconfig-vim'
 " File tree plugin
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'kyazdani42/nvim-tree.lua'
 
 " Statusline
 Plug 'vim-airline/vim-airline'
@@ -173,6 +174,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " Plug 'edkolev/tmuxline.vim'
 
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
