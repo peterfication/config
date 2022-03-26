@@ -25,6 +25,11 @@ Plug 'junegunn/fzf.vim'
 " Multi cursor
 Plug 'mg979/vim-visual-multi'
 
+" Register view
+" Plug 'gennaro-tedesco/nvim-peekup'
+" Plug 'tversteeg/registers.nvim'
+Plug 'AckslD/nvim-neoclip.lua'
+
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -139,6 +144,16 @@ Plug 'jiangmiao/auto-pairs'
 " Plug 'vim-pandoc/vim-pandoc'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
+" Telescope
+" [Why Telescope?](https://www.youtube.com/watch?v=8SqFt5h2Lsg)
+" [Vim Telescope: The Ultimate Fuzzy Finder](https://www.youtube.com/watch?v=2tO2sT7xX2k)
+" Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" https://github.com/sudormrfbin/cheatsheet.nvim
+
+" https://github.com/ibhagwan/fzf-lua
+
 " Run commands asynchronously
 " Plug 'benekastah/neomake'
 
@@ -165,3 +180,4 @@ source ~/config/vim/01_plugins_04_snippets.vim
 source ~/config/vim/01_plugins_05_tags.vim
 source ~/config/vim/01_plugins_06_statusline.vim
 source ~/config/vim/01_plugins_07_lazygit.vim
+source ~/config/vim/01_plugins_08_telescope.vim
