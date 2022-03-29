@@ -125,6 +125,7 @@ Plug 'sheerun/vim-polyglot'
 " TODO Add test support
 " Plug 'vim-test/vim-test'
 
+Plug 'fatih/vim-go'
 " Plug 'jparise/vim-graphql'
 " Plug 'plasticboy/vim-markdown'
 " Plug 'pangloss/vim-javascript'

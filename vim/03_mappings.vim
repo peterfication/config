@@ -45,3 +45,8 @@ endfunction
 " Github
 :command! GithubRepoViewWeb !gh repo view --web
 :command! GithubPrView !gh pr view
+
+" Testing
+nnoremap <Leader>rg :GoTest<CR>
+let g:go_term_enabled = 1
+  let g:go_term_reuse = 1

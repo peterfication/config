@@ -1,4 +1,5 @@
 {
+        "coc.preferences.formatOnSaveFiletypes": ["go"],
         "cSpellExt.enableDictionaries": ["german"],
         "cSpell.language": "en,de",
         "cSpell.ignoreRegExpList": ["/Plug '.*'/"],
@@ -9,6 +10,11 @@
                         "filetypes": ["terraform", "tf"],
                         "initializationOptions": {},
                         "settings": {}
+                },
+                "golang": {
+                        "command": "~/.config/coc/extensions/coc-go-data/bin/gopls",
+                        "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+                        "filetypes": ["go"]
                 }
         },
         "yaml.schemas": {}
