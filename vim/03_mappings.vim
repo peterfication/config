@@ -50,3 +50,6 @@ endfunction
 nnoremap <Leader>rg :GoTest<CR>
 let g:go_term_enabled = 1
   let g:go_term_reuse = 1
+
+" For https://exercism.org/
+:command! ExercismSubmit !exercism submit %
