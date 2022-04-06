@@ -24,6 +24,7 @@ nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
 
 :command! CloseAllBuffers bufdo! bd
+:command! CloseAllBuffersExceptCurrent %bd|e#
 
 " Save current buffer
 nnoremap <Leader>w :w<CR>
