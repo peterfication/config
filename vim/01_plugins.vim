@@ -64,7 +64,6 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-html',
   \ 'coc-css',
-  \ 'coc-go',
   \ 'coc-graphql',
   \ 'coc-solargraph',
   \ 'coc-spell-checker',
@@ -73,6 +72,7 @@ let g:coc_global_extensions = [
   \ 'coc-xml',
   \ 'coc-yaml'
 \ ]
+
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 " See https://github.com/neoclide/coc.nvim/issues/39
