@@ -5,7 +5,7 @@
 
 [core]
   excludesfile = ~/config/gitignore_global
-  editor = vim
+  editor = nvim
   pager = delta
 
 [init]
