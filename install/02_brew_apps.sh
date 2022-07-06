@@ -40,3 +40,5 @@ brew_apps_string=${brew_apps_string:1}
 
 echo "brew install --cask $brew_apps_string"
 brew install $brew_apps_string
+
+brew tap buo/cask-upgrade
