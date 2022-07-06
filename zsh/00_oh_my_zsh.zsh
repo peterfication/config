@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH=~/.oh-my-zsh
+# export ZSH=~/.oh-my-zsh
+export ZSH=~/.zplug/repos/robbyrussell/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
