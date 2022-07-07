@@ -48,6 +48,7 @@ cd config
 - Remove/add some keyboard shortcuts (F11, F12, CMD+^)
 - Install [Postgres.app](https://postgresapp.com/)
 - Set up [Leo searches](alfred/leo-searches.md) in Alfred
+- Add Quartz filter in ColorSync Utility for reducing the file size with "Colour Image Sampling" (Quality high, constrain size to 128-1200)
 
 ### TODO
 
