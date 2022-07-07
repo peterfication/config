@@ -4,7 +4,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Load the base16 colorschemes
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'base16-project/base16-vim'
 Plug 'RRethy/vim-illuminate'
 
 " Respect the .editorconfig files

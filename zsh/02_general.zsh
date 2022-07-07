@@ -9,3 +9,14 @@ alias e="vim"
 alias vim=nvim
 
 setopt shwordsplit
+#
+# if type brew &>/dev/null; then
+#   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+#
+#   autoload -Uz compinit
+#   compinit
+#   autoload -U +X bashcompinit && bashcompinit
+# fi
+
+
+#  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
