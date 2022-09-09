@@ -39,6 +39,7 @@ Plug 'mg979/vim-visual-multi'
 " Plug 'tversteeg/registers.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'milkypostman/vim-togglelist'
+" Better Quickfix
 Plug 'kevinhwang91/nvim-bqf'
 
 " Git
