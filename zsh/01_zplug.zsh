@@ -37,6 +37,7 @@ zplug "u1and0/fzf-extras",\
         alias zz='zd -z'
     """
 
+zplug "plugins/direnv", from:oh-my-zsh
 zplug "plugins/zoxide", from:oh-my-zsh
 # zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh

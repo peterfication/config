@@ -24,6 +24,7 @@ brew_tools=(
   # GPG
   gpg
   pinentry-mac
+  direnv
 
   # PDFs
   pandoc
