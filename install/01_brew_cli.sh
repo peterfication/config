@@ -46,9 +46,10 @@ brew_tools=(
   k9s
   derailed/popeye/popeye
   kubeseal
-  terraform
+  # terraform => use tfenv instead
   terraform-docs
   terraform-ls # Terraform language server
+  tfenv
   fluxcd/tap/flux
   weaveworks/tap/eksctl
   aws-iam-authenticator
