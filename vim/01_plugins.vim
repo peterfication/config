@@ -197,3 +197,4 @@ source ~/config/vim/01_plugins_05_tags.vim
 source ~/config/vim/01_plugins_06_statusline.vim
 source ~/config/vim/01_plugins_07_lazygit.vim
 source ~/config/vim/01_plugins_08_telescope.vim
+source ~/config/vim/01_plugins_10_prettier.vim
