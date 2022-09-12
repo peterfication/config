@@ -23,6 +23,9 @@ nnoremap <leader>3 3gt
 nnoremap <leader>4 4gt
 nnoremap <leader>5 5gt
 
+" Open current file in new tab
+nnoremap <leader>k :tabnew %<CR>
+
 :command! CloseAllBuffers bufdo! bd
 :command! CloseAllBuffersExceptCurrent %bd|e#
 
