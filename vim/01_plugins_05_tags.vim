@@ -1,5 +1,5 @@
 " # Tagbar
-nnoremap <Leader>z :TagbarToggle<CR>
+nnoremap <Leader>zz :TagbarToggle<CR>
 
 " # Gutentags
 " Tips from

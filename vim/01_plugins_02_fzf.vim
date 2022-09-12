@@ -2,9 +2,10 @@
 " Use ripgrep for search
 " You need to install `$ brew install rigrep` for that
 let $FZF_DEFAULT_COMMAND='rg --files'
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
 " Open files
-nnoremap <Leader>e :FZF<CR>
+nnoremap <Leader>e :Files<CR>
 nnoremap <Leader>E :Buffers<CR>
 
 " Go to line
@@ -16,8 +17,8 @@ nnoremap <Leader>m :Marks<CR>
 " Search all commands
 nnoremap <Leader>c :Commands<CR>
 " Search tags
-nnoremap <Leader>t :Tags<CR>
-nnoremap <Leader>T :BTags<CR>
+nnoremap <Leader>zf :Tags<CR>
+nnoremap <Leader>zF :BTags<CR>
 
 " Search
 nnoremap <Leader>f :Rg<CR>
@@ -82,7 +83,7 @@ function! s:delete_buffers(lines)
   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
-command! BD call fzf#run(fzf#wrap({
+command! BufferDelete call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
