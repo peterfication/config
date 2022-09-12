@@ -20,3 +20,8 @@ setopt shwordsplit
 
 
 #  [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+# See https://wilsonmar.github.io/maximum-limits/
+# To me a problem occurred with Capybara and Webmock displaying the following message:
+#   Failed to open TCP connection to 127.0.0.1:9515 (Too many open files - socket(2) for "127.0.0.1" port 9515
+ulimit -n 8192
