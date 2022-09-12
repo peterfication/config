@@ -13,4 +13,8 @@
                 }
         },
         "yaml.schemas": {}
+        "yaml.schemas": {},
+        "yaml": {
+                "editor.tabSize": 2
+        }
 }
