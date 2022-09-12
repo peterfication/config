@@ -51,6 +51,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'sindrets/diffview.nvim'
 " Plug 'jreybert/vimagit'
 " Plug 'TimUntersberger/neogit'
+Plug 'APZelos/blamer.nvim'
 
 " Smart motions with s
 " Plug 'justinmk/vim-sneak'

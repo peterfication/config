@@ -28,3 +28,5 @@ EOF
 
 nnoremap <Leader>hb :TermExec cmd="tig blame %; exit" direction=float<CR>
 nnoremap <Leader>hh :TermExec cmd="tig %; exit" direction=float<CR>
+
+nnoremap <Leader>gb :BlamerToggle<CR>
