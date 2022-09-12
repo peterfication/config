@@ -15,3 +15,6 @@ snotes() {
 
 # Restart the camera on a Mac when it fails
 alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssistant'
+
+# Clear the current shell, not only scroll down like clear does
+alias clear-real="clear && printf '\e[3J'"
