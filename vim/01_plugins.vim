@@ -53,15 +53,19 @@ Plug 'sindrets/diffview.nvim'
 " Plug 'TimUntersberger/neogit'
 Plug 'APZelos/blamer.nvim'
 
+" Better terminals in Neovim
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+
 " Smart motions with s
 " Plug 'justinmk/vim-sneak'
 Plug 'ggandor/lightspeed.nvim'
 
 " Language server integration
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81', 'do': { -> coc#util#install()}}
 " coc-spell-checker:
 " - https://github.com/iamcco/coc-spell-checker#add-on-dictionaries
 let g:coc_global_extensions = [
+  \ 'coc-snippets',
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-json',
@@ -93,11 +97,11 @@ Plug 'prettier/vim-prettier', {
     \ 'scss',
     \ 'json',
     \ 'graphql',
-    \ 'ruby',
     \ 'xml',
     \ 'markdown'
   \ ]
 \ }
+" \ 'ruby',
 
 " Snippets
 " Snippet engine
@@ -124,9 +128,10 @@ Plug 'godlygeek/tabular'
 
 " Language plugins
 Plug 'sheerun/vim-polyglot'
-
-" TODO Add test support
-" Plug 'vim-test/vim-test'
+Plug 'klimeryk/vim-monkey-c'
+Plug 'vim-test/vim-test'
+" Plug 'tpope/vim-dispatch'
+Plug 'preservim/vimux'
 
 Plug 'fatih/vim-go'
 " Plug 'jparise/vim-graphql'
@@ -136,6 +141,7 @@ Plug 'fatih/vim-go'
 " Plug 'mxw/vim-jsx'
 " Plug 'ianks/vim-tsx'
 " Plug 'vim-ruby/vim-ruby'
+" Plug 'thoughtbot/vim-rspec'
 " Plug 'tpope/vim-haml'
 " Plug 'stephpy/vim-yaml'
 " Plug 'rust-lang/rust.vim'
@@ -171,6 +177,7 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " Run commands asynchronously
 " Plug 'benekastah/neomake'
+" Plug 'dense-analysis/ale'
 
 " Plug 'mbbill/undotree'
 " if has("persistent_undo")
@@ -197,4 +204,5 @@ source ~/config/vim/01_plugins_05_tags.vim
 source ~/config/vim/01_plugins_06_statusline.vim
 source ~/config/vim/01_plugins_07_lazygit.vim
 source ~/config/vim/01_plugins_08_telescope.vim
+source ~/config/vim/01_plugins_09_tests.vim
 source ~/config/vim/01_plugins_10_prettier.vim
