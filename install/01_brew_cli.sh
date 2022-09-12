@@ -20,6 +20,7 @@ brew_tools=(
   less
   tree
   htop
+  mosh
 
   # GPG
   gpg

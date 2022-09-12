@@ -30,7 +30,7 @@ brew_apps=(
   # sketch
   # affinity-designer-beta
 
-  # Backup
+  # Other
   # docker
   # postgres
 )
