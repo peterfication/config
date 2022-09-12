@@ -1,5 +1,5 @@
 {
-        "coc.preferences.formatOnSaveFiletypes": ["go"],
+        "coc.preferences.formatOnSaveFiletypes": ["go", "ruby"],
         "cSpellExt.enableDictionaries": ["german"],
         "cSpell.language": "en,de",
         "cSpell.ignoreRegExpList": ["/Plug '.*'/"],
@@ -12,7 +12,10 @@
                         "settings": {}
                 }
         },
-        "yaml.schemas": {}
+        "solargraph.diagnostics": true,
+        "solargraph.autoformat": false,
+        "solargraph.formatting": false,
+        "solargraph.hover": true,
         "yaml.schemas": {},
         "yaml": {
                 "editor.tabSize": 2
