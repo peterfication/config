@@ -101,3 +101,6 @@ brew_tools_string=${brew_tools_string:1}
 
 echo "brew install $brew_tools_string"
 brew install $brew_tools_string
+
+# TODO
+# https://github.com/xo/usql
