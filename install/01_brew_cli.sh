@@ -77,7 +77,9 @@ brew_tools=(
   zbar
   zsh
 
-  # Backup
+  # Audio tools
+  xld
+
   # Other
   # chunkwm
   # ctags
