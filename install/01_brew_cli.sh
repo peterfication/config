@@ -13,6 +13,7 @@ brew_tools=(
   # Update standard CLI tools
   bash
   git
+  tig
   curl
   grep
   rclone

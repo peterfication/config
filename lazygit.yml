@@ -1,20 +1,92 @@
+# See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 # In order to initially set up the config file, symlink this config
 # sudo ln -s ~/config/lazygit.yml $HOME/Library/ApplicationSupport/lazygit/config.yml
+# ln -s ~/config/lazygit.yml $HOME/.config/lazygit/config.yml
+
+git:
+  paging:
+    colorArg: always
+    pager: delta -s --dark --paging=never --24-bit-color=never
+
+os:
+  editCommand: nvim
+
+keybinding:
+  universal:
+    nextTab: "<c-n>"
+  files:
+    openStatusFilter: "<c-p>"
+
 customCommands:
-  - key: '<c-f>'
-    command: 'source $HOME/.zplug/repos/wfxr/forgit/forgit.plugin.zsh && forgit::log'
-    description: 'Fuzzy find a commit'
-    context: 'global'
+  - key: "<c-f>"
+    command: "source $HOME/.zplug/repos/wfxr/forgit/forgit.plugin.zsh && forgit::log"
+    description: "Fuzzy find a commit"
+    context: "global"
     subprocess: true
-  - key: '<c-x>'
+  - key: "<c-x>"
     command: "f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout main; git pull; git branch -d $CURRENT; }; if [[ {{index .PromptResponses 0}} = 'Yes' ]]; then f; else echo Canceled; fi"
-    description: 'Pull main and delete current branch (after the PR got merged)'
-    context: 'localBranches'
+    description: "Pull main and delete current branch (after the PR got merged)"
+    context: "localBranches"
     stream: true
-    loadingText: 'Pulling latest main and deleting ...'
+    loadingText: "Pulling latest main and deleting ..."
     prompts:
-      - type: 'menu'
-        title: 'Are you sure you want to delete the current branch?'
+      - type: "menu"
+        title: "Are you sure you want to delete the current branch?"
         options:
-          - value: 'Yes'
-          - value: 'No'
+          - value: "Yes"
+          - value: "No"
+  - key: "<c-f>"
+    description: "fetch a remote branch as a new local branch"
+    command: "git fetch {{index .SelectedRemote.Name }} {{index .PromptResponses 0}}:{{index .PromptResponses 1}}"
+    context: "remotes"
+    prompts:
+      - type: "input"
+        title: "Remote Branch Name"
+        initialValue: ""
+      - type: "input"
+        title: "New Local Branch Name"
+        initialValue: ""
+    loadingText: "fetching branch"
+    # Blame via tig
+  - key: b
+    command: tig blame -- {{.SelectedFile.Name}}
+    context: files
+    description: blame file at tree
+    subprocess: yes
+  - key: b
+    command: tig blame {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: blame file at revision
+    subprocess: yes
+  - key: B
+    command: tig blame -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: blame file at tree
+    subprocess: yes
+  # File history via tig
+  - key: t
+    command: tig {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
+    context: commitFiles
+    description: tig file (history of commits affecting file)
+    subprocess: yes
+  - key: t
+    command: tig -- {{.SelectedFile.Name}}
+    context: files
+    description: tig file (history of commits affecting file)
+    subprocess: yes
+  # Browse files at revision via tig
+  - key: t
+    command: tig show {{.SelectedSubCommit.Sha}}
+    context: subCommits
+    description: tig commit (`t` again to browse files at revision)
+    subprocess: yes
+  - key: t
+    command: tig show {{.SelectedLocalBranch.Name}}
+    context: localBranches
+    description: tig branch (`t` again to browse files at revision)
+    subprocess: yes
+  - key: t
+    command: tig show {{.SelectedRemoteBranch.RemoteName}}/{{.SelectedRemoteBranch.Name}}
+    context: remoteBranches
+    description: tig branch (`t` again to browse files at revision)
+    subprocess: yes
