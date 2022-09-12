@@ -57,6 +57,7 @@ brew_tools=(
   python
   # https://github.com/wagoodman/dive
   dive
+  flyctl
 
   # Other
   fzf
@@ -77,6 +78,7 @@ brew_tools=(
   zsh
 
   # Backup
+  # Other
   # chunkwm
   # ctags
   # fff
