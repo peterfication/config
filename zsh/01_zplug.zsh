@@ -59,6 +59,7 @@ zplug "plugins/yarn", from:oh-my-zsh
 # zplug "plugins/rustup", from:oh-my-zsh
 # zplug "plugins/rust", from:oh-my-zsh
 # zplug "plugins/cargo", from:oh-my-zsh
+zplug "plugins/golang", from:oh-my-zsh
 
 zplug "plugins/terraform", from:oh-my-zsh
 # zplug "plugins/helm", from:oh-my-zsh
