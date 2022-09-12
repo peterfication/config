@@ -15,3 +15,6 @@ function zvm_after_init() {
 
   [ -f ~/.zplug/repos/Aloxaf/fzf-tab/fzf-tab.plugin.zsh ] && source ~/.zplug/repos/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 }
+
+# Create dir and cd into it
+function ccd { mkdir -p "$1" && cd "$1" }
