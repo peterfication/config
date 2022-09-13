@@ -45,6 +45,7 @@ brew_tools=(
   # Programming/infrastructure languages
   kubectl
   k9s
+  stern
   derailed/popeye/popeye
   kubeseal
   # terraform => use tfenv instead
