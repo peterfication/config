@@ -49,6 +49,7 @@ cd config
 - Install [Postgres.app](https://postgresapp.com/)
 - Set up [Leo searches](alfred/leo-searches.md) in Alfred
 - Add Quartz filter in ColorSync Utility for reducing the file size with "Colour Image Sampling" (Quality high, constrain size to 128-1200)
+- https://it.digitaino.com/use-touchid-to-authenticate-sudo-on-macos/
 
 ### TODO
 
