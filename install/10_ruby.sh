@@ -45,6 +45,7 @@ else
   export RUBY_CFLAGS=-DUSE_FFI_CLOSURE_ALLOC
   export optflags="-Wno-error=implicit-function-declaration"
 
+  rvm install 2.5.3 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
   rvm install 2.7.5 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
   rvm install 2.7.3 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
   rvm install 2.5.8 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
