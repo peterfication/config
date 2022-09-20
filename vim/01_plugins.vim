@@ -30,6 +30,8 @@ Plug 'akinsho/bufferline.nvim'
 " FZF
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+" This commit works with neoclip
+Plug 'ibhagwan/fzf-lua', {'commit': '3717661c83f76dfce5b699d83f826776d8d6d182'}
 
 " Multi cursor
 Plug 'mg979/vim-visual-multi'
