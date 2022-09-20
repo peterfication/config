@@ -153,6 +153,8 @@ Plug 'fatih/vim-go'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'preservim/tagbar'
 
+Plug 'chentoast/marks.nvim'
+
 " Awesome substitutions
 Plug 'tpope/vim-abolish'
 
@@ -206,3 +208,4 @@ source ~/config/vim/01_plugins_07_lazygit.vim
 source ~/config/vim/01_plugins_08_telescope.vim
 source ~/config/vim/01_plugins_09_tests.vim
 source ~/config/vim/01_plugins_10_prettier.vim
+source ~/config/vim/01_plugins_11_marks.vim
