@@ -15,6 +15,7 @@ source ~/config/zsh/08_gnu_tools.zsh
 source ~/config/zsh/09_other.zsh
 
 source ~/config/zsh/10_gpg.zsh
+source ~/config/zsh/11_asdf.zsh
 
 # source ~/config/zsh/70_gcloud.zsh
 source ~/config/zsh/71_aws.zsh
