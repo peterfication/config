@@ -2,6 +2,8 @@
 # In order to initially set up the config file, symlink this config
 # sudo ln -s ~/config/lazygit.yml $HOME/Library/ApplicationSupport/lazygit/config.yml
 # ln -s ~/config/lazygit.yml $HOME/.config/lazygit/config.yml
+#
+# Good intro video from the creator: https://www.youtube.com/watch?v=CPLdltN7wgE
 
 git:
   paging:

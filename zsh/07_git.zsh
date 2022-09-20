@@ -2,6 +2,8 @@
 # See https://github.com/jesseduffield/lazygit/issues/1669#issuecomment-1120129863
 export XDG_CONFIG_HOME="$HOME/.config"
 
+alias lg=lazygit
+
 # Change to a git repository's root directory from anywhere inside it
 function cdb() {
   inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
