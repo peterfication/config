@@ -22,7 +22,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Run ESLint auto fix.
 " This keymapping is similar to running Prettier with <Leader>p
-nnoremap <Leader>P :CocCommand eslint.executeAutofix<CR>
+" nnoremap <Leader>P :CocCommand eslint.executeAutofix<CR>
+nnoremap <Leader>P :CocCommand editor.action.formatDocument<CR>
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
