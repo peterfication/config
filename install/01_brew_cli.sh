@@ -72,6 +72,7 @@ brew_tools=(
   neovim
   tmux
   urlview # For tmux URLs selection
+  viu # Image preview in the terminal
   youtube-dl
   yt-dlp
   watch
