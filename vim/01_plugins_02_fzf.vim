@@ -9,7 +9,7 @@ nnoremap <Leader>e :Files<CR>
 nnoremap <Leader>E :Buffers<CR>
 
 " Go to line
-nnoremap <Leader>l :Lines<CR>
+" nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>L :BLines<CR>
 
 " Search marks
@@ -17,8 +17,8 @@ nnoremap <Leader>m :Marks<CR>
 " Search all commands
 nnoremap <Leader>c :Commands<CR>
 " Search tags
-nnoremap <Leader>zf :Tags<CR>
-nnoremap <Leader>zF :BTags<CR>
+nnoremap <Leader>z :Tags<CR>
+nnoremap <Leader>Z :BTags<CR>
 
 " Search
 nnoremap <Leader>f :Rg<CR>
