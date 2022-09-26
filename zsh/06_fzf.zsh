@@ -1,5 +1,7 @@
 export FZF_DEFAULT_COMMAND="rg --files"
 
+alias laf="la | fzf"
+
 rga-fzf() {
   RG_PREFIX="rga --files-with-matches"
   local file
