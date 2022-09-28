@@ -2,12 +2,16 @@ hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
 hs.alert.show("Config loaded")
 
+hs.loadSpoon("EjectMenu")
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "E", function()
+  spoon.EjectMenu:ejectVolumes()
+end)
+
 -- Vim movements
 hs.loadSpoon("FnMate")
 
 hs.loadSpoon("Caffeine")
 spoon.Caffeine:start()
-spoon.Caffeine:setState(true)
 
 local SkyRocket = hs.loadSpoon("SkyRocket")
 sky = SkyRocket:new({
