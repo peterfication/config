@@ -25,6 +25,12 @@ brew_apps=(
   xbar
   zoom
 
+  # ObjectiveSee
+  lulu
+  knockknock
+  netiquette
+  oversight
+
   oracle-jdk
 
   # Design tools
