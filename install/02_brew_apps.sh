@@ -5,6 +5,7 @@ brew_apps=(
   # TODO
   alfred
   cyberduck
+  eqmac
   flux
   flycut
   chromium
