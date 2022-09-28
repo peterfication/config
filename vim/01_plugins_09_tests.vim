@@ -12,4 +12,5 @@ let test#ruby#rspec#options = {
 \}
 
 " TODO map only for Ruby files
-nmap <silent> <leader>te :e <C-R>=expand('%:r')<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>
+nmap <silent> <leader>te :vsplit <C-R>=expand('%:r')<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>
+nmap <silent> <leader>tl :vsplit <C-R>=expand('%:r')<CR>_spec.rb<S-Left>spec/<CR>
