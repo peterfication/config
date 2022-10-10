@@ -11,3 +11,5 @@ set -g @plugin 'sainnhe/tmux-fzf'
 
 # Check out:
 # - https://github.com/thewtex/tmux-mem-cpu-load
+
+set -g @plugin 'schasse/tmux-jump'
