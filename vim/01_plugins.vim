@@ -61,6 +61,7 @@ Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 " Smart motions with s
 " Plug 'justinmk/vim-sneak'
 Plug 'ggandor/lightspeed.nvim'
+" TODO: https://github.com/ggandor/leap.nvim
 
 " Language server integration
 Plug 'neoclide/coc.nvim', {'tag': 'v0.0.81', 'do': { -> coc#util#install()}}
