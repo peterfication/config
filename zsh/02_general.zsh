@@ -7,6 +7,7 @@ export EDITOR='nvim'
 export VISUAL='nvim'
 alias e="nvim"
 alias vim=nvim
+alias vimlua="nvim -u ~/config/vim-lua/init.lua"
 
 setopt shwordsplit
 #
