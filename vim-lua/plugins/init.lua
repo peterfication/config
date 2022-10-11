@@ -4,6 +4,7 @@ function m.config(use)
     require 'plugins/syntax'(use)
     require 'plugins/fuzzy'(use)
     require 'plugins/git'(use)
+    require 'plugins/filetree'(use)
 end
 
 return m
