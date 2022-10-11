@@ -13,6 +13,7 @@ return function(use)
       vim.keymap.set('n', '<Leader>f', builtin.live_grep, {})
       vim.keymap.set('n', '<Leader>E', builtin.buffers, {})
       vim.keymap.set('n', '<Leader>z', builtin.help_tags, {})
+      vim.keymap.set('n', '<Leader>c', builtin.commands, {})
     end
     }
 end
