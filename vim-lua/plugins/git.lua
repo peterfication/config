@@ -1,10 +1,18 @@
 return function(use)
   use {
+    'APZelos/blamer.nvim',
+    config = function()
+      vim.keymap.set('n', '<Leader>gb', ":BlamerToggle<CR>", { noremap = true })
+    end
+  }
+
+  use {
     'kdheepak/lazygit.nvim',
     config = function()
       vim.keymap.set('n', '<Leader>gg', ":LazyGit<CR>", { noremap = true })
     end
   }
+
   use {
     'akinsho/toggleterm.nvim',
     tag = '*',
@@ -15,4 +23,5 @@ return function(use)
       vim.keymap.set('n', '<Leader>GB', ':TermExec cmd="tig blame %; exit" direction=float<CR>', { noremap = true })
     end
   }
+
 end
