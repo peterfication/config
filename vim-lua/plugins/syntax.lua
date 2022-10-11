@@ -4,7 +4,7 @@ return function(use)
     config = function()
       local vim = vim
 
-      vim.cmd('set termguicolors')
+      vim.opt.termguicolors = true
       vim.cmd('colorscheme base16-solarized-dark')
       vim.cmd('hi Comment gui=italic cterm=italic')
     end
