@@ -3,6 +3,7 @@ local m = {}
 function m.config(use)
     require 'plugins/syntax'(use)
     require 'plugins/fuzzy'(use)
+    require 'plugins/git'(use)
 end
 
 return m
