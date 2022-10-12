@@ -9,6 +9,7 @@ function m.config(use)
     'plugins.fuzzy',
     'plugins.git',
     'plugins.filetree',
+    'plugins.quickfix',
     'plugins.other',
   }
 

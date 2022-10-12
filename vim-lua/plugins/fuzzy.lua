@@ -1,4 +1,6 @@
 return function(use)
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -7,6 +9,20 @@ return function(use)
       {'kyazdani42/nvim-web-devicons'},
     },
     config = function()
+      local actions = require('telescope.actions')
+      require('telescope').setup {
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+            },
+          },
+        },
+      }
+
+      require('telescope').load_extension('fzf')
+
       local builtin = require('telescope.builtin')
 
       vim.keymap.set('n', '<Leader>e', builtin.find_files, {})
@@ -30,6 +46,8 @@ return function(use)
       vim.keymap.set('n', '<Leader>c', builtin.commands, {})
 
       vim.keymap.set('n', '<Leader>gh', builtin.git_status, {})
+
+      vim.api.nvim_create_user_command('Rg', 'Telescope grep_string search=<args>', { nargs = 1 })
     end
     }
 end
