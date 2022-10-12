@@ -1,13 +1,11 @@
-require('config.settings')
-require('config.keymaps')
+local modules = {
+  "config.reload",
+  "config.settings",
+  "config.keymaps",
+  "plugins.packer-config",
+}
 
--- From https://github.com/wbthomason/packer.nvim/issues/719#issuecomment-993435944
-return require('packer').startup({
-  function(use)
-    use { 'wbthomason/packer.nvim' }
-    require'plugins.init'.config(use)
-
-    if packer_bootstrap then require('packer').sync() end
-  end,
-  -- config = require 'packer-config'
-})
+for k, v in pairs(modules) do
+  package.loaded[v] = nil
+  require(v)
+end

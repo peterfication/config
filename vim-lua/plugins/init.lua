@@ -1,12 +1,21 @@
 local m = {}
 
+-- Load the plugins in a way that if the init.lua file
+-- is sourced again, it will reload the modules.
 function m.config(use)
-    require 'plugins/ui'(use)
-    require 'plugins/syntax'(use)
-    require 'plugins/fuzzy'(use)
-    require 'plugins/git'(use)
-    require 'plugins/filetree'(use)
-    require 'plugins/other'(use)
+  local modules = {
+    'plugins.ui',
+    'plugins.syntax',
+    'plugins.fuzzy',
+    'plugins.git',
+    'plugins.filetree',
+    'plugins.other',
+  }
+
+  for k, v in pairs(modules) do
+    package.loaded[v] = nil
+    require(v)(use)
+  end
 end
 
 return m
