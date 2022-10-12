@@ -1,12 +1,12 @@
 return function(use)
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/plenary.nvim'},
-      {'nvim-treesitter/nvim-treesitter'},
-      {'kyazdani42/nvim-web-devicons'},
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-treesitter/nvim-treesitter' },
+      { 'kyazdani42/nvim-web-devicons' },
     },
     config = function()
       local actions = require('telescope.actions')
@@ -49,5 +49,5 @@ return function(use)
 
       vim.api.nvim_create_user_command('Rg', 'Telescope grep_string search=<args>', { nargs = 1 })
     end
-    }
+  }
 end

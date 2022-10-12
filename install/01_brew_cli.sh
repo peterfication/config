@@ -69,6 +69,7 @@ brew_tools=(
   jesseduffield/lazygit/lazygit
   jesseduffield/lazydocker/lazydocker
   jq
+  lua-language-server
   neovim
   tmux
   urlview # For tmux URLs selection

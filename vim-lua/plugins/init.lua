@@ -5,11 +5,12 @@ local m = {}
 function m.config(use)
   local modules = {
     'plugins.ui',
-    'plugins.syntax',
+    'plugins.lsp',
     'plugins.fuzzy',
     'plugins.git',
     'plugins.filetree',
     'plugins.quickfix',
+    'plugins.auto-completion',
     'plugins.other',
   }
 

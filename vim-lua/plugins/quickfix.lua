@@ -3,7 +3,7 @@ return function(use)
   use { 'kevinhwang91/nvim-bqf' }
 
   local map = vim.api.nvim_set_keymap
-  options = { noremap = true }
+  local options = { noremap = true }
 
   map('n', '<Leader>Q', ':Telescope quickfix<CR>', options)
 

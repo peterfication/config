@@ -1,24 +1,35 @@
 return function(use)
   use {
+    'base16-project/base16-vim',
+    config = function()
+      local vim = vim
+
+      vim.opt.termguicolors = true
+      vim.cmd('colorscheme base16-solarized-dark')
+      vim.cmd('hi Comment gui=italic cterm=italic')
+    end
+  }
+  use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
       vim.opt.termguicolors = true
 
-      require("bufferline").setup{
+      require("bufferline").setup {
         options = {
           offsets = {
             {
-                filetype = "nerdtree",
-                text = "File Explorer",
-                highlight = "Directory",
-                text_align = "left"
+              filetype = "NvimTree",
+              text = "File Explorer",
+              text_align = "left",
+              highlight = "Directory",
             }
           }
         }
       }
 
       local map = vim.api.nvim_set_keymap
+      local options = { noremap = true }
 
       -- Cycle through open buffers
       map('n', '<C-K>', ':bnext<CR>', options)
@@ -49,30 +60,30 @@ return function(use)
     'petertriho/nvim-scrollbar',
     config = function()
       require("scrollbar").setup({
-          marks = {
-            GitAdd = {
-              text = { "█" },
-              priority = 5,
-              color = "#89982E",
-              cterm = nil,
-              highlight = "CursorColumn",
-            },
-            GitDelete = {
-              text = { "█" },
-              priority = 5,
-              color = "#CB4239",
-              cterm = nil,
-              highlight = "CursorColumn",
-            },
-            GitChange = {
-              text = { "█" },
-              priority = 5,
-              color = "#869396",
-              cterm = nil,
-              highlight = "CursorColumn",
-            },
-          }
-        })
+        marks = {
+          GitAdd = {
+            text = { "█" },
+            priority = 5,
+            color = "#89982E",
+            cterm = nil,
+            highlight = "CursorColumn",
+          },
+          GitDelete = {
+            text = { "█" },
+            priority = 5,
+            color = "#CB4239",
+            cterm = nil,
+            highlight = "CursorColumn",
+          },
+          GitChange = {
+            text = { "█" },
+            priority = 5,
+            color = "#869396",
+            cterm = nil,
+            highlight = "CursorColumn",
+          },
+        }
+      })
 
       -- From https://github.com/petertriho/nvim-scrollbar/issues/53#issuecomment-1211225976
       local gitsign = require('gitsigns')
@@ -91,13 +102,14 @@ return function(use)
         local hunks = gitsign.get_hunks(bufnr)
         if hunks then
           for _, hunk in ipairs(hunks) do
-            hunk.vend = math.min(hunk.added.start, hunk.removed.start) + hunk.added.count + hunk.removed.count
+            hunk.vend = math.min(hunk.added.start, hunk.removed.start) +
+                hunk.added.count + hunk.removed.count
             local signs = gitsign_hunks.calc_signs(hunk, 0, nb_lines)
             for _, sign in ipairs(signs) do
               table.insert(lines, {
-                  line = sign.lnum,
-                  type = colors_type[sign.type]
-                })
+                line = sign.lnum,
+                type = colors_type[sign.type]
+              })
             end
           end
         end

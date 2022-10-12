@@ -5,7 +5,7 @@ return function(use)
     config = function()
       vim.keymap.set('n', '<Leader>gb', ":Gitsigns toggle_current_line_blame<CR>", { noremap = true })
 
-      require('gitsigns').setup{
+      require('gitsigns').setup {
         on_attach = function(bufnr)
           local gs = package.loaded.gitsigns
 
@@ -20,13 +20,13 @@ return function(use)
             if vim.wo.diff then return ']c' end
             vim.schedule(function() gs.next_hunk() end)
             return '<Ignore>'
-          end, {expr=true})
+          end, { expr = true })
 
           map('n', '<Leader>ghp', function()
             if vim.wo.diff then return '[c' end
             vim.schedule(function() gs.prev_hunk() end)
             return '<Ignore>'
-          end, {expr=true})
+          end, { expr = true })
 
           -- Actions
           -- map({'n', 'v'}, '<Leader>hs', ':Gitsigns stage_hunk<CR>')
