@@ -1,8 +1,47 @@
 return function(use)
   use {
-    'APZelos/blamer.nvim',
+    'lewis6991/gitsigns.nvim',
+    tag = 'release',
     config = function()
-      vim.keymap.set('n', '<Leader>gb', ":BlamerToggle<CR>", { noremap = true })
+      vim.keymap.set('n', '<Leader>gb', ":Gitsigns toggle_current_line_blame<CR>", { noremap = true })
+
+      require('gitsigns').setup{
+        on_attach = function(bufnr)
+          local gs = package.loaded.gitsigns
+
+          local function map(mode, l, r, opts)
+            opts = opts or {}
+            opts.buffer = bufnr
+            vim.keymap.set(mode, l, r, opts)
+          end
+
+          -- Navigation
+          map('n', '<Leader>ghn', function()
+            if vim.wo.diff then return ']c' end
+            vim.schedule(function() gs.next_hunk() end)
+            return '<Ignore>'
+          end, {expr=true})
+
+          map('n', '<Leader>ghp', function()
+            if vim.wo.diff then return '[c' end
+            vim.schedule(function() gs.prev_hunk() end)
+            return '<Ignore>'
+          end, {expr=true})
+
+          -- Actions
+          -- map({'n', 'v'}, '<Leader>hs', ':Gitsigns stage_hunk<CR>')
+          -- map({'n', 'v'}, '<Leader>hr', ':Gitsigns reset_hunk<CR>')
+          -- map('n', '<Leader>hS', gs.stage_buffer)
+          -- map('n', '<Leader>hu', gs.undo_stage_hunk)
+          -- map('n', '<Leader>hR', gs.reset_buffer)
+          map('n', '<Leader>ghp', gs.preview_hunk)
+          -- map('n', '<Leader>hb', function() gs.blame_line{full=true} end)
+          map('n', '<Leader>gb', gs.toggle_current_line_blame)
+          map('n', '<Leader>ghd', gs.diffthis)
+          map('n', '<Leader>ghD', function() gs.diffthis('~') end)
+          -- map('n', '<Leader>td', gs.toggle_deleted)
+        end
+      }
     end
   }
 
