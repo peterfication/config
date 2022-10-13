@@ -3,7 +3,7 @@ return function(use)
     'nvim-treesitter/nvim-treesitter',
     config = function()
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "lua", "ruby", "hcl" },
+        ensure_installed = { "lua", "ruby", "hcl", "graphql" },
 
         highlight = {
           enable = true,
@@ -69,7 +69,7 @@ return function(use)
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { "solargraph", "terraformls", "tflint" }
+  local servers = { "solargraph", "terraformls", "tflint", "graphql" }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,
