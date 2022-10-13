@@ -9,6 +9,7 @@ function m.config(use)
     'plugins.git',
     'plugins.filetree',
     'plugins.quickfix',
+    'plugins.marks',
     'plugins.other',
     'plugins.snippets',
     'plugins.auto-completion',
