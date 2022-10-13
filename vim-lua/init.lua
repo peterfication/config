@@ -5,7 +5,7 @@ local modules = {
   "plugins.packer-config",
 }
 
-for k, v in pairs(modules) do
+for _, v in pairs(modules) do
   package.loaded[v] = nil
   require(v)
 end

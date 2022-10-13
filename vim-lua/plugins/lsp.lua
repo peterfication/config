@@ -2,13 +2,32 @@ return function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      require'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.configs'.setup {
         ensure_installed = { "lua", "ruby", "hcl", "graphql" },
 
         highlight = {
           enable = true,
         }
       }
+    end
+  }
+
+  -- Folding
+  use {
+    'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async',
+    config = function()
+      require('ufo').setup()
+
+      vim.o.foldcolumn = '1' -- '0' is not bad
+      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+
+      -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+      vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+      vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+      vim.keymap.set('n', '<Tab>', require('ufo').peekFoldedLinesUnderCursor)
     end
   }
 
@@ -67,11 +86,20 @@ return function(use)
   -- solargraph config
   -- solargraph config => plugins: - solargraph-rails
 
+  -- Set up lspconfig.
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+  }
+
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { "solargraph", "terraformls", "tflint", "graphql" }
+  local servers = { "terraformls", "tflint", "graphql" }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
+      capabilities = capabilities,
       on_attach = on_attach,
       flags = {
         debounce_text_changes = 150,
@@ -79,7 +107,7 @@ return function(use)
     }
   end
 
-  require 'lspconfig'.sumneko_lua.setup {
+  nvim_lsp.sumneko_lua.setup {
     settings = {
       Lua = {
         runtime = {
@@ -101,5 +129,4 @@ return function(use)
       },
     },
   }
-
 end
