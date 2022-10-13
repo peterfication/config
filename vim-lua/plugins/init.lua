@@ -13,6 +13,7 @@ function m.config(use)
     'plugins.snippets',
     'plugins.auto-completion',
     'plugins.fuzzy',
+    'plugins.tests',
   }
 
   for _, v in pairs(modules) do
