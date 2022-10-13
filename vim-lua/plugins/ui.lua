@@ -10,6 +10,12 @@ return function(use)
     end
   }
   use {
+    'RRethy/vim-illuminate',
+    config = function ()
+      require('illuminate').configure({})
+    end
+  }
+  use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
