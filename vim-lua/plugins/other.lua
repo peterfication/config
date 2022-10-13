@@ -3,6 +3,12 @@ return function(use)
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-abolish' }
   use {
+    "windwp/nvim-autopairs",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  }
+  use {
     'kylechui/nvim-surround',
     tag = "*",
     config = function()
