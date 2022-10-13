@@ -1,6 +1,7 @@
 return function(use)
   use { 'editorconfig/editorconfig-vim' }
   use { 'tpope/vim-commentary' }
+  use { 'tpope/vim-abolish' }
   use {
     'kylechui/nvim-surround',
     tag = "*",
