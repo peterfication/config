@@ -1,12 +1,12 @@
 return function(use)
-  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-treesitter/nvim-treesitter' },
       { 'kyazdani42/nvim-web-devicons' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      { 'AckslD/nvim-neoclip.lua' },
     },
     config = function()
       local actions = require('telescope.actions')
@@ -23,6 +23,7 @@ return function(use)
 
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('luasnip')
+      require("telescope").load_extension("neoclip")
 
       local builtin = require('telescope.builtin')
 
@@ -51,6 +52,16 @@ return function(use)
       vim.keymap.set('n', '<Leader>gh', builtin.git_status, {})
 
       vim.api.nvim_create_user_command('Rg', 'Telescope grep_string search=<args>', { nargs = 1 })
+
+      require('neoclip').setup({
+        history = 1000,
+        default_register = { '+', '"', '*' },
+        preview = true,
+        on_paste = {
+          set_reg = true,
+        },
+      })
+      vim.keymap.set('n', '<Leader>p', ":Telescope neoclip<CR> ", {})
     end
   }
 end
