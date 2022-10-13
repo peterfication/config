@@ -1,6 +1,13 @@
 return function(use)
-  -- Better quickfix
+  -- Better quickfix features
   use { 'kevinhwang91/nvim-bqf' }
+  -- Prettier quickfix window
+  use {
+    'https://gitlab.com/yorickpeterse/nvim-pqf.git',
+    config = function()
+      require('pqf').setup()
+    end
+  }
 
   local map = vim.api.nvim_set_keymap
   local options = { noremap = true }
