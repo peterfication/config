@@ -8,4 +8,14 @@ return function(use)
       require("nvim-surround").setup({})
     end
   }
+  use {
+    'ggandor/leap.nvim',
+    requires = {
+      { 'ggandor/flit.nvim' }
+    },
+    config = function()
+      require('leap').add_default_mappings()
+      require('flit').setup {}
+    end
+  }
 end
