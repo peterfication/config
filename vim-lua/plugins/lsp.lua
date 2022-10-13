@@ -2,9 +2,9 @@ return function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
-      local configs = require 'nvim-treesitter.configs'
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = { "lua", "ruby", "hcl" },
 
-      configs.setup {
         highlight = {
           enable = true,
         }
@@ -55,7 +55,7 @@ return function(use)
   map('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   map('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  map("n", "<Leader>P", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  map("n", "<Leader>P", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
 
   -- Set up Solargraph
   -- https://github.com/castwide/solargraph
@@ -69,7 +69,7 @@ return function(use)
 
   -- Use a loop to conveniently call 'setup' on multiple servers and
   -- map buffer local keybindings when the language server attaches
-  local servers = { "solargraph" }
+  local servers = { "solargraph", "terraformls", "tflint" }
   for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
       on_attach = on_attach,

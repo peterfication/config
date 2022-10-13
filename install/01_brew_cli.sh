@@ -51,6 +51,7 @@ brew_tools=(
   # terraform => use tfenv instead
   terraform-docs
   terraform-ls # Terraform language server
+  tflint
   tfenv
   fluxcd/tap/flux
   weaveworks/tap/eksctl
