@@ -4,7 +4,6 @@ return function(use)
     config = function()
       local vim = vim
 
-      vim.opt.termguicolors = true
       vim.cmd('colorscheme base16-solarized-dark')
       vim.cmd('hi Comment gui=italic cterm=italic')
     end
@@ -19,8 +18,6 @@ return function(use)
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      vim.opt.termguicolors = true
-
       require("bufferline").setup {
         options = {
           offsets = {

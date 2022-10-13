@@ -6,6 +6,7 @@ local wo = vim.wo
 o.clipboard = 'unnamed' -- Share the system clipboard
 o.grepprg = [[rg\ --vimgrep]] -- Use Ripgrep for vimgrep
 o.updatetime = 300
+o.termguicolors = true
 
 -- window-local options
 wo.number = true
