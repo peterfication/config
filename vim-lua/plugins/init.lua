@@ -6,15 +6,16 @@ function m.config(use)
   local modules = {
     'plugins.ui',
     'plugins.lsp',
-    'plugins.fuzzy',
     'plugins.git',
     'plugins.filetree',
     'plugins.quickfix',
-    'plugins.auto-completion',
     'plugins.other',
+    'plugins.snippets',
+    'plugins.auto-completion',
+    'plugins.fuzzy',
   }
 
-  for k, v in pairs(modules) do
+  for _, v in pairs(modules) do
     package.loaded[v] = nil
     require(v)(use)
   end

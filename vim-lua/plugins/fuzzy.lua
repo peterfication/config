@@ -22,6 +22,7 @@ return function(use)
       }
 
       require('telescope').load_extension('fzf')
+      require('telescope').load_extension('luasnip')
 
       local builtin = require('telescope.builtin')
 
