@@ -35,6 +35,16 @@ return function(use)
       require('flit').setup {}
     end
   }
+  use {
+    'https://gitlab.com/yorickpeterse/nvim-window.git',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<Leader>W', [[:lua require('nvim-window').pick()<CR>]], { noremap = true })
+
+      require('nvim-window').setup({
+        border = 'double'
+      })
+    end
+  }
   -- Highlight Search Lens
   -- use {
   --   'kevinhwang91/nvim-hlslens',

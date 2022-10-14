@@ -68,11 +68,43 @@ return function(use)
   }
 
   use {
-    'vim-airline/vim-airline',
-    requires = 'vim-airline/vim-airline-themes',
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      vim.g.airline_powerline_fonts = 1
-      vim.g.airline_theme = 'molokai'
+      require('lualine').setup({
+        options = {
+          theme = 'solarized_dark',
+        },
+        sections = {
+          lualine_b = {
+            {
+              'branch',
+            },
+            {
+              'diff',
+              colored = false,
+            },
+            {
+              'diagnostics',
+              colored = false,
+            }
+          },
+          lualine_c = {
+            {
+              'filename',
+              path = 1,
+            }
+          },
+        },
+        inactive_sections = {
+          lualine_c = {
+            {
+              'filename',
+              path = 1,
+            }
+          },
+        },
+      })
     end
   }
 
