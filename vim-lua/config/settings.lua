@@ -30,3 +30,13 @@ vim.cmd([[set listchars+=tab:»\ ]])
 -- buffer-local options
 vim.cmd([[autocmd BufWritePre * %s/\s\+$//e]]) -- Remove trailing whitespaces on save
 -- bo.expandtab = true -- Don't allow tabs at the beginning of the line but convert them into spaces
+
+-- From https://github.com/nvim-lua/kickstart.nvim/blob/c8a140577832ed4f958f4964400b2591abea3825/init.lua#L112
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
