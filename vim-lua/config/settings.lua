@@ -1,6 +1,6 @@
 local o = vim.o
 local wo = vim.wo
--- local bo = vim.bo
+local bo = vim.bo
 
 -- global options
 o.clipboard = 'unnamed' -- Share the system clipboard
@@ -16,6 +16,7 @@ wo.wrap = true
 wo.cursorline = true -- Highlights the current line of the cursor
 wo.cursorcolumn = true -- Highlights the current column of the cursor
 wo.list = true
+wo.scrolloff = 5 -- The number of screen lines to keep above and below the cursor while scrolling
 vim.opt.listchars = {
   trail    = '¤',
   nbsp     = '·',

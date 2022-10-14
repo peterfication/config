@@ -81,6 +81,7 @@ return function(use)
   -- gem install solargraph-rails
   -- solargraph config
   -- solargraph config => plugins: - solargraph-rails
+  -- TODO: https://github.com/williamboman/mason.nvim
 
   local nvim_lsp = require('lspconfig')
   local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -156,7 +157,7 @@ return function(use)
 
     local options = { noremap = true }
     vim.api.nvim_set_keymap("n", "<Leader>P", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", options)
-    vim.api.nvim_set_keymap("n", "<leader>uca", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
+    vim.api.nvim_set_keymap("n", "<leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
   end
 
   use {
