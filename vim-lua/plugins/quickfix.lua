@@ -16,8 +16,8 @@ return function(use)
       require("trouble").setup({})
 
       local options = { noremap = true }
-      vim.api.nvim_set_keymap("n", "<leader>xx", "<CMD>TroubleToggle<CR>", options)
-      vim.api.nvim_set_keymap("n", "<leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", options)
+      vim.api.nvim_set_keymap("n", "<Leader>xx", "<CMD>TroubleToggle document_diagnostics<CR>", options)
+      vim.api.nvim_set_keymap("n", "<Leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", options)
     end
   }
   use { 'Olical/vim-enmasse' }

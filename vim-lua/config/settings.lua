@@ -7,6 +7,8 @@ o.clipboard = 'unnamed' -- Share the system clipboard
 o.grepprg = [[rg\ --vimgrep]] -- Use Ripgrep for vimgrep
 o.updatetime = 300
 o.termguicolors = true
+o.spelllang = "en,de"
+o.spell = false
 
 -- window-local options
 wo.number = true

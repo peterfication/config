@@ -71,8 +71,9 @@ return function(use)
 
   local servers = { "terraformls", "tflint", "graphql", "solargraph", "sumneko_lua" }
   for _, lsp in ipairs(servers) do
-    local on_attach = function(_, bufnr)
+    local on_attach = function(client, bufnr)
       vim.notify("Buffer " .. bufnr .. " attached to lsp " .. lsp, vim.log.levels.INFO)
+      require 'illuminate'.on_attach(client)
 
       --Enable completion triggered by <c-x><c-o>
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -98,8 +99,8 @@ return function(use)
       -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
       -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
       -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-      buf_set_keymap("n", "<Leader>P", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opts)
     end
+
 
     -- Use a loop to conveniently call 'setup' on multiple servers and
     -- map buffer local keybindings when the language server attaches
@@ -111,5 +112,36 @@ return function(use)
       },
       settings = settings[lsp]
     }
+
+    local options = { noremap = true }
+    vim.api.nvim_set_keymap("n", "<Leader>P", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", options)
+    vim.api.nvim_set_keymap("n", "<leader>uca", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
   end
+
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      local null_ls = require('null-ls')
+      null_ls.setup({
+        sources = {
+          -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
+          null_ls.builtins.code_actions.gitsigns,
+          -- Wait for https://github.com/jose-elias-alvarez/null-ls.nvim/pull/1154
+          -- null_ls.builtins.diagnostics.cspell.with({
+          --   disabled_filetypes = { "NvimTree" },
+          --   diagnostic_config = {
+          --     underline = true,
+          --     virtual_text = false,
+          --     signs = false,
+          --     update_in_insert = false,
+          --     severity_sort = false,
+          --   },
+          -- }),
+          -- null_ls.builtins.code_actions.cspell,
+          null_ls.builtins.formatting.prettier,
+        },
+      })
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  }
 end

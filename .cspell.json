@@ -1,0 +1,11 @@
+{
+  "version": "0.1",
+  "language": "en,de",
+  "dictionaries": ["custom"],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom",
+      "path": "./.cspell.dictionary.txt"
+    }
+  ]
+}
