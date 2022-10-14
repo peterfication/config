@@ -4,7 +4,6 @@ local m = {}
 -- is sourced again, it will reload the modules.
 function m.config(use)
   local modules = {
-    'plugins.ui',
     'plugins.lsp',
     'plugins.git',
     'plugins.filetree',
@@ -15,6 +14,7 @@ function m.config(use)
     'plugins.auto-completion',
     'plugins.fuzzy',
     'plugins.tests',
+    'plugins.ui',
   }
 
   for _, v in pairs(modules) do
