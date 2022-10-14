@@ -20,6 +20,7 @@ return function(use)
       vim.api.nvim_set_keymap("n", "<leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", options)
     end
   }
+  use { 'Olical/vim-enmasse' }
 
   local map = vim.api.nvim_set_keymap
   local options = { noremap = true }

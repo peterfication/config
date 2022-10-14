@@ -6,5 +6,4 @@
 - https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/
 - https://github.com/amix/vimrc
 
-- https://github.com/Olical/vim-enmasse
 - https://github.com/jose-elias-alvarez/null-ls.nvim
