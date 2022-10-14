@@ -1,14 +1,55 @@
 return function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
     config = function()
-      require 'nvim-treesitter.configs'.setup {
+      require 'nvim-treesitter.configs'.setup({
         ensure_installed = { "lua", "ruby", "hcl", "graphql" },
 
         highlight = {
           enable = true,
         }
-      }
+      })
+
+      require 'nvim-treesitter.configs'.setup({
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["aj"] = "@comment.outer",
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ab"] = "@block.outer",
+              ["ib"] = "@block.inner",
+              ["ah"] = "@call.outer",
+              ["ih"] = "@call.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+              ["ak"] = "@conditional.outer",
+              ["ik"] = "@conditional.inner",
+              ["al"] = "@loop.outer",
+              ["il"] = "@loop.inner",
+            },
+          },
+          move = {
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+              ['gfn'] = '@function.outer',
+            },
+            goto_next_end = {
+            },
+            goto_previous_start = {
+              ['gfp'] = '@function.outer',
+            },
+            goto_previous_end = {
+            },
+          },
+        },
+      })
     end
   }
 

@@ -16,13 +16,13 @@ return function(use)
           end
 
           -- Navigation
-          map('n', '<Leader>ghn', function()
+          map('n', 'ghn', function()
             if vim.wo.diff then return ']c' end
             vim.schedule(function() gs.next_hunk() end)
             return '<Ignore>'
           end, { expr = true })
 
-          map('n', '<Leader>ghp', function()
+          map('n', 'ghp', function()
             if vim.wo.diff then return '[c' end
             vim.schedule(function() gs.prev_hunk() end)
             return '<Ignore>'
@@ -34,7 +34,8 @@ return function(use)
           -- map('n', '<Leader>hS', gs.stage_buffer)
           -- map('n', '<Leader>hu', gs.undo_stage_hunk)
           -- map('n', '<Leader>hR', gs.reset_buffer)
-          map('n', '<Leader>ghp', gs.preview_hunk)
+          map('n', '<Leader>ghs', gs.preview_hunk)
+          map('n', '<Leader>ghr', gs.reset_hunk)
           -- map('n', '<Leader>hb', function() gs.blame_line{full=true} end)
           map('n', '<Leader>gb', gs.toggle_current_line_blame)
           map('n', '<Leader>ghd', gs.diffthis)

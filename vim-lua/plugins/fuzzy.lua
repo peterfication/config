@@ -54,7 +54,7 @@ return function(use)
       vim.keymap.set('n', '<Leader>c', builtin.commands, {})
       vim.keymap.set('n', '<Leader>C', builtin.builtin, {})
 
-      vim.keymap.set('n', '<Leader>gh', builtin.git_status, {})
+      vim.keymap.set('n', '<Leader>gs', builtin.git_status, {})
 
       vim.api.nvim_create_user_command('Rg', 'Telescope grep_string search=<args>', { nargs = 1 })
 
