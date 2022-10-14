@@ -186,4 +186,17 @@ return function(use)
     end,
     requires = { "nvim-lua/plenary.nvim" },
   }
+
+  -- A small Neovim plugin for previewing native LSP's goto definition,
+  -- type definition, implementation, and references calls in floating windows.
+  use {
+    'rmagatti/goto-preview',
+    config = function()
+      require('goto-preview').setup({
+        -- https://github.com/rmagatti/goto-preview#%EF%B8%8F-mappings
+        -- gpd, gpt, gpi, gpr, gP (without Leader!)
+        default_mappings = true
+      })
+    end
+  }
 end
