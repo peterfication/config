@@ -9,6 +9,18 @@ return function(use)
     end
   }
 
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup({})
+
+      local options = { noremap = true }
+      vim.api.nvim_set_keymap("n", "<leader>xx", "<CMD>TroubleToggle<CR>", options)
+      vim.api.nvim_set_keymap("n", "<leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", options)
+    end
+  }
+
   local map = vim.api.nvim_set_keymap
   local options = { noremap = true }
 

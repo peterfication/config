@@ -125,7 +125,15 @@ return function(use)
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
-      require("noice").setup()
+      require("noice").setup({
+        views = {
+          cmdline_popup = {
+            position = {
+              row = "20%",
+            }
+          }
+        }
+      })
 
       local options = { noremap = true }
       vim.keymap.set('n', '<Leader>MM', ':Noice<CR>', options)
