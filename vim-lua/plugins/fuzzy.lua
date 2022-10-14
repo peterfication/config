@@ -16,7 +16,11 @@ return function(use)
             i = {
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+              ['<C-d>'] = actions.delete_buffer
             },
+            n = {
+              ['d'] = actions.delete_buffer
+            }, -- n
           },
         },
       }
@@ -24,7 +28,6 @@ return function(use)
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('luasnip')
       require("telescope").load_extension("neoclip")
-      require("telescope").load_extension("notify")
 
       local builtin = require('telescope.builtin')
 
@@ -47,7 +50,6 @@ return function(use)
       vim.keymap.set('n', '<Leader>d', builtin.diagnostics, {})
 
       vim.keymap.set('n', '<Leader>m', builtin.marks, {})
-      vim.keymap.set('n', '<Leader>MM', ':Telescope notify<CR>', {})
 
       vim.keymap.set('n', '<Leader>c', builtin.commands, {})
       vim.keymap.set('n', '<Leader>C', builtin.builtin, {})

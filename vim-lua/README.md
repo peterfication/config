@@ -5,3 +5,7 @@
 ```bash
 ln -s ln -s ~/config/vim-lua .config/nvim/lua
 ```
+
+## Nice Neovim plugins that I don't need at the moment
+
+- https://github.com/nvim-neorg/neorg

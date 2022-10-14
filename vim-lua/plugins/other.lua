@@ -29,10 +29,4 @@ return function(use)
       require('flit').setup {}
     end
   }
-  use {
-    'rcarriga/nvim-notify',
-    config = function ()
-      require('notify').setup()
-    end
-  }
 end

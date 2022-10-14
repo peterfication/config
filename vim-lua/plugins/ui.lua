@@ -10,7 +10,7 @@ return function(use)
   }
   use {
     'RRethy/vim-illuminate',
-    config = function ()
+    config = function()
       require('illuminate').configure({})
     end
   }
@@ -120,4 +120,23 @@ return function(use)
       end)
     end
   }
+
+  use {
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = function()
+      require("noice").setup()
+
+      local options = { noremap = true }
+      vim.keymap.set('n', '<Leader>MM', ':Noice<CR>', options)
+      vim.keymap.set('n', '<Leader>Mf', ':Noice telescope<CR>', options)
+      vim.keymap.set('n', '<Leader>MF', ':Noice telescope<CR>', options)
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  }
+
 end

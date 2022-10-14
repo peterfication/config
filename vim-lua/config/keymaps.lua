@@ -18,9 +18,6 @@ map('n', 'Y', 'Y', options)
 map('n', 'j', 'gj', options)
 map('n', 'k', 'gk', options)
 
--- Show vim messages
-map('n', '<Leader>M', ':messages<CR>', options)
-
 -- From https://github.com/stoeffel/.dotfiles/blob/master/vim/visual-at.vim
 map('x', '@', ':<C-u>lua ExecuteMacroOverVisualRange()<CR>', options)
 function _G.ExecuteMacroOverVisualRange()
