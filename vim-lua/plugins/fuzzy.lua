@@ -34,7 +34,8 @@ return function(use)
       vim.keymap.set('n', '<Leader>e', builtin.find_files, {})
       vim.keymap.set('n', '<Leader>E', builtin.buffers, {})
 
-      vim.keymap.set('n', '<Leader>f', builtin.live_grep, {})
+      -- vim.keymap.set('n', '<Leader>f', builtin.live_grep, {})
+      vim.keymap.set('n', '<Leader>f', ":Search ", {})
       vim.keymap.set('n', '<Leader>F', builtin.grep_string, {})
 
       vim.keymap.set('n', '<Leader>hf', builtin.oldfiles, {})
@@ -56,6 +57,7 @@ return function(use)
 
       vim.keymap.set('n', '<Leader>gs', builtin.git_status, {})
 
+      vim.api.nvim_create_user_command('Search', 'Telescope grep_string search=<args>', { nargs = 1 })
       vim.api.nvim_create_user_command('Rg', 'Telescope grep_string search=<args>', { nargs = 1 })
 
       require('neoclip').setup({

@@ -3,6 +3,12 @@ return function(use)
   use { 'tpope/vim-commentary' }
   use { 'tpope/vim-abolish' }
   use { 'tpope/vim-repeat' }
+  use {
+    'simnalamburt/vim-mundo',
+    config = function()
+      vim.api.nvim_set_keymap('n', '<Leader>u', ":MundoToggle<CR>", { noremap = true })
+    end
+  }
   use { 'mg979/vim-visual-multi' }
   use {
     "windwp/nvim-autopairs",
