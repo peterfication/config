@@ -20,7 +20,7 @@ return function(use)
             },
             n = {
               ['d'] = actions.delete_buffer
-            }, -- n
+            },
           },
         },
       }
