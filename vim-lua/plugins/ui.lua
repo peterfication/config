@@ -14,6 +14,23 @@ return function(use)
       require('illuminate').configure({})
     end
   }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      vim.cmd [[highlight IndentBlanklineIndent1 guifg=#4a4a4a gui=nocombine]]
+
+      require("indent_blankline").setup({
+        show_current_context = true,
+        show_current_context_start = true,
+        char_list = { '·', '|', '¦', '┆', '┊', '┊', '┊' },
+        char_highlight_list = {
+          "IndentBlanklineIndent1",
+        },
+        -- show_trailing_blankline_indent = true,
+      })
+    end
+  }
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
