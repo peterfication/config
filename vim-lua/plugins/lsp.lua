@@ -6,7 +6,13 @@ return function(use)
     },
     config = function()
       require 'nvim-treesitter.configs'.setup({
-        ensure_installed = { "lua", "ruby", "hcl", "graphql" },
+        ensure_installed = {
+          "lua",
+          "ruby",
+          "hcl",
+          "graphql",
+          "rust",
+        },
 
         highlight = {
           enable = true,
