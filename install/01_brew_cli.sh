@@ -81,6 +81,7 @@ brew_tools=(
   watch
   zbar
   zsh
+  shortcat
 
   # Audio tools
   xld
