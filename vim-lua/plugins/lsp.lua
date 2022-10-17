@@ -84,8 +84,7 @@ return function(use)
   -- TODO: https://github.com/williamboman/mason.nvim
 
   local nvim_lsp = require('lspconfig')
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
   capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true
