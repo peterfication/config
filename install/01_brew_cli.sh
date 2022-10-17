@@ -21,6 +21,7 @@ brew_tools=(
   tree
   htop
   mosh
+  rar
 
   # GPG
   gpg
