@@ -9,6 +9,8 @@ o.updatetime = 300
 o.termguicolors = true
 o.spelllang = "en,de"
 o.spell = false
+o.splitright = true
+o.splitbelow = true
 
 -- window-local options
 wo.number = true

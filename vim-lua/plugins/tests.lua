@@ -34,7 +34,7 @@ return function(use)
 
       map('n', '<Leader>T', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', options)
       map('n', '<Leader>tt', ':lua require("neotest").run.run()<CR>', options)
-      map('n', '<Leader>to', ':lua require("neotest").output.open()<CR>', options)
+      map('n', '<Leader>to', ':lua require("neotest").output.open({ enter = true })<CR>', options)
       map('n', '<Leader>ta', ':lua require("neotest").run.attach()<CR>', options)
 
       -- TODO: map only for Ruby files
