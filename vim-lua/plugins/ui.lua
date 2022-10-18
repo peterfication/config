@@ -1,6 +1,6 @@
 return function(use)
   use {
-    'base16-project/base16-vim',
+    'tinted-theming/base16-vim',
     config = function()
       local vim = vim
 

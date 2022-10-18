@@ -10,8 +10,8 @@ source ~/.zplug/init.zsh
 # More plugins:
 # https://github.com/unixorn/awesome-zsh-plugins#plugins
 
-zplug "base16-project/base16-shell"
-zplug "base16-project/base16-fzf"
+zplug "tinted-theming/base16-shell"
+zplug "tinted-theming/base16-fzf"
 
 zplug "jeffreytse/zsh-vi-mode"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
