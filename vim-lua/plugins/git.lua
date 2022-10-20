@@ -53,21 +53,13 @@ return function(use)
     end
   }
 
-  use {
-    'akinsho/toggleterm.nvim',
-    tag = '*',
-    config = function()
-      require("toggleterm").setup()
-
-      -- Important keys:
-      -- - Go to parent commit: ,
-      -- - Go back: <
-      -- - Show commit: <CR>
-      -- - Close commit: q
-      -- - Close tig: q
-      vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
-      vim.keymap.set('n', '<Leader>GB', ':TermExec cmd="tig blame %; exit" direction=float<CR>', { noremap = true })
-    end
-  }
-
+  -- tig setup with toggleterm
+  -- Important keys:
+  -- - Go to parent commit: ,
+  -- - Go back: <
+  -- - Show commit: <CR>
+  -- - Close commit: q
+  -- - Close tig: q
+  vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
+  vim.keymap.set('n', '<Leader>GB', ':TermExec cmd="tig blame %; exit" direction=float<CR>', { noremap = true })
 end

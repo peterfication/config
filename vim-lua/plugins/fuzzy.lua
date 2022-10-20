@@ -38,10 +38,9 @@ return function(use)
       vim.keymap.set('n', '<Leader>f', ":Search ", {})
       vim.keymap.set('n', '<Leader>F', builtin.grep_string, {})
 
-      vim.keymap.set('n', '<Leader>hf', builtin.oldfiles, {})
       vim.keymap.set('n', '<Leader>he', builtin.oldfiles, {})
       vim.keymap.set('n', '<Leader>hc', builtin.command_history, {})
-      vim.keymap.set('n', '<Leader>hs', builtin.search_history, {})
+      vim.keymap.set('n', '<Leader>hf', builtin.search_history, {})
 
       vim.keymap.set('n', '<Leader>l', builtin.current_buffer_fuzzy_find, {})
 
@@ -51,6 +50,7 @@ return function(use)
       vim.keymap.set('n', '<Leader>d', builtin.diagnostics, {})
 
       vim.keymap.set('n', '<Leader>m', builtin.marks, {})
+      vim.keymap.set('n', '<Leader>j', builtin.jumplist, {})
 
       vim.keymap.set('n', '<Leader>c', builtin.commands, {})
       vim.keymap.set('n', '<Leader>C', builtin.builtin, {})

@@ -4,6 +4,7 @@ local m = {}
 -- is sourced again, it will reload the modules.
 function m.config(use)
   local modules = {
+    'plugins.terminal',
     'plugins.lsp',
     'plugins.git',
     'plugins.filetree',

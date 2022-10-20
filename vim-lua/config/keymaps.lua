@@ -31,9 +31,6 @@ map('n', '<Leader>b', ':b#<CR>', options)
 -- Open new empty buffer
 map('n', '<Leader>B', ':enew<CR>', options)
 
--- Terminal key mappings
-map('t', '<C-e>', [[<C-\><C-n>]], options)
-
 vim.api.nvim_create_user_command('CloseAllBuffers', 'bufdo! bd', { })
 vim.api.nvim_create_user_command('CloseAllBuffersExceptCurrent ', '%bd|e#', { })
 

@@ -26,6 +26,7 @@ return function(use)
   local options = { noremap = true }
 
   map('n', '<Leader>Q', ':Telescope quickfix<CR>', options)
+  map('n', '<Leader>hq', ':Telescope quickfixhistory<CR>', options)
 
   -- Open/close the quickfix list
   map('n', '<Leader>qo', ':copen<CR>', options)
