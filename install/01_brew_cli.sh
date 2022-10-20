@@ -42,6 +42,7 @@ brew_tools=(
   # loc # cloc replacement
   # hyperfine
   zoxide
+  rust-analyzer
 
   # Programming/infrastructure languages
   kubectl

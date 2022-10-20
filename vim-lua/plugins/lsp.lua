@@ -59,6 +59,25 @@ return function(use)
     end
   }
 
+  use {
+    'simrat39/rust-tools.nvim',
+    config = function()
+      local rt = require("rust-tools")
+
+      rt.setup({
+        server = {
+          on_attach = function(_, bufnr)
+          end,
+          ["rust-analyzer"] = {
+            checkOnSave = {
+              command = "clippy"
+            },
+          },
+        },
+      })
+    end
+  }
+
   -- Folding
   use {
     'kevinhwang91/nvim-ufo',
