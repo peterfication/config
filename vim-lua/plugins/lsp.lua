@@ -12,6 +12,9 @@ return function(use)
           "hcl",
           "graphql",
           "rust",
+          "typescript",
+          "javascript",
+          "tsx",
         },
 
         highlight = {
@@ -135,7 +138,15 @@ return function(use)
     },
   }
 
-  local servers = { "terraformls", "tflint", "graphql", "solargraph", "sumneko_lua" }
+  local servers = {
+    "graphql",
+    -- "rust_analyzer", => Done via rust-tools
+    "solargraph",
+    "sumneko_lua",
+    "terraformls",
+    "tflint",
+    "tsserver",
+  }
   for _, lsp in ipairs(servers) do
     local on_attach = function(client, bufnr)
       vim.notify("Buffer " .. bufnr .. " attached to lsp " .. lsp, vim.log.levels.INFO)
