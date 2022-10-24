@@ -24,6 +24,7 @@ brew_apps=(
   vlc
   xbar
   zoom
+  betterdisplay
 
   # ObjectiveSee
   lulu
