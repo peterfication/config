@@ -56,3 +56,14 @@ cd config
 - iTerm config
 - https://github.com/yutkat/dotfiles
 - https://dotfiles.github.io/
+
+## Alfred workflows
+
+- https://github.com/alanhg/alfred-workflows/tree/master/switch-audio
+  Create own with https://github.com/deweller/switchaudio-osx
+  https://github.com/beet/alfred_audio_switcher
+- https://github.com/jsumners/alfred-emoji
+- https://github.com/vitorgalvao/custom-alfred-iterm-scripts
+- https://github.com/g1eny0ung/Alfred-Colors-workflow
+- https://github.com/alexchantastic/alfred-ip-address-workflow
+- https://github.com/LeEnno/alfred-terminalfinder
