@@ -16,6 +16,7 @@ function m.config(use)
     'plugins.fuzzy',
     'plugins.tests',
     'plugins.http',
+    'plugins.outline',
     'plugins.ui',
     -- Disabled because it messes with the commandline in vim mode and enter
     -- 'plugins.zoom',

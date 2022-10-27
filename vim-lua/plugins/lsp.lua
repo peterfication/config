@@ -17,6 +17,7 @@ return function(use)
           "rust",
           "tsx",
           "typescript",
+          "yaml",
         },
 
         highlight = {

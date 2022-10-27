@@ -25,6 +25,7 @@ return function(use)
         },
       }
 
+      require('telescope').load_extension('aerial')
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('luasnip')
       require("telescope").load_extension("neoclip")
@@ -44,9 +45,9 @@ return function(use)
 
       vim.keymap.set('n', '<Leader>l', builtin.current_buffer_fuzzy_find, {})
 
-      vim.keymap.set('n', '<Leader>z', builtin.help_tags, {})
+      vim.keymap.set('n', '<Leader>?', builtin.help_tags, {})
       -- vim.keymap.set('n', '<Leader>Z', builtin.current_buffer_tags, {})
-      vim.keymap.set('n', '<Leader>Z', builtin.treesitter, {})
+      -- vim.keymap.set('n', '<Leader>Z', builtin.treesitter, {})
       vim.keymap.set('n', '<Leader>d', builtin.diagnostics, {})
 
       vim.keymap.set('n', '<Leader>m', builtin.marks, {})
