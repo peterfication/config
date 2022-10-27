@@ -18,6 +18,7 @@ function m.config(use)
     'plugins.http',
     'plugins.outline',
     'plugins.ui',
+    -- 'plugins.keymaps',
     -- Disabled because it messes with the commandline in vim mode and enter
     -- 'plugins.zoom',
   }

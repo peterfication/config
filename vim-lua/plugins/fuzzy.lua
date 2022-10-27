@@ -7,6 +7,7 @@ return function(use)
       { 'kyazdani42/nvim-web-devicons' },
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'AckslD/nvim-neoclip.lua' },
+      { 'nvim-telescope/telescope-file-browser.nvim' },
     },
     config = function()
       local actions = require('telescope.actions')
@@ -26,14 +27,18 @@ return function(use)
       }
 
       require('telescope').load_extension('aerial')
+      require('telescope').load_extension('file_browser')
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('luasnip')
       require("telescope").load_extension("neoclip")
 
       local builtin = require('telescope.builtin')
 
-      vim.keymap.set('n', '<Leader>e', builtin.find_files, {})
-      vim.keymap.set('n', '<Leader>E', builtin.buffers, {})
+      vim.keymap.set('n', '<Leader>ee', builtin.find_files, {})
+      vim.keymap.set('n', '<Leader>eb', ":Telescope file_browser<CR>", {})
+      vim.keymap.set('n', '<Leader>eh', builtin.oldfiles, {})
+      vim.keymap.set('n', '<Leader>EE', builtin.buffers, {})
+      vim.keymap.set('n', '<Leader>EB', ":Telescope file_browser path=%:p:h<CR>", {})
 
       -- vim.keymap.set('n', '<Leader>f', builtin.live_grep, {})
       vim.keymap.set('n', '<Leader>f', ":Search ", {})
