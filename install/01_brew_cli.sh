@@ -62,6 +62,11 @@ brew_tools=(
   # https://github.com/wagoodman/dive
   dive
   flyctl
+  # https://github.com/lima-vm/lima
+  lima
+  # https://github.com/abiosoft/colima
+  # For easy local docker
+  colima
 
   # Other
   fzf
