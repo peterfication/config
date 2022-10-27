@@ -25,6 +25,8 @@ brew_apps=(
   xbar
   zoom
   betterdisplay
+  # Eject menu bar https://github.com/kainjow/Semulov
+  semulov
 
   # ObjectiveSee
   lulu
