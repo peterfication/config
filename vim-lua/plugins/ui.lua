@@ -185,10 +185,24 @@ return function(use)
         }
       })
 
+      require('lualine').setup({
+        sections = {
+          lualine_x = {
+            'encoding', 'fileformat', 'filetype',
+            {
+              require("noice").api.statusline.mode.get,
+              cond = require("noice").api.statusline.mode.has,
+              color = { fg = "#ff9e64" },
+            }
+          },
+        },
+      })
+
       local options = { noremap = true }
       vim.keymap.set('n', '<Leader>MM', ':Noice<CR>', options)
       vim.keymap.set('n', '<Leader>Mf', ':Noice telescope<CR>', options)
       vim.keymap.set('n', '<Leader>MF', ':Noice telescope<CR>', options)
+      vim.keymap.set('n', '<Leader>MC', ":lua require('notify').dismiss()<CR>", options)
     end,
     requires = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
