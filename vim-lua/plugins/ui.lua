@@ -64,6 +64,7 @@ return function(use)
       map('n', '<Leader>3', '3gt', options)
       map('n', '<Leader>4', '4gt', options)
       map('n', '<Leader>5', '5gt', options)
+      map('n', '<Leader>!', ':tabclose<CR>', options)
     end
   }
 

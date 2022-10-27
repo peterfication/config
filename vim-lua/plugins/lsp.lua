@@ -19,7 +19,17 @@ return function(use)
 
         highlight = {
           enable = true,
-        }
+        },
+
+        incremental_selection = {
+          enable = true,
+          -- keymaps = {
+          --   init_selection = 'gnn',
+          --   scope_incremental = '<CR>',
+          --   node_incremental = '<TAB>',
+          --   node_decremental = '<S-TAB>',
+          -- },
+        },
       })
 
       require 'nvim-treesitter.configs'.setup({
@@ -61,6 +71,13 @@ return function(use)
       })
     end
   }
+
+  -- Show treesitter capture group for textobject under cursor.
+  -- TODO: https://github.com/nvim-treesitter/playground
+  vim.api.nvim_set_keymap("n", "<Leader>y",
+    ":lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>",
+    { noremap = true, silent = false }
+  )
 
   use {
     'simrat39/rust-tools.nvim',

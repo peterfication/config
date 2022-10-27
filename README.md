@@ -67,3 +67,4 @@ cd config
 - https://github.com/g1eny0ung/Alfred-Colors-workflow
 - https://github.com/alexchantastic/alfred-ip-address-workflow
 - https://github.com/LeEnno/alfred-terminalfinder
+- https://gitlab.com/alexives/timer-alfred-workflow
