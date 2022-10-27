@@ -7,14 +7,16 @@ return function(use)
     config = function()
       require 'nvim-treesitter.configs'.setup({
         ensure_installed = {
+          "graphql",
+          "hcl",
+          "http",
+          "javascript",
+          "json",
           "lua",
           "ruby",
-          "hcl",
-          "graphql",
           "rust",
-          "typescript",
-          "javascript",
           "tsx",
+          "typescript",
         },
 
         highlight = {

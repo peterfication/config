@@ -15,6 +15,7 @@ function m.config(use)
     'plugins.auto-completion',
     'plugins.fuzzy',
     'plugins.tests',
+    'plugins.http',
     'plugins.ui',
     -- Disabled because it messes with the commandline in vim mode and enter
     -- 'plugins.zoom',
