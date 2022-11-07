@@ -17,7 +17,6 @@ return function(use)
     end
   }
   use { 'windwp/nvim-ts-autotag' }
-  use { 'p00f/nvim-ts-rainbow' }
   use {
     'kylechui/nvim-surround',
     tag = "*",

@@ -3,6 +3,7 @@ return function(use)
     'nvim-treesitter/nvim-treesitter',
     requires = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'p00f/nvim-ts-rainbow',
     },
     config = function()
       require 'nvim-treesitter.configs'.setup({
@@ -33,9 +34,16 @@ return function(use)
           --   node_decremental = '<S-TAB>',
           -- },
         },
-      })
 
-      require 'nvim-treesitter.configs'.setup({
+        rainbow = {
+          enable = true,
+          -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+          extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+          max_file_lines = nil, -- Do not enable for files with more than n lines, int
+          -- colors = {}, -- table of hex strings
+          -- termcolors = {} -- table of colour name strings
+        },
+
         textobjects = {
           select = {
             enable = true,
