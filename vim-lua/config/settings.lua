@@ -11,6 +11,7 @@ o.spelllang = "en,de"
 o.spell = false
 o.splitright = true
 o.splitbelow = true
+o.swapfile = false
 
 -- window-local options
 wo.number = true
