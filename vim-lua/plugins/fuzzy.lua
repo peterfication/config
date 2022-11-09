@@ -35,7 +35,7 @@ return function(use)
       local builtin = require('telescope.builtin')
 
       vim.keymap.set('n', '<Leader>ee', builtin.find_files, {})
-      vim.keymap.set('n', '<Leader>eb', ":Telescope file_browser<CR>", {})
+      vim.keymap.set('n', '<Leader>eb', ":Telescope file_browser hidden=true<CR>", {})
       vim.keymap.set('n', '<Leader>eh', builtin.oldfiles, {})
       vim.keymap.set('n', '<Leader>EE', builtin.buffers, {})
       vim.keymap.set('n', '<Leader>EB', ":Telescope file_browser path=%:p:h<CR>", {})

@@ -188,18 +188,18 @@ return function(use)
       local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
       -- See `:help vim.lsp.*` for documentation on any of the below functions
-      buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-      buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-      buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-      buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+      buf_set_keymap('n', 'gD', '<CMD>lua vim.lsp.buf.declaration()<CR>', opts)
+      buf_set_keymap('n', 'gd', '<CMD>lua vim.lsp.buf.definition()<CR>', opts)
+      buf_set_keymap('n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>', opts)
+      buf_set_keymap('n', 'gi', '<CMD>lua vim.lsp.buf.implementation()<CR>', opts)
       -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
       -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
       -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
       -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
       -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-      -- buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+      buf_set_keymap('n', '<Leader>zr', '<CMD>lua vim.lsp.buf.rename()<CR>', opts)
       -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-      -- buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+      buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
       -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
       -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
       -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -219,8 +219,10 @@ return function(use)
     }
 
     local options = { noremap = true }
-    vim.api.nvim_set_keymap("n", "<Leader>P", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", options)
-    vim.api.nvim_set_keymap("n", "<leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
+    vim.api.nvim_set_keymap("n", "<Leader>P", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", options)
+    vim.api.nvim_set_keymap("n", "<Leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
+
+    -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
   end
 
   use {
@@ -231,6 +233,7 @@ return function(use)
         sources = {
           -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
           null_ls.builtins.code_actions.gitsigns,
+
           -- Wait for https://github.com/jose-elias-alvarez/null-ls.nvim/pull/1154
           -- null_ls.builtins.diagnostics.cspell.with({
           --   disabled_filetypes = { "NvimTree" },
@@ -243,6 +246,7 @@ return function(use)
           --   },
           -- }),
           -- null_ls.builtins.code_actions.cspell,
+
           null_ls.builtins.formatting.prettier,
         },
       })
@@ -260,6 +264,28 @@ return function(use)
         -- gpd, gpt, gpi, gpr, gP (without Leader!)
         default_mappings = true
       })
+    end
+  }
+
+  use { "johmsalas/text-case.nvim",
+    config = function()
+      require('textcase').setup {}
+
+      require('telescope').load_extension('textcase')
+      vim.api.nvim_set_keymap('n', 'ga.', '<cmd>TextCaseOpenTelescope<CR>', { desc = "Telescope" })
+      vim.api.nvim_set_keymap('v', 'ga.', "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
+
+      vim.api.nvim_set_keymap('n', 'gau', ":lua require('textcase').operator('to_upper_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gal', ":lua require('textcase').operator('to_lower_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gas', ":lua require('textcase').operator('to_snake_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gad', ":lua require('textcase').operator('to_dash_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gan', ":lua require('textcase').operator('to_constant_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gad', ":lua require('textcase').operator('to_dot_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gaa', ":lua require('textcase').operator('to_phrase_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gac', ":lua require('textcase').operator('to_camel_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gap', ":lua require('textcase').operator('to_pascal_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gat', ":lua require('textcase').operator('to_title_case')<CR>", {})
+      vim.api.nvim_set_keymap('n', 'gaf', ":lua require('textcase').operator('to_path_case')<CR>", {})
     end
   }
 end
