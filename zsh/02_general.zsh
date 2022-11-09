@@ -8,8 +8,9 @@ export VISUAL='nvim'
 alias e="nvim"
 alias vim=nvim
 alias vimlua="nvim -u ~/config/vim-lua/init.lua"
+alias vimnightly="~/.local/share/neovim/bin/nvim"
 
-setopt shwordsplit
+# setopt shwordsplit
 #
 # if type brew &>/dev/null; then
 #   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
