@@ -20,6 +20,17 @@ sky = SkyRocket:new({
   resizeModifiers = {'ctrl', 'shift'},
 })
 
+-- Move window to next screen
+hs.hotkey.bind({'alt', 'ctrl', 'cmd'}, 'n', function()
+  -- get the focused window
+  local win = hs.window.focusedWindow()
+  -- get the screen where the focused window is displayed, a.k.a. current screen
+  local screen = win:screen()
+  -- compute the unitRect of the focused window relative to the current screen
+  -- and move the window to the next screen setting the same unitRect
+  win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+end)
+
 -- Use Alfred for this
 -- local ClipboardTool = hs.loadSpoon("ClipboardTool")
 -- ClipboardTool.show_in_menubar = false
