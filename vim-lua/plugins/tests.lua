@@ -38,6 +38,7 @@ return function(use)
       map('n', '<Leader>tt', ':lua require("neotest").run.run()<CR>', options)
       map('n', '<Leader>to', ':lua require("neotest").output.open({ enter = true })<CR>', options)
       map('n', '<Leader>ta', ':lua require("neotest").run.attach()<CR>', options)
+      map('n', '<Leader>ts', ':lua require("neotest").summary.toggle()<CR>', options)
 
       -- TODO: map only for Ruby files
       map('n', '<Leader>te', ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)
