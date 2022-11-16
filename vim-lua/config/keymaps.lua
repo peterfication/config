@@ -36,3 +36,17 @@ vim.api.nvim_create_user_command('CloseAllBuffersExceptCurrent ', '%bd|e#', { })
 
 -- For https://exercism.org/
 vim.api.nvim_create_user_command('ExercismSubmit  ', '!exercism submit %', { })
+
+-- Close certain windows with "q"
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = {
+    "help",
+    "startuptime",
+    "qf",
+    "lspinfo",
+    "neotest-output",
+    "neotest-attach",
+  },
+  command = [[nnoremap <buffer><silent> q :close<CR>]]
+})
+vim.api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
