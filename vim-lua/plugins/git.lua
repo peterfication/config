@@ -2,6 +2,9 @@ return function(use)
   use {
     'lewis6991/gitsigns.nvim',
     tag = 'release',
+    requires = {
+      'petertriho/nvim-scrollbar',
+    },
     config = function()
       vim.keymap.set('n', '<Leader>gb', ":Gitsigns toggle_current_line_blame<CR>", { noremap = true })
 
@@ -43,6 +46,7 @@ return function(use)
           -- map('n', '<Leader>td', gs.toggle_deleted)
         end
       }
+      require("scrollbar.handlers.gitsigns").setup()
     end
   }
 
