@@ -4,8 +4,12 @@ return function(use)
     config = function()
       local vim = vim
 
+      -- Telescope colorscheme with live preview:
+      -- :Telescope colorscheme enable_preview=true
       vim.cmd('colorscheme base16-solarized-dark')
+
       vim.cmd('hi Comment gui=italic cterm=italic')
+      vim.cmd('hi! link @symbol SpecialChar')
     end
   }
   use {
