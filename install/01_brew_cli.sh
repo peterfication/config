@@ -14,6 +14,7 @@ brew_tools=(
   bash
   git
   tig
+  difftastic
   curl
   grep
   rclone

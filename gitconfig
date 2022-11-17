@@ -60,7 +60,8 @@
   f = fetch
   fp = fetch origin --prune
   fprune = fetch origin --prune
-  d = difftool
+  d="!GIT_EXTERNAL_DIFF=difft git diff"
+  difft="!GIT_EXTERNAL_DIFF=difft git diff"
   co = checkout
   cob = checkout -b
   s = status
