@@ -174,6 +174,7 @@ return function(use)
     "terraformls",
     "tflint",
     "tsserver",
+    "jsonls",
   }
   for _, lsp in ipairs(servers) do
     local on_attach = function(client, bufnr)
