@@ -21,7 +21,13 @@ keybinding:
 
 customCommands:
   - key: 'F'
+    description: "Fetch and prune"
     command: 'git fetch --prune'
+    context: 'localBranches'
+    stream: true
+  - key: '<c-r>'
+    command: 'git reset --hard @{upstream}'
+    description: "Reset hard the local branch with its upstream"
     context: 'localBranches'
     stream: true
   - key: "<c-f>"
