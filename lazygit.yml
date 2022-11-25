@@ -20,6 +20,10 @@ keybinding:
     openStatusFilter: "<c-p>"
 
 customCommands:
+  - key: 'F'
+    command: 'git fetch --prune'
+    context: 'localBranches'
+    stream: true
   - key: "<c-f>"
     command: "source $HOME/.zplug/repos/wfxr/forgit/forgit.plugin.zsh && forgit::log"
     description: "Fuzzy find a commit"
