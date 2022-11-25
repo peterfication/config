@@ -18,3 +18,5 @@ alias restart-camera='sudo killall VDCAssistant && sudo killall AppleCameraAssis
 
 # Clear the current shell, not only scroll down like clear does
 alias clear-real="clear && printf '\e[3J'"
+
+alias explain="~/config/zsh/other/explain.sh"
