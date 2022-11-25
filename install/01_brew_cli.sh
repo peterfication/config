@@ -89,6 +89,7 @@ brew_tools=(
   zbar
   zsh
   shortcat
+  rlwrap
 
   # Audio tools
   xld
