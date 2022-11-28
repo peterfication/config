@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export LC_ALL=en_US.UTF-8
 
 export DEFAULT_USER=petergundel
@@ -32,6 +39,7 @@ source ~/config/zsh/83_go.zsh
 source ~/config/zsh/84_python.zsh
 
 source ~/config/zsh/98_base16_shell.zsh
-source ~/config/zsh/99_agnoster.zsh
+# source ~/config/zsh/99_agnoster.zsh
+source ~/config/zsh/99_p10k.zsh
 
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh

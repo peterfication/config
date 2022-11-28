@@ -10,6 +10,8 @@ source ~/.zplug/init.zsh
 # More plugins:
 # https://github.com/unixorn/awesome-zsh-plugins#plugins
 
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
 zplug "tinted-theming/base16-shell"
 zplug "tinted-theming/base16-fzf"
 
