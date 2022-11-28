@@ -27,6 +27,7 @@ brew_apps=(
   betterdisplay
   # Eject menu bar https://github.com/kainjow/Semulov
   semulov
+  alacritty
 
   # ObjectiveSee
   lulu

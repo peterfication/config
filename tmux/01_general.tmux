@@ -15,3 +15,6 @@ set-option -g display-time 4000
 
 # Don't rename the window to the current command
 set-option -g allow-rename off
+
+set -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",*:RGB"
