@@ -14,3 +14,4 @@ volta install graphql-language-service-cli
 volta install graphql
 volta install cspell
 volta install vscode-langservers-extracted
+volta install tldr
