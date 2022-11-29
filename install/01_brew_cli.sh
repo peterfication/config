@@ -35,6 +35,7 @@ brew_tools=(
   # Rust things
   bat # cat/less replacement written in Rust
   broot
+  duf
   exa # ls replacement
   fd # find replacement
   git-delta # Git pager
