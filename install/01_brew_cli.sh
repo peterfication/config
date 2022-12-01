@@ -20,9 +20,9 @@ brew_tools=(
   rclone
   less
   tree
-  htop
   mosh
   rar
+  bottom
 
   # GPG
   gpg
