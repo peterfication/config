@@ -12,6 +12,7 @@ o.spell = false
 o.splitright = true
 o.splitbelow = true
 o.swapfile = false
+o.undofile = true
 
 -- window-local options
 wo.number = true
