@@ -14,6 +14,7 @@ return function(use)
           "javascript",
           "json",
           "lua",
+          "python",
           "ruby",
           "rust",
           "tsx",
@@ -167,14 +168,16 @@ return function(use)
   }
 
   local servers = {
+    "eslint",
     "graphql",
-    -- "rust_analyzer", => Done via rust-tools
+    "jsonls",
+    "pyright",
     "solargraph",
     "sumneko_lua",
     "terraformls",
     "tflint",
     "tsserver",
-    "jsonls",
+    -- "rust_analyzer", => Done via rust-tools
   }
   for _, lsp in ipairs(servers) do
     local on_attach = function(client, bufnr)
@@ -249,6 +252,7 @@ return function(use)
           -- null_ls.builtins.code_actions.cspell,
 
           null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.autopep8,
         },
       })
     end,

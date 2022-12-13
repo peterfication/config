@@ -61,6 +61,8 @@ brew_tools=(
   weaveworks/tap/eksctl
   aws-iam-authenticator
   python
+  pyright
+  autopep8
   # https://github.com/wagoodman/dive
   dive
   flyctl
