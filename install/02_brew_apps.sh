@@ -34,6 +34,7 @@ brew_apps=(
   knockknock
   netiquette
   oversight
+  karabiner-elements
 
   oracle-jdk
 

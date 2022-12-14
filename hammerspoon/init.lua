@@ -21,7 +21,7 @@ sky = SkyRocket:new({
 })
 
 -- Move window to next screen
-hs.hotkey.bind({'alt', 'ctrl', 'cmd'}, 'n', function()
+hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'n', function()
   -- get the focused window
   local win = hs.window.focusedWindow()
   -- get the screen where the focused window is displayed, a.k.a. current screen
