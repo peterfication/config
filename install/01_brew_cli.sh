@@ -45,6 +45,7 @@ brew_tools=(
   # hyperfine
   zoxide
   rust-analyzer
+  code-minimap
 
   # Programming/infrastructure languages
   kubectl

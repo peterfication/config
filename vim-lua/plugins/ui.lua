@@ -53,7 +53,7 @@ return function(use)
       }
 
       local map = vim.api.nvim_set_keymap
-      local options = { noremap = true }
+      local options = { noremap = true, silent = true }
 
       -- Cycle through open buffers
       map('n', '<C-K>', ':bnext<CR>', options)
@@ -202,7 +202,7 @@ return function(use)
         },
       })
 
-      local options = { noremap = true }
+      local options = { noremap = true, silent = true }
       vim.keymap.set('n', '<Leader>MM', ':Noice<CR>', options)
       vim.keymap.set('n', '<Leader>Mf', ':Noice telescope<CR>', options)
       vim.keymap.set('n', '<Leader>MF', ':Noice telescope<CR>', options)
@@ -241,6 +241,18 @@ return function(use)
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
       }
+    end
+  }
+
+  use {
+    'wfxr/minimap.vim',
+    config = function()
+      vim.cmd("let g:minimap_git_colors=1")
+      vim.cmd("let g:minimap_highlight_search=1")
+
+      local options = { noremap = true, silent = true }
+      vim.keymap.set('n', '<Leader>ö', ':MinimapToggle<CR>', options)
+
     end
   }
 end
