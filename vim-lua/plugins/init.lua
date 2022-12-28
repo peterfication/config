@@ -15,6 +15,7 @@ function m.config(use)
     'plugins.auto-completion',
     'plugins.fuzzy',
     'plugins.tests',
+    'plugins.repl',
     'plugins.http',
     'plugins.outline',
     'plugins.ui',
