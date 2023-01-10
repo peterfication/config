@@ -27,3 +27,13 @@ alias vimnightly="~/.local/share/neovim/bin/nvim"
 # To me a problem occurred with Capybara and Webmock displaying the following message:
 #   Failed to open TCP connection to 127.0.0.1:9515 (Too many open files - socket(2) for "127.0.0.1" port 9515
 ulimit -n 8192
+
+# Allow Ctrl-z to toggle between suspend and resume
+function Resume {
+  fg
+  zle push-input
+  BUFFER=""
+  zle accept-line
+}
+zle -N Resume
+bindkey "^Z" Resume
