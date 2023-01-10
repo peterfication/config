@@ -20,15 +20,20 @@ keybinding:
     openStatusFilter: "<c-p>"
 
 customCommands:
-  - key: 'F'
+  - key: "F"
     description: "Fetch and prune"
-    command: 'git fetch --prune'
-    context: 'localBranches'
+    command: "git fetch --prune"
+    context: "localBranches"
     stream: true
-  - key: '<c-r>'
-    command: 'git reset --hard @{upstream}'
+  - key: "<c-r>"
+    command: "git reset --hard @{upstream}"
     description: "Reset hard the local branch with its upstream"
-    context: 'localBranches'
+    context: "localBranches"
+    stream: true
+  - key: "<c-u>"
+    command: "git reset --soft HEAD^"
+    description: "Uncommit selected commit and put the changes back in the working tree"
+    context: "commits"
     stream: true
   - key: "<c-f>"
     command: "source $HOME/.zplug/repos/wfxr/forgit/forgit.plugin.zsh && forgit::log"
