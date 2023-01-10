@@ -72,6 +72,8 @@ brew_tools=(
   # https://github.com/abiosoft/colima
   # For easy local docker
   colima
+  lnav
+  fx
 
   # Other
   fzf
