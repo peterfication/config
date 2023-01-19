@@ -19,6 +19,18 @@ keybinding:
   files:
     openStatusFilter: "<c-p>"
 
+gui:
+  theme:
+    selectedRangeBgColor:
+      - bold
+      - reverse
+  branchColors:
+    'main': '#11aaff'
+    'master': '#11aaff'
+    'develop': '#11aaff'
+    'integration': '#11aaff'
+  showIcons: true
+
 customCommands:
   - key: "F"
     description: "Fetch and prune"
