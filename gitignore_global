@@ -4,6 +4,7 @@
 .vscode
 .elasticbeanstalk/
 .classpath
+.lazygit.yml
 .project
 .settings
 .vscode
