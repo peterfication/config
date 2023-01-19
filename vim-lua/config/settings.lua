@@ -13,6 +13,7 @@ o.splitright = true
 o.splitbelow = true
 o.swapfile = false
 o.undofile = true
+o.scrolloff = 10 -- The number of screen lines to keep above and below the cursor while scrolling
 
 -- window-local options
 wo.number = true
@@ -20,7 +21,6 @@ wo.wrap = true
 wo.cursorline = true -- Highlights the current line of the cursor
 wo.cursorcolumn = true -- Highlights the current column of the cursor
 wo.list = true
-wo.scrolloff = 10 -- The number of screen lines to keep above and below the cursor while scrolling
 vim.opt.listchars = {
   trail    = '¤',
   nbsp     = '·',
