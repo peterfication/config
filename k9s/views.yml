@@ -12,9 +12,9 @@ k9s:
         - STATUS
         - CPU
         - MEM
-        - %CPU/R
-        - %CPU/L
-        - %MEM/R
-        - %MEM/L
+        - "%CPU/R"
+        - "%CPU/L"
+        - "%MEM/R"
+        - "%MEM/L"
         - IP
         - NODE
