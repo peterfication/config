@@ -32,6 +32,10 @@ gui:
   showIcons: true
 
 customCommands:
+  - key: '<c-p>'
+    command: 'git add --patch'
+    context: 'files'
+    subprocess: true
   - key: "F"
     description: "Fetch and prune"
     command: "git fetch --prune"
