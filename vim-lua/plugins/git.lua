@@ -1,4 +1,6 @@
 return function(use)
+  use { 'sindrets/diffview.nvim' }
+
   use {
     'lewis6991/gitsigns.nvim',
     tag = 'release',
