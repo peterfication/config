@@ -74,6 +74,7 @@ brew_tools=(
   colima
   lnav
   fx
+  elixir-ls
 
   # Other
   fzf

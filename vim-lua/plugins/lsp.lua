@@ -8,6 +8,8 @@ return function(use)
     config = function()
       require 'nvim-treesitter.configs'.setup({
         ensure_installed = {
+          "erlang",
+          "elixir",
           "graphql",
           "hcl",
           "http",
@@ -166,8 +168,12 @@ return function(use)
       },
     },
   }
+  local cmd = {
+    elixirls = { "elixir-ls" },
+  }
 
   local servers = {
+    "elixirls",
     "eslint",
     "graphql",
     "jsonls",
@@ -219,7 +225,8 @@ return function(use)
       flags = {
         debounce_text_changes = 150,
       },
-      settings = settings[lsp]
+      settings = settings[lsp],
+      cmd = cmd[lsp],
     }
 
     local options = { noremap = true }
