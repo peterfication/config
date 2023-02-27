@@ -13,14 +13,17 @@ return function(use)
       local actions = require('telescope.actions')
       require('telescope').setup {
         defaults = {
+          cache_picker = {
+            num_pickers = 100,
+          },
           mappings = {
             i = {
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
-              ['<C-d>'] = actions.delete_buffer
+              ['<C-d>'] = actions.delete_buffer,
             },
             n = {
-              ['d'] = actions.delete_buffer
+              ['d'] = actions.delete_buffer,
             },
           },
         },
@@ -40,13 +43,13 @@ return function(use)
       vim.keymap.set('n', '<Leader>EE', builtin.buffers, {})
       vim.keymap.set('n', '<Leader>EB', ":Telescope file_browser path=%:p:h<CR>", {})
 
-      -- vim.keymap.set('n', '<Leader>f', builtin.live_grep, {})
-      vim.keymap.set('n', '<Leader>f', ":Search ", {})
+      -- Use <C-Space> to refine the search
+      vim.keymap.set('n', '<Leader>ff', builtin.live_grep, {})
+      vim.keymap.set('n', '<Leader>fw', ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>", {})
       vim.keymap.set('n', '<Leader>F', builtin.grep_string, {})
 
-      vim.keymap.set('n', '<Leader>he', builtin.oldfiles, {})
-      vim.keymap.set('n', '<Leader>hc', builtin.command_history, {})
-      vim.keymap.set('n', '<Leader>hf', builtin.search_history, {})
+      vim.keymap.set('n', '<Leader>H', builtin.pickers, {})
+      vim.keymap.set('n', '<Leader>/', builtin.search_history, {})
 
       vim.keymap.set('n', '<Leader>l', builtin.current_buffer_fuzzy_find, {})
 
@@ -58,13 +61,11 @@ return function(use)
       vim.keymap.set('n', '<Leader>m', builtin.marks, {})
       vim.keymap.set('n', '<Leader>j', builtin.jumplist, {})
 
-      vim.keymap.set('n', '<Leader>c', builtin.commands, {})
+      vim.keymap.set('n', '<Leader>cc', builtin.commands, {})
+      vim.keymap.set('n', '<Leader>ch', builtin.command_history, {})
       vim.keymap.set('n', '<Leader>C', builtin.builtin, {})
 
-      vim.keymap.set('n', '<Leader>gs', builtin.git_status, {})
-
-      vim.api.nvim_create_user_command('Search', 'Telescope grep_string search=<args>', { nargs = 1 })
-      vim.api.nvim_create_user_command('Rg', 'Telescope grep_string search=<args>', { nargs = 1 })
+      vim.keymap.set('n', '<Leader>GS', builtin.git_status, {})
 
       require('neoclip').setup({
         history = 1000,
