@@ -18,15 +18,14 @@ return function(use)
       local options = { noremap = true }
       vim.api.nvim_set_keymap("n", "<Leader>xx", "<CMD>TroubleToggle document_diagnostics<CR>", options)
       vim.api.nvim_set_keymap("n", "<Leader>xw", "<CMD>TroubleToggle workspace_diagnostics<CR>", options)
+      vim.api.nvim_set_keymap("n", "<Leader>xl", "<CMD>TroubleToggle loclist<CR>", options)
+      vim.api.nvim_set_keymap("n", "<Leader>xq", "<CMD>TroubleToggle quickfix<CR>", options)
     end
   }
   use { 'Olical/vim-enmasse' }
 
   local map = vim.api.nvim_set_keymap
   local options = { noremap = true }
-
-  map('n', '<Leader>Q', ':Telescope quickfix<CR>', options)
-  map('n', '<Leader>hq', ':Telescope quickfixhistory<CR>', options)
 
   -- Open/close the quickfix list
   map('n', '<Leader>qo', ':copen<CR>', options)

@@ -69,6 +69,9 @@ return function(use)
       vim.keymap.set('n', '<Leader>ch', builtin.command_history, {})
       vim.keymap.set('n', '<Leader>C', builtin.builtin, {})
 
+      vim.keymap.set('n', '<Leader>qq', ':Telescope quickfix<CR>', {})
+      vim.keymap.set('n', '<Leader>qh', ':Telescope quickfixhistory<CR>', {})
+
       vim.keymap.set('n', '<Leader>GS', builtin.git_status, {})
 
       require('neoclip').setup({
