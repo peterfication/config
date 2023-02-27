@@ -11,6 +11,8 @@ return function(use)
     },
     config = function()
       local actions = require('telescope.actions')
+      local trouble = require("trouble.providers.telescope")
+
       require('telescope').setup {
         defaults = {
           cache_picker = {
@@ -21,9 +23,11 @@ return function(use)
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
               ['<C-d>'] = actions.delete_buffer,
+              ["<c-x>"] = trouble.open_with_trouble,
             },
             n = {
               ['d'] = actions.delete_buffer,
+              ["<c-x>"] = trouble.open_with_trouble,
             },
           },
         },
