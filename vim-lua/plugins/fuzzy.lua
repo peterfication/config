@@ -80,6 +80,43 @@ return function(use)
         },
       })
       vim.keymap.set('n', '<Leader>p', ":Telescope neoclip<CR> ", {})
+
+    end
+  }
+
+  use {
+    'axkirillov/easypick.nvim',
+    requires = 'nvim-telescope/telescope.nvim',
+    config = function()
+      local easypick = require("easypick")
+
+      easypick.setup({
+        pickers = {
+          {
+            name = "git_hunks",
+            command = "ruby ~/config/vim-lua/plugins/ruby/git.rb",
+            previewer = require("telescope.previewers").vim_buffer_vimgrep.new({}),
+            opts = {
+              prompt_title = "Git hunks",
+              initial_mode = 'insert',
+            },
+            entry_maker = function(entry)
+              local filename, lnum_string = entry:match("([^:]+):(%d+).*")
+              local lnum = tonumber(lnum_string)
+
+              return {
+                value = filename,
+                display = entry,
+                ordinal = entry,
+                filename = filename,
+                lnum = lnum,
+              }
+            end,
+          }
+        },
+      })
+
+      vim.keymap.set('n', '<Leader>gs', ":Easypick git_hunks<CR> ", {})
     end
   }
 end
