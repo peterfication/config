@@ -15,7 +15,16 @@ return function(use)
   use {
     'RRethy/vim-illuminate',
     config = function()
-      require('illuminate').configure({})
+      require('illuminate').configure({
+
+      })
+
+      local map = vim.api.nvim_set_keymap
+      local options = { noremap = true, silent = true }
+      map('n', '<Leader><C-m>', ':lua require"illuminate".next_reference{wrap=true}<CR>', options)
+      map('n', '<Leader><C-P>', ':lua require"illuminate".goto_prev_reference()<CR>', options)
+      map('n', '<Leader><C-n>', '*:nohlsearch<CR>', options)
+      map('n', '<Leader><C-p>', '*NN:nohlsearch<CR>', options)
     end
   }
 
