@@ -8,8 +8,8 @@ return function(use)
           relative = "editor",
         },
       })
-      vim.keymap.set('n', '<Leader>z', ':AerialToggle float<CR>', {})
-      vim.keymap.set('n', '<Leader>Z', ':Telescope aerial<CR>', {})
+      vim.keymap.set('n', '<Leader>zo', ':AerialToggle float<CR>', {})
+      vim.keymap.set('n', '<Leader>zz', ':Telescope aerial<CR>', {})
     end
   }
 end
