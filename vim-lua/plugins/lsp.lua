@@ -1,4 +1,6 @@
 return function(use)
+  use { "nathom/filetype.nvim" }
+
   use {
     'nvim-treesitter/nvim-treesitter',
     requires = {
