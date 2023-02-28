@@ -1,5 +1,10 @@
 return function(use)
-  use { 'sindrets/diffview.nvim' }
+  use {
+    'sindrets/diffview.nvim',
+    config = function()
+      vim.keymap.set('n', '<Leader>GG', ':DiffviewFileHistory %<CR>', { noremap = true, silent = true })
+    end
+  }
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -56,7 +61,8 @@ return function(use)
     'kdheepak/lazygit.nvim',
     config = function()
       vim.keymap.set('n', '<Leader>gg', ":LazyGit<CR>", { noremap = true })
-    end
+      vim.keymap.set('n', '<Leader>gg', ":LazyGit<CR>", { noremap = true })
+    end --asdf
   }
 
   -- tig setup with toggleterm
@@ -66,6 +72,6 @@ return function(use)
   -- - Show commit: <CR>
   -- - Close commit: q
   -- - Close tig: q
-  vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
+  -- vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
   vim.keymap.set('n', '<Leader>GB', ':TermExec cmd="tig blame %; exit" direction=float<CR>', { noremap = true })
 end
