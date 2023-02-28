@@ -36,6 +36,10 @@ return function(use)
           skipped = "★",
           unknown = "★"
         },
+        quickfix = {
+          enabled = true,
+          open = false
+        },
       })
 
       local map = vim.api.nvim_set_keymap
@@ -46,6 +50,7 @@ return function(use)
       map('n', '<Leader>T', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', options)
       map('n', '<Leader>tt', ':lua require("neotest").run.run()<CR>', options)
       map('n', '<Leader>to', ':lua require("neotest").output.open({ enter = true })<CR>', options)
+      map('n', '<Leader>TO', ':lua require("neotest").output_panel.toggle()<CR>', options)
       map('n', '<Leader>ta', ':lua require("neotest").run.attach()<CR>', options)
       map('n', '<Leader>ts', ':lua require("neotest").summary.toggle()<CR>', options)
 
