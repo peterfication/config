@@ -13,6 +13,7 @@ function cdb() {
     echo "Not a git project"
   fi
 }
+alias cdr=cdb
 
 function git_tmp_shallow() {
   for GIT_URL in $1; do
