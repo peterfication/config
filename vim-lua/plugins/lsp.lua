@@ -289,7 +289,8 @@ return function(use)
     end
   }
 
-  use { "johmsalas/text-case.nvim",
+  use {
+    "johmsalas/text-case.nvim",
     config = function()
       require('textcase').setup {}
 

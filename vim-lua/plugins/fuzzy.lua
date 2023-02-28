@@ -8,6 +8,7 @@ return function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'AckslD/nvim-neoclip.lua' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
+      { 'nvim-telescope/telescope-github.nvim' },
       -- { 'ptethng/telescope-makefile' },
     },
     config = function()
@@ -39,6 +40,7 @@ return function(use)
       require('telescope').load_extension('aerial')
       require('telescope').load_extension('file_browser')
       require('telescope').load_extension('fzf')
+      require('telescope').load_extension('gh')
       require('telescope').load_extension('luasnip')
       require("telescope").load_extension("neoclip")
 
@@ -74,6 +76,9 @@ return function(use)
 
       vim.keymap.set('n', '<Leader>qq', ':Telescope quickfix<CR>', {})
       vim.keymap.set('n', '<Leader>qh', ':Telescope quickfixhistory<CR>', {})
+
+      vim.keymap.set('n', '<Leader>oi', ':Telescope gh issues<CR>', {})
+      vim.keymap.set('n', '<Leader>op', ':Telescope gh pull_request<CR>', {})
 
       vim.keymap.set('n', '<Leader>GS', builtin.git_status, {})
 
