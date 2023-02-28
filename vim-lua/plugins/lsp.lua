@@ -300,4 +300,7 @@ return function(use)
       vim.api.nvim_set_keymap('n', 'gaf', ":lua require('textcase').operator('to_path_case')<CR>", {})
     end
   }
+
+  -- Treesitter does not support slim templates
+  use { "slim-template/vim-slim" }
 end
