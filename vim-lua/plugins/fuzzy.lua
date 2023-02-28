@@ -25,6 +25,8 @@ return function(use)
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
               ['<C-d>'] = actions.delete_buffer,
               ["<c-x>"] = trouble.open_with_trouble,
+              ["<C-n>"] = actions.cycle_history_next,
+              ["<C-p>"] = actions.cycle_history_prev,
             },
             n = {
               ['d'] = actions.delete_buffer,
