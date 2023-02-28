@@ -21,8 +21,9 @@ return function(use)
         },
       })
 
-      vim.keymap.set('n', '<Leader>n', ":NvimTreeToggle<CR>", { noremap = true })
-      vim.keymap.set('n', '<Leader>N', ":NvimTreeFindFile<CR>", { noremap = true })
+      local options = { noremap = true, silent = true }
+      vim.keymap.set('n', '<Leader>n', ":NvimTreeToggle<CR>", options)
+      vim.keymap.set('n', '<Leader>N', ":NvimTreeFindFile<CR>", options)
     end
   }
 end
