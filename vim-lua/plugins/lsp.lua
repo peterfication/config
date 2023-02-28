@@ -25,11 +25,9 @@ return function(use)
           "typescript",
           "yaml",
         },
-
         highlight = {
           enable = true,
         },
-
         incremental_selection = {
           enable = true,
           -- keymaps = {
@@ -39,7 +37,6 @@ return function(use)
           --   node_decremental = '<S-TAB>',
           -- },
         },
-
         rainbow = {
           enable = true,
           -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
@@ -48,7 +45,6 @@ return function(use)
           -- colors = {}, -- table of hex strings
           -- termcolors = {} -- table of colour name strings
         },
-
         textobjects = {
           select = {
             enable = true,
