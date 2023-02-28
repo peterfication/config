@@ -260,7 +260,14 @@ return function(use)
           }),
           null_ls.builtins.code_actions.cspell,
 
-          null_ls.builtins.formatting.prettier,
+          null_ls.builtins.formatting.prettier.with(
+            {
+              extra_filetypes = {
+                "ruby",
+              },
+            }
+          ),
+          null_ls.builtins.formatting.eslint,
           null_ls.builtins.formatting.autopep8,
         },
       })
