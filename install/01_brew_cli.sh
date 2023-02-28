@@ -73,6 +73,7 @@ brew_tools=(
   # For easy local docker
   colima
   lnav
+  podman
   fx
   elixir-ls
 
