@@ -16,45 +16,6 @@ k9s:
     fullScreenLogs: false
     textWrap: false
     showTime: false
-  currentContext: heyday-alpha-context
-  currentCluster: heyday-alpha-cluster
-  clusters:
-    heyday-alpha-cluster:
-      namespace:
-        active: all
-        favorites:
-        - all
-      view:
-        active: pods
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    heyday-production-cluster:
-      namespace:
-        active: "all"
-        favorites:
-        - all
-      view:
-        active: pod
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
   thresholds:
     cpu:
       critical: 90
@@ -62,3 +23,7 @@ k9s:
     memory:
       critical: 90
       warn: 70
+  screenDumpDir: ~/Pictures/Screenshots/k9s
+  currentContext: current-context
+  currentCluster: current-cluster
+  clusters: {}
