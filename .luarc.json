@@ -1,6 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.workspace.library": [
+    "workspace.library": [
         "/Users/petergundel/.config/nvim",
         "/Users/petergundel/.local/share/nvim/site",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/aerial.nvim",
@@ -12,19 +11,25 @@
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/cmp-path",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/copilot.vim",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/diffview.nvim",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/easypick.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/filetype.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/flit.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/friendly-snippets",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/goto-preview",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/iron.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/leap.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/lualine.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/LuaSnip",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/marks.nvim",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/minimap.vim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/neotest",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/neotest-jest",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/neotest-rspec",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/nui.nvim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -59,9 +64,11 @@
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-abolish",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-commentary",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-enmasse",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-fugitive",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-illuminate",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-mundo",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-repeat",
+        "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-slim",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/vim-visual-multi",
         "/Users/petergundel/.local/share/bob/nightly/nvim-macos/share/nvim/runtime",
         "/Users/petergundel/.local/share/bob/nightly/nvim-macos/lib/nvim",
@@ -72,6 +79,7 @@
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/nvim-bqf/after",
         "/Users/petergundel/.local/share/nvim/site/pack/packer/start/rest.nvim/after",
-        "${3rd}/luassert/library"
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
     ]
 }
