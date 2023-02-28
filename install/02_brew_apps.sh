@@ -25,9 +25,12 @@ brew_apps=(
   xbar
   zoom
   betterdisplay
+  transmission # torrent client
   # Eject menu bar https://github.com/kainjow/Semulov
   semulov
   alacritty
+  sloth
+  sweet-home3d
 
   # ObjectiveSee
   lulu
