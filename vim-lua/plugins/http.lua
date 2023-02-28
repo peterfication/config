@@ -27,6 +27,7 @@ return function(use)
           -- set them to nil if you want to disable them
           formatters = {
             json = "jq",
+            vnd = "jq",
             html = function(body)
               return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
             end
@@ -39,8 +40,8 @@ return function(use)
         yank_dry_run = true,
       })
 
-      vim.api.nvim_set_keymap("n", "<Leader>r", "<Plug>RestNvim", { nowait = true })
-      vim.api.nvim_set_keymap("n", "<Leader>RP", "<Plug>RestNvimPreview", { nowait = true })
+      vim.api.nvim_set_keymap("n", "<Leader>rr", "<Plug>RestNvim", { nowait = true })
+      vim.api.nvim_set_keymap("n", "<Leader>rp", "<Plug>RestNvimPreview", { nowait = true })
       vim.cmd("command! RestNvim lua require('rest-nvim').run()")
       vim.cmd("command! RestNvimPreview lua require('rest-nvim').run(true)")
     end
