@@ -152,7 +152,7 @@ return function(use)
   }
 
   local settings = {
-    sumneko_lua = {
+    lua_ls = {
       Lua = {
         runtime = {
           version = 'LuaJIT', -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -181,7 +181,7 @@ return function(use)
     "jsonls",
     "pyright",
     "solargraph",
-    "sumneko_lua",
+    "lua_ls",
     "terraformls",
     "tflint",
     "tsserver",
