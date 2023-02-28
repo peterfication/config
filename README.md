@@ -57,6 +57,7 @@ cd config
 - https://github.com/yutkat/dotfiles
 - https://dotfiles.github.io/
 - https://ohmyposh.dev
+- https://github.com/vendasta/setup-new-computer-script https://news.ycombinator.com/item?id=29535432
 
 ## Alfred workflows
 
