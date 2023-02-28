@@ -8,6 +8,7 @@ return function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'AckslD/nvim-neoclip.lua' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
+      -- { 'ptethng/telescope-makefile' },
     },
     config = function()
       local actions = require('telescope.actions')
@@ -84,6 +85,9 @@ return function(use)
       })
       vim.keymap.set('n', '<Leader>p', ":Telescope neoclip<CR> ", {})
 
+      -- require('telescope-makefile').setup({})
+      -- vim.keymap.set('n', '<Leader>R', ':Telescope make<CR>', {})
+      -- require("telescope").load_extension("make")
     end
   }
 
