@@ -14,7 +14,6 @@ return function(use)
           require('neotest-rspec')({
             rspec_cmd = function()
               return vim.tbl_flatten({
-                "MINIMUM_COVERAGE=0",
                 "bundle",
                 "exec",
                 "rspec",
