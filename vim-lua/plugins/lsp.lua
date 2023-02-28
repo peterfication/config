@@ -241,27 +241,30 @@ return function(use)
     config = function()
       local null_ls = require('null-ls')
       null_ls.setup({
+        -- debug = true,
         sources = {
           -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
           null_ls.builtins.code_actions.gitsigns,
 
-          -- Wait for https://github.com/jose-elias-alvarez/null-ls.nvim/pull/1154
-          -- null_ls.builtins.diagnostics.cspell.with({
-          --   disabled_filetypes = { "NvimTree" },
-          --   diagnostic_config = {
-          --     underline = true,
-          --     virtual_text = false,
-          --     signs = false,
-          --     update_in_insert = false,
-          --     severity_sort = false,
-          --   },
-          -- }),
-          -- null_ls.builtins.code_actions.cspell,
+          null_ls.builtins.diagnostics.cspell.with({
+            disabled_filetypes = { "NvimTree" },
+            diagnostic_config = {
+              underline = true,
+              virtual_text = false,
+              signs = false,
+              update_in_insert = false,
+              severity_sort = false,
+            },
+          }),
+          null_ls.builtins.code_actions.cspell,
 
           null_ls.builtins.formatting.prettier,
           null_ls.builtins.formatting.autopep8,
         },
       })
+
+      vim.cmd("command! NullLsCspellEnable lua require('null-ls').enable({name = 'cspell'})")
+      vim.cmd("command! NullLsCspellDisable lua require('null-ls').disable({name = 'cspell'})")
     end,
     requires = { "nvim-lua/plenary.nvim" },
   }
