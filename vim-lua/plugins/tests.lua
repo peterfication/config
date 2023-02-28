@@ -11,7 +11,16 @@ return function(use)
     config = function()
       require('neotest').setup({
         adapters = {
-          require('neotest-rspec'),
+          require('neotest-rspec')({
+            rspec_cmd = function()
+              return vim.tbl_flatten({
+                "MINIMUM_COVERAGE=0",
+                "bundle",
+                "exec",
+                "rspec",
+              })
+            end
+          }),
           require('neotest-jest')({
             jestCommand = "npm test --",
             jestConfigFile = "custom.jest.config.ts",
