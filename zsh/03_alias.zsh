@@ -28,3 +28,16 @@ cheatl() {
   ~/config/zsh/other/cheat.sh $1 | less
 }
 compdef cheatl=cheat
+
+# lazygit() {
+#   config_file="$HOME/.config/lazygit/config.yml"
+
+#   # If there is a .lazygit.yml file in the current Git repository root,
+#   # use it as well.
+#   gitroot=$(git rev-parse --show-toplevel)
+#   if [ -f "$gitroot/.lazygit.yml" ]; then
+#     config_file="$config_file,$gitroot/.lazygit.yml"
+#   fi
+
+#   command lazygit --use-config-file="$config_file"
+# }
