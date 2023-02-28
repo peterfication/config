@@ -23,6 +23,7 @@ brew_tools=(
   mosh
   rar
   bottom
+  lsof
 
   # GPG
   gpg
