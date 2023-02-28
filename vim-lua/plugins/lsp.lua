@@ -246,6 +246,8 @@ return function(use)
           -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
           null_ls.builtins.code_actions.gitsigns,
 
+          null_ls.builtins.diagnostics.credo,
+
           null_ls.builtins.diagnostics.cspell.with({
             disabled_filetypes = { "NvimTree" },
             diagnostic_config = {
