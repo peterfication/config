@@ -31,6 +31,9 @@ return function(use)
             },
             n = {
               ['d'] = actions.delete_buffer,
+              ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["q"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<c-x>"] = trouble.open_with_trouble,
             },
           },
