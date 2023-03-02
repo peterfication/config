@@ -82,6 +82,13 @@ return function(use)
   }
 
   use {
+    'tiagovla/scope.nvim',
+    config = function()
+      require("scope").setup()
+    end
+  }
+
+  use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
