@@ -3,12 +3,11 @@
 # zle -N edit-command-line
 # bindkey '^f' edit-command-line
 
-export EDITOR='nvim'
-export VISUAL='nvim'
-alias e="nvim"
+export VISUAL="nvim"
+export EDITOR="nvim"
+alias nvim="~/.local/share/neovim/bin/nvim"
+alias e=nvim
 alias vim=nvim
-alias vimlua="nvim -u ~/config/vim-lua/init.lua"
-alias vimnightly="~/.local/share/neovim/bin/nvim"
 
 # setopt shwordsplit
 #

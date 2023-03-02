@@ -61,7 +61,7 @@ return function(use)
     config = function()
       vim.keymap.set('n', '<Leader>gg', ":LazyGit<CR>", { noremap = true })
       vim.keymap.set('n', '<Leader>gg', ":LazyGit<CR>", { noremap = true })
-    end --asdf
+    end
   }
 
   -- tig setup with toggleterm

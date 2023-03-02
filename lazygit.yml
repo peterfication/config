@@ -11,7 +11,7 @@ git:
     pager: delta -s --dark --paging=never --24-bit-color=never
 
 os:
-  editCommand: nvim
+  editCommand: nvr -l -s
 
 keybinding:
   universal:
