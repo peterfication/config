@@ -64,6 +64,13 @@ return function(use)
     end
   }
 
+  use {
+    'rbong/vim-flog',
+    requires = {
+      'tpope/vim-fugitive',
+    },
+  }
+
   -- tig setup with toggleterm
   -- Important keys:
   -- - Go to parent commit: ,
