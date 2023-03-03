@@ -71,6 +71,14 @@ return function(use)
     },
   }
 
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require("gitlinker").setup()
+    end
+  }
+
   -- tig setup with toggleterm
   -- Important keys:
   -- - Go to parent commit: ,
