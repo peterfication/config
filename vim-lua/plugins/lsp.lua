@@ -10,8 +10,9 @@ return function(use)
     config = function()
       require 'nvim-treesitter.configs'.setup({
         ensure_installed = {
-          "erlang",
+          "bash",
           "elixir",
+          "erlang",
           "graphql",
           "hcl",
           "http",
