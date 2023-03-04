@@ -7,6 +7,7 @@ return function(use)
       'antoinemadec/FixCursorHold.nvim',
       'olimorris/neotest-rspec',
       'haydenmeade/neotest-jest',
+      "jfpedroza/neotest-elixir",
     },
     config = function()
       require('neotest').setup({
@@ -28,6 +29,7 @@ return function(use)
               return vim.fn.getcwd()
             end,
           }),
+          require("neotest-elixir"),
         },
         icons = {
           child_indent = "│",
