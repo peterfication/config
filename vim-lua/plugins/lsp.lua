@@ -15,6 +15,7 @@ return function(use)
           "erlang",
           "graphql",
           "hcl",
+          "heex", -- Elixir HTML templates
           "http",
           "javascript",
           "json",
