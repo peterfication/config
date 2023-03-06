@@ -8,7 +8,7 @@ return function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
       { 'AckslD/nvim-neoclip.lua' },
       { 'nvim-telescope/telescope-file-browser.nvim' },
-      { 'nvim-telescope/telescope-github.nvim' },
+      { 'peterfication/telescope-github.nvim' },
       -- { 'ptethng/telescope-makefile' },
     },
     config = function()
