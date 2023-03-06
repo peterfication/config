@@ -1,8 +1,8 @@
 return function(use)
-  use {
+  use({
     "folke/which-key.nvim",
     config = function()
       require("which-key").setup({})
-    end
-  }
+    end,
+  })
 end

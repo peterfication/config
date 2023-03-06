@@ -117,6 +117,7 @@ brew 'rubyfmt'
 brew 'rust-analyzer'
 brew 'stern' # Tail multiple Kubernets pods and containers
 brew 'switchaudio-osx'
+brew 'stylua' # Lua formatter
 brew 'terraform-docs'
 brew 'terraform-ls' # Terraform language server
 brew 'tfenv' # For managing Terraform versions

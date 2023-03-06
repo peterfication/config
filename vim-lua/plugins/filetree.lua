@@ -1,8 +1,8 @@
 return function(use)
-  use {
-    'kyazdani42/nvim-tree.lua',
+  use({
+    "kyazdani42/nvim-tree.lua",
     requires = {
-      'nvim-tree/nvim-web-devicons',
+      "nvim-tree/nvim-web-devicons",
     },
     config = function()
       require("nvim-tree").setup({
@@ -22,8 +22,8 @@ return function(use)
       })
 
       local options = { noremap = true, silent = true }
-      vim.keymap.set('n', '<Leader>n', ":NvimTreeToggle<CR>", options)
-      vim.keymap.set('n', '<Leader>N', ":NvimTreeFindFile<CR>", options)
-    end
-  }
+      vim.keymap.set("n", "<Leader>n", ":NvimTreeToggle<CR>", options)
+      vim.keymap.set("n", "<Leader>N", ":NvimTreeFindFile<CR>", options)
+    end,
+  })
 end

@@ -1,27 +1,27 @@
 return function(use)
-  use {
-    'nvim-neotest/neotest',
+  use({
+    "nvim-neotest/neotest",
     requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
-      'antoinemadec/FixCursorHold.nvim',
-      'olimorris/neotest-rspec',
-      'haydenmeade/neotest-jest',
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "olimorris/neotest-rspec",
+      "haydenmeade/neotest-jest",
       "jfpedroza/neotest-elixir",
     },
     config = function()
-      require('neotest').setup({
+      require("neotest").setup({
         adapters = {
-          require('neotest-rspec')({
+          require("neotest-rspec")({
             rspec_cmd = function()
               return vim.tbl_flatten({
                 "bundle",
                 "exec",
                 "rspec",
               })
-            end
+            end,
           }),
-          require('neotest-jest')({
+          require("neotest-jest")({
             jestCommand = "npm test --",
             jestConfigFile = "custom.jest.config.ts",
             env = { CI = true },
@@ -44,11 +44,11 @@ return function(use)
           running = "★",
           running_animated = { "/", "|", "\\", "-", "/", "|", "\\", "-" },
           skipped = "★",
-          unknown = "★"
+          unknown = "★",
         },
         quickfix = {
           enabled = true,
-          open = false
+          open = false,
         },
       })
 
@@ -57,16 +57,16 @@ return function(use)
 
       vim.cmd("sign define neotest_ text=.")
 
-      map('n', '<Leader>T', ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', options)
-      map('n', '<Leader>tt', ':lua require("neotest").run.run()<CR>', options)
-      map('n', '<Leader>to', ':lua require("neotest").output.open({ enter = true })<CR>', options)
-      map('n', '<Leader>TO', ':lua require("neotest").output_panel.toggle()<CR>', options)
-      map('n', '<Leader>ta', ':lua require("neotest").run.attach()<CR>', options)
-      map('n', '<Leader>ts', ':lua require("neotest").summary.toggle()<CR>', options)
+      map("n", "<Leader>T", ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', options)
+      map("n", "<Leader>tt", ':lua require("neotest").run.run()<CR>', options)
+      map("n", "<Leader>to", ':lua require("neotest").output.open({ enter = true })<CR>', options)
+      map("n", "<Leader>TO", ':lua require("neotest").output_panel.toggle()<CR>', options)
+      map("n", "<Leader>ta", ':lua require("neotest").run.attach()<CR>', options)
+      map("n", "<Leader>ts", ':lua require("neotest").summary.toggle()<CR>', options)
 
       -- TODO: map only for Ruby files
-      map('n', '<Leader>te', ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)
-      map('n', '<Leader>tl', ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left>spec/<CR>', options)
-    end
-  }
+      map("n", "<Leader>te", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)
+      map("n", "<Leader>tl", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left>spec/<CR>', options)
+    end,
+  })
 end

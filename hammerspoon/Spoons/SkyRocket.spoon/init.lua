@@ -28,18 +28,15 @@ local function tableToMap(table)
 end
 
 local function createResizeCanvas()
-  local canvas = hs.canvas.new{}
+  local canvas = hs.canvas.new({})
 
-  canvas:insertElement(
-    {
-      id = 'opaque_layer',
-      action = 'fill',
-      type = 'rectangle',
-      fillColor = { red = 0, green = 0, blue = 0, alpha = 0.3 },
-      roundedRectRadii = { xRadius = 5.0, yRadius = 5.0 },
-    },
-    1
-  )
+  canvas:insertElement({
+    id = "opaque_layer",
+    action = "fill",
+    type = "rectangle",
+    fillColor = { red = 0, green = 0, blue = 0, alpha = 0.3 },
+    roundedRectRadii = { xRadius = 5.0, yRadius = 5.0 },
+  }, 1)
 
   return canvas
 end
@@ -70,29 +67,20 @@ function SkyRocket:new(options)
     disabledApps = tableToMap(options.disabledApps or {}),
     dragging = false,
     dragType = nil,
-    moveModifiers = options.moveModifiers or {'cmd', 'shift'},
+    moveModifiers = options.moveModifiers or { "cmd", "shift" },
     windowCanvas = createResizeCanvas(),
-    resizeModifiers = options.resizeModifiers or {'ctrl', 'shift'},
+    resizeModifiers = options.resizeModifiers or { "ctrl", "shift" },
     targetWindow = nil,
   }
 
   setmetatable(resizer, self)
   self.__index = self
 
-  resizer.clickHandler = hs.eventtap.new(
-    { hs.eventtap.event.types.leftMouseDown },
-    resizer:handleClick()
-  )
+  resizer.clickHandler = hs.eventtap.new({ hs.eventtap.event.types.leftMouseDown }, resizer:handleClick())
 
-  resizer.cancelHandler = hs.eventtap.new(
-    { hs.eventtap.event.types.leftMouseUp },
-    resizer:handleCancel()
-  )
+  resizer.cancelHandler = hs.eventtap.new({ hs.eventtap.event.types.leftMouseUp }, resizer:handleCancel())
 
-  resizer.dragHandler = hs.eventtap.new(
-    { hs.eventtap.event.types.leftMouseDragged },
-    resizer:handleDrag()
-  )
+  resizer.dragHandler = hs.eventtap.new({ hs.eventtap.event.types.leftMouseDragged }, resizer:handleDrag())
 
   resizer.clickHandler:start()
 
@@ -119,7 +107,9 @@ end
 
 function SkyRocket:handleDrag()
   return function(event)
-    if not self.dragging then return nil end
+    if not self.dragging then
+      return nil
+    end
 
     local dx = event:getProperty(hs.eventtap.event.properties.mouseEventDeltaX)
     local dy = event:getProperty(hs.eventtap.event.properties.mouseEventDeltaY)
@@ -138,7 +128,7 @@ function SkyRocket:handleDrag()
 
       self.windowCanvas:size({
         w = currentSize.w + dx,
-        h = currentSize.h + dy
+        h = currentSize.h + dy,
       })
 
       return true
@@ -150,7 +140,9 @@ end
 
 function SkyRocket:handleCancel()
   return function()
-    if not self.dragging then return end
+    if not self.dragging then
+      return
+    end
 
     if self:isResizing() then
       self:resizeWindowToCanvas()
@@ -171,16 +163,24 @@ function SkyRocket:resizeCanvasToWindow()
 end
 
 function SkyRocket:resizeWindowToCanvas()
-  if not self.targetWindow then return end
-  if not self.windowCanvas then return end
+  if not self.targetWindow then
+    return
+  end
+  if not self.windowCanvas then
+    return
+  end
 
   local size = self.windowCanvas:size()
   self.targetWindow:setSize(size.w, size.h)
 end
 
 function SkyRocket:moveWindowToCanvas()
-  if not self.targetWindow then return end
-  if not self.windowCanvas then return end
+  if not self.targetWindow then
+    return
+  end
+  if not self.windowCanvas then
+    return
+  end
 
   local frame = self.windowCanvas:frame()
   local point = self.windowCanvas:topLeft()
@@ -197,7 +197,9 @@ end
 
 function SkyRocket:handleClick()
   return function(event)
-    if self.dragging then return true end
+    if self.dragging then
+      return true
+    end
 
     local flags = event:getFlags()
 

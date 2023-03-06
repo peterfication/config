@@ -1,6 +1,6 @@
 return function(use)
- -- For examples, see https://github.com/rest-nvim/rest.nvim/tree/main/tests
-  use {
+  -- For examples, see https://github.com/rest-nvim/rest.nvim/tree/main/tests
+  use({
     "rest-nvim/rest.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     config = function()
@@ -30,12 +30,12 @@ return function(use)
             vnd = "jq",
             html = function(body)
               return vim.fn.system({ "tidy", "-i", "-q", "-" }, body)
-            end
+            end,
           },
         },
         -- Jump to request line on run
         jump_to_request = false,
-        env_file = '.env',
+        env_file = ".env",
         custom_dynamic_variables = {},
         yank_dry_run = true,
       })
@@ -44,6 +44,6 @@ return function(use)
       vim.api.nvim_set_keymap("n", "<Leader>rp", "<Plug>RestNvimPreview", { nowait = true })
       vim.cmd("command! RestNvim lua require('rest-nvim').run()")
       vim.cmd("command! RestNvimPreview lua require('rest-nvim').run(true)")
-    end
-  }
+    end,
+  })
 end

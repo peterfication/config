@@ -6,7 +6,7 @@
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)
 
-local obj={}
+local obj = {}
 obj.__index = obj
 
 -- Metadata
@@ -28,12 +28,12 @@ obj.menubar = nil
 --- EjectMenu.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.logger = hs.logger.new('EjectMenu')
+obj.logger = hs.logger.new("EjectMenu")
 
 --- EjectMenu.never_eject
 --- Variable
 --- List containing volume paths that should never be ejected. Default value: empty list
-obj.never_eject = { }
+obj.never_eject = {}
 
 --- EjectMenu.notify
 --- Variable
@@ -65,7 +65,7 @@ obj.show_in_menubar = true
 ---
 --- Notes:
 ---  * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list
-obj.other_eject_events = { }
+obj.other_eject_events = {}
 
 --- EjectMenu:shouldEject(path, info)
 --- Method
@@ -111,13 +111,14 @@ function obj.showNotification(title, subtitle, msg, persistent)
   if persistent then
     withdraw_time = 0
   end
-  hs.notify.new(
-    {
+  hs.notify
+    .new({
       title = title,
       subTitle = subtitle,
       informativeText = msg,
-      withdrawAfter = withdraw_time
-  }):send()
+      withdrawAfter = withdraw_time,
+    })
+    :send()
 end
 
 --- EjectMenu:ejectVolumes()
@@ -130,8 +131,8 @@ function obj:ejectVolumes(persistent_notifs)
   local v, count = self:volumesToEject()
   self.logger.df("Ejecting volumes")
   local all_ejected = true
-  for path,info in pairs(v) do
-    local result,msg = hs.fs.volume.eject(path)
+  for path, info in pairs(v) do
+    local result, msg = hs.fs.volume.eject(path)
     if result then
       if self.notify then
         self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", persistent_notifs)
@@ -156,23 +157,20 @@ end
 -- Parameters
 --  * mods: A table containing which modifiers are held in {key = bool} format only if 'bool' is true. Other modifiers are omitted.
 --  * table: The menu item being activated.
-function obj:execMenuItem (mods, table)
-  if (
-    mods['cmd'] == true and
-      mods['ctrl'] == false and
-      mods['alt'] == false and
-      mods['shift'] == false and
-      mods['fn'] == false
-  ) then
-    hs.osascript.applescript(
-      'tell application "Finder"'
-        .. ' to open ("' .. table['path'] .. '" as POSIX file)'
-    )
+function obj:execMenuItem(mods, table)
+  if
+    mods["cmd"] == true
+    and mods["ctrl"] == false
+    and mods["alt"] == false
+    and mods["shift"] == false
+    and mods["fn"] == false
+  then
+    hs.osascript.applescript('tell application "Finder"' .. ' to open ("' .. table["path"] .. '" as POSIX file)')
     hs.appfinder.appFromName("Finder"):activate()
   else
-    self.logger.df("Will eject %s", table['path'])
-    hs.fs.volume.eject(table['path'])
-    self.showNotification("EjectMenu", "Volume " .. table['path'] .. " ejected.", "", false)
+    self.logger.df("Will eject %s", table["path"])
+    hs.fs.volume.eject(table["path"])
+    self.showNotification("EjectMenu", "Volume " .. table["path"] .. " ejected.", "", false)
   end
 end
 
@@ -185,26 +183,28 @@ end
 --
 -- Returns
 --  * ejectMenuTable: a table containing entries and functions for ejectable drives.
-function obj:initEjectMenu (mods)
+function obj:initEjectMenu(mods)
   local ejectMenuDrives, count = self:volumesToEject()
   local ejectMenuTable = {
-    {title = "Eject All",
-     fn = function () self:ejectVolumes(false) end,
-     disabled = (count == 0)
+    {
+      title = "Eject All",
+      fn = function()
+        self:ejectVolumes(false)
+      end,
+      disabled = (count == 0),
     },
-    {title = '-'}
+    { title = "-" },
   }
   if count > 0 then
     for drive, v in pairs(ejectMenuDrives) do
       self.logger.d(drive .. " is ejectable.")
-      table.insert(
-        ejectMenuTable,
-        {
-          title = v['NSURLVolumeLocalizedNameKey'],
-          path = drive,
-          fn = function (mods, table) self:execMenuItem(mods, table) end
-        }
-      )
+      table.insert(ejectMenuTable, {
+        title = v["NSURLVolumeLocalizedNameKey"],
+        path = drive,
+        fn = function(mods, table)
+          self:execMenuItem(mods, table)
+        end,
+      })
     end
   else
     self.logger.d("No external drives.")
@@ -230,11 +230,11 @@ end
 --
 -- Parameters
 --  * mods: A table containing for which the keys are the modifiers being held and the values are 'true'.
-function obj:changeEjectMenuIcon (mods)
-  if mods:containExactly({'cmd'}) then
-    self.menubar:setTitle('⮑')
+function obj:changeEjectMenuIcon(mods)
+  if mods:containExactly({ "cmd" }) then
+    self.menubar:setTitle("⮑")
   elseif mods:containExactly({}) then
-    self.menubar:setTitle('⏏')
+    self.menubar:setTitle("⏏")
   end
 end
 
@@ -246,36 +246,43 @@ end
 ---  * None
 function obj:start()
   if self.eject_on_sleep then
-    self.caff_watcher = hs.caffeinate.watcher.new(
-      function (e)
+    self.caff_watcher = hs.caffeinate.watcher
+      .new(function(e)
         self.logger.df("Received hs.caffeinate.watcher event %d", e)
         if (e == hs.caffeinate.watcher.systemWillSleep) or hs.fnutils.contains(self.other_eject_events, e) then
           self.logger.df("  About to go to sleep")
           self:ejectVolumes(true)
         end
-    end):start()
+      end)
+      :start()
   end
   if self.eject_on_lid_close then
-    self.screen_watcher = hs.screen.watcher.new(
-      function ()
+    self.screen_watcher = hs.screen.watcher
+      .new(function()
         self.logger.df("Received hs.screen.watcher event")
         local screens = hs.screen.allScreens()
         self.logger.df("  Screens: %s", hs.inspect(screens))
-        if #screens > 0 and hs.fnutils.every(screens,
-                                             function (s) return s:name() ~= "Color LCD" end) then
+        if
+          #screens > 0
+          and hs.fnutils.every(screens, function(s)
+            return s:name() ~= "Color LCD"
+          end)
+        then
           self.logger.df("  'Color LCD' display is gone but other screens remain - detecting this as 'lid close'")
           self:ejectVolumes(true)
         end
-      end
-    ):start()
+      end)
+      :start()
   end
   if self.show_in_menubar then
-    self.menubar = hs.menubar.new():setTitle("⏏"):
-    setMenu(function (mods) return self:initEjectMenu(mods) end)
-    self.flags_watcher = hs.eventtap.new(
-      {hs.eventtap.event.types.flagsChanged},
-      function (event) self:changeEjectMenuIcon(event:getFlags()) end
-    ):start()
+    self.menubar = hs.menubar.new():setTitle("⏏"):setMenu(function(mods)
+      return self:initEjectMenu(mods)
+    end)
+    self.flags_watcher = hs.eventtap
+      .new({ hs.eventtap.event.types.flagsChanged }, function(event)
+        self:changeEjectMenuIcon(event:getFlags())
+      end)
+      :start()
   end
   return self
 end

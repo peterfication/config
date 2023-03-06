@@ -1,49 +1,49 @@
 return function(use)
-  use { 'editorconfig/editorconfig-vim' }
-  use { 'tpope/vim-commentary' }
-  use { 'tpope/vim-abolish' }
-  use { 'tpope/vim-repeat' }
-  use {
-    'simnalamburt/vim-mundo',
+  use({ "editorconfig/editorconfig-vim" })
+  use({ "tpope/vim-commentary" })
+  use({ "tpope/vim-abolish" })
+  use({ "tpope/vim-repeat" })
+  use({
+    "simnalamburt/vim-mundo",
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>u', ":MundoToggle<CR>", { noremap = true })
-    end
-  }
-  use { 'mg979/vim-visual-multi' }
-  use {
+      vim.api.nvim_set_keymap("n", "<Leader>u", ":MundoToggle<CR>", { noremap = true })
+    end,
+  })
+  use({ "mg979/vim-visual-multi" })
+  use({
     "windwp/nvim-autopairs",
     config = function()
-      require("nvim-autopairs").setup {}
-    end
-  }
-  use { 'windwp/nvim-ts-autotag' }
-  use {
-    'kylechui/nvim-surround',
+      require("nvim-autopairs").setup({})
+    end,
+  })
+  use({ "windwp/nvim-ts-autotag" })
+  use({
+    "kylechui/nvim-surround",
     tag = "*",
     config = function()
       require("nvim-surround").setup({})
-    end
-  }
-  use {
-    'ggandor/leap.nvim',
+    end,
+  })
+  use({
+    "ggandor/leap.nvim",
     requires = {
-      { 'ggandor/flit.nvim' }
+      { "ggandor/flit.nvim" },
     },
     config = function()
-      require('leap').add_default_mappings()
-      require('flit').setup {}
-    end
-  }
-  use {
-    'https://gitlab.com/yorickpeterse/nvim-window.git',
+      require("leap").add_default_mappings()
+      require("flit").setup({})
+    end,
+  })
+  use({
+    "https://gitlab.com/yorickpeterse/nvim-window.git",
     config = function()
-      vim.api.nvim_set_keymap('n', '<Leader>W', [[:lua require('nvim-window').pick()<CR>]], { noremap = true })
+      vim.api.nvim_set_keymap("n", "<Leader>W", [[:lua require('nvim-window').pick()<CR>]], { noremap = true })
 
-      require('nvim-window').setup({
-        border = 'double'
+      require("nvim-window").setup({
+        border = "double",
       })
-    end
-  }
+    end,
+  })
   -- Highlight Search Lens
   -- use {
   --   'kevinhwang91/nvim-hlslens',

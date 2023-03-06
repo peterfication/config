@@ -16,12 +16,12 @@ spoon.Caffeine:start()
 
 local SkyRocket = hs.loadSpoon("SkyRocket")
 sky = SkyRocket:new({
-  moveModifiers = {'cmd', 'shift'},
-  resizeModifiers = {'ctrl', 'shift'},
+  moveModifiers = { "cmd", "shift" },
+  resizeModifiers = { "ctrl", "shift" },
 })
 
 -- Move window to next screen
-hs.hotkey.bind({'alt', 'ctrl', 'cmd', 'shift'}, 'n', function()
+hs.hotkey.bind({ "alt", "ctrl", "cmd", "shift" }, "n", function()
   -- get the focused window
   local win = hs.window.focusedWindow()
   -- get the screen where the focused window is displayed, a.k.a. current screen
