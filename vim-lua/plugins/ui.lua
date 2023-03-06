@@ -69,6 +69,7 @@ return function(use)
       -- Close current buffer
       -- See https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
       map("n", "<C-C>", ":bp<bar>sp<bar>bn<bar>bd<CR>", options)
+      map("n", "<Leader><C-C>", ":bd<CR>", options)
 
       -- Tab navigation
       map("n", "<Leader>1", "1gt", options)
@@ -76,6 +77,10 @@ return function(use)
       map("n", "<Leader>3", "3gt", options)
       map("n", "<Leader>4", "4gt", options)
       map("n", "<Leader>5", "5gt", options)
+      map("n", "<Leader>6", "6gt", options)
+      map("n", "<Leader>7", "7gt", options)
+      map("n", "<Leader>8", "8gt", options)
+      map("n", "<Leader>9", "9gt", options)
       map("n", "<Leader>!", ":tabclose<CR>", options)
     end,
   })
