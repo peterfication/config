@@ -18,7 +18,7 @@ function tmux_new_with_name() {
     DIR_NAME=`echo $TS_DIR | grep -o "[a-zA-Z0-9_.-]*$" | sed -r 's/[.]+/-/g'`
     echo "Create session '${DIR_NAME}' with window 'vim' and folder '${TS_DIR}'"
     eval "tmux new-session -d -c ${TS_DIR} -s ${DIR_NAME} -n vim"
-    eval "tmux send-keys -t 1.0 vimnightly Enter"
+    eval "tmux send-keys -t 1.0 vim Enter"
 
     # echo "Split window 'console' in session '${DIR_NAME}'"
     # eval "tmux split-window -h -t ${DIR_NAME} -c ${TS_DIR}"
