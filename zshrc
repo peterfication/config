@@ -44,3 +44,17 @@ source ~/config/zsh/98_base16_shell.zsh
 source ~/config/zsh/99_p10k.zsh
 
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
+
+# From https://github.com/direnv/direnv/issues/68#issuecomment-114155484
+if which direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+
+  _direnv_hook() {
+    if [[ "$PWD" =~ "$HOME" ]]; then
+      # Supress direnv output when in $HOME
+      eval "$(direnv export zsh 2> >( egrep -v -e '^direnv: (loading|export|unloading)' ))"
+    else
+      eval "$(direnv export zsh)"
+    fi
+  };
+fi
