@@ -256,6 +256,7 @@ return function(use)
           null_ls.builtins.code_actions.gitsigns,
 
           null_ls.builtins.diagnostics.credo,
+          null_ls.builtins.diagnostics.haml_lint,
           null_ls.builtins.formatting.stylua,
 
           null_ls.builtins.diagnostics.cspell.with({
@@ -272,6 +273,7 @@ return function(use)
 
           null_ls.builtins.formatting.prettier.with({
             extra_filetypes = {
+              "haml",
               "ruby",
             },
           }),
