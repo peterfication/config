@@ -15,6 +15,7 @@ tap 'ms-jpq/sad'
 tap 'weaveworks/tap'
 
 brew 'act'
+brew 'amethyst'
 brew 'aom'
 brew 'asdf'
 brew 'autoconf'
