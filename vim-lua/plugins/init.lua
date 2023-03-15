@@ -22,7 +22,7 @@ function m.config(use)
     -- 'plugins.keymaps',
     -- Disabled because it messes with the commandline in vim mode and enter
     -- 'plugins.zoom',
-    "plugins.copilot",
+    "plugins.ai",
   }
 
   for _, v in pairs(modules) do
