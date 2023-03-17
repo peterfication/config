@@ -68,6 +68,7 @@ brew 'gradle'
 brew 'graphviz'
 brew 'grep'
 brew 'gum'
+brew 'guetzli' # Image optimization
 brew 'harfbuzz'
 brew 'htop'
 # brew 'hyperfine'
