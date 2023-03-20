@@ -16,6 +16,7 @@ return function(use)
           "graphql",
           "hcl",
           "heex", -- Elixir HTML templates
+	        "html",
           "http",
           "javascript",
           "json",
