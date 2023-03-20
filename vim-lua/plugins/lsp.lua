@@ -272,14 +272,14 @@ return function(use)
           null_ls.builtins.code_actions.cspell,
           null_ls.builtins.code_actions.eslint_d,
 
+          null_ls.builtins.formatting.eslint_d,
+          null_ls.builtins.formatting.autopep8,
           null_ls.builtins.formatting.prettier.with({
             extra_filetypes = {
               "haml",
               "ruby",
             },
           }),
-          null_ls.builtins.formatting.eslint_d,
-          null_ls.builtins.formatting.autopep8,
         },
       })
 
