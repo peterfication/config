@@ -88,7 +88,39 @@ return function(use)
       vim.keymap.set("n", "<Leader>oi", ":Telescope gh issues<CR>", {})
       vim.keymap.set("n", "<Leader>op", ":Telescope gh pull_request<CR>", {})
 
+      local git_hunks = function()
+        require("telescope.pickers")
+          .new({
+            finder = require("telescope.finders").new_oneshot_job({ "git", "jump", "--stdout", "diff" }, {
+              entry_maker = function(line)
+                local filename, lnum_string = line:match("([^:]+):(%d+).*")
+
+                -- I couldn't find a way to use grep in new_oneshot_job so we have to filter here
+                -- return nil if filename is /dev/null because this means the file was deleted
+                if filename:match("^/dev/null") then
+                  return nil
+                end
+
+                return {
+                  value = filename,
+                  display = line,
+                  ordinal = line,
+                  filename = filename,
+                  lnum = tonumber(lnum_string),
+                }
+              end,
+            }),
+            sorter = require("telescope.sorters").get_generic_fuzzy_sorter(),
+            previewer = require("telescope.config").values.grep_previewer({}),
+            results_title = "Git hunks",
+            prompt_title = "Git hunks",
+            layout_strategy = "flex",
+          }, {})
+          :find()
+      end
+
       vim.keymap.set("n", "<Leader>GS", builtin.git_status, {})
+      vim.keymap.set("n", "<Leader>gs", git_hunks, {})
 
       require("neoclip").setup({
         history = 1000,
@@ -103,42 +135,6 @@ return function(use)
       -- require('telescope-makefile').setup({})
       -- vim.keymap.set('n', '<Leader>R', ':Telescope make<CR>', {})
       -- require("telescope").load_extension("make")
-    end,
-  })
-
-  use({
-    "axkirillov/easypick.nvim",
-    requires = "nvim-telescope/telescope.nvim",
-    config = function()
-      local easypick = require("easypick")
-
-      easypick.setup({
-        pickers = {
-          {
-            name = "git_hunks",
-            command = "ruby ~/config/vim-lua/plugins/ruby/git.rb",
-            previewer = require("telescope.previewers").vim_buffer_vimgrep.new({}),
-            opts = {
-              prompt_title = "Git hunks",
-              initial_mode = "insert",
-            },
-            entry_maker = function(entry)
-              local filename, lnum_string = entry:match("([^:]+):(%d+).*")
-              local lnum = tonumber(lnum_string)
-
-              return {
-                value = filename,
-                display = entry,
-                ordinal = entry,
-                filename = filename,
-                lnum = lnum,
-              }
-            end,
-          },
-        },
-      })
-
-      vim.keymap.set("n", "<Leader>gs", ":Easypick git_hunks<CR> ", {})
     end,
   })
 end
