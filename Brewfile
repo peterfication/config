@@ -29,6 +29,7 @@ brew 'bat' # cat/less replacement written in Rust
 brew 'bottom'
 brew 'broot'
 brew 'btop'
+brew 'catimg' # Image preview in the terminal
 brew 'cdparanoia'
 brew 'cloc'
 brew 'cmake'
