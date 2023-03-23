@@ -100,6 +100,7 @@ brew 'mosh'
 brew 'ms-jpq/sad/sad'
 brew 'neovim'
 brew 'neovim-remote'
+brew 'nnn' # Terminal file manager
 brew 'nvm'
 brew 'openjdk'
 brew 'openjdk@11'
