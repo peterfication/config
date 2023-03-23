@@ -16,7 +16,7 @@ return function(use)
           "graphql",
           "hcl",
           "heex", -- Elixir HTML templates
-	        "html",
+          "html",
           "http",
           "javascript",
           "json",
@@ -321,6 +321,19 @@ return function(use)
     end,
   })
 
+  -- LSP breadcrumbs
+  use({
+    "utilyre/barbecue.nvim",
+    tag = "*",
+    requires = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    after = "nvim-web-devicons",
+    config = function()
+      require("barbecue").setup()
+    end,
+  })
   -- Treesitter does not support slim templates
   use({ "slim-template/vim-slim" })
 end
