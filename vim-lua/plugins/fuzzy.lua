@@ -105,6 +105,7 @@ return function(use)
       -- vim.keymap.set('n', '<Leader>Z', builtin.current_buffer_tags, {})
       -- vim.keymap.set('n', '<Leader>Z', builtin.treesitter, {})
       vim.keymap.set("n", "<Leader>d", builtin.diagnostics, {})
+      vim.keymap.set("n", "<Leader>D", ":Telescope diagnostics bufnr=0<CR>", {})
 
       vim.keymap.set("n", "<Leader>m", builtin.marks, {})
       vim.keymap.set("n", "<Leader>j", builtin.jumplist, {})
