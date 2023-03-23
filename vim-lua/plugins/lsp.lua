@@ -1,5 +1,17 @@
 return function(use)
-  use({ "nathom/filetype.nvim" })
+  use({
+    "nathom/filetype.nvim",
+    config = function()
+      require("filetype").setup({
+        overrides = {
+          extensions = {
+            -- Somehow html is not working in my setup
+            html = "html",
+          },
+        },
+      })
+    end,
+  })
 
   use({
     "nvim-treesitter/nvim-treesitter",
