@@ -48,6 +48,11 @@ return function(use)
     config = function()
       require("bufferline").setup({
         options = {
+          diagnostics = "nvim_lsp",
+          diagnostics_indicator = function(count, level, _diagnostics_dict, _context)
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
+          end,
           offsets = {
             {
               filetype = "NvimTree",
@@ -109,16 +114,18 @@ return function(use)
               "diff",
               colored = false,
             },
-            {
-              "diagnostics",
-              colored = false,
-            },
           },
           lualine_c = {
             {
               "filename",
               path = 1,
             },
+          },
+          lualine_x = {
+            "diagnostics",
+            "encoding",
+            "fileformat",
+            "filetype",
           },
         },
         inactive_sections = {
