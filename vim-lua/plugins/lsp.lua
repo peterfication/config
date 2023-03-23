@@ -196,6 +196,7 @@ return function(use)
     "pyright",
     "solargraph",
     "lua_ls",
+    "tailwindcss",
     "terraformls",
     "tflint",
     "tsserver",

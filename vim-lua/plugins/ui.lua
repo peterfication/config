@@ -241,4 +241,15 @@ return function(use)
       vim.keymap.set("n", "<Leader>ö", ":MinimapToggle<CR>", options)
     end,
   })
+
+  use({
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        user_default_options = {
+          tailwind = true,
+        },
+      })
+    end,
+  })
 end

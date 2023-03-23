@@ -14,3 +14,4 @@ package tldr@3.3.8 / tldr / node@16.18.1 npm@built-in (default)
 package typescript@4.8.4 / tsc, tsserver / node@14.20.1 npm@built-in (default)
 package typescript-language-server@2.1.0 / typescript-language-server / node@16.18.1 npm@built-in (default)
 package vscode-langservers-extracted@4.5.0 / vscode-css-language-server, vscode-eslint-language-server, vscode-html-language-server, vscode-json-language-server, vscode-markdown-language-server / node@16.18.1 npm@built-in (default)
+@tailwindcss/language-server
