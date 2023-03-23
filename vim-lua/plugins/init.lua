@@ -15,13 +15,12 @@ function m.config(use)
     "plugins.auto-completion",
     "plugins.fuzzy",
     "plugins.tests",
-    "plugins.repl",
+    -- "plugins.repl", -- I actually don't use this
     "plugins.http",
     "plugins.outline",
     "plugins.ui",
     -- 'plugins.keymaps',
-    -- Disabled because it messes with the commandline in vim mode and enter
-    -- 'plugins.zoom',
+    -- 'plugins.zoom', -- Disabled because it messes with the command line in vim mode and enter
     "plugins.ai",
   }
 
