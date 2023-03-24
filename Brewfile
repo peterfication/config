@@ -65,6 +65,7 @@ brew 'gnu-sed'
 brew 'gnupg'
 brew 'gnutls'
 brew 'go'
+brew 'gping' # ping but with a graph
 brew 'gradle'
 brew 'graphviz'
 brew 'grep'
