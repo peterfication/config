@@ -49,9 +49,9 @@ return function(use)
           --     col = 75,
           --   },
           -- },
-          indent_markers = {
-            enable = true,
-          },
+          -- indent_markers = {
+          --   enable = true,
+          -- },
         },
         actions = {
           open_file = {
