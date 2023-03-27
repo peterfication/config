@@ -16,7 +16,7 @@ return function(use)
         api.config.mappings.default_on_attach(bufnr)
 
         vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
-        vim.keymap.set("n", "p", M.print_node_path, opts("Print node path"))
+        -- vim.keymap.set("n", "p", M.print_node_path, opts("Print node path"))
         vim.keymap.set("n", "<Leader>n", ":NvimTreeClose<CR>", opts("Close NvimTree"))
       end
 
@@ -62,7 +62,7 @@ return function(use)
 
       local options = { noremap = true, silent = true }
       vim.keymap.set("n", "<Leader>n", ":NvimTreeFocus<CR>", options)
-      vim.keymap.set("n", "<Leader>N", ":NvimTreeFindFile<CR>:NvimTreeFocus<CR>", options)
+      vim.keymap.set("n", "<Leader>N", ":NvimTreeFindFile<CR>", options)
     end,
   })
 
