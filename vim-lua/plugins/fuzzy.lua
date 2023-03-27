@@ -9,6 +9,7 @@ return function(use)
       { "AckslD/nvim-neoclip.lua" },
       { "nvim-telescope/telescope-file-browser.nvim" },
       { "peterfication/telescope-github.nvim" },
+      { "mrjones2014/legendary.nvim" },
       -- { 'ptethng/telescope-makefile' },
     },
     config = function()
@@ -80,9 +81,14 @@ return function(use)
 
       local builtin = require("telescope.builtin")
 
-      vim.keymap.set("n", "<Leader>ee", builtin.find_files, {})
-      vim.keymap.set("n", "<Leader>eb", ":Telescope file_browser hidden=true<CR>", {})
-      vim.keymap.set("n", "<Leader>eh", builtin.oldfiles, {})
+      require("legendary").setup({
+        keymaps = {
+          { "<leader>ee", builtin.find_files, description = "Find files with Telescope" },
+          { "<leader>eb", ":Telescope file_browser hidden=true<CR>", description = "Telescope file browser" },
+          { "<leader>eh", builtin.oldfiles, description = "Recent files with Telescope" },
+        },
+      })
+
       vim.keymap.set("n", "<Leader>EE", builtin.buffers, {})
       vim.keymap.set("n", "<Leader>EB", ":Telescope file_browser path=%:p:h<CR>", {})
 
