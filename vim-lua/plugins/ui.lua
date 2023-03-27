@@ -107,6 +107,7 @@ return function(use)
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
     config = function()
+      -- https://github.com/nvim-lualine/lualine.nvim#default-configuration
       require("lualine").setup({
         options = {
           theme = "solarized_dark",
@@ -119,12 +120,6 @@ return function(use)
             {
               "diff",
               colored = false,
-            },
-          },
-          lualine_c = {
-            {
-              "filename",
-              path = 1,
             },
           },
           lualine_x = {
