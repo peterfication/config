@@ -1,9 +1,5 @@
 # Style
 
-# True color support
-set -g default-terminal "screen-256color"
-set-option -ga terminal-overrides ",xterm-256color:Tc"
-
 # Update Interval
 set -g status-interval 1
 

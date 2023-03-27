@@ -10,6 +10,12 @@ return function(use)
 
       vim.cmd("hi Comment gui=italic cterm=italic")
       vim.cmd("hi! link @symbol SpecialChar")
+
+      vim.cmd("hi ErrorHighlight gui=undercurl cterm=undercurl")
+      vim.cmd("hi WarningHighlight gui=undercurl cterm=undercurl")
+      vim.cmd("hi InfoHighlight gui=undercurl cterm=undercurl")
+      vim.cmd("hi HintHighlight gui=undercurl cterm=undercurl")
+      vim.cmd("hi OkHighlight gui=undercurl cterm=undercurl")
     end,
   })
   use({
