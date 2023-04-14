@@ -65,6 +65,7 @@ brew 'gnu-sed'
 brew 'gnupg'
 brew 'gnutls'
 brew 'go'
+brew 'gource' # Git history visualization
 brew 'gping' # ping but with a graph
 brew 'gradle'
 brew 'graphviz'
