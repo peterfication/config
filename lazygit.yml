@@ -9,6 +9,7 @@ git:
   paging:
     colorArg: always
     pager: delta -s --dark --paging=never --24-bit-color=never
+  overrideGpg: true # Ignore GPG errors as I'm using a GPG agent
 
 os:
   editCommand: nvr -l -s
