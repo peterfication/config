@@ -34,7 +34,7 @@ return function(use)
     end,
   })
   use({
-    "https://gitlab.com/yorickpeterse/nvim-window.git",
+    "yorickpeterse/nvim-window",
     config = function()
       vim.api.nvim_set_keymap("n", "<Leader>W", [[:lua require('nvim-window').pick()<CR>]], { noremap = true })
 
