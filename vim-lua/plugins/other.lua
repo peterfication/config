@@ -43,6 +43,29 @@ return function(use)
       })
     end,
   })
+
+  -- Global search and replace
+  use({
+    "nvim-pack/nvim-spectre",
+    requires = {
+      "folke/which-key.nvim",
+    },
+
+    config = function()
+      require("spectre").setup({
+        open_cmd = "tabnew",
+      })
+
+      require("which-key").register({
+        ["<leader>"] = {
+          R = {
+            ":Spectre<CR>",
+            "Search and replace with spectre",
+          },
+        },
+      })
+    end,
+  })
   -- Highlight Search Lens
   -- use {
   --   'kevinhwang91/nvim-hlslens',
