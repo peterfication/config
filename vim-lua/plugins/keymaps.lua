@@ -3,8 +3,15 @@ return function(use)
     "mrjones2014/legendary.nvim",
     config = function()
       require("legendary").setup({
+        extensions = {
+          nvim_tree = true,
+          diffview = true,
+        },
         keymaps = {
-          { "<leader>k", ":Legendary<CR>", description = "Open legendary" },
+          { "<Leader>k", ":Legendary<CR>", description = "Open Legendary" },
+        },
+        which_key = {
+          auto_register = true,
         },
       })
     end,
@@ -12,11 +19,26 @@ return function(use)
 
   use({
     "folke/which-key.nvim",
+    requires = {
+      "mrjones2014/legendary.nvim",
+    },
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
-      require("which-key").setup({})
 
+      local wk = require("which-key")
+      wk.setup({})
+
+      wk.register({
+        g = { name = "go to" },
+        z = { name = "folds" },
+      })
+
+      require("legendary").setup({
+        keymaps = {
+          { "<Leader>K", ":WhichKey<CR>", description = "Open which key" },
+        },
+      })
     end,
   })
 
