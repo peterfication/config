@@ -2,7 +2,10 @@ return function(use)
   -- For examples, see https://github.com/rest-nvim/rest.nvim/tree/main/tests
   use({
     "rest-nvim/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "folke/which-key.nvim",
+    },
     config = function()
       require("rest-nvim").setup({
         -- Open request results in a horizontal split
@@ -40,10 +43,18 @@ return function(use)
         yank_dry_run = true,
       })
 
-      vim.api.nvim_set_keymap("n", "<Leader>rr", "<Plug>RestNvim", { nowait = true })
-      vim.api.nvim_set_keymap("n", "<Leader>rp", "<Plug>RestNvimPreview", { nowait = true })
-      vim.cmd("command! RestNvim lua require('rest-nvim').run()")
-      vim.cmd("command! RestNvimPreview lua require('rest-nvim').run(true)")
+      require("which-key").register({
+        ["<Leader>"] = {
+          r = {
+            name = "REST client",
+            r = { "<Plug>RestNvim", "Run the REST request under the cursor" },
+            p = { "<Plug>RestPreviewNvim", "Preview the REST request under the cursor" },
+          },
+        },
+      })
+
+      -- vim.cmd("command! RestNvim lua require('rest-nvim').run()")
+      -- vim.cmd("command! RestNvimPreview lua require('rest-nvim').run(true)")
     end,
   })
 end

@@ -4,8 +4,15 @@ return function(use)
   use({ "tpope/vim-repeat" })
   use({
     "simnalamburt/vim-mundo",
+    requires = {
+      "folke/which-key.nvim",
+    },
     config = function()
-      vim.api.nvim_set_keymap("n", "<Leader>u", ":MundoToggle<CR>", { noremap = true })
+      require("which-key").register({
+        ["<Leader>"] = {
+          u = { ":MundoToggle<CR>", "Open undo tree with Mundo" },
+        },
+      })
     end,
   })
   use({ "mg979/vim-visual-multi" })
@@ -35,11 +42,19 @@ return function(use)
   })
   use({
     "yorickpeterse/nvim-window",
-    config = function()
-      vim.api.nvim_set_keymap("n", "<Leader>W", [[:lua require('nvim-window').pick()<CR>]], { noremap = true })
+    requires = {
+      "folke/which-key.nvim",
+    },
 
+    config = function()
       require("nvim-window").setup({
         border = "double",
+      })
+
+      require("which-key").register({
+        ["<Leader>"] = {
+          W = { ":lua require('nvim-window').pick()<CR>", "Select window via a letter" },
+        },
       })
     end,
   })
@@ -50,14 +65,13 @@ return function(use)
     requires = {
       "folke/which-key.nvim",
     },
-
     config = function()
       require("spectre").setup({
         open_cmd = "tabnew",
       })
 
       require("which-key").register({
-        ["<leader>"] = {
+        ["<Leader>"] = {
           R = {
             ":Spectre<CR>",
             "Search and replace with spectre",

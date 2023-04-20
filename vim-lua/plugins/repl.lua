@@ -1,6 +1,9 @@
 return function(use)
   use({
     "hkupty/iron.nvim",
+    requires = {
+      "folke/which-key.nvim",
+    },
     config = function()
       local iron = require("iron.core")
 
@@ -45,10 +48,17 @@ return function(use)
         ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
       })
 
-      vim.keymap.set("n", "<Leader>xs", "<cmd>IronRepl<cr>")
-      vim.keymap.set("n", "<Leader>xr", "<cmd>IronRestart<cr>")
-      vim.keymap.set("n", "<Leader>xf", "<cmd>IronFocus<cr>")
-      vim.keymap.set("n", "<Leader>xh", "<cmd>IronHide<cr>")
+      require("which-key").register({
+        ["<Leader>"] = {
+          x = {
+            name = "REPL",
+            s = { "<CMD>IronRepl<CR>", "Open Iron REPL" },
+            r = { "<CMD>IronRestart<CR>", "Restart Iron REPL" },
+            f = { "<CMD>IronFocus<CR>", "Focus Iron REPL" },
+            h = { "<CMD>IronHide<CR>", "Hide Iron REPL" },
+          },
+        },
+      })
     end,
   })
 end

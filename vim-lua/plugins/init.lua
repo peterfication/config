@@ -4,6 +4,7 @@ local m = {}
 -- is sourced again, it will reload the modules.
 function m.config(use)
   local modules = {
+    "plugins.keymaps",
     "plugins.terminal",
     "plugins.lsp",
     "plugins.git",
@@ -19,7 +20,6 @@ function m.config(use)
     "plugins.http",
     "plugins.outline",
     "plugins.ui",
-    'plugins.keymaps',
     -- 'plugins.zoom', -- Disabled because it messes with the command line in vim mode and enter
     "plugins.ai",
   }

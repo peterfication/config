@@ -8,6 +8,7 @@ return function(use)
       "olimorris/neotest-rspec",
       "haydenmeade/neotest-jest",
       "jfpedroza/neotest-elixir",
+      "folke/which-key.nvim",
     },
     config = function()
       require("neotest").setup({
@@ -25,7 +26,7 @@ return function(use)
             jestCommand = "npm test --",
             jestConfigFile = "custom.jest.config.ts",
             env = { CI = true },
-            cwd = function(path)
+            cwd = function(_path)
               return vim.fn.getcwd()
             end,
           }),
@@ -52,21 +53,46 @@ return function(use)
         },
       })
 
-      local map = vim.api.nvim_set_keymap
-      local options = { noremap = true }
-
       vim.cmd("sign define neotest_ text=.")
 
-      map("n", "<Leader>T", ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>', options)
-      map("n", "<Leader>tt", ':lua require("neotest").run.run()<CR>', options)
-      map("n", "<Leader>to", ':lua require("neotest").output.open({ enter = true })<CR>', options)
-      map("n", "<Leader>TO", ':lua require("neotest").output_panel.toggle()<CR>', options)
-      map("n", "<Leader>ta", ':lua require("neotest").run.attach()<CR>', options)
-      map("n", "<Leader>ts", ':lua require("neotest").summary.toggle()<CR>', options)
+      require("which-key").register({
+        ["<Leader>"] = {
+          t = {
+            name = "Tests",
+            t = {
+              ':lua require("neotest").run.run()<CR>',
+              "[Neotest] Run tests for the closest test from the cursor",
+            },
+            o = {
+              ':lua require("neotest").output.open({ enter = true })<CR>',
+              "[Neotest] Open output of closest test from the cursor",
+            },
+            a = {
+              ':lua require("neotest").run.attach()<CR>',
+              "[Neotest] Attach to the current test run",
+            },
+            s = {
+              ':lua require("neotest").summary.toggle()<CR>',
+              "[Neotest] Toggle test summary sidebar",
+            },
+          },
+          T = {
+            name = "Tests 2",
+            T = {
+              ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
+              "[Neotest] Run tests for the current file",
+            },
+            O = {
+              ':lua require("neotest").output_panel.toggle()<CR>',
+              "[Neotest] Open output panel",
+            },
+          },
+        },
+      })
 
       -- TODO: map only for Ruby files
-      map("n", "<Leader>te", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)
-      map("n", "<Leader>tl", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left>spec/<CR>', options)
+      -- map("n", "<Leader>te", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)
+      -- map("n", "<Leader>tl", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left>spec/<CR>', options)
     end,
   })
 end

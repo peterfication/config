@@ -9,12 +9,20 @@ return function(use)
         "benfowler/telescope-luasnip.nvim",
         module = "telescope._extensions.luasnip",
       },
+      "folke/which-key.nvim",
     },
     config = function()
       require("luasnip").filetype_extend("ruby", { "rails" })
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      vim.api.nvim_set_keymap("n", "<Leader>s", ":Telescope luasnip<CR>", { noremap = true })
+      require("which-key").register({
+        ["<Leader>"] = {
+          s = {
+            ":Telescope luasnip<CR>",
+            "Open snippets in Telescope",
+          },
+        },
+      })
     end,
   })
 end

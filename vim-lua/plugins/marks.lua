@@ -1,10 +1,17 @@
 return function(use)
   use({
     "chentoast/marks.nvim",
+    requires = {
+      "mrjones2014/legendary.nvim",
+    },
     config = function()
       require("marks").setup({})
 
-      vim.api.nvim_create_user_command("DeleteAllMarks ", "delm! | delm A-Z0-9", {})
+      require("legendary").command({
+        ":DeleteAllMarks",
+        "delm! | delm A-Z0-9",
+        description = "Delete all marks",
+      })
     end,
   })
 end

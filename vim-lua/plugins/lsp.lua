@@ -18,6 +18,7 @@ return function(use)
     requires = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "HiPhish/nvim-ts-rainbow2",
+      "folke/which-key.nvim",
     },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -89,17 +90,19 @@ return function(use)
           },
         },
       })
+
+      require("which-key").register({
+        ["<leader>"] = {
+          -- TODO: https://github.com/nvim-treesitter/playground
+          y = {
+            ":lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>",
+            "Show treesitter capture group for text-object under cursor",
+            { noremap = true, silent = false },
+          },
+        },
+      })
     end,
   })
-
-  -- Show treesitter capture group for textobject under cursor.
-  -- TODO: https://github.com/nvim-treesitter/playground
-  vim.api.nvim_set_keymap(
-    "n",
-    "<Leader>y",
-    ":lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>",
-    { noremap = true, silent = false }
-  )
 
   use({
     "simrat39/rust-tools.nvim",
@@ -122,7 +125,10 @@ return function(use)
   -- Folding
   use({
     "kevinhwang91/nvim-ufo",
-    requires = "kevinhwang91/promise-async",
+    requires = {
+      "kevinhwang91/promise-async",
+      "folke/which-key.nvim",
+    },
     config = function()
       require("ufo").setup()
 
@@ -132,9 +138,17 @@ return function(use)
       vim.o.foldenable = true
 
       -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "<Tab>", require("ufo").peekFoldedLinesUnderCursor)
+      require("which-key").register({
+        z = {
+          -- TODO: https://github.com/nvim-treesitter/playground
+          R = { require("ufo").openAllFolds, "Open all folds" },
+          M = { require("ufo").closeAllFolds, "Close all folds" },
+        },
+        ["<Tab>"] = {
+          require("ufo").peekFoldedLinesUnderCursor,
+          "Peek in folded lines under cursor (<Tab> again to jump in the preview)",
+        },
+      })
     end,
   })
 
@@ -202,6 +216,35 @@ return function(use)
     "tsserver",
     -- "rust_analyzer", => Done via rust-tools
   }
+
+  -- Mappings for LSP
+  --
+  -- Define the keymaps outside of on_attach so they are only defined and registered once.
+  -- They will be registered for all buffers, also the ones without an LSP attached
+  -- but that's ok.
+  local wk = require("which-key")
+  local options = { noremap = true }
+  wk.register({
+    g = {
+      D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "[LSP] Go to declaration", options },
+      d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "[LSP] Go to definition ", options },
+      i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "[LSP] Go to implementation", options },
+      r = { "<CMD>lua vim.lsp.buf.references()<CR>", "[LSP] Find references", options },
+    },
+
+    K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "[LSP] Show documentation", options },
+
+    ["<leader>"] = {
+      a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
+      P = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "[LSP] format", options },
+      z = {
+        name = "+LSP",
+        a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
+        r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "[LSP] Rename", options },
+      },
+    },
+  })
+
   for _, lsp in ipairs(servers) do
     local on_attach = function(client, bufnr)
       vim.notify("Buffer " .. bufnr .. " attached to lsp " .. lsp, vim.log.levels.INFO)
@@ -211,24 +254,38 @@ return function(use)
       vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
       -- Mappings.
-      local opts = { noremap = true, silent = true }
-      local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-      end
+      -- wk.register({
+      --   g = {
+      --     D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "LSP go to declaration", noremap = true, buffer = bufnr },
+      --     d = {
+      --       "<CMD>lua vim.lsp.buf.definition()<CR>",
+      --       "LSP go to definition " .. bufnr,
+      --       noremap = true,
+      --       buffer = bufnr,
+      --     },
+      --     i = {
+      --       "<CMD>lua vim.lsp.buf.implementation()<CR>",
+      --       "LSP go to implementation",
+      --       noremap = true,
+      --       buffer = bufnr,
+      --     },
+      --     r = { "<CMD>lua vim.lsp.buf.references()<CR>", "LSP find references", noremap = true, buffer = bufnr },
+      --   },
 
-      -- See `:help vim.lsp.*` for documentation on any of the below functions
-      buf_set_keymap("n", "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", opts)
-      buf_set_keymap("n", "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", opts)
-      buf_set_keymap("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", opts)
-      buf_set_keymap("n", "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", opts)
+      --   K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "LSP Show documentation", noremap = true, buffer = bufnr },
+
+      --   ["<leader>"] = {
+      --     z = {
+      --       r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "LSP rename", noremap = true, buffer = bufnr },
+      --     },
+      --   },
+      -- })
       -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
       -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
       -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
       -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
       -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-      buf_set_keymap("n", "<Leader>zr", "<CMD>lua vim.lsp.buf.rename()<CR>", opts)
       -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-      buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
       -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
       -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
       -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
@@ -247,15 +304,19 @@ return function(use)
       cmd = cmd[lsp],
     })
 
-    local options = { noremap = true }
-    vim.api.nvim_set_keymap("n", "<Leader>P", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", options)
-    vim.api.nvim_set_keymap("n", "<Leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
+    -- local options = { noremap = true }
+    -- vim.api.nvim_set_keymap("n", "<Leader>P", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", options)
+    -- vim.api.nvim_set_keymap("n", "<Leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
 
     -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
   end
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "mrjones2014/legendary.nvim",
+    },
     config = function()
       local null_ls = require("null-ls")
       null_ls.setup({
@@ -292,10 +353,23 @@ return function(use)
         },
       })
 
-      vim.cmd("command! NullLsCspellEnable lua require('null-ls').enable({name = 'cspell'})")
-      vim.cmd("command! NullLsCspellDisable lua require('null-ls').disable({name = 'cspell'})")
+      require("legendary").commands({
+        {
+          ":NullLsCspellEnable",
+          function()
+            require("null-ls").enable({ name = "cspell" })
+          end,
+          description = "[NullLS] Enable cspell",
+        },
+        {
+          ":NullLsCspellDisable",
+          function()
+            require("null-ls").disable({ name = "cspell" })
+          end,
+          description = "[NullLS] Disable cspell",
+        },
+      })
     end,
-    requires = { "nvim-lua/plenary.nvim" },
   })
 
   -- A small Neovim plugin for previewing native LSP's goto definition,
@@ -313,10 +387,15 @@ return function(use)
 
   use({
     "johmsalas/text-case.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+      "folke/which-key.nvim",
+    },
     config = function()
       require("textcase").setup({})
 
       require("telescope").load_extension("textcase")
+
       vim.api.nvim_set_keymap("n", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
       vim.api.nvim_set_keymap("v", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
 

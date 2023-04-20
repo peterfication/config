@@ -20,15 +20,32 @@ return function(use)
   })
   use({
     "RRethy/vim-illuminate",
+    requires = {
+      "folke/which-key.nvim",
+    },
     config = function()
       require("illuminate").configure({})
 
-      local map = vim.api.nvim_set_keymap
-      local options = { noremap = true, silent = true }
-      map("n", "<Leader><C-m>", ':lua require"illuminate".next_reference{wrap=true}<CR>', options)
-      map("n", "<Leader><C-P>", ':lua require"illuminate".goto_prev_reference()<CR>', options)
-      map("n", "<Leader><C-n>", "*:nohlsearch<CR>", options)
-      map("n", "<Leader><C-p>", "*NN:nohlsearch<CR>", options)
+      require("which-key").register({
+        ["<Leader>"] = {
+          ["<C-m>"] = {
+            ':lua require("illuminate").next_reference{wrap=true}<CR>',
+            "Go to next LSP reference (via illuminate)",
+          },
+          ["<C-P"] = {
+            ':lua require("illuminate").goto_prev_reference()<CR>',
+            "Go to previous LSP reference (via illuminate)",
+          },
+          ["<C-n>"] = {
+            "*:nohlsearch<CR>",
+            "Go to next matching word (via search and clear search afterwards)",
+          },
+          ["<C-p>"] = {
+            "*NN:nohlsearch<CR>",
+            "Go to previous matching word (via search and clear search afterwards)",
+          },
+        },
+      })
     end,
   })
 
@@ -50,7 +67,10 @@ return function(use)
   })
   use({
     "akinsho/bufferline.nvim",
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = {
+      "kyazdani42/nvim-web-devicons",
+      "folke/which-key.nvim",
+    },
     config = function()
       require("bufferline").setup({
         options = {
@@ -70,29 +90,37 @@ return function(use)
         },
       })
 
-      local map = vim.api.nvim_set_keymap
-      local options = { noremap = true, silent = true }
-
-      -- Cycle through open buffers
-      map("n", "<C-K>", ":bnext<CR>", options)
-      map("n", "<C-J>", ":bprevious<CR>", options)
-
-      -- Close current buffer
-      -- See https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
-      map("n", "<C-C>", ":bp<bar>sp<bar>bn<bar>bd<CR>", options)
-      map("n", "<Leader><C-C>", ":bd<CR>", options)
-
-      -- Tab navigation
-      map("n", "<Leader>1", "1gt", options)
-      map("n", "<Leader>2", "2gt", options)
-      map("n", "<Leader>3", "3gt", options)
-      map("n", "<Leader>4", "4gt", options)
-      map("n", "<Leader>5", "5gt", options)
-      map("n", "<Leader>6", "6gt", options)
-      map("n", "<Leader>7", "7gt", options)
-      map("n", "<Leader>8", "8gt", options)
-      map("n", "<Leader>9", "9gt", options)
-      map("n", "<Leader>!", ":tabclose<CR>", options)
+      require("which-key").register({
+        ["<C-K>"] = {
+          ":bnext<CR>",
+          "Go to next buffer",
+        },
+        ["<C-J>"] = {
+          ":bprevious<CR>",
+          "Go to previous buffer",
+        },
+        ["<C-C>"] = {
+          -- See https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
+          ":bp<bar>sp<bar>bn<bar>bd<CR>",
+          "Close current buffer (but not the window)",
+        },
+        ["<Leader>"] = {
+          ["<C-C>"] = {
+            ":bd<CR>",
+            "Close current buffer and window",
+          },
+          ["1"] = { "1gt", "Go to tab 1" },
+          ["2"] = { "2gt", "Go to tab 2" },
+          ["3"] = { "3gt", "Go to tab 3" },
+          ["4"] = { "4gt", "Go to tab 4" },
+          ["5"] = { "5gt", "Go to tab 5" },
+          ["6"] = { "6gt", "Go to tab 6" },
+          ["7"] = { "7gt", "Go to tab 7" },
+          ["8"] = { "8gt", "Go to tab 8" },
+          ["9"] = { "9gt", "Go to tab 9" },
+          ["!"] = { ":tabclose<CR>", "Close current tab" },
+        },
+      })
     end,
   })
 
@@ -163,6 +191,12 @@ return function(use)
 
   use({
     "folke/noice.nvim",
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+      "folke/which-key.nvim",
+    },
     event = "VimEnter",
     config = function()
       require("noice").setup({
@@ -190,17 +224,18 @@ return function(use)
         },
       })
 
-      local options = { noremap = true, silent = true }
-      vim.keymap.set("n", "<Leader>MM", ":Noice<CR>", options)
-      vim.keymap.set("n", "<Leader>Mf", ":Noice telescope<CR>", options)
-      vim.keymap.set("n", "<Leader>MF", ":Noice telescope<CR>", options)
-      vim.keymap.set("n", "<Leader>MC", ":lua require('notify').dismiss()<CR>", options)
+      require("which-key").register({
+        ["<Leader>"] = {
+          M = {
+            name = "Noice",
+            M = { ":Noice<CR>", "Open Noice messages" },
+            F = { ":Noice telescope<CR>", "Open Noice messages in Telescope" },
+            f = { ":Noice telescope<CR>", "Open Noice messages in Telescope" },
+            C = { ":lua require('notify').dismiss()<CR>", "Close all Noice messages" },
+          },
+        },
+      })
     end,
-    requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
   })
 
   use({
@@ -234,12 +269,18 @@ return function(use)
 
   use({
     "wfxr/minimap.vim",
+    requires = {
+      "folke/which-key.nvim",
+    },
     config = function()
       vim.cmd("let g:minimap_git_colors=1")
       vim.cmd("let g:minimap_highlight_search=1")
 
-      local options = { noremap = true, silent = true }
-      vim.keymap.set("n", "<Leader>ö", ":MinimapToggle<CR>", options)
+      require("which-key").register({
+        ["<Leader>"] = {
+          ["ö"] = { ":MinimapToggle<CR>", "Toggle the minimap" },
+        },
+      })
     end,
   })
 

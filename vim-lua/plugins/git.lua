@@ -1,8 +1,18 @@
 return function(use)
   use({
     "sindrets/diffview.nvim",
+    requires = {
+      "folke/which-key.nvim",
+    },
     config = function()
-      vim.keymap.set("n", "<Leader>GG", ":DiffviewFileHistory %<CR>", { noremap = true, silent = true })
+      require("which-key").register({
+        ["<Leader>"] = {
+          G = {
+            name = "Git 2",
+            G = { ":DiffviewFileHistory %<CR>", "Open DiffView with the Git history of the current file" },
+          },
+        },
+      })
     end,
   })
 
@@ -10,6 +20,7 @@ return function(use)
     "lewis6991/gitsigns.nvim",
     requires = {
       "petertriho/nvim-scrollbar",
+      "folke/which-key.nvim",
     },
     config = function()
       require("gitsigns").setup({
@@ -61,16 +72,46 @@ return function(use)
         end,
       })
 
-      vim.keymap.set("n", "<Leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { noremap = true })
       require("scrollbar.handlers.gitsigns").setup()
+
+      require("which-key").register({
+        ["<Leader>"] = {
+          g = {
+            name = "Git",
+            b = { ":Gitsigns toggle_current_line_blame<CR>", "Toogle Git blame current line" },
+          },
+          G = {
+            name = "Git 2",
+            B = { ':TermExec cmd="tig blame %; exit" direction=float<CR>', "Open tig blame for the current file" },
+          },
+        },
+      })
+
+      -- tig setup with toggleterm
+      -- Important keys:
+      -- - Go to parent commit: ,
+      -- - Go back: <
+      -- - Show commit: <CR>
+      -- - Close commit: q
+      -- - Close tig: q
+      -- vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
     end,
   })
 
   use({
     "kdheepak/lazygit.nvim",
+    requires = {
+      "folke/which-key.nvim",
+    },
     config = function()
-      vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", { noremap = true })
-      vim.keymap.set("n", "<Leader>gg", ":LazyGit<CR>", { noremap = true })
+      require("which-key").register({
+        ["<Leader>"] = {
+          g = {
+            name = "Git",
+            g = { ":LazyGit<CR>", "Open LazyGit" },
+          },
+        },
+      })
     end,
   })
 
@@ -81,21 +122,41 @@ return function(use)
     },
   })
 
+  -- Get links to the current line on GitHub, GitLab, Bitbucket, etc.
   use({
     "ruifm/gitlinker.nvim",
-    requires = "nvim-lua/plenary.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "folke/which-key.nvim",
+    },
     config = function()
-      require("gitlinker").setup()
+      require("gitlinker").setup({
+        mappings = nil,
+      })
+
+      require("which-key").register({
+        ["<Leader>"] = {
+          g = {
+            name = "Git",
+            y = {
+              '<CMD>lua require"gitlinker".get_buf_range_url("n")<CR>',
+              "Copy the link for current line on Github",
+            },
+          },
+        },
+      }, { mode = "n" })
+
+      require("which-key").register({
+        ["<Leader>"] = {
+          g = {
+            name = "Git",
+            y = {
+              '<CMD>lua require"gitlinker".get_buf_range_url("v")<CR>',
+              "Copy the link for current line on Github",
+            },
+          },
+        },
+      }, { mode = "v" })
     end,
   })
-
-  -- tig setup with toggleterm
-  -- Important keys:
-  -- - Go to parent commit: ,
-  -- - Go back: <
-  -- - Show commit: <CR>
-  -- - Close commit: q
-  -- - Close tig: q
-  -- vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
-  vim.keymap.set("n", "<Leader>GB", ':TermExec cmd="tig blame %; exit" direction=float<CR>', { noremap = true })
 end

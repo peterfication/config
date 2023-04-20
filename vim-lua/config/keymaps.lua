@@ -6,9 +6,9 @@ vim.g.mapleader = " "
 
 local options = { noremap = true }
 
-map("n", "<Leader><ESC>", ":nohlsearch<CR>", options)
-map("n", "<Leader>w", ":w<CR>", options) -- Save current buffer
-map("n", "<Leader>ü", ":lua ReloadConfig()<CR>", options)
+map("n", "<Leader><ESC>", ":nohlsearch<CR>", { noremap = true, silent = true, desc = "Clear search highlight" })
+map("n", "<Leader>w", ":w<CR>", { noremap = true, silent = true, desc = "Save current buffer" })
+map("n", "<Leader>ü", ":lua ReloadConfig()<CR>", { noremap = true, silent = true, desc = "Reload config" })
 
 -- Get back old Y behavior
 -- https://www.reddit.com/r/neovim/comments/petq61/neovim_060_y_not_yanking_line_but_to_end_of_line/
@@ -26,10 +26,8 @@ function _G.ExecuteMacroOverVisualRange()
 end
 
 -- Buffer navigation
--- Go back to last buffer
-map("n", "<Leader>b", ":b#<CR>", options)
--- Open new empty buffer
-map("n", "<Leader>B", ":enew<CR>", options)
+map("n", "<Leader>b", ":b#<CR>", { noremap = true, silent = true, desc = "Go back to last buffer" })
+map("n", "<Leader>B", ":enew<CR>", { noremap = true, silent = true, desc = "Open new empty buffer" })
 
 vim.api.nvim_create_user_command("CloseAllBuffers", "bufdo! bd", {})
 vim.api.nvim_create_user_command("CloseAllBuffersExceptCurrent ", "%bd|e#", {})

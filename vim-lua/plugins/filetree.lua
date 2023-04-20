@@ -3,6 +3,7 @@ return function(use)
     "kyazdani42/nvim-tree.lua",
     requires = {
       "nvim-tree/nvim-web-devicons",
+      "folke/which-key.nvim",
     },
     config = function()
       local M = {}
@@ -60,9 +61,18 @@ return function(use)
         },
       })
 
-      local options = { noremap = true, silent = true }
-      vim.keymap.set("n", "<Leader>n", ":NvimTreeFocus<CR>", options)
-      vim.keymap.set("n", "<Leader>N", ":NvimTreeFindFile<CR>", options)
+      require("which-key").register({
+        ["<Leader>"] = {
+          n = {
+            ":NvimTreeFocus<CR>",
+            "Open NvimTree in last state",
+          },
+          N = {
+            ":NvimTreeFindFile<CR>",
+            "Open NvimTree with the current file selected",
+          },
+        },
+      })
     end,
   })
 
