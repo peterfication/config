@@ -416,14 +416,15 @@ return function(use)
   -- LSP breadcrumbs
   use({
     "utilyre/barbecue.nvim",
-    tag = "*",
     requires = {
       "SmiteshP/nvim-navic",
       "nvim-tree/nvim-web-devicons",
     },
     after = "nvim-web-devicons",
     config = function()
-      require("barbecue").setup()
+      require("barbecue").setup({
+        exclude_filetypes = { "netrw", "toggleterm", "graphql" },
+      })
     end,
   })
   -- Treesitter does not support slim templates
