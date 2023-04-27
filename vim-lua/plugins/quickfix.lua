@@ -34,8 +34,8 @@ return function(use)
             t = { ":cg quickfix.out | cwindow<CR>", "Load quickfix from rspec-quickfix tests" },
           },
         },
-        ["C-l"] = { ":cnext<CR>", "Next quickfix item" },
-        ["C-h"] = { ":cprevious<CR>", "Previous quickfix item" },
+        ["<C-l>"] = { ":cnext<CR>", "Next quickfix item" },
+        ["<C-h>"] = { ":cprevious<CR>", "Previous quickfix item" },
         -- ["A-j"] = { ":cnext<CR>", "Next quickfix item" },
         -- ["A-k"] = { ":cprevious<CR>", "Previous quickfix item" },
       })
