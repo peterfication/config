@@ -13,18 +13,15 @@ return function(use)
 
       require("which-key").register({
         ["<Leader>"] = {
-          t = {
-            name = "Terminal",
-            [1] = { "<CMD>ToggleTerm 1<CR>", "Open terminal 1" },
-            [2] = { "<CMD>ToggleTerm 2<CR>", "Open terminal 2" },
-            [3] = { "<CMD>ToggleTerm 3<CR>", "Open terminal 3" },
-            [4] = { "<CMD>ToggleTerm 4<CR>", "Open terminal 4" },
-            [5] = { "<CMD>ToggleTerm 5<CR>", "Open terminal 5" },
-            [6] = { "<CMD>ToggleTerm 6<CR>", "Open terminal 6" },
-            [7] = { "<CMD>ToggleTerm 7<CR>", "Open terminal 7" },
-            [8] = { "<CMD>ToggleTerm 8<CR>", "Open terminal 8" },
-            [9] = { "<CMD>ToggleTerm 9<CR>", "Open terminal 9" },
-          },
+          ["t1"] = { "<CMD>ToggleTerm 1<CR>", "Open terminal 1" },
+          ["t2"] = { "<CMD>ToggleTerm 2<CR>", "Open terminal 2" },
+          ["t3"] = { "<CMD>ToggleTerm 3<CR>", "Open terminal 3" },
+          ["t4"] = { "<CMD>ToggleTerm 4<CR>", "Open terminal 4" },
+          ["t5"] = { "<CMD>ToggleTerm 5<CR>", "Open terminal 5" },
+          ["t6"] = { "<CMD>ToggleTerm 6<CR>", "Open terminal 6" },
+          ["t7"] = { "<CMD>ToggleTerm 7<CR>", "Open terminal 7" },
+          ["t8"] = { "<CMD>ToggleTerm 8<CR>", "Open terminal 8" },
+          ["t9"] = { "<CMD>ToggleTerm 9<CR>", "Open terminal 9" },
         },
       })
 
