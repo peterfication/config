@@ -307,6 +307,38 @@ return function(use)
         scroll = {
           timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
         },
+        resize = {
+          enable = false,
+        },
+        open = {
+          enable = false,
+        },
+        close = {
+          enable = false,
+        },
+      })
+    end,
+  })
+
+  use({
+    "anuvyklack/windows.nvim",
+    requires = {
+      "anuvyklack/middleclass",
+      -- "anuvyklack/animation.nvim",
+      "folke/which-key.nvim",
+    },
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+
+      require("windows").setup({
+        -- autowidth = {
+        --   enable = false,
+        -- },
+      })
+      require("which-key").register({
+        ["<C-W>z"] = { ":WindowsMaximize<CR>", "Zoom the current window" },
       })
     end,
   })
