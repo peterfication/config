@@ -14,6 +14,7 @@ o.splitbelow = true
 o.swapfile = false
 o.undofile = true
 o.scrolloff = 10 -- The number of screen lines to keep above and below the cursor while scrolling
+o.colorcolumn = "100"
 
 -- window-local options
 wo.number = true
