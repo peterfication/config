@@ -13,6 +13,10 @@ return function(use)
     end,
   })
 
+  use({ "folke/neoconf.nvim" })
+  -- Needs to be outside the config function so it's guaranteed to be loaded before the lsp
+  require("neoconf").setup({})
+
   use({
     "nvim-treesitter/nvim-treesitter",
     requires = {
@@ -152,164 +156,180 @@ return function(use)
     end,
   })
 
-  -- Set up Solargraph
-  -- https://github.com/castwide/solargraph
-  -- gem install solargraph
-  -- https://github.com/castwide/solargraph/issues/87
-  -- https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e
-  -- https://github.com/iftheshoefritz/solargraph-rails
-  -- gem install solargraph-rails
-  -- solargraph config
-  -- solargraph config => plugins: - solargraph-rails
-  -- TODO: https://github.com/williamboman/mason.nvim
+  use({
+    "neovim/nvim-lspconfig",
+    config = function()
+      -- Set up Solargraph
+      -- https://github.com/castwide/solargraph
+      -- gem install solargraph
+      -- https://github.com/castwide/solargraph/issues/87
+      -- https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e
+      -- https://github.com/iftheshoefritz/solargraph-rails
+      -- gem install solargraph-rails
+      -- solargraph config
+      -- solargraph config => plugins: - solargraph-rails
+      -- TODO: https://github.com/williamboman/mason.nvim
 
-  local nvim_lsp = require("lspconfig")
-  local capabilities = require("cmp_nvim_lsp").default_capabilities()
-  capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-  }
+      local nvim_lsp = require("lspconfig")
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
 
-  local settings = {
-    lua_ls = {
-      Lua = {
-        runtime = {
-          version = "LuaJIT", -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-        },
-        diagnostics = {
-          globals = { "vim" }, -- Get the language server to recognize the `vim` global
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true), -- Make the server aware of Neovim runtime files
-        },
-        -- Do not send telemetry data containing a randomized but unique identifier
-        telemetry = {
-          enable = false,
-        },
-        format = {
-          enable = false,
-          -- Put format options here
-          -- NOTE: the value should be STRING!!
-          defaultConfig = {
-            indent_style = "space",
-            indent_size = "2",
+      local settings = {
+        lua_ls = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT", -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+            },
+            diagnostics = {
+              globals = { "vim" }, -- Get the language server to recognize the `vim` global
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true), -- Make the server aware of Neovim runtime files
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = {
+              enable = false,
+            },
+            format = {
+              enable = false,
+              -- Put format options here
+              -- NOTE: the value should be STRING!!
+              defaultConfig = {
+                indent_style = "space",
+                indent_size = "2",
+              },
+            },
           },
         },
-      },
-    },
-  }
-  local cmd = {
-    elixirls = { "elixir-ls" },
-  }
+        jsonls = {
+          settings = {
+            json = {
+              format = {
+                enable = true,
+              },
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
+      }
+      local cmd = {
+        elixirls = { "elixir-ls" },
+      }
 
-  local servers = {
-    "elixirls",
-    "eslint",
-    "graphql",
-    "jsonls",
-    "pyright",
-    "solargraph",
-    "lua_ls",
-    "tailwindcss",
-    "terraformls",
-    "tflint",
-    "tsserver",
-    -- "rust_analyzer", => Done via rust-tools
-  }
+      local servers = {
+        "elixirls",
+        "eslint",
+        "graphql",
+        "jsonls",
+        "pyright",
+        "solargraph",
+        "lua_ls",
+        "tailwindcss",
+        "terraformls",
+        "tflint",
+        "tsserver",
+        -- "rust_analyzer", => Done via rust-tools
+      }
 
-  -- Mappings for LSP
-  --
-  -- Define the keymaps outside of on_attach so they are only defined and registered once.
-  -- They will be registered for all buffers, also the ones without an LSP attached
-  -- but that's ok.
-  local wk = require("which-key")
-  local options = { noremap = true }
-  wk.register({
-    g = {
-      D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "[LSP] Go to declaration", options },
-      d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "[LSP] Go to definition ", options },
-      i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "[LSP] Go to implementation", options },
-      r = { "<CMD>lua vim.lsp.buf.references()<CR>", "[LSP] Find references", options },
-    },
+      -- Mappings for LSP
+      --
+      -- Define the keymaps outside of on_attach so they are only defined and registered once.
+      -- They will be registered for all buffers, also the ones without an LSP attached
+      -- but that's ok.
+      local wk = require("which-key")
+      local options = { noremap = true }
+      wk.register({
+        g = {
+          D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "[LSP] Go to declaration", options },
+          d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "[LSP] Go to definition ", options },
+          i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "[LSP] Go to implementation", options },
+          r = { "<CMD>lua vim.lsp.buf.references()<CR>", "[LSP] Find references", options },
+        },
 
-    K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "[LSP] Show documentation", options },
+        K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "[LSP] Show documentation", options },
 
-    ["<leader>"] = {
-      a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
-      P = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "[LSP] format", options },
-      z = {
-        name = "+LSP",
-        a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
-        r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "[LSP] Rename", options },
-      },
-    },
+        ["<leader>"] = {
+          a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
+          P = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "[LSP] format", options },
+          z = {
+            name = "+LSP",
+            a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
+            r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "[LSP] Rename", options },
+          },
+        },
+      })
+
+      for _, lsp in ipairs(servers) do
+        local on_attach = function(client, bufnr)
+          vim.notify("Buffer " .. bufnr .. " attached to lsp " .. lsp, vim.log.levels.INFO)
+          require("illuminate").on_attach(client)
+
+          --Enable completion triggered by <c-x><c-o>
+          vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+          -- Mappings.
+          -- wk.register({
+          --   g = {
+          --     D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "LSP go to declaration", noremap = true, buffer = bufnr },
+          --     d = {
+          --       "<CMD>lua vim.lsp.buf.definition()<CR>",
+          --       "LSP go to definition " .. bufnr,
+          --       noremap = true,
+          --       buffer = bufnr,
+          --     },
+          --     i = {
+          --       "<CMD>lua vim.lsp.buf.implementation()<CR>",
+          --       "LSP go to implementation",
+          --       noremap = true,
+          --       buffer = bufnr,
+          --     },
+          --     r = { "<CMD>lua vim.lsp.buf.references()<CR>", "LSP find references", noremap = true, buffer = bufnr },
+          --   },
+
+          --   K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "LSP Show documentation", noremap = true, buffer = bufnr },
+
+          --   ["<leader>"] = {
+          --     z = {
+          --       r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "LSP rename", noremap = true, buffer = bufnr },
+          --     },
+          --   },
+          -- })
+          -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+          -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+          -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+          -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+          -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+          -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+          -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+          -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+          -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+          -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+        end
+
+        -- Use a loop to conveniently call 'setup' on multiple servers and
+        -- map buffer local keybindings when the language server attaches
+        nvim_lsp[lsp].setup({
+          capabilities = capabilities,
+          on_attach = on_attach,
+          flags = {
+            debounce_text_changes = 150,
+          },
+          settings = settings[lsp],
+          cmd = cmd[lsp],
+        })
+
+        -- local options = { noremap = true }
+        -- vim.api.nvim_set_keymap("n", "<Leader>P", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", options)
+        -- vim.api.nvim_set_keymap("n", "<Leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
+
+        -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
+      end
+    end,
   })
-
-  for _, lsp in ipairs(servers) do
-    local on_attach = function(client, bufnr)
-      vim.notify("Buffer " .. bufnr .. " attached to lsp " .. lsp, vim.log.levels.INFO)
-      require("illuminate").on_attach(client)
-
-      --Enable completion triggered by <c-x><c-o>
-      vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
-      -- Mappings.
-      -- wk.register({
-      --   g = {
-      --     D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "LSP go to declaration", noremap = true, buffer = bufnr },
-      --     d = {
-      --       "<CMD>lua vim.lsp.buf.definition()<CR>",
-      --       "LSP go to definition " .. bufnr,
-      --       noremap = true,
-      --       buffer = bufnr,
-      --     },
-      --     i = {
-      --       "<CMD>lua vim.lsp.buf.implementation()<CR>",
-      --       "LSP go to implementation",
-      --       noremap = true,
-      --       buffer = bufnr,
-      --     },
-      --     r = { "<CMD>lua vim.lsp.buf.references()<CR>", "LSP find references", noremap = true, buffer = bufnr },
-      --   },
-
-      --   K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "LSP Show documentation", noremap = true, buffer = bufnr },
-
-      --   ["<leader>"] = {
-      --     z = {
-      --       r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "LSP rename", noremap = true, buffer = bufnr },
-      --     },
-      --   },
-      -- })
-      -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-      -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-      -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-      -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-      -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-      -- buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-      -- buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-      -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-      -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-      -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    end
-
-    -- Use a loop to conveniently call 'setup' on multiple servers and
-    -- map buffer local keybindings when the language server attaches
-    nvim_lsp[lsp].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-      flags = {
-        debounce_text_changes = 150,
-      },
-      settings = settings[lsp],
-      cmd = cmd[lsp],
-    })
-
-    -- local options = { noremap = true }
-    -- vim.api.nvim_set_keymap("n", "<Leader>P", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", options)
-    -- vim.api.nvim_set_keymap("n", "<Leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", options)
-
-    -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
-  end
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
