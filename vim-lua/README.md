@@ -38,12 +38,11 @@ ln -s ln -s ~/config/vim-lua .config/nvim/lua
 ## Nice Neovim plugins that I don't need at the moment
 
 - https://github.com/nvim-neorg/neorg
-- https://github.com/iamcco/markdown-preview.nvim
 - https://github.com/dhruvasagar/vim-zoom
 - https://github.com/liuchengxu/vista.vim
 - https://github.com/lewis6991/impatient.nvim
 - https://github.com/dstein64/vim-startuptime
-- https://github.com/nvim-pack/nvim-spectre
 - https://github.com/NTBBloodbath/doom-nvim
 - https://github.com/NTBBloodbath/cheovim
 - https://github.com/norcalli/nvim-colorizer.lua
+- https://github.com/ziontee113/syntax-tree-surfer

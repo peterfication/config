@@ -13,9 +13,11 @@ return function(use)
     end,
   })
 
-  use({ "folke/neoconf.nvim" })
   -- Needs to be outside the config function so it's guaranteed to be loaded before the lsp
+  use("folke/neoconf.nvim")
   require("neoconf").setup({})
+  use("folke/neodev.nvim")
+  require("neodev").setup({})
 
   use({
     "nvim-treesitter/nvim-treesitter",
