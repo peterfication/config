@@ -10,6 +10,7 @@ return function(use)
       { "nvim-telescope/telescope-file-browser.nvim" },
       { "peterfication/telescope-github.nvim" },
       { "folke/which-key.nvim" },
+      { "tknightz/telescope-termfinder.nvim" },
       -- { 'ptethng/telescope-makefile' },
     },
     config = function()
@@ -100,6 +101,7 @@ return function(use)
       require("telescope").load_extension("gh")
       require("telescope").load_extension("luasnip")
       require("telescope").load_extension("neoclip")
+      require("telescope").load_extension("termfinder")
 
       require("neoclip").setup({
         history = 1000,
@@ -214,6 +216,10 @@ return function(use)
           },
 
           p = { ":Telescope neoclip<CR>", "Open neoclip (clipboard) in Telescope" },
+
+          t = {
+            e = { ":Telescope termfinder find<CR>", "Open ToggleTerm terminals with Telescope" },
+          },
         },
       })
 

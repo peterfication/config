@@ -1,7 +1,7 @@
 return function(use)
   use({
     "akinsho/toggleterm.nvim",
-    tag = "*",
+    -- tag = "*",
     requires = {
       "folke/which-key.nvim",
     },
