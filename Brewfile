@@ -114,6 +114,7 @@ brew 'protobuf'
 brew 'pyenv'
 brew 'pyright'
 brew 'python@3.9'
+brew 'qrencode'
 brew 'rclone'
 brew 'readline', link: true
 brew 'redis'
@@ -227,3 +228,4 @@ cask 'zenmate-vpn'
 # postman or insomnia
 # sketch
 # zoom
+# https://github.com/upscayl/upscayl
