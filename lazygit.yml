@@ -38,6 +38,22 @@ gui:
   showIcons: true
 
 customCommands:
+  # From https://github.com/jesseduffield/lazygit/issues/2057#issuecomment-1625798497
+  # - key: 'C'
+  #   context: 'localBranches'
+  #   command: 'git switch -c $(echo {{ .Form.Branch }} | sed "s/\(.*\/\)\(.*\/\)\(.*\)/\2\3/") {{.Form.Branch }}'
+  #   description: 'Checkout remote branch by name with fuzzy searching'
+  #   prompts:
+  #     - type: 'input'
+  #       title: 'Which branch?'
+  #       key: 'Branch'
+  #       # FIXME: Suggestions do not work
+  #       suggestions:
+  #         preset: 'branches'
+  - key: 'C'
+    command: 'git branch -r | sed "s/origin\///" | fzf --prompt="Select branch: " | xargs -I {} git checkout {}'
+    context: 'localBranches'
+    subprocess: true
   - key: '<c-p>'
     command: 'git add --patch'
     context: 'files'
