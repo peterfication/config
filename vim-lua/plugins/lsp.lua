@@ -266,6 +266,7 @@ return function(use)
 
         ["<leader>"] = {
           a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
+          -- TODO: https://github.com/lukas-reineke/lsp-format.nvim
           P = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "[LSP] format", options },
           z = {
             name = "+LSP",
@@ -340,6 +341,13 @@ return function(use)
 
         -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
       end
+    end,
+  })
+
+  use({
+    "chrisgrieser/nvim-various-textobjs",
+    config = function()
+      require("various-textobjs").setup({ useDefaultKeymaps = true })
     end,
   })
 
