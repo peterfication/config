@@ -102,6 +102,11 @@ brew 'mosh'
 brew 'ms-jpq/sad/sad'
 brew 'neovim'
 brew 'neovim-remote'
+brew 'netcat' # GNU nc - Tutorial: https://blog.ikuamike.io/posts/2021/netcat/
+brew 'nmap' # Network Mapper https://nmap.org/
+# Other tools:
+# - https://github.com/vi/websocat
+# - https://linux.die.net/man/1/socat
 brew 'nnn' # Terminal file manager
 brew 'nvm'
 brew 'openjdk'
