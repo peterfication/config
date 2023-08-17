@@ -193,6 +193,7 @@ cask 'microsoft-auto-update'
 cask 'microsoft-office'
 cask 'neovide'
 cask 'netiquette'
+cask 'netnewswire' # RSS reader
 # cask 'nextcloud'
 cask 'openemu'
 cask 'oversight'
