@@ -1,7 +1,7 @@
 [user]
   name = Peter Morgenstern
   email = mail@petergundel.de
-  signingkey = 9CC4452B
+  signingkey = 70AD14F27F980BBE3C8BD0209302A0B3EF9BC111
 
 [core]
   excludesfile = ~/config/gitignore_global
