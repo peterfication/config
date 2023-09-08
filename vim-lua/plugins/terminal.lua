@@ -22,6 +22,7 @@ return function(use)
           ["t7"] = { "<CMD>ToggleTerm 7<CR>", "Open terminal 7" },
           ["t8"] = { "<CMD>ToggleTerm 8<CR>", "Open terminal 8" },
           ["t9"] = { "<CMD>ToggleTerm 9<CR>", "Open terminal 9" },
+          ["te"] = { "<CMD>TermSelect<CR>", "Select terminal to show" },
         },
       })
 
