@@ -17,7 +17,7 @@ source ~/config/zsh/00_oh_my_zsh.zsh
 source ~/config/zsh/01_zplug.zsh
 source ~/config/zsh/02_general.zsh
 source ~/config/zsh/03_alias.zsh
-source ~/config/zsh/04_exa_ls.zsh
+source ~/config/zsh/04_eza_ls.zsh
 source ~/config/zsh/05_tmux.zsh
 source ~/config/zsh/06_fzf.zsh
 source ~/config/zsh/07_git.zsh
