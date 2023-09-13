@@ -1,8 +1,6 @@
-if true then return {} end
-
-return function(use)
-  -- use({ "github/copilot.vim" })
-  use({
+return {
+  -- { "github/copilot.vim" },
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -16,17 +14,19 @@ return function(use)
         },
       })
     end,
-  })
+  },
 
-  use({
+  {
     "zbirenbaum/copilot-cmp",
-    after = { "copilot.lua" },
+    dependencies = {
+      "copilot.lua"
+    },
     config = function()
       require("copilot_cmp").setup()
     end,
-  })
+  },
 
-  use({
+  {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup({
@@ -52,5 +52,5 @@ return function(use)
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
-  })
-end
+  },
+}

@@ -240,8 +240,10 @@ return {
 
   {
     "stevearc/dressing.nvim",
+    dependencies = {
+      "nui.nvim",
+    },
     event = "VimEnter",
-    after = "nui.nvim",
     config = function()
       require("dressing").setup({
         input = {

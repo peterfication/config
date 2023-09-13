@@ -5,7 +5,10 @@ return {
       { "nvim-lua/plenary.nvim" },
       { "nvim-treesitter/nvim-treesitter" },
       { "kyazdani42/nvim-web-devicons" },
-      { "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+      },
       { "AckslD/nvim-neoclip.lua" },
       { "nvim-telescope/telescope-file-browser.nvim" },
       { "peterfication/telescope-github.nvim" },

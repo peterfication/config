@@ -2,6 +2,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
+      { "LuaSnip" },
       { "neovim/nvim-lspconfig" },
       { "hrsh7th/cmp-nvim-lsp" },
       { "hrsh7th/cmp-buffer" },
@@ -9,7 +10,6 @@ return {
       { "hrsh7th/cmp-cmdline" },
       { "zbirenbaum/copilot-cmp" },
     },
-    after = "LuaSnip",
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
