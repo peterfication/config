@@ -46,6 +46,7 @@ return {
           "rust",
           "tsx",
           "typescript",
+          "xml",
           "yaml",
         },
         highlight = {
