@@ -196,7 +196,6 @@ cask 'neovide'
 cask 'netiquette'
 cask 'netnewswire' # RSS reader
 # cask 'nextcloud'
-cask 'openemu'
 cask 'oversight'
 cask 'pingid'
 cask 'rar'
@@ -221,6 +220,10 @@ cask 'widelands'
 cask 'xbar'
 cask 'xld' # X Lossless Decoder - CD ripper
 cask 'zenmate-vpn'
+
+# Games
+cask 'openemu'
+cask 'openra'
 
 # # Casks not in Homebrew so far
 # affinity-designer-beta
