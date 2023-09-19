@@ -16,6 +16,7 @@ tap 'weaveworks/tap'
 
 brew 'act'
 brew 'amethyst'
+brew 'ansible'
 brew 'aom'
 brew 'asdf'
 brew 'autoconf'
