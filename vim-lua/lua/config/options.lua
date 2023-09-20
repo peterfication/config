@@ -18,6 +18,7 @@ o.colorcolumn = "100"
 
 -- window-local options
 wo.number = true
+wo.relativenumber = true
 wo.wrap = true
 wo.cursorline = true -- Highlights the current line of the cursor
 wo.cursorcolumn = true -- Highlights the current column of the cursor
