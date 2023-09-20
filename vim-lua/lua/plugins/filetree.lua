@@ -8,6 +8,7 @@ return {
     },
     config = function()
       require("neo-tree").setup({
+        use_popups_for_input = false,
         filesystem = {
           window = {
             mappings = {
@@ -40,8 +41,18 @@ return {
       require("which-key").register({
         ["<Leader>"] = {
           n = {
-            ":Neotree toggle float<CR>",
-            "Open NeoTree in last state",
+            n = {
+              ":Neotree toggle float<CR>",
+              "Open NeoTree files",
+            },
+            b = {
+              ":Neotree buffers toggle float<CR>",
+              "Open NeoTree buffers",
+            },
+            g = {
+              ":Neotree git_status toggle float<CR>",
+              "Open NeoTree git_status",
+            },
           },
           N = {
             ":Neotree filesystem reveal float<CR>",
