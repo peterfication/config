@@ -51,17 +51,25 @@ return {
 
   {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     config = function()
-      vim.cmd([[highlight IndentBlanklineIndent1 guifg=#4a4a4a gui=nocombine]])
-
-      require("indent_blankline").setup({
-        show_current_context = true,
-        show_current_context_start = true,
-        char_list = { "·", "|", "¦", "┆", "┊", "┊", "┊" },
-        char_highlight_list = {
-          "IndentBlanklineIndent1",
+      require("ibl").setup({
+        indent = {
+          char = { "·", "|", "¦", "┆", "┊", "┊", "┊" },
+          smart_indent_cap = true,
         },
-        -- show_trailing_blankline_indent = true,
+        whitespace = {
+          highlight = {
+            "Whitespace",
+            "NonText",
+          },
+        },
+        scope = {
+          highlight = {
+            "Function",
+            "Label",
+          },
+        },
       })
     end,
   },
