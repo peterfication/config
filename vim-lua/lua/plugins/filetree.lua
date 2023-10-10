@@ -60,6 +60,15 @@ return {
           },
         },
       })
+      require("which-key").register({
+        ["<Leader>"] = {
+          -- Fallback when "n" is pressed only once
+          n = {
+            ":Neotree toggle float<CR>",
+            "Open NeoTree files",
+          },
+        },
+      })
     end,
   },
 }
