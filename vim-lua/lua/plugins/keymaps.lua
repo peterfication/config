@@ -12,9 +12,9 @@ return {
         extensions = {
           nvim_tree = true,
           diffview = true,
-        },
-        which_key = {
-          auto_register = true,
+          which_key = {
+            auto_register = true,
+          },
         },
       })
 
