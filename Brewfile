@@ -170,6 +170,7 @@ brew 'zsh-completions'
 cask '1password'
 cask 'alacritty'
 cask 'alfred'
+cask 'applite' # Homebrew GUI https://github.com/milanvarady/Applite
 cask 'android-commandlinetools'
 cask 'android-platform-tools'
 cask 'bartender'
