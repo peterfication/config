@@ -25,10 +25,12 @@ hs.hotkey.bind({ "alt", "ctrl", "cmd", "shift" }, "n", function()
   -- get the focused window
   local win = hs.window.focusedWindow()
   -- get the screen where the focused window is displayed, a.k.a. current screen
-  local screen = win:screen()
+  local nextScreen = win:screen():next()
   -- compute the unitRect of the focused window relative to the current screen
   -- and move the window to the next screen setting the same unitRect
-  win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+  -- win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+
+  win:moveToScreen(nextScreen, false)
 end)
 
 -- Use Alfred for this
