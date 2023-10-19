@@ -30,6 +30,7 @@ return {
     "jackMort/ChatGPT.nvim",
     config = function()
       require("chatgpt").setup({
+        api_key_cmd = "op read op://Freelancing/6ej4zcr22njqjyjfwcofva7sru/api_key",
         keymaps = {
           close = { "<C-c>" },
           submit = "<C-g>",
