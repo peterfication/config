@@ -341,6 +341,30 @@ return {
   },
 
   {
+    "elixir-tools/elixir-tools.nvim",
+    version = "*",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      local elixir = require("elixir")
+
+      elixir.setup({
+        nextls = {
+          enable = true,
+        },
+        credo = {
+          enable = true,
+        },
+        elixirls = {
+          enable = true,
+        },
+      })
+    end,
+  },
+
+  {
     "chrisgrieser/nvim-various-textobjs",
     config = function()
       require("various-textobjs").setup({ useDefaultKeymaps = true })
