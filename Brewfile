@@ -144,6 +144,7 @@ brew 'watch'
 brew 'watchexec'
 brew 'watchman'
 brew 'weaveworks/tap/eksctl'
+brew 'wget'
 brew 'youtube-dl'
 brew 'yt-dlp'
 brew 'zbar'
@@ -217,7 +218,6 @@ cask 'veracrypt'
 cask 'visual-studio-code'
 cask 'vlc'
 cask 'webtorrent'
-cask 'widelands'
 cask 'xbar'
 cask 'xld' # X Lossless Decoder - CD ripper
 cask 'zenmate-vpn'
@@ -225,6 +225,7 @@ cask 'zenmate-vpn'
 # Games
 cask 'openemu'
 cask 'openra'
+cask 'widelands'
 
 # # Casks not in Homebrew so far
 # affinity-designer-beta
