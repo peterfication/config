@@ -132,12 +132,13 @@ return {
     end,
   },
 
-  {
-    "tiagovla/scope.nvim",
-    config = function()
-      require("scope").setup()
-    end,
-  },
+  -- Disabled for as it leads to a slow vim experience
+  -- {
+  --   "tiagovla/scope.nvim",
+  --   config = function()
+  --     require("scope").setup()
+  --   end,
+  -- },
 
   {
     "nvim-lualine/lualine.nvim",
