@@ -376,6 +376,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "mrjones2014/legendary.nvim",
+      "neovim/nvim-lspconfig",
     },
     config = function()
       local null_ls = require("null-ls")
@@ -402,14 +403,14 @@ return {
           null_ls.builtins.code_actions.cspell,
           null_ls.builtins.code_actions.eslint_d,
 
-          null_ls.builtins.formatting.eslint_d,
-          null_ls.builtins.formatting.autopep8,
-          null_ls.builtins.formatting.prettier.with({
+          null_ls.builtins.formatting.prettierd.with({
             extra_filetypes = {
               "haml",
               "ruby",
             },
           }),
+          null_ls.builtins.formatting.eslint_d,
+          null_ls.builtins.formatting.autopep8,
         },
       })
 
