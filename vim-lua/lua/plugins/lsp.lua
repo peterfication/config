@@ -467,18 +467,6 @@ return {
 
       vim.api.nvim_set_keymap("n", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
       vim.api.nvim_set_keymap("v", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
-
-      vim.api.nvim_set_keymap("n", "gau", ":lua require('textcase').operator('to_upper_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gal", ":lua require('textcase').operator('to_lower_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gas", ":lua require('textcase').operator('to_snake_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gad", ":lua require('textcase').operator('to_dash_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gan", ":lua require('textcase').operator('to_constant_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gad", ":lua require('textcase').operator('to_dot_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gaa", ":lua require('textcase').operator('to_phrase_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gac", ":lua require('textcase').operator('to_camel_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gap", ":lua require('textcase').operator('to_pascal_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gat", ":lua require('textcase').operator('to_title_case')<CR>", {})
-      vim.api.nvim_set_keymap("n", "gaf", ":lua require('textcase').operator('to_path_case')<CR>", {})
     end,
   },
 
