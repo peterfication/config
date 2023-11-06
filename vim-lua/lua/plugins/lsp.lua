@@ -403,12 +403,20 @@ return {
           null_ls.builtins.code_actions.cspell,
           null_ls.builtins.code_actions.eslint_d,
 
-          null_ls.builtins.formatting.prettierd.with({
+          null_ls.builtins.formatting.prettier.with({
             extra_filetypes = {
               "haml",
               "ruby",
             },
           }),
+          -- prettierd does not work at the moment
+          -- null_ls.builtins.formatting.prettierd.with({
+          --   extra_filetypes = {
+          --     "haml",
+          --     "ruby",
+          --   },
+          -- }),
+          null_ls.builtins.formatting.rubocop,
           null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.autopep8,
         },
