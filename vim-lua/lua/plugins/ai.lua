@@ -1,5 +1,7 @@
 return {
-  -- { "github/copilot.vim" },
+  -- Check out https://github.com/Exafunction/codeium.nvim
+
+  { "github/copilot.vim" },
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
