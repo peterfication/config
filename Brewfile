@@ -126,6 +126,7 @@ brew 'readline', link: true
 brew 'redis'
 brew 'ripgrep' # grep replacement, same as rga
 brew 'rlwrap'
+brew 'rtx' # asdf replacement in Rust
 brew 'rubyfmt'
 brew 'rust-analyzer'
 brew 'stern' # Tail multiple Kubernets pods and containers
