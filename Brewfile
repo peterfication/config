@@ -190,6 +190,7 @@ cask 'google-chrome'
 cask 'hammerspoon'
 cask 'iterm2'
 cask 'karabiner-elements'
+cask 'keycastr' # Show key presses in the screen
 cask 'kitty'
 cask 'kiwix'
 cask 'knockknock'
