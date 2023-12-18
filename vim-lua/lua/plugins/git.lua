@@ -120,6 +120,15 @@ return {
     dependencies = {
       "tpope/vim-fugitive",
     },
+    config = function()
+      require("which-key").register({
+        ["<Leader>"] = {
+          G = {
+            V = { ":Git blame<CR>", "Open Git blame with fugitive" },
+          },
+        },
+      })
+    end,
   },
 
   -- Get links to the current line on GitHub, GitLab, Bitbucket, etc.
