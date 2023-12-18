@@ -350,6 +350,21 @@ return {
 
         -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
       end
+
+      vim.api.nvim_create_user_command(
+        "LspDiagnoticsVirtualTextDisable",
+        function()
+          vim.diagnostic.config({ virtual_text = false, })
+        end,
+        {}
+      )
+      vim.api.nvim_create_user_command(
+        "LspDiagnoticsVirtualTextEnable",
+        function()
+          vim.diagnostic.config({ virtual_text = true, })
+        end,
+        {}
+      )
     end,
   },
 
