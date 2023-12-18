@@ -99,6 +99,7 @@ brew 'lnav'
 # brew 'loc' # cloc replacement
 brew 'lsof'
 brew 'lua-language-server'
+brew 'luarocks'
 brew 'mergestat/mergestat/mergestat'
 brew 'mosh'
 brew 'ms-jpq/sad/sad'
