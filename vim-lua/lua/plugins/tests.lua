@@ -14,7 +14,6 @@ return {
     config = function()
       require("neotest").setup({
         adapters = {
-          require("neotest-plenary"),
           require("neotest-rspec")({
             rspec_cmd = function()
               return vim.tbl_flatten({
@@ -91,6 +90,22 @@ return {
           },
         },
       })
+
+      -- neotest-plenary has the problem that it will load all files in other
+      -- folders even if the project is not a Neovim plugin. This will slow all
+      -- other projects down a lot.
+      -- TODO: find out why this is happening with neotest-plenary
+      vim.api.nvim_create_user_command(
+        "NeotestPlenaryEnable",
+        function()
+          require("neotest").setup({
+            adapters = {
+              require("neotest-plenary"),
+            },
+          })
+        end,
+        {}
+      )
 
       -- TODO: map only for Ruby files
       -- map("n", "<Leader>te", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)
