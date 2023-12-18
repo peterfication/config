@@ -245,13 +245,14 @@ return {
         "eslint",
         "graphql",
         "jsonls",
-        "pyright",
-        "solargraph",
         "lua_ls",
+        "pyright",
+        "ruby_ls",
         "tailwindcss",
         "terraformls",
         "tflint",
         "tsserver",
+        -- "solargraph",
         -- "rust_analyzer", => Done via rust-tools
       }
 
