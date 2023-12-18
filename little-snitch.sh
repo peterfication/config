@@ -11,3 +11,8 @@ open /usr/local/Caskroom/little-snitch/3.8.2/Little Snitch Installer.app
 git add .
 git commit -m "Update Little Snitch 3 config"
 git checkout master
+
+# Little Snitch Blocklists
+# - https://www.obdev.at/products/littlesnitch-mini/blocklists.html
+# - https://github.com/fabston/little-snitch-blocklist
+# - https://github.com/ph00lt0/blocklist
