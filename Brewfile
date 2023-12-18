@@ -78,6 +78,7 @@ brew 'htop'
 # brew 'hyperfine'
 brew 'imagemagick'
 brew 'jandedobbeleer/oh-my-posh/oh-my-posh'
+brew 'jc' # https://github.com/kellyjonbrazil/jc - JSON CLI output
 brew 'jesseduffield/lazydocker/lazydocker'
 brew 'jesseduffield/lazygit/lazygit'
 brew 'jpeg-xl'
