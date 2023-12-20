@@ -46,3 +46,8 @@ ln -s ln -s ~/config/vim-lua .config/nvim/lua
 - https://github.com/NTBBloodbath/cheovim
 - https://github.com/norcalli/nvim-colorizer.lua
 - https://github.com/ziontee113/syntax-tree-surfer
+
+## (Neo)vim learning resources
+
+- https://github.com/mhinz/vim-galore
+- [Vhyrro - Understanding Neovim](https://www.youtube.com/watch?v=87AXw9Quy9U&list=PLx2ksyallYzW4WNYHD9xOFrPRYGlntAft&index=2)
