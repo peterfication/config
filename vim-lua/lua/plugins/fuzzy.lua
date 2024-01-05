@@ -173,6 +173,10 @@ return {
               ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>",
               "Open input to search for word with Telescope",
             },
+            t = {
+              ":lua require('telescope.builtin').grep_string({ search = 'TODO:' })<CR>",
+              "List all TODO: comments in Telescope",
+            },
           },
 
           F = { builtin.grep_string, "Find word under cursor with Telescope" },
