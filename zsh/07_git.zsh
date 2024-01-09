@@ -113,3 +113,5 @@ function pr-checkout() {
 
 # Some nice aliases maybe: https://github.com/kbd/setup/blob/e23b3e8e2363284c3c766c0be2211f46c745354a/HOME/.config/git/config#L110
 #
+
+alias gitea="GIT_SSH_COMMAND='ssh -o IdentitiesOnly=yes -i ~/.ssh/id_gitea -F /dev/null' git"
