@@ -132,12 +132,14 @@ brew 'rtx' # asdf replacement in Rust
 brew 'rubyfmt'
 brew 'rust-analyzer'
 brew 'stern' # Tail multiple Kubernets pods and containers
+brew 'sqlite'
 brew 'switchaudio-osx'
 brew 'stylua' # Lua formatter
 brew 'terraform-docs'
 brew 'terraform-ls' # Terraform language server
 brew 'tfenv' # For managing Terraform versions
 brew 'tflint' # Terraform linter
+brew 'tidy-viewer' # View things nicely formatted in the Terminal, e.g. CSVs
 brew 'tig' # Git text interface
 brew 'tmux'
 brew 'tree'

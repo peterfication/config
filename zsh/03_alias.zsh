@@ -41,3 +41,14 @@ compdef cheatl=cheat
 
 #   command lazygit --use-config-file="$config_file"
 # }
+
+alias sqlite='sqlite3'
+sqlite-csv-viewer() {
+  sqlite3 -column :memory: ".import --csv $1 tmp" 'select * from tmp;' | bat
+}
+# curl https://clickhouse.com/ | sh
+# See https://clickhouse.com/docs/en/operations/utilities/clickhouse-local
+alias clickhouse=~/clickhouse
+clickhouse-csv-viewer() {
+  clickhouse local --query="SELECT * FROM '$1'"
+}
