@@ -234,6 +234,15 @@ return {
             rename = true,
             symbols = true,
           },
+          ruby_ls = {
+            autoformat = true,
+            completion = true,
+            diagnostic = true,
+            folding = true,
+            references = true,
+            rename = true,
+            symbols = true,
+          },
         },
       }
       local cmd = {
@@ -247,12 +256,12 @@ return {
         "jsonls",
         "lua_ls",
         "pyright",
-        "ruby_ls",
+        -- "ruby_ls",
+        "solargraph",
         "tailwindcss",
         "terraformls",
         "tflint",
         "tsserver",
-        -- "solargraph",
         -- "rust_analyzer", => Done via rust-tools
       }
 
