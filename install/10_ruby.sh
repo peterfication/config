@@ -22,7 +22,9 @@ then
   echo "Ruby 3.0.0 is already installed. Skipping."
 else
   echo "Installing Ruby 3.0.0 ..."
-  rvm install ruby-3.0.0
+  rvm install ruby-3.1.4 --with-openssl-dir=$(brew --prefix)/opt/openssl@3
+  rvm install ruby-3.2.2 --with-openssl-dir=$(brew --prefix)/opt/openssl@3
+  rvm install ruby-3.3.0 --with-openssl-dir=$(brew --prefix)/opt/openssl@3
 fi
 
 if rvm list | grep -q ruby-2.7.2
