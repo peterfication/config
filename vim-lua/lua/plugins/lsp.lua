@@ -456,6 +456,7 @@ return {
           null_ls.builtins.formatting.rubocop,
           null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.autopep8,
+          null_ls.builtins.formatting.erb_format,
         },
       })
 
