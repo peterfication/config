@@ -494,6 +494,7 @@ return {
 
   {
     "johmsalas/text-case.nvim",
+    -- dir = "~/coding/lua/text-case.nvim",
     dependencies = {
       "nvim-telescope/telescope.nvim",
       "folke/which-key.nvim",
@@ -505,6 +506,11 @@ return {
 
       vim.api.nvim_set_keymap("n", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
       vim.api.nvim_set_keymap("v", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
+
+      vim.api.nvim_set_keymap("n", "gar", "<cmd>lua require('textcase').start_replacing_command_with_part({ parts_count = 1 })<CR>", { desc = "Run Subs command for first part of text under cursor" })
+      vim.api.nvim_set_keymap("n", "ga2r", "<cmd>lua require('textcase').start_replacing_command_with_part({ parts_count = 2 })<CR>", { desc = "Run Subs command for first part of text under cursor" })
+      vim.api.nvim_set_keymap("n", "gaR", "<cmd>TextCaseStartReplacingCommand<CR>", { desc = "Run Subs command for text under cursor" })
+      vim.api.nvim_set_keymap("v", "gaR", "<cmd>TextCaseStartReplacingCommand<CR>", { desc = "Run Subs command for text under cursor" })
     end,
   },
 
