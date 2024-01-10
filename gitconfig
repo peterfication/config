@@ -97,3 +97,5 @@
   most = !git log --since=\"1 year ago\" --pretty=format: --name-only | sort | uniq -c | sort -rg | head -30
   scrub = reset --hard @{upstream}
   jump = "!$(brew --prefix git)/share/git-core/contrib/git-jump/git-jump"
+[push]
+	default = simple
