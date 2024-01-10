@@ -8,13 +8,8 @@ fi
 export LC_ALL=en_US.UTF-8
 
 export DEFAULT_USER=petergundel
-export PATH="/opt/homebrew/bin:/opt/homebrew/opt/grep/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-eval "$(/opt/homebrew/bin/brew shellenv)"
-# Use homebrew curl
-export PATH="/opt/homebrew/opt/curl/bin:$PATH"
-export PATH="$HOME/config/bin:$PATH"
-fpath=(~/config/zsh/.d/ $fpath)
 
+source ~/config/zsh/00_path.zsh
 source ~/config/zsh/00_oh_my_zsh.zsh
 source ~/config/zsh/01_zplug.zsh
 source ~/config/zsh/02_general.zsh
