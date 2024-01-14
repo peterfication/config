@@ -47,12 +47,12 @@ source ~/config/zsh/99_p10k.zsh
 if which direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 
-  _direnv_hook() {
-    if [[ "$PWD" =~ "$HOME" ]]; then
-      # Supress direnv output when in $HOME
-      eval "$(direnv export zsh 2> >( egrep -v -e '^direnv: (loading|export|unloading)' ))"
-    else
-      eval "$(direnv export zsh)"
-    fi
-  };
+  # _direnv_hook() {
+  #   if [[ "$PWD" =~ "$HOME" ]]; then
+  #     # Supress direnv output when in $HOME
+  #     eval "$(direnv export zsh 2> >( egrep -v -e '^direnv: (loading|export|unloading)' ))"
+  #   else
+  #     eval "$(direnv export zsh)"
+  #   fi
+  # };
 fi
