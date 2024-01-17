@@ -179,6 +179,7 @@ cask 'alfred'
 cask 'applite' # Homebrew GUI https://github.com/milanvarady/Applite
 cask 'android-commandlinetools'
 cask 'android-platform-tools'
+cask 'balenaetcher' # Flash USB drives
 cask 'bartender'
 cask 'cyberduck'
 cask 'darktable'
