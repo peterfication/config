@@ -38,7 +38,6 @@ source ~/config/zsh/83_go.zsh
 source ~/config/zsh/84_python.zsh
 
 source ~/config/zsh/98_base16_shell.zsh
-# source ~/config/zsh/99_agnoster.zsh
 source ~/config/zsh/99_p10k.zsh
 
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
