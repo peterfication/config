@@ -1,4 +1,4 @@
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. $(brew --prefix)/opt/asdf/libexec/asdf.sh
 export PATH=$PATH:$HOME/.asdf/shims
 
 # Manage kubectl versions with asdf:

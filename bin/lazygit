@@ -9,4 +9,4 @@ if [ -f "$gitroot/.lazygit.yml" ]; then
   config_file="$config_file,$gitroot/.lazygit.yml"
 fi
 
-/opt/homebrew/bin/lazygit --use-config-file="$config_file"
+$(brew --prefix)/bin/lazygit --use-config-file="$config_file"
