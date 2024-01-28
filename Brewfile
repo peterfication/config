@@ -27,6 +27,7 @@ brew 'awscli'
 brew 'bash'
 brew 'bash-completion'
 brew 'bat' # cat/less replacement written in Rust
+brew 'borgbackup'
 brew 'bottom'
 brew 'broot'
 brew 'btop'
