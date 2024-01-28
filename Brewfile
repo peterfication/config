@@ -47,6 +47,7 @@ brew 'direnv'
 brew 'dive' # https://github.com/wagoodman/dive
 brew 'docker'
 brew 'dos2unix'
+brew 'dua-cli' # Disk usage analyzer
 brew 'duf'
 brew 'elixir-ls'
 brew 'exa' # ls replacement
