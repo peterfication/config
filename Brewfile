@@ -63,6 +63,7 @@ brew 'git'
 brew 'git-crypt'
 brew 'git-delta' # Git pager
 brew 'git-extras'
+brew 'git-lfs'
 brew 'gitui'
 brew 'gnu-sed'
 brew 'gnupg'
