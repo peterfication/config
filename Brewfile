@@ -127,6 +127,7 @@ brew 'qrencode'
 brew 'rclone'
 brew 'readline', link: true
 brew 'redis'
+brew 'restic' # Backup tool
 brew 'ripgrep' # grep replacement, same as rga
 brew 'rlwrap'
 brew 'rtx' # asdf replacement in Rust
