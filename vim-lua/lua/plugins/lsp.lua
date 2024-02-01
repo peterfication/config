@@ -425,7 +425,6 @@ return {
 
           null_ls.builtins.diagnostics.credo,
           null_ls.builtins.diagnostics.haml_lint,
-          null_ls.builtins.formatting.stylua,
 
           null_ls.builtins.diagnostics.cspell.with({
             disabled_filetypes = { "NvimTree" },
@@ -457,6 +456,7 @@ return {
           null_ls.builtins.formatting.eslint_d,
           null_ls.builtins.formatting.autopep8,
           null_ls.builtins.formatting.erb_format,
+          null_ls.builtins.formatting.stylua,
         },
       })
 
