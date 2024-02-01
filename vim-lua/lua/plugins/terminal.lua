@@ -8,7 +8,16 @@ return {
       require("toggleterm").setup({
         open_mapping = [[<c-t>]],
         direction = "float",
+        on_open = function(term)
+          vim.cmd("startinsert!")
+        end,
       })
+
+      local function open_new_terminal()
+        local terms = require("toggleterm.terminal").get_all(true)
+        local next_index = #terms + 1
+        require("toggleterm").toggle(next_index)
+      end
 
       require("which-key").register({
         ["<Leader>"] = {
@@ -22,6 +31,7 @@ return {
           ["t8"] = { "<CMD>ToggleTerm 8<CR>", "Open terminal 8" },
           ["t9"] = { "<CMD>ToggleTerm 9<CR>", "Open terminal 9" },
           ["te"] = { "<CMD>TermSelect<CR>", "Select terminal to show" },
+          ["tn"] = { open_new_terminal, "Select terminal to show" },
         },
       })
 
@@ -30,6 +40,72 @@ return {
         -- that you want to enter.
         ["<C-Space>"] = { [[<C-\><C-n>]], "In terminal, go from INSERT to NORMAL mode" },
       }, { mode = "t" })
+
+      -- The prev/next functionality is taken from https://github.com/akinsho/toggleterm.nvim/issues/522
+      local function get_term_index(current_id)
+        vim.print("get term index current_id: " .. current_id)
+        local terms = require("toggleterm.terminal").get_all(true)
+        local idx
+
+        for i, v in ipairs(terms) do
+          if v.id == current_id then
+            idx = i
+          end
+        end
+
+        vim.print("get term index current_id: " .. current_id .. " term index: " .. idx)
+        return idx
+      end
+
+      -- local function go_prev_term()
+      --   local current_id = vim.b.toggle_number
+      --   if current_id == nil then
+      --     return
+      --   end
+
+      --   local terms = require("toggleterm.terminal").get_all(true)
+      --   local prev_index
+
+      --   local index = get_term_index(current_id, terms)
+      --   if index > 1 then
+      --     prev_index = index - 1
+      --   else
+      --     prev_index = #terms
+      --   end
+      --   require("toggleterm").toggle(index)
+      --   require("toggleterm").toggle(prev_index)
+      -- end
+
+      local function go_next_term()
+        local current_id = vim.b.toggle_number
+        if current_id == nil then
+          return
+        end
+
+        local terms = require("toggleterm.terminal").get_all(true)
+        local next_index
+
+        local index = get_term_index(current_id)
+        if index == #terms then
+          next_index = 1
+        else
+          next_index = index + 1
+        end
+        vim.print("length: " .. #terms .. " current index: " .. index .. " next index: " .. next_index)
+        -- Only toggle if index and next_index are different
+        if index ~= next_index then
+          require("toggleterm").toggle(index)
+          require("toggleterm").toggle(next_index)
+        end
+      end
+
+      -- vim.keymap.set({ "n", "i", "t" }, "<C-5>", function()
+      --   go_prev_term()
+      -- end, { desc = "Toggle term previous" })
+      vim.keymap.set({ "n", "i", "t" }, "<C-k>", function()
+        go_next_term()
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true), "x!", true)
+      end, { desc = "Toggle term next" })
     end,
   },
 }
