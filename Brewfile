@@ -6,7 +6,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/core'
 tap 'homebrew/services'
-tap 'jandedobbeleer/oh-my-posh'
+# tap 'jandedobbeleer/oh-my-posh' # Powerlevel10k is better
 tap 'jesseduffield/lazydocker'
 tap 'jesseduffield/lazygit'
 tap 'koekeishiya/formulae'
@@ -80,7 +80,7 @@ brew 'harfbuzz'
 brew 'htop'
 # brew 'hyperfine'
 brew 'imagemagick'
-brew 'jandedobbeleer/oh-my-posh/oh-my-posh'
+# brew 'jandedobbeleer/oh-my-posh/oh-my-posh' # Powerlevel10k is better
 brew 'jc' # https://github.com/kellyjonbrazil/jc - JSON CLI output
 brew 'jesseduffield/lazydocker/lazydocker'
 brew 'jesseduffield/lazygit/lazygit'
