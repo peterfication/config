@@ -1,4 +1,4 @@
-Include /Users/petergundel/.colima/ssh_config
+Include ~/.colima/ssh_config
 Include ~/.ssh/config.local
 
 # See https://gist.github.com/Tamal/1cc77f88ef3e900aeae65f0e5e504794
