@@ -20,6 +20,13 @@ sky = SkyRocket:new({
   resizeModifiers = { "ctrl", "shift" },
 })
 
+local VimMode = hs.loadSpoon('VimMode')
+local vim = VimMode:new()
+
+vim
+  :disableForApp('iTerm2')
+  :enterWithSequence('jk')
+
 -- Move window to next screen
 hs.hotkey.bind({ "alt", "ctrl", "cmd", "shift" }, "n", function()
   -- get the focused window
