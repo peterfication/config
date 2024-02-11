@@ -139,6 +139,9 @@ brew 'stern' # Tail multiple Kubernets pods and containers
 brew 'sqlite'
 brew 'switchaudio-osx'
 brew 'stylua' # Lua formatter
+brew 'FelixKratz/formulae/svim' # SketchyVim: Vim mode for every Mac OS input field
+# Maybe check out https://github.com/cknadler/vim-anywhere as an alternative
+# OR https://github.com/D00mch/osx-vimr-anywhere
 brew 'terraform-docs'
 brew 'terraform-ls' # Terraform language server
 brew 'tfenv' # For managing Terraform versions
