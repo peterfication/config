@@ -187,7 +187,7 @@ cask 'applite' # Homebrew GUI https://github.com/milanvarady/Applite
 cask 'android-commandlinetools'
 cask 'android-platform-tools'
 cask 'balenaetcher' # Flash USB drives
-cask 'bartender'
+cask 'bartender' # Somewhat alternative: OnlySwitch https://github.com/jacklandrin/OnlySwitch
 cask 'cyberduck'
 cask 'darktable'
 cask 'eqmac'
@@ -255,3 +255,5 @@ cask 'widelands'
 # sketch
 # zoom
 # https://github.com/upscayl/upscayl
+# https://homerow.app
+# https://alt-tab-macos.netlify.app/
