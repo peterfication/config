@@ -17,6 +17,12 @@ o.scrolloff = 10 -- The number of screen lines to keep above and below the curso
 o.colorcolumn = "100"
 o.pumblend = 50
 
+o.tabstop=2
+o.shiftwidth=2
+o.expandtab = true
+o.smartindent = true
+o.autoindent = true
+
 -- window-local options
 wo.number = true
 wo.relativenumber = false
