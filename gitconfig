@@ -14,6 +14,24 @@
 [fetch]
   prune = true
 
+[pull]
+  ff = only
+
+[push]
+  default = current
+
+# If the Github remote is HTTPS, push to the SSH URL instead
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+
+[merge]
+  conflictstyle = zdiff3
+
+# Remember merge conflict resolution on rebases
+# See https://git-scm.com/book/en/v2/Git-Tools-Rerere
+[rerere]
+  enabled = true
+
 [commit]
   gpgsign = true
   verbose = true
@@ -22,6 +40,7 @@
   diffFilter = delta --color-only
 
 [diff]
+  algorithm = histogram
   tool = nvimdiff
 
 [difftool]
@@ -54,9 +73,6 @@
 
 [blame]
   XignoreRevsFile = .git-blame-ignore-revs
-
-[pull]
-  ff = only
 
 [alias]
   p = pull
@@ -97,5 +113,5 @@
   most = !git log --since=\"1 year ago\" --pretty=format: --name-only | sort | uniq -c | sort -rg | head -30
   scrub = reset --hard @{upstream}
   jump = "!$(brew --prefix git)/share/git-core/contrib/git-jump/git-jump"
-[push]
-	default = simple
+  #  Create a zip archive of the current HEAD.
+  zip = archive -o latest.zip HEAD
