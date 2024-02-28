@@ -3,3 +3,4 @@ karabiner/assets
 karabiner/automatic_backups
 Brewfile.lock.json
 k9s/clusters
+gitconfig.local

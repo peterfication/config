@@ -115,3 +115,6 @@
   jump = "!$(brew --prefix git)/share/git-core/contrib/git-jump/git-jump"
   #  Create a zip archive of the current HEAD.
   zip = archive -o latest.zip HEAD
+
+[include]
+  path = ~/config/gitconfig.local
