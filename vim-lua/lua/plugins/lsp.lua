@@ -236,6 +236,7 @@ return {
       }
 
       local servers = {
+        "bashls",
         "elixirls",
         "eslint",
         "graphql",
