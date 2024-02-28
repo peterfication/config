@@ -1,19 +1,5 @@
 return {
   {
-    "nathom/filetype.nvim",
-    config = function()
-      require("filetype").setup({
-        overrides = {
-          extensions = {
-            -- Somehow html is not working in my setup
-            html = "html",
-          },
-        },
-      })
-    end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
