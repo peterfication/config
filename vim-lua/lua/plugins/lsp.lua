@@ -401,9 +401,12 @@ return {
       "nvim-lua/plenary.nvim",
       "mrjones2014/legendary.nvim",
       "neovim/nvim-lspconfig",
+      "davidmh/cspell.nvim",
     },
     config = function()
       local null_ls = require("null-ls")
+      local cspell = require('cspell')
+
       null_ls.setup({
         -- debug = true,
         sources = {
@@ -413,7 +416,8 @@ return {
           null_ls.builtins.diagnostics.credo,
           null_ls.builtins.diagnostics.haml_lint,
 
-          null_ls.builtins.diagnostics.cspell.with({
+          cspell.diagnostics.with({
+            config_file_preferred_name = '.cspell.json',
             disabled_filetypes = { "NvimTree" },
             diagnostic_config = {
               underline = true,
@@ -423,8 +427,7 @@ return {
               severity_sort = false,
             },
           }),
-          null_ls.builtins.code_actions.cspell,
-          null_ls.builtins.code_actions.eslint_d,
+          cspell.code_actions,
 
           null_ls.builtins.formatting.prettier.with({
             extra_filetypes = {
@@ -440,8 +443,6 @@ return {
           --   },
           -- }),
           null_ls.builtins.formatting.rubocop,
-          null_ls.builtins.formatting.eslint_d,
-          null_ls.builtins.formatting.autopep8,
           null_ls.builtins.formatting.erb_format,
           null_ls.builtins.formatting.stylua,
         },
@@ -451,14 +452,14 @@ return {
         {
           ":NullLsCspellEnable",
           function()
-            require("null-ls").enable({ name = "cspell" })
+            null_ls.enable({ name = "cspell" })
           end,
           description = "[NullLS] Enable cspell",
         },
         {
           ":NullLsCspellDisable",
           function()
-            require("null-ls").disable({ name = "cspell" })
+            null_ls.disable({ name = "cspell" })
           end,
           description = "[NullLS] Disable cspell",
         },
