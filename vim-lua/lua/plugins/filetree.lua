@@ -8,7 +8,8 @@ return {
     },
     config = function()
       require("neo-tree").setup({
-        use_popups_for_input = false,
+        use_popups_for_input = true,
+        enable_normal_mode_for_inputs = true,
         filesystem = {
           window = {
             mappings = {
