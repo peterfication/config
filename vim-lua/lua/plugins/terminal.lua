@@ -6,6 +6,7 @@ return {
     },
     config = function()
       require("toggleterm").setup({
+        auto_scroll = false,
         open_mapping = [[<c-t>]],
         direction = "float",
         on_open = function(term)
