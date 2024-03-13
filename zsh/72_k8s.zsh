@@ -19,3 +19,5 @@ k8s-proxy-eks-dashboard () {
 }
 
 alias kns=k9s
+
+alias ldd=lazydocker

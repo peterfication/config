@@ -82,7 +82,7 @@ return {
           },
           G = {
             name = "Git 2",
-            B = { ':TermExec cmd="tig blame %; exit" direction=float<CR>', "Open tig blame for the current file" },
+            B = { ':9TermExec cmd="tig blame %; exit" direction=float<CR>', "Open tig blame for the current file" },
           },
         },
       })

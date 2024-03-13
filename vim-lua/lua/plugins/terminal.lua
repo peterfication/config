@@ -33,6 +33,9 @@ return {
           ["t9"] = { "<CMD>ToggleTerm 9<CR>", "Open terminal 9" },
           ["te"] = { "<CMD>TermSelect<CR>", "Select terminal to show" },
           ["tn"] = { open_new_terminal, "Select terminal to show" },
+          g = {
+            d = { ':8TermExec cmd="lazydocker; exit" direction=float<CR>', "Open lazydocker" },
+          },
         },
       })
 
