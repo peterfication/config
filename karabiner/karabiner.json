@@ -88,6 +88,23 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Right Ctrl => FN (for Glove80 Apple fn key hack)",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "right_control",
+                  "modifiers": {}
+                },
+                "to": [
+                  {
+                    "key_code": "fn"
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
