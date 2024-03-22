@@ -49,6 +49,7 @@ brew 'docker'
 brew 'dos2unix'
 brew 'dua-cli' # Disk usage analyzer
 brew 'duf'
+brew 'dust' # du -sh replacement
 brew 'elixir-ls'
 brew 'exa' # ls replacement
 brew 'fastlane'
