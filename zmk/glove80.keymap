@@ -24,8 +24,8 @@
 #define LAYER_Base 0
 #define LAYER_Lower 1
 #define LAYER_Magic 2
-#define LAYER_NumSpecial 3
-#define LAYER_OtherSpecial 4
+#define LAYER_Numbers 3
+#define LAYER_Special 4
 #define LAYER_FXX 5
 
 /* To deal with the situation where there is no Lower layer, to keep &lower happy */
@@ -288,12 +288,12 @@
 
         layer_Lower {
             bindings = <
-         &kp C_BRI_DN  &kp C_BRI_UP      &kp C_PREV      &kp C_NEXT         &kp C_PP                                                                                    &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP            &none  &kp PAUSE_BREAK
-               &trans         &none           &none           &none            &none   &kp HOME                                                   &kp LEFT_PARENTHESIS  &kp KP_NUM  &kp KP_EQUAL  &kp KP_SLASH  &kp KP_MULTIPLY  &kp PRINTSCREEN
-               &trans         &none           &none    &kp UP_ARROW            &none    &kp END                                                  &kp RIGHT_PARENTHESIS   &kp KP_N7     &kp KP_N8     &kp KP_N9     &kp KP_MINUS   &kp SCROLLLOCK
-               &trans         &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PG_UP                                                               &kp LEFT    &kp DOWN        &kp UP     &kp RIGHT      &kp KP_PLUS            &none
-               &trans     &kp K_APP           &none           &none            &none  &kp PG_DN  &trans  &trans   &to 0  &trans  &trans  &trans              &kp COMMA   &kp KP_N1     &kp KP_N2     &kp KP_N3     &kp KP_ENTER           &trans
- &magic LAYER_Magic 0      &kp CAPS         &kp INS          &trans           &trans             &trans  &trans  &trans  &trans  &trans  &trans                          &kp KP_N0     &kp KP_N0    &kp KP_DOT     &kp KP_ENTER           &trans
+                &none   &none           &none           &none            &none                                                                                          &none           &none              &none            &none   &none
+               &trans   &none           &none           &none            &none   &kp HOME                                                      &kp LC(LEFT)      &kp LC(DOWN)      &kp LC(UP)      &kp LC(RIGHT)  &kp KP_MULTIPLY   &none
+               &trans   &none           &none    &kp UP_ARROW            &none    &kp END                                                      &kp LG(LEFT)      &kp LG(DOWN)      &kp LG(UP)      &kp LG(RIGHT)     &kp KP_MINUS   &none
+               &trans   &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PG_UP                                                          &kp LEFT          &kp DOWN          &kp UP          &kp RIGHT      &kp KP_PLUS   &none
+               &trans   &none           &none           &none            &none  &kp PG_DN  &trans  &trans   &to 0  &trans  &trans  &trans  &kp LG(LA(LEFT))  &kp LG(LA(DOWN))  &kp LG(LA(UP))  &kp LG(LA(RIGHT))     &kp KP_SLASH  &trans
+ &magic LAYER_Magic 0  &trans          &trans          &trans           &trans             &trans  &trans  &trans  &trans  &trans  &trans                              &trans          &trans             &trans           &trans  &trans
             >;
         };
 
@@ -308,25 +308,25 @@
             >;
         };
 
-        layer_NumSpecial {
+        layer_Numbers {
             bindings = <
-                &none      &none       &none       &none         &none                                                                                             &none         &none            &none          &none       &none
-                &none      &none       &none       &none         &none             &none                                                              &none        &none         &none            &none          &none       &none
-               &trans      &none       &none  &kp LS(N2)  &kp LS(BSLH)             &none                                                       &kp KP_EQUAL  &kp KP_PLUS  &kp KP_MINUS  &kp KP_MULTIPLY   &kp KP_SLASH  &kp LS(N5)
-               &trans     &kp N1      &kp N2      &kp N3        &kp N4            &kp N5                                                             &kp N6       &kp N7        &kp N8           &kp N9         &kp N0       &none
-               &trans  &kp GRAVE  &kp LA(N8)  &kp LA(N5)    &kp LS(N8)  &kp LG(LA(LEFT))   &mo 5  &trans  &trans  &trans  &trans  &trans  &kp LG(LA(RIGHT))   &kp LS(N9)    &kp LA(N6)       &kp LA(N9)  &kp LS(GRAVE)       &none
- &magic LAYER_Magic 0      &none      &trans      &trans        &trans                    &trans  &trans  &trans  &trans  &trans   &to 0                          &trans        &trans           &trans          &none       &none
+       &kp LG(LS(N1))  &kp LG(LS(N2))  &kp LG(LS(N3))  &kp LG(LS(N4))  &kp LG(LS(N5))                                                                                  &kp LG(LS(N6))  &kp LG(LS(N7))  &kp LG(LS(N8))  &kp LG(LS(N9))  &kp LG(LS(N0))
+                &none  &kp LG(LA(N1))  &kp LG(LA(N2))  &kp LG(LA(N3))  &kp LG(LA(N4))  &kp LG(LA(N5))                                                  &kp LG(LA(N6))  &kp LG(LA(N7))  &kp LG(LA(N8))  &kp LG(LA(N9))  &kp LG(LA(N0))           &none
+               &trans      &kp LG(N1)      &kp LG(N2)      &kp LG(N3)      &kp LG(N4)      &kp LG(N5)                                                      &kp LG(N6)      &kp LG(N7)      &kp LG(N8)      &kp LG(N9)      &kp LG(N0)           &none
+               &trans          &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                                                          &kp N6          &kp N7          &kp N8          &kp N9          &kp N0           &none
+               &trans      &kp LC(N1)      &kp LC(N2)      &kp LC(N3)      &kp LC(N4)      &kp LC(N5)   &mo 5  &trans  &trans  &trans  &trans  &trans      &kp LC(N6)      &kp LC(N7)      &kp LC(N8)      &kp LC(N9)      &kp LC(N0)          &trans
+ &magic LAYER_Magic 0           &none          &trans          &trans          &trans                  &trans  &trans  &trans  &trans  &trans   &to 0                          &trans          &trans          &trans           &none           &none
             >;
         };
 
-        layer_OtherSpecial {
+        layer_Special {
             bindings = <
-  &none       &none       &none           &none         &none                                                                                 &none       &none       &none          &none   &none
-  &none       &none       &none           &none         &none       &none                                                      &none          &none       &none       &none          &none   &none
-  &none       &none  &kp LS(N1)      &kp LS(N2)  &kp LS(BSLH)  &kp LS(N3)                                                      &none     &kp LS(N4)  &kp LS(N5)  &kp LS(N6)          &none   &none
-  &none  &kp LS(N7)  &kp LA(N7)  &kp LA(LS(N7))  &kp LS(FSLH)    &kp FSLH                                                  &kp LA(L)  &kp LS(MINUS)  &kp LS(N0)     &kp DOT    &kp LS(DOT)   &none
-  &none       &none       &none       &kp LA(N)      &kp BSLH       &none   &to 0  &trans   &none   &none  &trans  &trans      &none          &none       &none   &kp COMMA  &kp LS(COMMA)   &none
-  &none       &none       &none           &none         &none              &trans  &trans  &trans  &trans  &trans   &mo 5                     &none       &none       &none          &none   &none
+  &none       &none       &none           &none       &none                                                                                      &none       &none          &none          &none   &none
+  &none       &none       &none           &none       &none         &none                                                         &none          &none       &none          &none          &none   &none
+  &none  &kp LS(N3)  &kp LS(N5)       &kp LA(L)  &kp LS(N4)     &kp LA(N)                                                  &kp LS(RBKT)  &kp LS(EQUAL)    &kp NUBS      &kp EQUAL   &kp LS(NUBS)   &none
+  &none  &kp LS(N7)  &kp LA(N7)  &kp LA(LS(N7))  &kp LS(N2)  &kp LS(BSLH)                                                      &kp BSLH     &kp LS(N0)  &kp LS(N6)  &kp LS(MINUS)     &kp LS(N1)   &none
+  &none   &kp GRAVE  &kp LA(N8)      &kp LA(N5)  &kp LS(N8)         &none   &to 0  &trans   &none   &none  &trans  &trans      &kp RBKT     &kp LS(N9)  &kp LA(N6)     &kp LA(N9)  &kp LS(GRAVE)   &none
+  &none       &none       &none           &none       &none                &trans  &trans  &trans  &trans  &trans   &mo 5                        &none       &none          &none          &none   &none
             >;
         };
 
@@ -343,13 +343,3 @@
 
     };
 };
-
-/*
- * German MAC keyboard layout special characters:
- * < -> &kp GRAVE
- * > -> &kp LS(GRAVE)
- * ^ -> &kp NUBS
- * ° -> &kp LS(NUBS)
- *
- * fn/GLOBE is not working. I remapped RCTRL to fn with Karabiner, because it's not on small Apple keyboard so I don't use it anyways.
- */
