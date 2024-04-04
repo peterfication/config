@@ -162,7 +162,7 @@ brew 'weaveworks/tap/eksctl'
 brew 'wget'
 brew 'youtube-dl'
 brew 'yt-dlp'
-brew 'zbar'
+brew 'zbar' # QR code reader with zbarimg
 brew 'zellij'
 brew 'zlib'
 brew 'zoxide'
