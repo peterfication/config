@@ -15,3 +15,5 @@ export PATH="$(brew --prefix)/opt/grep/libexec/gnubin:$PATH"
 export PATH="$HOME/config/bin:$PATH"
 fpath=(~/config/zsh/.d/ $fpath)
 export PATH=$HOME"/.local/share/neovim/bin:$PATH"
+
+export PATH=$HOME"/.local/bin:$PATH"
