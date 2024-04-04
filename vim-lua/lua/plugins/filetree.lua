@@ -9,7 +9,6 @@ return {
     config = function()
       require("neo-tree").setup({
         use_popups_for_input = true,
-        enable_normal_mode_for_inputs = true,
         filesystem = {
           window = {
             mappings = {
@@ -35,6 +34,24 @@ return {
               vim.fn.setreg('"', content)
               vim.fn.setreg("1", content)
               vim.fn.setreg("+", content)
+            end,
+          },
+        },
+        event_handlers = {
+          {
+            event = "neo_tree_popup_input_ready",
+            handler = function()
+              -- enter input popup with normal mode by default.
+              vim.cmd("stopinsert")
+            end,
+          },
+          {
+            event = "neo_tree_popup_input_ready",
+            ---@param args { bufnr: integer, winid: integer }
+            handler = function(args)
+              -- map <esc> to enter normal mode (by default closes prompt)
+              -- don't forget `opts.buffer` to specify the buffer of the popup.
+              vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
             end,
           },
         },
