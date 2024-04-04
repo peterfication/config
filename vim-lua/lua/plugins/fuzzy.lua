@@ -156,6 +156,7 @@ return {
           e = {
             name = "Open file(s)",
             e = { builtin.find_files, "Find files with Telescope" },
+            g = { builtin.git_files, "Find Git ls-files with Telescope" },
             b = { ":Telescope file_browser hidden=true<CR>", "Telescope file browser" },
             h = { builtin.oldfiles, "Recent files with Telescope" },
           },
