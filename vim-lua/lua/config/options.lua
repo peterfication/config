@@ -15,7 +15,7 @@ o.swapfile = false
 o.undofile = true
 o.scrolloff = 10 -- The number of screen lines to keep above and below the cursor while scrolling
 o.colorcolumn = "100"
-o.pumblend = 50
+-- o.pumblend = 50
 
 o.tabstop=2
 o.shiftwidth=2

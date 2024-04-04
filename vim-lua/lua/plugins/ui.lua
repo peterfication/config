@@ -210,7 +210,7 @@ return {
     config = function()
       require("notify").setup({
         on_open = function(win)
-          vim.api.nvim_win_set_option(win, "winblend", 80)
+          -- vim.api.nvim_win_set_option(win, "winblend", 80)
         end,
       })
 
@@ -221,11 +221,11 @@ return {
               row = "20%",
             },
           },
-          notify = {
-            win_options = {
-              winblend = 80
-            },
-          },
+          -- notify = {
+          --   win_options = {
+          --     winblend = 80
+          --   },
+          -- },
         },
       })
 
