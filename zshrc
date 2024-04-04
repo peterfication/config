@@ -33,11 +33,12 @@ source ~/config/zsh/72_k8s.zsh
 source ~/config/zsh/73_terraform.zsh
 source ~/config/zsh/74_flux.zsh
 
-source ~/config/zsh/80_node.zsh
 source ~/config/zsh/81_ruby.zsh
 source ~/config/zsh/82_rust.zsh
 source ~/config/zsh/83_go.zsh
 source ~/config/zsh/84_python.zsh
+# Needs to be after python because of node from conda
+source ~/config/zsh/80_node.zsh
 
 source ~/config/zsh/98_base16_shell.zsh
 source ~/config/zsh/99_p10k.zsh
