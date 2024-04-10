@@ -209,6 +209,7 @@ return {
     event = "VimEnter",
     config = function()
       require("notify").setup({
+        top_down = false,
         on_open = function(win)
           -- vim.api.nvim_win_set_option(win, "winblend", 80)
         end,
