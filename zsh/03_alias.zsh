@@ -52,3 +52,11 @@ alias clickhouse=~/clickhouse
 clickhouse-csv-viewer() {
   clickhouse local --query="SELECT * FROM '$1'"
 }
+
+# If there is a fork processes problem:
+alias processes_count="ps -e | awk '{print $4" "$5" "$6}' | sort | uniq -c | sort -n"
+# => Check for zombie/defunct processes to find the root cause.
+# Make sure macOS is in server mode:
+# sudo nvram boot-args="serverperfmode=1 $(nvram boot-args 2>/dev/null | cut -f 2-)"
+# Increase max processes:
+# sudo sysctl kern.tty.ptmx_max=999
