@@ -9,6 +9,7 @@ return {
       vim.cmd("colorscheme base16-solarized-dark")
 
       -- "Fix" missing Neovim 0.10 colors
+      vim.cmd("hi! link WinSeparator VertSplit")
       vim.cmd([[ call Base16hi("NormalFloat", g:base16_gui05, g:base16_gui00, g:base16_cterm05, g:base16_gui00, "bold,italic", "") ]])
 
       vim.cmd("hi Comment gui=italic cterm=italic")
