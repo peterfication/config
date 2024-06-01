@@ -8,6 +8,9 @@ return {
       -- :Telescope colorscheme enable_preview=true
       vim.cmd("colorscheme base16-solarized-dark")
 
+      -- "Fix" missing Neovim 0.10 colors
+      vim.cmd([[ call Base16hi("NormalFloat", g:base16_gui05, g:base16_gui00, g:base16_cterm05, g:base16_gui00, "bold,italic", "") ]])
+
       vim.cmd("hi Comment gui=italic cterm=italic")
       vim.cmd("hi! link @symbol SpecialChar")
 
