@@ -22,10 +22,11 @@ return {
         ["<Leader>"] = {
           x = {
             name = "Trouble",
-            x = { "<CMD>TroubleToggle document_diagnostics<CR>", "Toggle document diagnostics" },
-            w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "Toggle workspace diagnostics" },
-            l = { "<CMD>TroubleToggle loclist<CR>", "Toggle loclist" },
-            q = { "<CMD>TroubleToggle quickfix<CR>", "Toggle quickfix" },
+            x = { "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", "Toggle document diagnostics" },
+            w = { "<CMD>Trouble diagnostics toggle<CR>", "Toggle workspace diagnostics" },
+            l = { "<CMD>Trouble loclist toggle<CR>", "Toggle loclist" },
+            q = { "<CMD>Trouble qflist toggle<CR>", "Toggle quickfix" },
+            n = { "<CMD>Trouble diagnostics next<CR><CMD>Trouble diagnostics jump<CR>", "Next" },
           },
           q = {
             name = "Quickfix",
