@@ -347,20 +347,12 @@ return {
         -- vim.cmd("autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx")
       end
 
-      vim.api.nvim_create_user_command(
-        "LspDiagnoticsVirtualTextDisable",
-        function()
-          vim.diagnostic.config({ virtual_text = false, })
-        end,
-        {}
-      )
-      vim.api.nvim_create_user_command(
-        "LspDiagnoticsVirtualTextEnable",
-        function()
-          vim.diagnostic.config({ virtual_text = true, })
-        end,
-        {}
-      )
+      vim.api.nvim_create_user_command("LspDiagnoticsVirtualTextDisable", function()
+        vim.diagnostic.config({ virtual_text = false })
+      end, {})
+      vim.api.nvim_create_user_command("LspDiagnoticsVirtualTextEnable", function()
+        vim.diagnostic.config({ virtual_text = true })
+      end, {})
     end,
   },
 
@@ -405,7 +397,7 @@ return {
     },
     config = function()
       local null_ls = require("null-ls")
-      local cspell = require('cspell')
+      local cspell = require("cspell")
 
       null_ls.setup({
         -- debug = true,
@@ -417,7 +409,7 @@ return {
           null_ls.builtins.diagnostics.haml_lint,
 
           cspell.diagnostics.with({
-            config_file_preferred_name = '.cspell.json',
+            config_file_preferred_name = ".cspell.json",
             disabled_filetypes = { "NvimTree" },
             diagnostic_config = {
               underline = true,
@@ -495,10 +487,30 @@ return {
       vim.api.nvim_set_keymap("n", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
       vim.api.nvim_set_keymap("v", "ga.", "<cmd>TextCaseOpenTelescope<CR>", { desc = "Telescope" })
 
-      vim.api.nvim_set_keymap("n", "gar", "<cmd>lua require('textcase').start_replacing_command_with_part({ parts_count = 1 })<CR>", { desc = "Run Subs command for first part of text under cursor" })
-      vim.api.nvim_set_keymap("n", "ga2r", "<cmd>lua require('textcase').start_replacing_command_with_part({ parts_count = 2 })<CR>", { desc = "Run Subs command for first part of text under cursor" })
-      vim.api.nvim_set_keymap("n", "gaR", "<cmd>TextCaseStartReplacingCommand<CR>", { desc = "Run Subs command for text under cursor" })
-      vim.api.nvim_set_keymap("v", "gaR", "<cmd>TextCaseStartReplacingCommand<CR>", { desc = "Run Subs command for text under cursor" })
+      vim.api.nvim_set_keymap(
+        "n",
+        "gar",
+        "<cmd>lua require('textcase').start_replacing_command_with_part({ parts_count = 1 })<CR>",
+        { desc = "Run Subs command for first part of text under cursor" }
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "ga2r",
+        "<cmd>lua require('textcase').start_replacing_command_with_part({ parts_count = 2 })<CR>",
+        { desc = "Run Subs command for first part of text under cursor" }
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "gaR",
+        "<cmd>TextCaseStartReplacingCommand<CR>",
+        { desc = "Run Subs command for text under cursor" }
+      )
+      vim.api.nvim_set_keymap(
+        "v",
+        "gaR",
+        "<cmd>TextCaseStartReplacingCommand<CR>",
+        { desc = "Run Subs command for text under cursor" }
+      )
     end,
   },
 
