@@ -5,7 +5,7 @@ if [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-export PATH="$(brew --prefix)/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Use homebrew curl
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
