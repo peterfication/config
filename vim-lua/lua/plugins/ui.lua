@@ -70,6 +70,7 @@ return {
           -- local blend = colorhelper.blend
 
           return {
+            SpecialKey = { fg = colors.yellow },
             Title = { fg = colors.base0 },
             DiagnosticUnderlineError = { fg = "none", undercurl = true },
             DiagnosticUnderlineWarn = { fg = "none", undercurl = true },
