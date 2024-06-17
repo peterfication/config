@@ -1,6 +1,5 @@
 return {
 
-  { "tpope/vim-commentary" },
   { "tpope/vim-abolish" },
   { "tpope/vim-repeat" },
   {
