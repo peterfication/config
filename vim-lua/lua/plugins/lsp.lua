@@ -456,6 +456,8 @@ return {
           description = "[NullLS] Disable cspell",
         },
       })
+
+      null_ls.disable({ name = "cspell" })
     end,
   },
 
