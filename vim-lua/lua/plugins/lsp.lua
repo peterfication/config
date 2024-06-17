@@ -418,6 +418,9 @@ return {
               update_in_insert = false,
               severity_sort = false,
             },
+            diagnostics_postprocess = function(diagnostic)
+              diagnostic.severity = vim.diagnostic.severity["WARN"]
+            end,
           }),
           cspell.code_actions,
 
@@ -456,8 +459,6 @@ return {
           description = "[NullLS] Disable cspell",
         },
       })
-
-      null_ls.disable({ name = "cspell" })
     end,
   },
 
