@@ -13,10 +13,10 @@ git:
 
 os:
   # editCommand: nvr -l -s
-  # edit: 'nvr -l -s {{filename}}'
-  # editAtLine: 'nvr -l -s +{{line}} {{filename}}'
-  # editAtLineAndWait: 'nvr -l -s +{{line}} {{filename}}'
-  # editInTerminal: true
+  edit: 'nvr -l -s {{filename}}'
+  editAtLine: 'nvr -l -s +{{line}} {{filename}}'
+  editAtLineAndWait: 'nvr -l -s +{{line}} {{filename}}'
+  editInTerminal: true
 
 keybinding:
   universal:
