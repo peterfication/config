@@ -1,25 +1,86 @@
 return {
+  -- {
+  --   "tinted-theming/base16-vim",
+  --   config = function()
+  --     local vim = vim
+
+  --     -- Telescope colorscheme with live preview:
+  --     -- :Telescope colorscheme enable_preview=true
+  --     vim.cmd("colorscheme base16-solarized-dark")
+
+  --     -- "Fix" missing Neovim 0.10 colors
+  --     vim.cmd("hi! link WinSeparator VertSplit")
+  --     vim.cmd([[ call Base16hi("NormalFloat", g:base16_gui05, g:base16_gui00, g:base16_cterm05, g:base16_gui00, "bold,italic", "") ]])
+
+  --     vim.cmd("hi Comment gui=italic cterm=italic")
+  --     vim.cmd("hi! link @symbol SpecialChar")
+
+  --     vim.cmd("hi ErrorHighlight gui=undercurl cterm=undercurl")
+  --     vim.cmd("hi WarningHighlight gui=undercurl cterm=undercurl")
+  --     vim.cmd("hi InfoHighlight gui=undercurl cterm=undercurl")
+  --     vim.cmd("hi HintHighlight gui=undercurl cterm=undercurl")
+  --     vim.cmd("hi OkHighlight gui=undercurl cterm=undercurl")
+  --   end,
+  -- },
   {
-    "tinted-theming/base16-vim",
+    "maxmx03/solarized.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      local vim = vim
+      vim.o.background = "dark" -- or 'light'
 
-      -- Telescope colorscheme with live preview:
-      -- :Telescope colorscheme enable_preview=true
-      vim.cmd("colorscheme base16-solarized-dark")
+      require("solarized").setup({
+        -- palette = "selenized", -- solarized or selenized
+        -- theme = "neo", -- default or neo
+        --
 
-      -- "Fix" missing Neovim 0.10 colors
-      vim.cmd("hi! link WinSeparator VertSplit")
-      vim.cmd([[ call Base16hi("NormalFloat", g:base16_gui05, g:base16_gui00, g:base16_cterm05, g:base16_gui00, "bold,italic", "") ]])
+        highlights = function(colors, _colorhelper)
+          -- colors, see https://github.com/maxmx03/solarized.nvim/blob/main/lua/solarized/palette.lua
+          -- dark = {
+          --   base03 = '#002b36', -- background tone dark (main)
+          --   base02 = '#073642', -- background tone (highlight/menu/LineNr)
+          --   base01 = '#586e75', -- content tone (comment)
+          --   base00 = '#657b83', -- content tone (winseparator)
+          --   base0 = '#839496', -- content tone (foreground)
+          --   base1 = '#93a1a1', -- content tone (statusline/tabline)
+          --   base2 = '#eee8d5', -- background tone light (highlight)
+          --   base3 = '#fdf6e3', -- background tone lighter (main)
+          --   -- accent
+          --   yellow = '#b58900',
+          --   orange = '#cb4b16',
+          --   red = '#dc322f',
+          --   magenta = '#d33682',
+          --   violet = '#6c71c4',
+          --   blue = '#268bd2',
+          --   cyan = '#2aa198',
+          --   green = '#859900',
+          --   -- git
+          --   add = '#859900',
+          --   change = '#b58900',
+          --   delete = '#dc322f',
+          --   -- diagnostic
+          --   info = '#268bd2',
+          --   hint = '#859900',
+          --   warning = '#b58900',
+          --   error = '#dc322f',
+          -- },
+          -- colorhelper see https://github.com/maxmx03/solarized.nvim/blob/main/lua/solarized/utils/colors.lua
+          -- local darken = colorhelper.darken
+          -- local lighten = colorhelper.lighten
+          -- local blend = colorhelper.blend
 
-      vim.cmd("hi Comment gui=italic cterm=italic")
-      vim.cmd("hi! link @symbol SpecialChar")
+          return {
+            Title = { fg = colors.base0 },
+            DiagnosticUnderlineError = { fg = "none", undercurl = true },
+            DiagnosticUnderlineWarn = { fg = "none", undercurl = true },
+            DiagnosticUnderlineInfo = { fg = "none", undercurl = true },
+            DiagnosticUnderlineHint = { fg = "none", undercurl = true },
+            DiagnosticUnderlineOk = { fg = "none", undercurl = true },
+          }
+        end,
+      })
 
-      vim.cmd("hi ErrorHighlight gui=undercurl cterm=undercurl")
-      vim.cmd("hi WarningHighlight gui=undercurl cterm=undercurl")
-      vim.cmd("hi InfoHighlight gui=undercurl cterm=undercurl")
-      vim.cmd("hi HintHighlight gui=undercurl cterm=undercurl")
-      vim.cmd("hi OkHighlight gui=undercurl cterm=undercurl")
+      vim.cmd.colorscheme("solarized")
     end,
   },
   {
