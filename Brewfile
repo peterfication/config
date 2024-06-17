@@ -108,7 +108,7 @@ brew 'mergestat/mergestat/mergestat'
 brew 'mosh'
 brew 'ms-jpq/sad/sad'
 brew 'neovim'
-brew 'neovim-remote'
+# brew 'neovim-remote'
 brew 'netcat' # GNU nc - Tutorial: https://blog.ikuamike.io/posts/2021/netcat/
 brew 'nmap' # Network Mapper https://nmap.org/
 # Other tools:
