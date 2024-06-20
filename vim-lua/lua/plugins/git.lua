@@ -24,6 +24,11 @@ return {
     },
     config = function()
       require("gitsigns").setup({
+        numhl = true,
+        current_line_blame_opts = {
+          delay = 100,
+        },
+
         on_attach = function(bufnr)
           local gs = package.loaded.gitsigns
 
