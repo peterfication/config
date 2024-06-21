@@ -80,6 +80,7 @@ brew 'guetzli' # Image optimization
 brew 'harfbuzz'
 brew 'htop'
 # brew 'hyperfine'
+brew 'jordanbaird-ice'
 brew 'imagemagick'
 # brew 'jandedobbeleer/oh-my-posh/oh-my-posh' # Powerlevel10k is better
 brew 'jc' # https://github.com/kellyjonbrazil/jc - JSON CLI output
