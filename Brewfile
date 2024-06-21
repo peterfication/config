@@ -185,6 +185,7 @@ brew 'zsh-completions'
 # kubectl
 
 cask '1password'
+cask 'nikitabobko/tap/aerospace'
 cask 'alacritty'
 cask 'alfred'
 cask 'applite' # Homebrew GUI https://github.com/milanvarady/Applite
