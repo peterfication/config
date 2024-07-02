@@ -46,6 +46,7 @@ brew 'difftastic'
 brew 'direnv'
 brew 'dive' # https://github.com/wagoodman/dive
 brew 'docker'
+brew 'dog' # Modern replacement for dig
 brew 'dos2unix'
 brew 'dua-cli' # Disk usage analyzer
 brew 'duf'
