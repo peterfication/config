@@ -109,12 +109,32 @@ return {
       require("telescope").load_extension("luasnip")
       require("telescope").load_extension("neoclip")
 
+      local function visual_paste(opts)
+        local handlers = require("neoclip.handlers")
+        handlers.set_registers({ 'z' }, opts.entry)
+        vim.api.nvim_feedkeys('gv"zp', "n", false)
+      end
+
       require("neoclip").setup({
         history = 1000,
         default_register = { "+", '"', "*" },
         preview = true,
         on_paste = {
           set_reg = true,
+        },
+        keys = {
+          telescope = {
+            n = {
+              custom = {
+                ["v"] = visual_paste
+              },
+            },
+            i = {
+              custom = {
+                ["<c-v>"] = visual_paste
+              },
+            },
+          },
         },
       })
 
@@ -229,6 +249,11 @@ return {
           p = { ":Telescope neoclip<CR>", "Open neoclip (clipboard) in Telescope" },
         },
       })
+      require("which-key").register({
+        ["<Leader>"] = {
+          p = { "<ESC><CMD>Telescope neoclip<CR>", "Open neoclip (clipboard) in Telescope" },
+        },
+      }, { mode = "v" })
 
       -- vim.keymap.set('n', '<Leader>Z', builtin.current_buffer_tags, {})
       -- vim.keymap.set('n', '<Leader>Z', builtin.treesitter, {})
