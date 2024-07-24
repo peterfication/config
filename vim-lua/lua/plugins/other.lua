@@ -8,10 +8,8 @@ return {
       "folke/which-key.nvim",
     },
     config = function()
-      require("which-key").register({
-        ["<Leader>"] = {
-          u = { ":MundoToggle<CR>", "Open undo tree with Mundo" },
-        },
+      require("which-key").add({
+        { "<Leader>u", ":MundoToggle<CR>", desc = "Open undo tree with Mundo" },
       })
     end,
   },
@@ -50,10 +48,8 @@ return {
         border = "double",
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          W = { ":lua require('nvim-window').pick()<CR>", "Select window via a letter" },
-        },
+      require("which-key").add({
+        { "<Leader>W", ":lua require('nvim-window').pick()<CR>", desc = "Select window via a letter" },
       })
     end,
   },
@@ -69,13 +65,8 @@ return {
         open_cmd = "tabnew",
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          R = {
-            ":Spectre<CR>",
-            "Search and replace with spectre",
-          },
-        },
+      require("which-key").add({
+        { "<Leader>R", ":Spectre<CR>", desc = "Search and replace with spectre" },
       })
     end,
   },

@@ -111,7 +111,7 @@ return {
 
       local function visual_paste(opts)
         local handlers = require("neoclip.handlers")
-        handlers.set_registers({ 'z' }, opts.entry)
+        handlers.set_registers({ "z" }, opts.entry)
         vim.api.nvim_feedkeys('gv"zp', "n", false)
       end
 
@@ -126,12 +126,12 @@ return {
           telescope = {
             n = {
               custom = {
-                ["v"] = visual_paste
+                ["v"] = visual_paste,
               },
             },
             i = {
               custom = {
-                ["<c-v>"] = visual_paste
+                ["<c-v>"] = visual_paste,
               },
             },
           },
@@ -171,92 +171,81 @@ return {
           :find()
       end
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          e = {
-            name = "Open file(s)",
-            e = { builtin.find_files, "Find files with Telescope" },
-            g = { builtin.git_files, "Find Git ls-files with Telescope" },
-            b = { ":Telescope file_browser hidden=true<CR>", "Telescope file browser" },
-            h = { builtin.oldfiles, "Recent files with Telescope" },
-          },
+      require("which-key").add({
+        { "<Leader>e", group = "Open file(s)" },
+        { "<Leader>eb", ":Telescope file_browser hidden=true<CR>", desc = "Telescope file browser" },
+        { "<Leader>ee", builtin.find_files, desc = "Find files with Telescope" },
+        { "<Leader>eg", builtin.git_files, desc = "Find Git ls-files with Telescope" },
+        { "<Leader>eh", builtin.oldfiles, desc = "Recent files with Telescope" },
 
-          E = {
-            name = "Open buffer(s)",
-            E = { builtin.buffers, "Find files of currently open buffers" },
-            B = { ":Telescope file_browser path=%:p:h<CR>", "Telescope file browser for current file" },
-          },
+        { "<Leader>E", group = "Open buffer(s)" },
+        { "<Leader>EB", ":Telescope file_browser path=%:p:h<CR>", desc = "Telescope file browser for current file" },
+        { "<Leader>EE", builtin.buffers, desc = "Find files of currently open buffers" },
 
-          f = {
-            name = "Search",
-            f = { builtin.live_grep, "Telescope live grep search (Use <C-Space> to refine the search)" },
-            w = {
-              ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>",
-              "Open input to search for word with Telescope",
-            },
-            t = {
-              ":lua require('telescope.builtin').grep_string({ search = 'TODO:' })<CR>",
-              "List all TODO: comments in Telescope",
-            },
-          },
-
-          F = { builtin.grep_string, "Find word under cursor with Telescope" },
-
-          H = { builtin.pickers, "Telescope history" },
-          ["/"] = { builtin.pickers, "Search history with Telescope" },
-
-          l = { builtin.current_buffer_fuzzy_find, "Select lines of current buffer with Telescope" },
-
-          ["?"] = { builtin.help_tags, "Search Vim help tags with Telescope" },
-
-          d = { builtin.diagnostics, "Diagnostics of project with Telescope" },
-          D = { ":Telescope diagnostics bufnr=0<CR>", "Diagnostics of current buffer with Telescope" },
-
-          m = { builtin.marks, "Open marks in Telescope" },
-          j = { builtin.jumplist, "Open jumplist in Telescope" },
-
-          c = {
-            name = "Commands",
-            c = { builtin.commands, "Open commands in Telescope" },
-            h = { builtin.command_history, "Open command history in Telescope" },
-          },
-
-          C = { builtin.builtin, "Open builtin Telescope actions in Telescope" },
-
-          q = {
-            name = "Quickfix",
-            q = { ":Telescope quickfix<CR>", "Open quickfix list in Telescope" },
-            h = { ":Telescope quickfixhistory<CR>", "Open quickfix history in Telescope" },
-          },
-
-          o = {
-            name = "Octo / Github",
-            i = { ":Telescope gh issues<CR>", "Open Github issues in Telescope ([o]cto [i]ssues)" },
-            p = { ":Telescope gh pull_request<CR>", "Open Github pull requests in Telescope ([o]cto [p]ull requests)" },
-          },
-
-          g = {
-            name = "Git",
-            s = { git_hunks, "Open Git status hunks in Telescope" },
-            c = { builtin.git_commits, "Open Git commits in Telescope (<C-d> opens DiffView)" },
-          },
-          G = {
-            name = "Git 2",
-            S = { builtin.git_status, "Open Git status files in Telescope" },
-            C = { builtin.git_bcommits, "Open current buffer Git commits in Telescope (<C-d> opens DiffView)" },
-          },
-
-          p = { ":Telescope neoclip<CR>", "Open neoclip (clipboard) in Telescope" },
+        { "<Leader>f", group = "Search" },
+        { "<Leader>ff", builtin.live_grep, desc = "Telescope live grep search (Use <C-Space> to refine the search)" },
+        {
+          "<Leader>ft",
+          ":lua require('telescope.builtin').grep_string({ search = 'TODO:' })<CR>",
+          desc = "List all TODO: comments in Telescope",
         },
+        {
+          "<Leader>fw",
+          ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>",
+          desc = "Open input to search for word with Telescope",
+        },
+
+        { "<Leader>F", builtin.grep_string, desc = "Find word under cursor with Telescope" },
+
+        { "<Leader>H", builtin.pickers, desc = "Telescope history" },
+        { "<Leader>/", builtin.pickers, desc = "Search history with Telescope" },
+
+        { "<Leader>l", builtin.current_buffer_fuzzy_find, desc = "Select lines of current buffer with Telescope" },
+
+        { "<Leader>?", builtin.help_tags, desc = "Search Vim help tags with Telescope" },
+
+        { "<Leader>d", builtin.diagnostics, desc = "Diagnostics of project with Telescope" },
+        { "<Leader>D", ":Telescope diagnostics bufnr=0<CR>", desc = "Diagnostics of current buffer with Telescope" },
+
+        { "<Leader>m", builtin.marks, desc = "Open marks in Telescope" },
+        { "<Leader>j", builtin.jumplist, desc = "Open jumplist in Telescope" },
+
+        { "<Leader>c", group = "Commands" },
+        { "<Leader>cc", builtin.commands, desc = "Open commands in Telescope" },
+        { "<Leader>ch", builtin.command_history, desc = "Open command history in Telescope" },
+
+        { "<Leader>C", builtin.builtin, desc = "Open builtin Telescope actions in Telescope" },
+
+        { "<Leader>qh", ":Telescope quickfixhistory<CR>", desc = "Open quickfix history in Telescope" },
+        { "<Leader>qq", ":Telescope quickfix<CR>", desc = "Open quickfix list in Telescope" },
+
+        { "<Leader>g", group = "Git" },
+        { "<Leader>gc", builtin.git_commits, desc = "Open Git commits in Telescope (<C-d> opens DiffView)" },
+        { "<Leader>gs", git_hunks, desc = "Open Git status hunks in Telescope" },
+
+        { "<Leader>G", group = "Git 2" },
+        {
+          "<Leader>GC",
+          builtin.git_bcommits,
+          desc = "Open current buffer Git commits in Telescope (<C-d> opens DiffView)",
+        },
+        { "<Leader>GS", builtin.git_status, desc = "Open Git status files in Telescope" },
+
+        { "<Leader>o", group = "Octo / Github" },
+        { "<Leader>oi", ":Telescope gh issues<CR>", desc = "Open Github issues in Telescope ([o]cto [i]ssues)" },
+        {
+          "<Leader>op",
+          ":Telescope gh pull_request<CR>",
+          desc = "Open Github pull requests in Telescope ([o]cto [p]ull requests)",
+        },
+
+        { "<Leader>p", ":Telescope neoclip<CR>", desc = "Open neoclip (clipboard) in Telescope" },
+
+        { "<Leader>p", ":Telescope neoclip<CR>", desc = "Open neoclip (clipboard) in Telescope", mode = "v" },
+
+        { "<Leader>ZZ", builtin.treesitter, desc = "Open Treesitter in Telescope" },
+        { "<Leader>ZT", builtin.current_buffer_tags, desc = "Open current buffer tags in Telescope" },
       })
-      require("which-key").register({
-        ["<Leader>"] = {
-          p = { "<ESC><CMD>Telescope neoclip<CR>", "Open neoclip (clipboard) in Telescope" },
-        },
-      }, { mode = "v" })
-
-      -- vim.keymap.set('n', '<Leader>Z', builtin.current_buffer_tags, {})
-      -- vim.keymap.set('n', '<Leader>Z', builtin.treesitter, {})
     end,
   },
 }

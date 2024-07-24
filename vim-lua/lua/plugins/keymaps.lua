@@ -23,15 +23,12 @@ return {
         -- triggers = { "<leader>" },
       })
 
-      wk.register({
-        g = { name = "go to" },
-        z = { name = "folds" },
-
-        ["<Leader>"] = {
-          name = "Leader",
-          k = { ":Legendary<CR>", "Open Legendary" },
-          K = { ":WhichKey<CR>", "Open WhichKey" },
-        },
+      wk.add({
+        -- { "<Leader>", group = "Leader" },
+        { "<Leader>K", ":WhichKey<CR>", desc = "Open WhichKey" },
+        { "<Leader>k", ":Legendary<CR>", desc = "Open Legendary" },
+        { "g", group = "go to" },
+        { "z", group = "folds" },
       })
     end,
   },

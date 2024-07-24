@@ -92,24 +92,26 @@ return {
     config = function()
       require("illuminate").configure({})
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          ["<C-m>"] = {
-            ':lua require("illuminate").next_reference{wrap=true}<CR>',
-            "Go to next LSP reference (via illuminate)",
-          },
-          ["<C-P"] = {
-            ':lua require("illuminate").goto_prev_reference()<CR>',
-            "Go to previous LSP reference (via illuminate)",
-          },
-          ["<C-n>"] = {
-            "*:nohlsearch<CR>",
-            "Go to next matching word (via search and clear search afterwards)",
-          },
-          ["<C-p>"] = {
-            "*NN:nohlsearch<CR>",
-            "Go to previous matching word (via search and clear search afterwards)",
-          },
+      require("which-key").add({
+        {
+          "<Leader><C-P",
+          ':lua require("illuminate").goto_prev_reference()<CR>',
+          desc = "Go to previous LSP reference (via illuminate)",
+        },
+        {
+          "<Leader><C-m>",
+          ':lua require("illuminate").next_reference{wrap=true}<CR>',
+          desc = "Go to next LSP reference (via illuminate)",
+        },
+        {
+          "<Leader><C-n>",
+          "*:nohlsearch<CR>",
+          desc = "Go to next matching word (via search and clear search afterwards)",
+        },
+        {
+          "<Leader><C-p>",
+          "*NN:nohlsearch<CR>",
+          desc = "Go to previous matching word (via search and clear search afterwards)",
         },
       })
     end,
@@ -164,36 +166,24 @@ return {
         },
       })
 
-      require("which-key").register({
-        ["<C-K>"] = {
-          ":bnext<CR>",
-          "Go to next buffer",
-        },
-        ["<C-J>"] = {
-          ":bprevious<CR>",
-          "Go to previous buffer",
-        },
-        ["<C-C>"] = {
-          -- See https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
-          ":bp<bar>sp<bar>bn<bar>bd<CR>",
-          "Close current buffer (but not the window)",
-        },
-        ["<Leader>"] = {
-          ["<C-C>"] = {
-            ":bd<CR>",
-            "Close current buffer and window",
-          },
-          ["1"] = { "1gt", "Go to tab 1" },
-          ["2"] = { "2gt", "Go to tab 2" },
-          ["3"] = { "3gt", "Go to tab 3" },
-          ["4"] = { "4gt", "Go to tab 4" },
-          ["5"] = { "5gt", "Go to tab 5" },
-          ["6"] = { "6gt", "Go to tab 6" },
-          ["7"] = { "7gt", "Go to tab 7" },
-          ["8"] = { "8gt", "Go to tab 8" },
-          ["9"] = { "9gt", "Go to tab 9" },
-          ["!"] = { ":tabclose<CR>", "Close current tab" },
-        },
+      require("which-key").add({
+        -- See https://stackoverflow.com/questions/1444322/how-can-i-close-a-buffer-without-closing-the-window
+        { "<C-C>", ":bp<bar>sp<bar>bn<bar>bd<CR>", desc = "Close current buffer (but not the window)" },
+        { "<Leader><C-C>", ":bd<CR>", desc = "Close current buffer and window" },
+
+        { "<C-J>", ":bprevious<CR>", desc = "Go to previous buffer" },
+        { "<C-K>", ":bnext<CR>", desc = "Go to next buffer" },
+
+        { "<Leader>!", ":tabclose<CR>", desc = "Close current tab" },
+        { "<Leader>1", "1gt", desc = "Go to tab 1" },
+        { "<Leader>2", "2gt", desc = "Go to tab 2" },
+        { "<Leader>3", "3gt", desc = "Go to tab 3" },
+        { "<Leader>4", "4gt", desc = "Go to tab 4" },
+        { "<Leader>5", "5gt", desc = "Go to tab 5" },
+        { "<Leader>6", "6gt", desc = "Go to tab 6" },
+        { "<Leader>7", "7gt", desc = "Go to tab 7" },
+        { "<Leader>8", "8gt", desc = "Go to tab 8" },
+        { "<Leader>9", "9gt", desc = "Go to tab 9" },
       })
     end,
   },
@@ -311,16 +301,12 @@ return {
         },
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          M = {
-            name = "Noice",
-            M = { ":Noice<CR>", "Open Noice messages" },
-            F = { ":Noice telescope<CR>", "Open Noice messages in Telescope" },
-            f = { ":Noice telescope<CR>", "Open Noice messages in Telescope" },
-            C = { ":lua require('notify').dismiss()<CR>", "Close all Noice messages" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>M", group = "Noice" },
+        { "<Leader>MC", ":lua require('notify').dismiss()<CR>", desc = "Close all Noice messages" },
+        { "<Leader>MF", ":Noice telescope<CR>", desc = "Open Noice messages in Telescope" },
+        { "<Leader>MM", ":Noice<CR>", desc = "Open Noice messages" },
+        { "<Leader>Mf", ":Noice telescope<CR>", desc = "Open Noice messages in Telescope" },
       })
     end,
   },
@@ -365,10 +351,8 @@ return {
       vim.cmd("let g:minimap_git_colors=1")
       vim.cmd("let g:minimap_highlight_search=1")
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          ["ö"] = { ":MinimapToggle<CR>", "Toggle the minimap" },
-        },
+      require("which-key").add({
+        { "<Leader>ö", ":MinimapToggle<CR>", desc = "Toggle the minimap" },
       })
     end,
   },
@@ -426,8 +410,8 @@ return {
         --   enable = false,
         -- },
       })
-      require("which-key").register({
-        ["<C-W>z"] = { ":WindowsMaximize<CR>", "Zoom the current window" },
+      require("which-key").add({
+        { "<C-W>z", ":WindowsMaximize<CR>", desc = "Zoom the current window" },
       })
     end,
   },

@@ -56,36 +56,14 @@ return {
           },
         },
       })
-      require("which-key").register({
-        ["<Leader>"] = {
-          n = {
-            n = {
-              ":Neotree toggle float<CR>",
-              "Open NeoTree files",
-            },
-            b = {
-              ":Neotree buffers toggle float<CR>",
-              "Open NeoTree buffers",
-            },
-            g = {
-              ":Neotree git_status toggle float<CR>",
-              "Open NeoTree git_status",
-            },
-          },
-          N = {
-            ":Neotree filesystem reveal float<CR>",
-            "Open NeoTree with the current file selected",
-          },
-        },
-      })
-      require("which-key").register({
-        ["<Leader>"] = {
-          -- Fallback when "n" is pressed only once
-          n = {
-            ":Neotree toggle float<CR>",
-            "Open NeoTree files",
-          },
-        },
+      require("which-key").add({
+        { "<Leader>n", group = "Neotree" },
+        -- Fallback when "n" is pressed only once
+        -- { "<Leader>n", ":Neotree toggle float<CR>", desc = "Open NeoTree files" },
+        { "<Leader>N", ":Neotree filesystem reveal float<CR>", desc = "Open NeoTree with the current file selected" },
+        { "<Leader>nb", ":Neotree buffers toggle float<CR>", desc = "Open NeoTree buffers" },
+        { "<Leader>ng", ":Neotree git_status toggle float<CR>", desc = "Open NeoTree git_status" },
+        { "<Leader>nn", ":Neotree toggle float<CR>", desc = "Open NeoTree files" },
       })
     end,
   },

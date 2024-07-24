@@ -26,14 +26,10 @@ return {
   --       -- },
   --     })
   --
-  --     require("which-key").register({
-  --       ["<Leader>"] = {
-  --         r = {
-  --           name = "REST client",
-  --           r = { "<Plug>RestNvim", "Run the REST request under the cursor" },
-  --           p = { "<Plug>RestPreviewNvim", "Preview the REST request under the cursor" },
-  --         },
-  --       },
+  --     require("which-key").add({
+  --       { "<Leader>r", group = "REST client" },
+  --       { "<Leader>rr", "<Plug>RestNvim", "Run the REST request under the cursor" },
+  --       { "<Leader>rp", "<Plug>RestPreviewNvim", "Preview the REST request under the cursor" },
   --     })
   --
   --     -- vim.cmd("command! RestNvim lua require('rest-nvim').run()")

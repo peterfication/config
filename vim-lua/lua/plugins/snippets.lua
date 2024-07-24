@@ -14,13 +14,8 @@ return {
       require("luasnip").filetype_extend("ruby", { "rails" })
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          s = {
-            ":Telescope luasnip<CR>",
-            "Open snippets in Telescope",
-          },
-        },
+      require("which-key").add({
+        { "<Leader>s", ":Telescope luasnip<CR>", desc = "Open snippets in Telescope" },
       })
     end,
   },

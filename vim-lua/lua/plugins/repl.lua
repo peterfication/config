@@ -1,4 +1,6 @@
-if true then return {} end
+if true then
+  return {}
+end
 
 return {
   {
@@ -50,17 +52,13 @@ return {
         ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          x = {
-            name = "REPL",
-            s = { "<CMD>IronRepl<CR>", "Open Iron REPL" },
-            r = { "<CMD>IronRestart<CR>", "Restart Iron REPL" },
-            f = { "<CMD>IronFocus<CR>", "Focus Iron REPL" },
-            h = { "<CMD>IronHide<CR>", "Hide Iron REPL" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>x", group = "REPL" },
+        { "<Leader>xs", "<CMD>IronRepl<CR>", "Open Iron REPL" },
+        { "<Leader>xr", "<CMD>IronRestart<CR>", "Restart Iron REPL" },
+        { "<Leader>xf", "<CMD>IronFocus<CR>", "Focus Iron REPL" },
+        { "<Leader>xh", "<CMD>IronHide<CR>", "Hide Iron REPL" },
       })
     end,
-  }
+  },
 }

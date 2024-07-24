@@ -5,13 +5,8 @@ return {
       "folke/which-key.nvim",
     },
     config = function()
-      require("which-key").register({
-        ["<Leader>"] = {
-          G = {
-            name = "Git 2",
-            G = { ":DiffviewFileHistory %<CR>", "Open DiffView with the Git history of the current file" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>GG", ":DiffviewFileHistory %<CR>", desc = "Open DiffView with the Git history of the current file" },
       })
     end,
   },
@@ -79,17 +74,13 @@ return {
 
       require("scrollbar.handlers.gitsigns").setup()
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          g = {
-            name = "Git",
-            b = { ":Gitsigns toggle_current_line_blame<CR>", "Toogle Git blame current line" },
-          },
-          G = {
-            name = "Git 2",
-            B = { ':9TermExec cmd="tig blame %; exit" direction=float<CR>', "Open tig blame for the current file" },
-          },
+      require("which-key").add({
+        {
+          "<Leader>GB",
+          ':9TermExec cmd="tig blame %; exit" direction=float<CR>',
+          desc = "Open tig blame for the current file",
         },
+        { "<Leader>gb", ":Gitsigns toggle_current_line_blame<CR>", desc = "Toogle Git blame current line" },
       })
 
       -- tig setup with toggleterm
@@ -109,13 +100,8 @@ return {
       "folke/which-key.nvim",
     },
     config = function()
-      require("which-key").register({
-        ["<Leader>"] = {
-          g = {
-            name = "Git",
-            g = { ":LazyGit<CR>", "Open LazyGit" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>gg", ":LazyGit<CR>", desc = "Open LazyGit" },
       })
     end,
   },
@@ -126,12 +112,8 @@ return {
       "tpope/vim-fugitive",
     },
     config = function()
-      require("which-key").register({
-        ["<Leader>"] = {
-          G = {
-            V = { ":Git blame<CR>", "Open Git blame with fugitive" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>GV", ":Git blame<CR>", desc = "Open Git blame with fugitive" },
       })
     end,
   },
@@ -148,29 +130,20 @@ return {
         mappings = nil,
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          g = {
-            name = "Git",
-            y = {
-              '<CMD>lua require"gitlinker".get_buf_range_url("n")<CR>',
-              "Copy the link for current line on Github",
-            },
-          },
+      require("which-key").add({
+        {
+          "<Leader>gy",
+          '<CMD>lua require"gitlinker".get_buf_range_url("n")<CR>',
+          desc = "Copy the link for current line on Github",
+          mode = "n"
         },
-      }, { mode = "n" })
-
-      require("which-key").register({
-        ["<Leader>"] = {
-          g = {
-            name = "Git",
-            y = {
-              '<CMD>lua require"gitlinker".get_buf_range_url("v")<CR>',
-              "Copy the link for current line on Github",
-            },
-          },
+        {
+          "<Leader>gy",
+          '<CMD>lua require"gitlinker".get_buf_range_url("v")<CR>',
+          desc = "Copy the link for current line on Github",
+          mode = "v"
         },
-      }, { mode = "v" })
+      })
     end,
   },
 }

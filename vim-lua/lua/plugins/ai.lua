@@ -129,26 +129,9 @@ return {
         },
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          v = {
-            v = {
-              ":CopilotChatToggle<CR>",
-              "Open CopilotChat",
-            },
-          },
-          V = {
-            V = {
-              function()
-                local input = vim.fn.input("Quick Chat: ")
-                if input ~= "" then
-                  require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
-                end
-              end,
-              "Open CopilotChat",
-            },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>v", group = "chatgpt" },
+        { "<Leader>vv", ":CopilotChatToggle<CR>", desc = "Open CopilotChat" },
       })
     end,
   },

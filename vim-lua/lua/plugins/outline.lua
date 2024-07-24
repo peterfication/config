@@ -12,14 +12,9 @@ return {
         },
       })
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          z = {
-            name = "Tags",
-            o = { ":AerialToggle float<CR>", "Toggle Aerial to select (LSP) tags" },
-            z = { ":Telescope aerial<CR>", "Open Aerial (LSP) tags in Telescope" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>zo", ":AerialToggle float<CR>", desc = "Toggle Aerial to select (LSP) tags" },
+        { "<Leader>zz", ":Telescope aerial<CR>", desc = "Open Aerial (LSP) tags in Telescope" },
       })
     end,
   },

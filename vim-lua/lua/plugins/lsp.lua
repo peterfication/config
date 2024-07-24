@@ -91,14 +91,12 @@ return {
         },
       })
 
-      require("which-key").register({
-        ["<leader>"] = {
-          -- TODO: https://github.com/nvim-treesitter/playground
-          y = {
-            ":lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>",
-            "Show treesitter capture group for text-object under cursor",
-            { noremap = true, silent = false },
-          },
+      require("which-key").add({
+        -- TODO: https://github.com/nvim-treesitter/playground
+        {
+          "<leader>y",
+          ":lua print(vim.inspect(vim.treesitter.get_captures_at_cursor(0)))<CR>",
+          desc = "Show treesitter capture group for text-object under cursor",
         },
       })
     end,
@@ -119,7 +117,8 @@ return {
       "folke/which-key.nvim",
     },
     config = function()
-      require("ufo").setup()
+      local ufo = require("ufo")
+      ufo.setup()
 
       vim.o.foldcolumn = "1" -- '0' is not bad
       vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
@@ -127,15 +126,15 @@ return {
       vim.o.foldenable = true
 
       -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-      require("which-key").register({
-        z = {
-          -- TODO: https://github.com/nvim-treesitter/playground
-          R = { require("ufo").openAllFolds, "Open all folds" },
-          M = { require("ufo").closeAllFolds, "Close all folds" },
-        },
-        ["<Tab>"] = {
-          require("ufo").peekFoldedLinesUnderCursor,
-          "Peek in folded lines under cursor (<Tab> again to jump in the preview)",
+      require("which-key").add({
+        -- TODO: https://github.com/nvim-treesitter/playground
+        { "zM", ufo.openAllFolds, desc = "Close all folds" },
+        { "zR", ufo.closeAllFolds, desc = "Open all folds" },
+
+        {
+          "<Tab>",
+          ufo.peekFoldedLinesUnderCursor,
+          desc = "Peek in folded lines under cursor (<Tab> again to jump in the preview)",
         },
       })
     end,
@@ -258,27 +257,21 @@ return {
       -- They will be registered for all buffers, also the ones without an LSP attached
       -- but that's ok.
       local wk = require("which-key")
-      local options = { noremap = true }
-      wk.register({
-        g = {
-          D = { "<CMD>lua vim.lsp.buf.declaration()<CR>", "[LSP] Go to declaration", options },
-          d = { "<CMD>lua vim.lsp.buf.definition()<CR>", "[LSP] Go to definition ", options },
-          i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "[LSP] Go to implementation", options },
-          r = { "<CMD>lua vim.lsp.buf.references()<CR>", "[LSP] Find references", options },
-        },
+      wk.add({
+        -- TODO: https://github.com/lukas-reineke/lsp-format.nvim
+        { "<Leader>P", "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", desc = "[LSP] format" },
 
-        K = { "<CMD>lua vim.lsp.buf.hover()<CR>", "[LSP] Show documentation", options },
+        { "<Leader>a", "<CMD>lua vim.lsp.buf.code_action()<CR>", desc = "[LSP] Code action" },
 
-        ["<leader>"] = {
-          a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
-          -- TODO: https://github.com/lukas-reineke/lsp-format.nvim
-          P = { "<CMD>lua vim.lsp.buf.format({ async = true })<CR>", "[LSP] format", options },
-          z = {
-            name = "+LSP",
-            a = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "[LSP] Code action", options },
-            r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "[LSP] Rename", options },
-          },
-        },
+        { "<Leader>z", group = "LSP" },
+        { "<Leader>za", "<CMD>lua vim.lsp.buf.code_action()<CR>", desc = "[LSP] Code action" },
+        { "<Leader>zr", "<CMD>lua vim.lsp.buf.rename()<CR>", desc = "[LSP] Rename" },
+
+        { "K", "<CMD>lua vim.lsp.buf.hover()<CR>", desc = "[LSP] Show documentation" },
+        { "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", desc = "[LSP] Go to declaration" },
+        { "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
+        { "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", desc = "[LSP] Go to implementation" },
+        { "gr", "<CMD>lua vim.lsp.buf.references()<CR>", desc = "[LSP] Find references" },
       })
 
       for _, lsp in ipairs(servers) do

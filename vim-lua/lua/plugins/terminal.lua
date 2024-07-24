@@ -20,30 +20,26 @@ return {
         require("toggleterm").toggle(next_index)
       end
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          ["t1"] = { "<CMD>ToggleTerm 1<CR>", "Open terminal 1" },
-          ["t2"] = { "<CMD>ToggleTerm 2<CR>", "Open terminal 2" },
-          ["t3"] = { "<CMD>ToggleTerm 3<CR>", "Open terminal 3" },
-          ["t4"] = { "<CMD>ToggleTerm 4<CR>", "Open terminal 4" },
-          ["t5"] = { "<CMD>ToggleTerm 5<CR>", "Open terminal 5" },
-          ["t6"] = { "<CMD>ToggleTerm 6<CR>", "Open terminal 6" },
-          ["t7"] = { "<CMD>ToggleTerm 7<CR>", "Open terminal 7" },
-          ["t8"] = { "<CMD>ToggleTerm 8<CR>", "Open terminal 8" },
-          ["t9"] = { "<CMD>ToggleTerm 9<CR>", "Open terminal 9" },
-          ["te"] = { "<CMD>TermSelect<CR>", "Select terminal to show" },
-          ["tn"] = { open_new_terminal, "Select terminal to show" },
-          g = {
-            d = { ':8TermExec cmd="lazydocker; exit" direction=float<CR>', "Open lazydocker" },
-          },
-        },
+      require("which-key").add({
+        { "<Leader>gd", ':8TermExec cmd="lazydocker; exit" direction=float<CR>', desc = "Open lazydocker" },
+        { "<Leader>t1", "<CMD>ToggleTerm 1<CR>", desc = "Open terminal 1" },
+        { "<Leader>t2", "<CMD>ToggleTerm 2<CR>", desc = "Open terminal 2" },
+        { "<Leader>t3", "<CMD>ToggleTerm 3<CR>", desc = "Open terminal 3" },
+        { "<Leader>t4", "<CMD>ToggleTerm 4<CR>", desc = "Open terminal 4" },
+        { "<Leader>t5", "<CMD>ToggleTerm 5<CR>", desc = "Open terminal 5" },
+        { "<Leader>t6", "<CMD>ToggleTerm 6<CR>", desc = "Open terminal 6" },
+        { "<Leader>t7", "<CMD>ToggleTerm 7<CR>", desc = "Open terminal 7" },
+        { "<Leader>t8", "<CMD>ToggleTerm 8<CR>", desc = "Open terminal 8" },
+        { "<Leader>t9", "<CMD>ToggleTerm 9<CR>", desc = "Open terminal 9" },
+        { "<Leader>te", "<CMD>TermSelect<CR>", desc = "Select terminal to show" },
+        { "<Leader>tn", open_new_terminal, desc = "Open a new terminal" },
       })
 
-      require("which-key").register({
+      require("which-key").add({
         -- NOTE: <Leader><ESC> would be a nice mapping but this will mess with spaces that
         -- that you want to enter.
-        ["<C-Space>"] = { [[<C-\><C-n>]], "In terminal, go from INSERT to NORMAL mode" },
-      }, { mode = "t" })
+        { "<C-Space>", [[<C-\><C-n>]], desc = "In terminal, go from INSERT to NORMAL mode", mode = "t" },
+      })
 
       -- The prev/next functionality is taken from https://github.com/akinsho/toggleterm.nvim/issues/522
       local function get_term_index(current_id)

@@ -57,38 +57,30 @@ return {
 
       vim.cmd("sign define neotest_ text=.")
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          t = {
-            name = "Tests",
-            t = {
-              ':lua require("neotest").run.run()<CR>',
-              "[Neotest] Run tests for the closest test from the cursor",
-            },
-            o = {
-              ':lua require("neotest").output.open({ enter = true })<CR>',
-              "[Neotest] Open output of closest test from the cursor",
-            },
-            a = {
-              ':lua require("neotest").run.attach()<CR>',
-              "[Neotest] Attach to the current test run",
-            },
-            s = {
-              ':lua require("neotest").summary.toggle()<CR>',
-              "[Neotest] Toggle test summary sidebar",
-            },
-          },
-          T = {
-            name = "Tests 2",
-            T = {
-              ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
-              "[Neotest] Run tests for the current file",
-            },
-            O = {
-              ':lua require("neotest").output_panel.toggle()<CR>',
-              "[Neotest] Open output panel",
-            },
-          },
+      require("which-key").add({
+        { "<Leader>T", group = "Tests 2" },
+        { "<Leader>TO", ':lua require("neotest").output_panel.toggle()<CR>', desc = "[Neotest] Open output panel" },
+        {
+          "<Leader>TT",
+          ':lua require("neotest").run.run(vim.fn.expand("%"))<CR>',
+          desc = "[Neotest] Run tests for the current file",
+        },
+        { "<Leader>t", group = "Tests" },
+        { "<Leader>ta", ':lua require("neotest").run.attach()<CR>', desc = "[Neotest] Attach to the current test run" },
+        {
+          "<Leader>to",
+          ':lua require("neotest").output.open({ enter = true })<CR>',
+          desc = "[Neotest] Open output of closest test from the cursor",
+        },
+        {
+          "<Leader>ts",
+          ':lua require("neotest").summary.toggle()<CR>',
+          desc = "[Neotest] Toggle test summary sidebar",
+        },
+        {
+          "<Leader>tt",
+          ':lua require("neotest").run.run()<CR>',
+          desc = "[Neotest] Run tests for the closest test from the cursor",
         },
       })
 
@@ -96,17 +88,13 @@ return {
       -- folders even if the project is not a Neovim plugin. This will slow all
       -- other projects down a lot.
       -- TODO: find out why this is happening with neotest-plenary
-      vim.api.nvim_create_user_command(
-        "NeotestPlenaryEnable",
-        function()
-          require("neotest").setup({
-            adapters = {
-              require("neotest-plenary"),
-            },
-          })
-        end,
-        {}
-      )
+      vim.api.nvim_create_user_command("NeotestPlenaryEnable", function()
+        require("neotest").setup({
+          adapters = {
+            require("neotest-plenary"),
+          },
+        })
+      end, {})
 
       -- TODO: map only for Ruby files
       -- map("n", "<Leader>te", ':vsplit <C-R>=expand("%:r")<CR>_spec.rb<S-Left><DEL><DEL><DEL>spec<CR>', options)

@@ -18,27 +18,23 @@ return {
     config = function()
       require("trouble").setup({})
 
-      require("which-key").register({
-        ["<Leader>"] = {
-          x = {
-            name = "Trouble",
-            x = { "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", "Toggle document diagnostics" },
-            w = { "<CMD>Trouble diagnostics toggle<CR>", "Toggle workspace diagnostics" },
-            l = { "<CMD>Trouble loclist toggle<CR>", "Toggle loclist" },
-            q = { "<CMD>Trouble qflist toggle<CR>", "Toggle quickfix" },
-            n = { "<CMD>Trouble diagnostics next<CR><CMD>Trouble diagnostics jump<CR>", "Next" },
-          },
-          q = {
-            name = "Quickfix",
-            o = { ":copen<CR>", "Open quickfix list" },
-            c = { ":cclose<CR>", "Close quickfix list" },
-            t = { ":cg quickfix.out | cwindow<CR>", "Load quickfix from rspec-quickfix tests" },
-          },
-        },
-        ["<C-l>"] = { ":cnext<CR>", "Next quickfix item" },
-        ["<C-h>"] = { ":cprevious<CR>", "Previous quickfix item" },
+      require("which-key").add({
+        { "<C-h>", ":cprevious<CR>", desc = "Previous quickfix item" },
+        { "<C-l>", ":cnext<CR>", desc = "Next quickfix item" },
         -- ["A-j"] = { ":cnext<CR>", "Next quickfix item" },
         -- ["A-k"] = { ":cprevious<CR>", "Previous quickfix item" },
+
+        { "<Leader>q", group = "Quickfix" },
+        { "<Leader>qc", ":cclose<CR>", desc = "Close quickfix list" },
+        { "<Leader>qo", ":copen<CR>", desc = "Open quickfix list" },
+        { "<Leader>qt", ":cg quickfix.out | cwindow<CR>", desc = "Load quickfix from rspec-quickfix tests" },
+
+        { "<Leader>x", group = "Trouble" },
+        { "<Leader>xl", "<CMD>Trouble loclist toggle<CR>", desc = "Toggle loclist" },
+        { "<Leader>xn", "<CMD>Trouble diagnostics next<CR><CMD>Trouble diagnostics jump<CR>", desc = "Next" },
+        { "<Leader>xq", "<CMD>Trouble qflist toggle<CR>", desc = "Toggle quickfix" },
+        { "<Leader>xw", "<CMD>Trouble diagnostics toggle<CR>", desc = "Toggle workspace diagnostics" },
+        { "<Leader>xx", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Toggle document diagnostics" },
       })
     end,
   },
