@@ -103,6 +103,10 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 # alt-shift-minus = 'resize smart -50'
 # alt-shift-equal = 'resize smart +50'
 
+# https://nikitabobko.github.io/AeroSpace/commands#fullscreen
+cmd-alt-shift-ctrl-space = 'fullscreen'
+cmd-alt-shift-ctrl-enter = 'fullscreen'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 cmd-alt-shift-ctrl-1 = 'workspace 1'
 cmd-alt-shift-ctrl-2 = 'workspace 2'
