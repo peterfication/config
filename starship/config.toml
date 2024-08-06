@@ -30,7 +30,6 @@ $singularity\
 $kubernetes\
 $pijul_channel\
 $docker_context\
-$package\
 $cmake\
 $cobol\
 $daml\
