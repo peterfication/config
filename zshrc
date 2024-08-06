@@ -41,7 +41,8 @@ source ~/config/zsh/84_python.zsh
 source ~/config/zsh/80_node.zsh
 
 source ~/config/zsh/98_base16_shell.zsh
-source ~/config/zsh/99_p10k.zsh
+# source ~/config/zsh/99_p10k.zsh
+source ~/config/zsh/99_starship.zsh
 
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
 

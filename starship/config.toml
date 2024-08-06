@@ -1,0 +1,230 @@
+# Inspiration:
+# - https://github.com/starship/starship/discussions/1107
+# - https://github.com/starship/starship/discussions/1252
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+[ ](color_bg2)\
+$status\
+$cmd_duration\
+[](bg:color_bg1 fg:color_bg2)\
+$time\
+[](bg:color_yellow fg:color_bg1)\
+$directory\
+[](bg:color_aqua fg:color_yellow)\
+$git_branch\
+$git_status\
+$git_metrics\
+$hg_branch\
+$fossil_branch\
+$vcsh\
+[ ](fg:color_aqua)\
+(\
+$fill\
+[ ](color_blue)\
+$direnv\
+$singularity\
+$kubernetes\
+$pijul_channel\
+$docker_context\
+$package\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$crystal\
+$custom\
+[ ](bg:color_blue)\
+[ ](fg:color_blue)\
+)\
+$line_break $character
+"""
+
+continuation_prompt = "[▸▹ ](dimmed white)"
+
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg1 = '#fbf1c7'
+color_fg2 = '#3c3836'
+color_bg1 = '#3c3836'
+color_bg2 = '#fbf1c7'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[cmd_duration]
+min_time = 0
+format = "[ $duration ]($style)"
+style = "fg:color_fg2 bg:color_bg2"
+
+[status]
+disabled = false
+format = '[ $symbol ]($style)'
+style = "fg:color_fg2 bg:color_bg2"
+success_symbol = "✔️ "
+
+[time]
+disabled = false
+time_format = "%H:%M:%S"
+style = "fg:color_fg1 bg:color_bg1"
+format = '[ $time ]($style)'
+
+[directory]
+style = "fg:color_fg1 bg:color_yellow"
+format = "[ $path ]($style)"
+# truncation_length = 3
+# truncation_symbol = "…/"
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[❯](bold fg:color_green)'
+error_symbol = '[❯](bold fg:color_red)'
+vimcmd_symbol = '[❮](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[r❮](bold fg:color_purple)'
+vimcmd_replace_symbol = '[R❮](bold fg:color_purple)'
+vimcmd_visual_symbol = '[V❮](bold fg:color_yellow)'
+
+[git_branch]
+format = '[ $symbol $branch(:$remote_branch) ]($style)'
+symbol = ""
+style = "fg:color_fg1 bg:color_aqua"
+only_attached = true
+
+[git_metrics]
+format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
+added_style = "fg:color_fg1 bg:color_aqua"
+deleted_style = "fg:color_fg1 bg:color_aqua"
+disabled = false
+
+[git_status]
+ahead = "⇡$count"
+behind = "⇣$count"
+modified = "●"
+stashed = ""
+untracked = ""
+staged = ""
+renamed = ""
+deleted = ""
+format = "[ $all_status $ahead_behind ]($style)"
+style = "fg:color_fg1 bg:color_aqua"
+
+[fill]
+symbol = '･'
+
+[nodejs]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[c]
+symbol = " "
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[rust]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[ruby]
+symbol = " "
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol$version ]($style)'
+detect_variables = []
+
+[golang]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[php]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[java]
+symbol = " "
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[kotlin]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[haskell]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[python]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[docker_context]
+symbol = ""
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
+
+[conda]
+style = "fg:color_fg1 bg:color_blue"
+format = '[ $symbol $version ]($style)'
