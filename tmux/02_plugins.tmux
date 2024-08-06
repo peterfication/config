@@ -13,3 +13,4 @@ set -g @plugin 'sainnhe/tmux-fzf'
 # - https://github.com/thewtex/tmux-mem-cpu-load
 
 set -g @plugin 'schasse/tmux-jump'
+set -g @plugin 'alexwforsythe/tmux-which-key'
