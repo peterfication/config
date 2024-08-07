@@ -44,7 +44,7 @@ brew 'curl'
 brew 'derailed/popeye/popeye'
 brew 'difftastic'
 brew 'direnv'
-brew 'dive' # https://github.com/wagoodman/dive
+brew 'dive' # https://github.com/wagoodman/dive Docker image inspection
 brew 'docker'
 brew 'dog' # Modern replacement for dig
 brew 'dos2unix'
