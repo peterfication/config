@@ -13,7 +13,9 @@ return {
           window = {
             mappings = {
               ["o"] = "system_open",
-              ["ä"] = "copy_file_path",
+              ["YY"] = "copy_file_name",
+              ["YP"] = "copy_file_path",
+              ["YR"] = "copy_relative_file_path",
             },
           },
           commands = {
@@ -26,11 +28,23 @@ return {
               -- Linux: open file in default application
               -- vim.api.nvim_command("silent !xdg-open " .. path)
             end,
+            copy_file_name = function(state)
+              local node = state.tree:get_node()
+              local content = node.name
+              vim.fn.setreg('"', content)
+              vim.fn.setreg("1", content)
+              vim.fn.setreg("+", content)
+            end,
             copy_file_path = function(state)
               local node = state.tree:get_node()
               local content = node.path
-              -- relative
-              -- local content = node.path:gsub(state.path, ""):sub(2)
+              vim.fn.setreg('"', content)
+              vim.fn.setreg("1", content)
+              vim.fn.setreg("+", content)
+            end,
+            copy_relative_file_path = function(state)
+              local node = state.tree:get_node()
+              local content = node.path:gsub(state.path, ""):sub(2)
               vim.fn.setreg('"', content)
               vim.fn.setreg("1", content)
               vim.fn.setreg("+", content)
