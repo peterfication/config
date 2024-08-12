@@ -14,11 +14,11 @@ hs.loadSpoon("FnMate")
 hs.loadSpoon("Caffeine")
 spoon.Caffeine:start()
 
-local SkyRocket = hs.loadSpoon("SkyRocket")
-sky = SkyRocket:new({
-  moveModifiers = { "cmd", "shift" },
-  resizeModifiers = { "ctrl", "shift" },
-})
+-- local SkyRocket = hs.loadSpoon("SkyRocket")
+-- sky = SkyRocket:new({
+--   moveModifiers = { "cmd", "shift" },
+--   resizeModifiers = { "ctrl", "shift" },
+-- })
 
 -- local VimMode = hs.loadSpoon('VimMode')
 -- local vim = VimMode:new()
