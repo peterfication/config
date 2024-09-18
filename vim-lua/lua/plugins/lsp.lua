@@ -247,7 +247,7 @@ return {
         "tailwindcss",
         "terraformls",
         "tflint",
-        "tsserver",
+        "ts_ls",
         -- "rust_analyzer", => Done via rust-tools
       }
 
