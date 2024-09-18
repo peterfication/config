@@ -114,6 +114,7 @@ return {
     config = function()
       require("which-key").add({
         { "<Leader>GV", ":Git blame<CR>", desc = "Open Git blame with fugitive" },
+        { "<Leader>gl", ":Flog<CR>", desc = "Open Git Flog (Git log)" },
       })
     end,
   },
