@@ -62,6 +62,7 @@ brew 'fx'
 brew 'fzf'
 brew 'gh'
 brew 'git'
+brew 'git-absorb' # Also see https://github.com/jesseduffield/lazygit/blob/master/docs/dev/Find_Base_Commit_For_Fixup_Design.md
 brew 'git-crypt'
 brew 'git-delta' # Git pager
 brew 'git-extras'
