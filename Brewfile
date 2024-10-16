@@ -107,6 +107,7 @@ brew 'lnav'
 brew 'lsof'
 brew 'lua-language-server'
 brew 'luarocks'
+brew 'mas' # A command-line interface for the Mac App Store
 brew 'mergestat/mergestat/mergestat'
 brew 'mosh'
 brew 'ms-jpq/sad/sad'
