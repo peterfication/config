@@ -13,7 +13,7 @@
 .vim/*
 *.swp
 quickfix.out
-tags
+/tags
 tags.tmp
 tags.lock
 console.rb
