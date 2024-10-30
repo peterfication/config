@@ -25,9 +25,9 @@ return {
             end,
           }),
           require("neotest-jest")({
-            jestCommand = "npm test --",
-            jestConfigFile = "custom.jest.config.ts",
-            env = { CI = true },
+            jestCommand = "npm run test --",
+            jestConfigFile = "jest.config.js",
+            env = { CI = true, DEBUG = "true" },
             cwd = function(_path)
               return vim.fn.getcwd()
             end,
@@ -81,6 +81,13 @@ return {
           "<Leader>tt",
           ':lua require("neotest").run.run()<CR>',
           desc = "[Neotest] Run tests for the closest test from the cursor",
+        },
+        {
+          "<leader>td",
+          function()
+            require("neotest").run.run({ strategy = "dap" })
+          end,
+          desc = "Debug Nearest",
         },
       })
 

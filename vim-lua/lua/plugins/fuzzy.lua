@@ -204,8 +204,8 @@ return {
 
         { "<Leader>?", builtin.help_tags, desc = "Search Vim help tags with Telescope" },
 
-        { "<Leader>d", builtin.diagnostics, desc = "Diagnostics of project with Telescope" },
-        { "<Leader>D", ":Telescope diagnostics bufnr=0<CR>", desc = "Diagnostics of current buffer with Telescope" },
+        { "<Leader>de", builtin.diagnostics, desc = "Diagnostics of project with Telescope" },
+        { "<Leader>dE", ":Telescope diagnostics bufnr=0<CR>", desc = "Diagnostics of current buffer with Telescope" },
 
         { "<Leader>m", builtin.marks, desc = "Open marks in Telescope" },
         { "<Leader>j", builtin.jumplist, desc = "Open jumplist in Telescope" },
