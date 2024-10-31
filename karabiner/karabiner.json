@@ -1,149 +1,104 @@
 {
-  "global": {
-    "unsafe_ui": true
-  },
-  "profiles": [
-    {
-      "complex_modifications": {
-        "rules": [
-          {
-            "description": "CAPS_LOCK to ESCAPE",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {}
-                },
-                "to": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "CMD_R to HYPER (SHIFT+COMMAND+OPTION+CONTROL)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "right_command",
-                  "modifiers": {}
-                },
-                "to": [
-                  {
-                    "key_code": "left_shift",
-                    "modifiers": [
-                      "left_command",
-                      "left_control",
-                      "left_option"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+,",
-                "from": {
-                  "key_code": "comma",
-                  "modifiers": {
-                    "mandatory": [
-                      "command",
-                      "shift",
-                      "option",
-                      "control"
-                    ]
-                  }
-                },
-                "to": [],
-                "type": "basic"
-              },
-              {
-                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+.",
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": [
-                      "command",
-                      "shift",
-                      "option",
-                      "control"
-                    ]
-                  }
-                },
-                "to": [],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+/",
-                  "key_code": "slash",
-                  "modifiers": {
-                    "mandatory": [
-                      "command",
-                      "shift",
-                      "option",
-                      "control"
-                    ]
-                  }
-                },
-                "to": [],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Right Ctrl => FN (for Glove80 Apple fn key hack)",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "right_control",
-                  "modifiers": {}
-                },
-                "to": [
-                  {
-                    "key_code": "fn"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          }
-        ]
-      },
-      "devices": [
+    "global": { "unsafe_ui": true },
+    "profiles": [
         {
-          "identifiers": {
-            "is_keyboard": true,
-            "product_id": 668,
-            "vendor_id": 76
-          },
-          "simple_modifications": [
-            {
-              "from": {
-                "consumer_key_code": "al_terminal_lock_or_screensaver"
-              },
-              "to": [
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "CAPS_LOCK to Escape",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {}
+                                },
+                                "to": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CMD_R to HYPER (SHIFT+COMMAND+OPTION+CONTROL)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": {}
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["left_command", "left_control", "left_option"]
+                                    }
+                                ],
+                                "to_if_alone": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+,",
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+.",
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "description": "Avoid starting sysdiagnose with the built-in macOS shortcut cmd+shift+option+ctrl+/",
+                                    "key_code": "slash",
+                                    "modifiers": { "mandatory": ["command", "shift", "option", "control"] }
+                                },
+                                "to": [],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Right Ctrl => FN (for Glove80 Apple fn key hack)",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_control",
+                                    "modifiers": {}
+                                },
+                                "to": [{ "key_code": "fn" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
                 {
-                  "key_code": "vk_none"
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 668,
+                        "vendor_id": 76
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "consumer_key_code": "al_terminal_lock_or_screensaver" },
+                            "to": [{ "key_code": "vk_none" }]
+                        }
+                    ]
                 }
-              ]
+            ],
+            "name": "Default profile",
+            "selected": true,
+            "virtual_hid_keyboard": {
+                "country_code": 0,
+                "keyboard_type_v2": "ansi"
             }
-          ]
         }
-      ],
-      "name": "Default profile",
-      "selected": true,
-      "virtual_hid_keyboard": {
-        "country_code": 0,
-        "keyboard_type_v2": "ansi"
-      }
-    }
-  ]
+    ]
 }
