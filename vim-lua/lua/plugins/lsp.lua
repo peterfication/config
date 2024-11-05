@@ -271,6 +271,7 @@ return {
         { "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", desc = "[LSP] Go to declaration" },
         { "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
         { "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", desc = "[LSP] Go to implementation" },
+        { "<Leader>tgd", "<CMD>tab split | lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
         { "gr", "<CMD>lua vim.lsp.buf.references()<CR>", desc = "[LSP] Find references" },
       })
 
