@@ -163,6 +163,7 @@ cmd-alt-shift-ctrl-n = 'move-workspace-to-monitor --wrap-around next'
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 cmd-alt-shift-ctrl-p = 'mode service'
 cmd-alt-shift-ctrl-m = 'mode move'
+cmd-alt-shift-ctrl-q = 'mode summon'
 
 [mode.move.binding]
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -200,6 +201,21 @@ cmd-alt-shift-ctrl-m = 'mode move'
 # alt-shift-z = 'move-node-to-workspace Z'
 esc = 'mode main'
 cmd-alt-shift-ctrl-m = 'mode main'
+
+[mode.summon.binding]
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+1 = ['summon-workspace 1', 'mode main']
+2 = ['summon-workspace 2', 'mode main']
+3 = ['summon-workspace 3', 'mode main']
+4 = ['summon-workspace 4', 'mode main']
+5 = ['summon-workspace 5', 'mode main']
+6 = ['summon-workspace 6', 'mode main']
+7 = ['summon-workspace 7', 'mode main']
+8 = ['summon-workspace 8', 'mode main']
+9 = ['summon-workspace 9', 'mode main']
+0 = ['summon-workspace 10', 'mode main']
+esc = 'mode main'
+cmd-alt-shift-ctrl-q = 'mode main'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
