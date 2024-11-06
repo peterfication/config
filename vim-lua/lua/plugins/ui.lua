@@ -30,9 +30,15 @@ return {
       vim.o.background = "dark" -- or 'light'
 
       require("solarized").setup({
-        -- palette = "selenized", -- solarized or selenized
+        palette = "solarized", -- solarized or selenized
+        -- variant = 'winter', -- "spring" | "summer" | "autumn" | "winter" (default)
         -- theme = "neo", -- default or neo
-        --
+
+        on_colors = function(colors, _colorhelper)
+          return {
+            magenta = "#6c70be",
+          }
+        end,
 
         highlights = function(colors, _colorhelper)
           -- colors, see https://github.com/maxmx03/solarized.nvim/blob/main/lua/solarized/palette.lua
