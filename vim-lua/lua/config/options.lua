@@ -29,6 +29,7 @@ wo.relativenumber = false
 wo.wrap = true
 wo.cursorline = true -- Highlights the current line of the cursor
 wo.cursorcolumn = true -- Highlights the current column of the cursor
+wo.signcolumn = "yes:1" -- Show the sign column
 wo.list = true
 vim.opt.listchars = {
   trail = "¤",

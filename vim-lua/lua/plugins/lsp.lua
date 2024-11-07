@@ -256,6 +256,63 @@ return {
       -- Define the keymaps outside of on_attach so they are only defined and registered once.
       -- They will be registered for all buffers, also the ones without an LSP attached
       -- but that's ok.
+
+      local function dump(o)
+        if type(o) == "table" then
+          local s = "{ "
+          for k, v in pairs(o) do
+            if type(k) ~= "number" then
+              k = '"' .. k .. '"'
+            end
+            s = s .. "[" .. k .. "] = " .. dump(v) .. ","
+          end
+          return s .. "} "
+        else
+          return tostring(o)
+        end
+      end
+
+      local function show_line_diagnostics()
+        local line_diags = vim.lsp.diagnostic.get_line_diagnostics()
+        local Popup = require("nui.popup")
+        local event = require("nui.utils.autocmd").event
+
+        local popup = Popup({
+          enter = true,
+          border = {
+            style = "rounded",
+          },
+          focusable = true,
+          position = "50%",
+          size = {
+            width = "80%",
+            height = "60%",
+          },
+        })
+
+        -- mount/open the component
+        popup:mount()
+
+        -- unmount component when cursor leaves buffer
+        popup:on(event.BufLeave, function()
+          popup:unmount()
+        end)
+
+        local bufferLines = {}
+        for _, diag in ipairs(line_diags) do
+          table.insert(bufferLines, diag.code)
+          table.insert(bufferLines, diag.codeDescription.href)
+          table.insert(bufferLines, diag.message)
+          table.insert(bufferLines, "")
+          table.insert(bufferLines, dump(diag))
+
+          table.insert(bufferLines, "")
+        end
+
+        -- set content
+        vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, bufferLines)
+        vim.keymap.set('n', 'q', 'ZZ', { buffer = popup.bufnr })
+      end
       local wk = require("which-key")
       wk.add({
         -- TODO: https://github.com/lukas-reineke/lsp-format.nvim
@@ -268,6 +325,8 @@ return {
         { "<Leader>zr", "<CMD>lua vim.lsp.buf.rename()<CR>", desc = "[LSP] Rename" },
 
         { "K", "<CMD>lua vim.lsp.buf.hover()<CR>", desc = "[LSP] Show documentation" },
+        { "<Leader>K", show_line_diagnostics, desc = "[LSP] Show line diagnostics" },
+        { "<Leader>K", "<CMD>lua vim.diagnostic.open_float()<CR>", desc = "[LSP] Show line diagnostics" },
         { "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", desc = "[LSP] Go to declaration" },
         { "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
         { "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", desc = "[LSP] Go to implementation" },
@@ -405,13 +464,6 @@ return {
           cspell.diagnostics.with({
             config_file_preferred_name = ".cspell.json",
             disabled_filetypes = { "NvimTree" },
-            diagnostic_config = {
-              underline = true,
-              virtual_text = false,
-              signs = false,
-              update_in_insert = false,
-              severity_sort = false,
-            },
             diagnostics_postprocess = function(diagnostic)
               diagnostic.severity = vim.diagnostic.severity["WARN"]
             end,

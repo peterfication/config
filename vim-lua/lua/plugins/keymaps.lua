@@ -25,8 +25,8 @@ return {
 
       wk.add({
         -- { "<Leader>", group = "Leader" },
-        { "<Leader>K", ":WhichKey<CR>", desc = "Open WhichKey" },
-        { "<Leader>k", ":Legendary<CR>", desc = "Open Legendary" },
+        -- { "<Leader>K", ":WhichKey<CR>", desc = "Open WhichKey" },
+        -- { "<Leader>k", ":Legendary<CR>", desc = "Open Legendary" },
         { "g", group = "go to" },
         { "z", group = "folds" },
       })

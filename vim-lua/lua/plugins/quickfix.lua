@@ -16,7 +16,15 @@ return {
       "folke/which-key.nvim",
     },
     config = function()
-      require("trouble").setup({})
+      require("trouble").setup({
+        {
+          win = {
+            wo = {
+              wrap = true,
+            },
+          },
+        },
+      })
 
       require("which-key").add({
         { "<C-h>", ":cprevious<CR>", desc = "Previous quickfix item" },
@@ -34,10 +42,34 @@ return {
         { "<Leader>xn", "<CMD>Trouble diagnostics next<CR><CMD>Trouble diagnostics jump<CR>", desc = "Next" },
         { "<Leader>xq", "<CMD>Trouble qflist toggle<CR>", desc = "Toggle quickfix" },
         { "<Leader>xw", "<CMD>Trouble diagnostics toggle<CR>", desc = "Toggle workspace diagnostics" },
-        { "<Leader>xx", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Toggle document diagnostics" },
+        { "<Leader>xx", "<CMD>Trouble diagnostics toggle filter.buf=0 filter.severity=vim.diagnostic.severity.ERROR<CR>", desc = "Toggle document diagnostics" },
+        { "<Leader>xe", "<CMD><CR>", desc = "Telescope document diagnostics" },
       })
     end,
   },
 
   { "Olical/vim-enmasse" },
+
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy", -- Or `LspAttach`
+    config = function()
+      vim.diagnostic.config({
+        underline = true,
+        virtual_text = false,
+        severity_sort = true,
+        update_in_insert = false,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+          },
+        },
+      })
+
+      require("tiny-inline-diagnostic").setup()
+    end,
+  },
 }
