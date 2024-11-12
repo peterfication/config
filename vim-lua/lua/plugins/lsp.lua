@@ -102,6 +102,14 @@ return {
     end,
   },
 
+  -- E.g. for Terraform comments
+  {
+    "folke/ts-comments.nvim",
+    opts = {},
+    event = "VeryLazy",
+    enabled = vim.fn.has("nvim-0.10.0") == 1,
+  },
+
   {
     "HiPhish/rainbow-delimiters.nvim",
     dependencies = {
@@ -311,7 +319,7 @@ return {
 
         -- set content
         vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, bufferLines)
-        vim.keymap.set('n', 'q', 'ZZ', { buffer = popup.bufnr })
+        vim.keymap.set("n", "q", "ZZ", { buffer = popup.bufnr })
       end
       local wk = require("which-key")
       wk.add({
