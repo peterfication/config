@@ -9,6 +9,7 @@ git:
   paging:
     colorArg: always
     pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    # externalDiffCommand: difft --color=always
   overrideGpg: true # Ignore GPG errors as I'm using a GPG agent
 
 os:
