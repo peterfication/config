@@ -154,6 +154,7 @@ cmd-alt-shift-ctrl-j = "workspace prev"
 cmd-alt-shift-ctrl-k = "workspace next"
 
 cmd-alt-shift-ctrl-w = "focus --boundaries-action wrap-around-the-workspace right"
+cmd-alt-shift-ctrl-e = "move right"
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
 alt-tab = 'workspace-back-and-forth'
