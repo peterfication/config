@@ -174,6 +174,7 @@ return {
       require("which-key").add({
         { "<Leader>e", group = "Open file(s)" },
         { "<Leader>eb", ":Telescope file_browser hidden=true<CR>", desc = "Telescope file browser" },
+        { "<Leader>eo", ":Oil<CR>", desc = "Oil file browser" },
         { "<Leader>ee", builtin.find_files, desc = "Find files with Telescope" },
         { "<Leader>eg", builtin.git_files, desc = "Find Git ls-files with Telescope" },
         { "<Leader>eh", builtin.oldfiles, desc = "Recent files with Telescope" },
