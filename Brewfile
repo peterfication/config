@@ -142,6 +142,7 @@ brew 'rlwrap'
 brew 'rtx' # asdf replacement in Rust
 brew 'rubyfmt'
 brew 'rust-analyzer'
+brew 'sniffnet' # Network monitoring tool
 brew 'stern' # Tail multiple Kubernets pods and containers
 brew 'sqlite'
 brew 'switchaudio-osx'
