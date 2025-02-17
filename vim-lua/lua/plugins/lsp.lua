@@ -18,6 +18,7 @@ return {
           "erlang",
           "graphql",
           "gitcommit",
+          "git_rebase",
           "hcl",
           "heex", -- Elixir HTML templates
           "html",
