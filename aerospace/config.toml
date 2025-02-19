@@ -91,6 +91,9 @@ cmd-alt-shift-ctrl-t = 'exec-and-forget open /Applications/Notion.app'
 cmd-alt-shift-ctrl-z = 'exec-and-forget open /Applications/zoom.us.app'
 
 cmd-alt-shift-ctrl-s = 'exec-and-forget open ~/Pictures/Screenshots'
+cmd-alt-shift-ctrl-h = 'exec-and-forget open ~/'
+cmd-alt-shift-ctrl-d = 'exec-and-forget open ~/Documents'
+cmd-alt-shift-ctrl-a = 'exec-and-forget open ~/Downloads'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 # alt-slash = 'layout tiles horizontal vertical'
