@@ -497,6 +497,7 @@ return {
           --   },
           -- }),
           null_ls.builtins.formatting.rubocop,
+          null_ls.builtins.formatting.rubyfmt,
           null_ls.builtins.formatting.erb_format,
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.blackd,
