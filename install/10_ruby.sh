@@ -51,6 +51,8 @@ else
   rvm install 2.7.5 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
   rvm install 2.7.3 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
   rvm install 2.5.8 --with-openssl-dir=$(brew --prefix)/opt/openssl@1.1 --with-readline-dir=$(brew --prefix)/opt/readline
+  rvm install ruby-3.4.1 --reconfigure --enable-yjit --with-openssl-dir=$(brew --prefix openssl@3.0) --with-readline-dir=$(brew --prefix readline)
+  rvm install ruby-3.4.1 --with-openssl-dir=$(brew --prefix)/opt/openssl@3.0
 fi
 
 echo
