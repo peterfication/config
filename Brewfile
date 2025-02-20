@@ -241,6 +241,7 @@ cask 'utm'
 cask 'veracrypt'
 cask 'visual-studio-code'
 cask 'vlc'
+cask 'vmware-fusion'
 cask 'webtorrent'
 cask 'xbar'
 cask 'xld' # X Lossless Decoder - CD ripper
