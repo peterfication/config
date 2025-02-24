@@ -171,6 +171,9 @@ return {
         lineFoldingOnly = true,
       }
 
+      local util = require("lspconfig/util")
+      local path = util.path
+
       local settings = {
         lua_ls = {
           Lua = {
@@ -245,6 +248,36 @@ return {
       local cmd = {
         elixirls = { "elixir-ls" },
       }
+      local before_init = {
+        jedi_language_server = function(_, config)
+          local match = vim.fn.glob(path.join(config.root_dir, "poetry.lock"))
+          if match ~= "" then
+            local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
+            vim.env.VIRTUAL_ENV = venv
+
+            python_path = path.join(venv, "bin", "python")
+            config.cmd = { python_path, "-m", "jedi_language_server" }
+            config.init_options = {
+              extra_paths = {
+                path.join(venv, "lib", "python3.12", "site-packages"),
+              },
+            }
+          end
+        end,
+        pylsp = function(_, config)
+          local match = vim.fn.glob(path.join(config.root_dir, "poetry.lock"))
+          if match ~= "" then
+            local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
+            vim.env.VIRTUAL_ENV = venv
+            config.cmd = { path.join(venv, "bin", "pylsp") }
+            config.init_options = {
+              extra_paths = {
+                path.join(venv, "lib", "python3.12", "site-packages"),
+              },
+            }
+          end
+        end,
+      }
 
       local servers = {
         "bashls",
@@ -255,6 +288,7 @@ return {
         "lua_ls",
         -- "pyright",
         "jedi_language_server",
+        "pylsp",
         -- "ruby_ls",
         "solargraph",
         "tailwindcss",
@@ -404,6 +438,7 @@ return {
           },
           settings = settings[lsp],
           cmd = cmd[lsp],
+          before_init = before_init[lsp],
         })
 
         -- local options = { noremap = true }
