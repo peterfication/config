@@ -296,6 +296,7 @@ return {
         "tflint",
         "ts_ls",
         -- "rust_analyzer", => Done via rust-tools
+        "ruff",
       }
 
       -- Mappings for LSP
@@ -535,7 +536,6 @@ return {
           null_ls.builtins.formatting.rubyfmt,
           null_ls.builtins.formatting.erb_format,
           null_ls.builtins.formatting.stylua,
-          null_ls.builtins.formatting.blackd,
         },
       })
 
