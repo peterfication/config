@@ -7,6 +7,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
       "nvim-neotest/neotest-plenary",
+      "nvim-neotest/neotest-python",
       "olimorris/neotest-rspec",
       "haydenmeade/neotest-jest",
       "jfpedroza/neotest-elixir",
@@ -15,6 +16,7 @@ return {
     config = function()
       require("neotest").setup({
         adapters = {
+          require("neotest-python"),
           require("neotest-rspec")({
             rspec_cmd = function()
               return vim.tbl_flatten({
