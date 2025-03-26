@@ -159,6 +159,7 @@ brew 'tig' # Git text interface
 brew 'tmux'
 brew 'tree'
 brew 'urlview' # For tmux URLs selection
+brew 'uv' # Python env and package management
 brew 'viu' # Image preview in the terminal
 brew 'watch'
 brew 'watchexec'
