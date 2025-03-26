@@ -209,6 +209,7 @@ cask 'font-fira-mono-nerd-font'
 cask 'gitify'
 cask 'google-chrome'
 cask 'hammerspoon'
+cask 'iina' # Video player
 cask 'iterm2'
 cask 'karabiner-elements'
 cask 'keycastr' # Show key presses in the screen
