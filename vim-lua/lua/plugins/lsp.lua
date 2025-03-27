@@ -509,6 +509,27 @@ return {
 
           null_ls.builtins.diagnostics.credo,
           null_ls.builtins.diagnostics.haml_lint,
+          null_ls.builtins.diagnostics.mypy.with({
+            command = "uv",
+            args = function(params)
+              return {
+                "run",
+                "mypy",
+                "--hide-error-codes",
+                "--hide-error-context",
+                "--no-color-output",
+                "--show-absolute-path",
+                "--show-column-numbers",
+                "--show-error-codes",
+                "--no-error-summary",
+                "--no-pretty",
+                "--shadow-file",
+                params.bufname,
+                params.temp_path,
+                params.bufname,
+              }
+            end,
+          }),
 
           cspell.diagnostics.with({
             config_file_preferred_name = ".cspell.json",
