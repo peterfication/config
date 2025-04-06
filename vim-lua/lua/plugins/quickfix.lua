@@ -3,7 +3,7 @@ return {
   { "kevinhwang91/nvim-bqf" },
   -- Prettier quickfix window
   {
-    "https://gitlab.com/yorickpeterse/nvim-pqf.git",
+    "yorickpeterse/nvim-pqf",
     config = function()
       require("pqf").setup()
     end,
