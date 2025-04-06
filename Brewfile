@@ -33,6 +33,7 @@ brew 'broot'
 brew 'btop'
 brew 'catimg' # Image preview in the terminal
 brew 'cdparanoia'
+brew 'chruby'
 brew 'cloc'
 brew 'cmake'
 brew 'cmatrix'
@@ -140,6 +141,7 @@ brew 'restic' # Backup tool
 brew 'ripgrep' # grep replacement, same as rga
 brew 'rlwrap'
 brew 'rtx' # asdf replacement in Rust
+brew 'ruby-install'
 brew 'rubyfmt'
 brew 'rust-analyzer'
 brew 'sniffnet' # Network monitoring tool
