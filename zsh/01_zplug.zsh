@@ -63,6 +63,7 @@ zplug "plugins/docker", from:oh-my-zsh
 # zplug "plugins/rust", from:oh-my-zsh
 # zplug "plugins/cargo", from:oh-my-zsh
 zplug "plugins/golang", from:oh-my-zsh
+zplug "plugins/uv", from:oh-my-zsh
 
 zplug "plugins/terraform", from:oh-my-zsh
 # zplug "plugins/helm", from:oh-my-zsh
