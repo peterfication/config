@@ -67,6 +67,7 @@ brew 'git-absorb' # Also see https://github.com/jesseduffield/lazygit/blob/maste
 brew 'git-crypt'
 brew 'git-delta' # Git pager
 brew 'git-extras'
+brew 'git-filter-repo' # Replacement for git-filter-branch
 brew 'git-lfs'
 brew 'gitui'
 brew 'gnu-sed'
