@@ -11,20 +11,17 @@ git:
     pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
     # externalDiffCommand: difft --color=always
   overrideGpg: true # Ignore GPG errors as I'm using a GPG agent
-
 os:
   # editCommand: nvr -l -s
   edit: 'nvr -l -s {{filename}}'
   editAtLine: 'nvr -l -s +{{line}} {{filename}}'
   editAtLineAndWait: 'nvr -l -s +{{line}} {{filename}}'
   editInTerminal: true
-
 keybinding:
   universal:
     nextTab: "<c-n>"
   files:
     openStatusFilter: "<c-p>"
-
 gui:
   theme:
     selectedRangeBgColor:
@@ -37,7 +34,6 @@ gui:
     'staging': '#11aaff'
     'integration': '#11aaff'
   showIcons: true
-
 customCommands:
   # From https://github.com/jesseduffield/lazygit/issues/2057#issuecomment-1625798497
   # - key: 'C'
@@ -54,36 +50,35 @@ customCommands:
   - key: 'C'
     command: 'git branch -r | sed "s/origin\///" | fzf --prompt="Select branch: " | xargs -I {} git checkout {}'
     context: 'localBranches'
-    subprocess: true
+    output: terminal
   - key: '<c-p>'
     command: 'git add --patch'
     context: 'files'
-    subprocess: true
+    output: terminal
   - key: "F"
     description: "Fetch and prune"
     command: "git fetch --prune"
     context: "localBranches"
-    stream: true
+    output: log
   - key: "<c-r>"
     command: "git reset --hard @{upstream}"
     description: "Reset hard the local branch with its upstream"
     context: "localBranches"
-    stream: true
+    output: log
   - key: "<c-u>"
     command: "git reset --soft HEAD^"
     description: "Uncommit selected commit and put the changes back in the working tree"
     context: "commits"
-    stream: true
+    output: log
   - key: "<c-f>"
     command: "source $HOME/.zplug/repos/wfxr/forgit/forgit.plugin.zsh && forgit::log"
     description: "Fuzzy find a commit"
     context: "global"
-    subprocess: true
+    output: terminal
   - key: "<c-x>"
     command: "f() { CURRENT=`git rev-parse --abbrev-ref HEAD`; git checkout main; git pull; git branch -d $CURRENT; }; if [[ {{index .PromptResponses 0}} = 'Yes' ]]; then f; else echo Canceled; fi"
     description: "Pull main and delete current branch (after the PR got merged)"
     context: "localBranches"
-    stream: true
     loadingText: "Pulling latest main and deleting ..."
     prompts:
       - type: "menu"
@@ -91,6 +86,7 @@ customCommands:
         options:
           - value: "Yes"
           - value: "No"
+    output: log
   - key: "<c-f>"
     description: "fetch a remote branch as a new local branch"
     command: "git fetch {{index .SelectedRemote.Name }} {{index .PromptResponses 0}}:{{index .PromptResponses 1}}"
@@ -108,41 +104,33 @@ customCommands:
     command: tig blame -- {{.SelectedFile.Name}}
     context: files
     description: blame file at tree
-    subprocess: yes
   - key: b
     command: tig blame {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: blame file at revision
-    subprocess: yes
   - key: B
     command: tig blame -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: blame file at tree
-    subprocess: yes
   # File history via tig
   - key: t
     command: tig {{.SelectedSubCommit.Sha}} -- {{.SelectedCommitFile.Name}}
     context: commitFiles
     description: tig file (history of commits affecting file)
-    subprocess: yes
   - key: t
     command: tig -- {{.SelectedFile.Name}}
     context: files
     description: tig file (history of commits affecting file)
-    subprocess: yes
   # Browse files at revision via tig
   - key: t
     command: tig show {{.SelectedSubCommit.Sha}}
     context: subCommits
     description: tig commit (`t` again to browse files at revision)
-    subprocess: yes
   - key: t
     command: tig show {{.SelectedLocalBranch.Name}}
     context: localBranches
     description: tig branch (`t` again to browse files at revision)
-    subprocess: yes
   - key: t
     command: tig show {{.SelectedRemoteBranch.RemoteName}}/{{.SelectedRemoteBranch.Name}}
     context: remoteBranches
     description: tig branch (`t` again to browse files at revision)
-    subprocess: yes
