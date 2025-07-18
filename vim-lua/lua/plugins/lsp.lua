@@ -158,7 +158,6 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
       { "folke/neodev.nvim", opts = {} },
-      "simrat39/rust-tools.nvim",
     },
     config = function()
       local plugin = require("lazy.core.config").spec.plugins["neoconf.nvim"]
@@ -295,7 +294,6 @@ return {
         "terraformls",
         "tflint",
         "ts_ls",
-        -- "rust_analyzer", => Done via rust-tools
         "ruff",
       }
 
@@ -456,6 +454,12 @@ return {
         vim.diagnostic.config({ virtual_text = true })
       end, {})
     end,
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^6', -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
 
   {

@@ -11,6 +11,7 @@ return {
       "olimorris/neotest-rspec",
       "haydenmeade/neotest-jest",
       "jfpedroza/neotest-elixir",
+      "rouge8/neotest-rust",
       "folke/which-key.nvim",
     },
     config = function()
@@ -35,6 +36,7 @@ return {
             end,
           }),
           require("neotest-elixir"),
+          require("neotest-rust"),
         },
         icons = {
           child_indent = "│",
