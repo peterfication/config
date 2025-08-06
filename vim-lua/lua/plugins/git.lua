@@ -5,8 +5,30 @@ return {
       "folke/which-key.nvim",
     },
     config = function()
+      local actions = require("diffview.actions")
+      require("diffview").setup({
+        keymaps = {
+          file_history_panel = {
+            {
+              "n",
+              "s",
+              actions.open_in_diffview,
+              { nowait = true, desc = "Open the entry under the cursor in a diffview" },
+            },
+          },
+        },
+      })
+
       require("which-key").add({
         { "<Leader>GG", ":DiffviewFileHistory %<CR>", desc = "Open DiffView with the Git history of the current file" },
+      })
+
+      -- Close the commit_log view when pressing 'q'
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "git",
+        callback = function()
+          vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = true, silent = true })
+        end,
       })
     end,
   },
@@ -136,13 +158,13 @@ return {
           "<Leader>gy",
           '<CMD>lua require"gitlinker".get_buf_range_url("n")<CR>',
           desc = "Copy the link for current line on Github",
-          mode = "n"
+          mode = "n",
         },
         {
           "<Leader>gy",
           '<CMD>lua require"gitlinker".get_buf_range_url("v")<CR>',
           desc = "Copy the link for current line on Github",
-          mode = "v"
+          mode = "v",
         },
       })
     end,
