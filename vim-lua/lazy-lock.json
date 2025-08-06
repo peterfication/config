@@ -23,7 +23,7 @@
   "goto-preview": { "branch": "main", "commit": "d1faf6ea992b5bcaaaf2c682e1aba3131a01143e" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
-  "lazygit.nvim": { "branch": "main", "commit": "cdd3527e251f96eb0527162b156ad839286fcd97" },
+  "lazygit.nvim": { "branch": "main", "commit": "541bc0d46e01a0a75b347ba065805a90034954c1" },
   "leap.nvim": { "branch": "main", "commit": "02bf52e49c72cc5dabb53ec9494d10d304f0b2c9" },
   "legendary.nvim": { "branch": "master", "commit": "6de819bc285eb8c420e49e82c21d5bb696b5a727" },
   "lualine.nvim": { "branch": "master", "commit": "a94fc68960665e54408fe37dcf573193c4ce82c9" },
