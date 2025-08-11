@@ -11,7 +11,9 @@ ln -s ~/config/gitconfig ~/.gitconfig
 ln -s ~/config/gpg.conf ~/.gnupg/gpg.conf &
 ln -s ~/config/gpg-agent.conf ~/.gnupg/gpg-agent.conf &
 
-gln -sT ~/config/hammerspoon ~/.hammerspoon
+ln -s ~/config/hammerspoon ~/.hammerspoon
+
+ln -s ~/config/yazi ~/.config/yazi
 
 # k9s
 # vim coc settings
