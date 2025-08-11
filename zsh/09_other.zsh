@@ -20,3 +20,16 @@ function ccd { mkdir -p "$1" && cd "$1" }
 if [[ -f .envrc ]] && command -v direnv >/dev/null 2>&1; then
   direnv reload
 fi
+
+# Remove y to yarn alias if it exists
+if alias y >/dev/null 2>&1; then
+  unalias y
+fi
+# See https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}

@@ -170,6 +170,7 @@ brew 'watchexec'
 brew 'watchman'
 brew 'weaveworks/tap/eksctl'
 brew 'wget'
+brew 'yazi' # Terminal file manager
 brew 'youtube-dl'
 brew 'yt-dlp'
 brew 'zbar' # QR code reader with zbarimg
