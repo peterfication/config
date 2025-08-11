@@ -40,3 +40,6 @@ bind-key -T copy-mode-vi 'v' send -X begin-selection
 bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
 bind Escape copy-mode # `tmux prefix + Escape` starts copy mode.
 bind p paste-buffer
+
+# Lazygit pop-up
+bind-key C-g display-popup -E -d "#{pane_current_path}" -xC -yC -w 90% -h 90% "lazygit"
