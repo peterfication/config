@@ -3,6 +3,7 @@ local map = vim.api.nvim_set_keymap
 -- Leader key
 map("n", "<Space>", "", {})
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 local options = { noremap = true }
 
