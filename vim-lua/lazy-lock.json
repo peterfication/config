@@ -99,4 +99,5 @@
   "vim-slim": { "branch": "master", "commit": "a0a57f75f20a03d5fa798484743e98f4af623926" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
   "windows.nvim": { "branch": "main", "commit": "c7492552b23d0ab30325e90b56066ec51242adc8" }
+  "yazi.nvim": { "branch": "main", "commit": "6e8d1a5ef7286f29c46ffaea63b8a2fa7a29517f" }
 }

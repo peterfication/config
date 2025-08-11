@@ -97,4 +97,36 @@ return {
       { "<leader>NO", "<CMD>Oil --float .<CR>", desc = "Open Oil for the project" },
     },
   },
+  {
+    "mikavilpas/yazi.nvim",
+    version = "*",
+    event = "VeryLazy",
+    dependencies = {
+      { "nvim-lua/plenary.nvim", lazy = true },
+    },
+    keys = {
+      {
+        "<leader>NY",
+        mode = { "n", "v" },
+        "<CMD>Yazi<CR>",
+        desc = "Open yazi at the current file",
+      },
+      {
+        "<leader>ny",
+        "<CMD>Yazi cwd<CR>",
+        desc = "Open the file manager in nvim's working directory",
+      },
+      {
+        "<leader>nY",
+        "<cmd>Yazi toggle<cr>",
+        desc = "Resume the last yazi session",
+      },
+    },
+    opts = {
+      open_for_directories = false,
+      keymaps = {
+        show_help = "g?",
+      },
+    },
+  },
 }
