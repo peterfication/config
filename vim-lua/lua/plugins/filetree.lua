@@ -92,5 +92,9 @@ return {
     -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
+    keys = {
+      { "<leader>no", "<CMD>Oil --float<CR>", desc = "Open Oil for the project" },
+      { "<leader>NO", "<CMD>Oil --float .<CR>", desc = "Open Oil for the project" },
+    },
   },
 }
