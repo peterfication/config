@@ -34,9 +34,14 @@
     };
   in
   {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
-    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
+    # First time run:
+    # sudo mkdir /etc/nix-darwin
+    # sudo ln -s ~/config/nix/flake.nix /etc/nix-darwin/flake.nix
+    # sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- --flake .# switch
+
+    # Following darwin builds:
+    # sudo darwin-rebuild build
+    darwinConfigurations."Peters-MacBook-Pro" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
   };
