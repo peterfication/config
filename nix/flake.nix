@@ -38,11 +38,11 @@
   in
   {
     # First time run:
-    # sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- --flake ~/config/nix/flake.nix# switch
+    # sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- --flake ~/config/nix#simple switch
 
     # Following darwin builds:
-    # sudo darwin-rebuild switch --flake ~/config/nix/flake.nix
-    darwinConfigurations."Peters-MacBook-Pro" = nix-darwin.lib.darwinSystem {
+    # sudo darwin-rebuild switch --flake ~/config/nix#simple
+    darwinConfigurations."simple" = nix-darwin.lib.darwinSystem {
       modules = [ configuration ];
     };
   };
