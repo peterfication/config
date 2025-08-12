@@ -17,6 +17,11 @@
         sshs
       ];
 
+      environment.shellAliases = {
+        # Run darwin-rebuild from the nix config directory
+        nix-rebuild = "(cd ~/config/nix && just darwin-rebuild)";
+      };
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
