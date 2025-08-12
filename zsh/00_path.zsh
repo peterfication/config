@@ -5,7 +5,7 @@ if [ -e /home/linuxbrew/.linuxbrew/bin/brew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export PATH="$(brew --prefix)/bin:$(brew --prefix)/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Use homebrew curl
 export PATH="$(brew --prefix)/opt/curl/bin:$PATH"
@@ -17,3 +17,8 @@ fpath=(~/config/zsh/.d/ $fpath)
 export PATH=$HOME"/.local/share/neovim/bin:$PATH"
 
 export PATH=$HOME"/.local/bin:$PATH"
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
