@@ -1,3 +1,9 @@
 [[mgr.prepend_keymap]]
 on = "<C-p>"
 run = 'shell -- qlmanage -p "$@"'
+desc = "Preview the selected file(s) in Quick Look"
+
+[[mgr.prepend_keymap]]
+on = "<C-o>"
+run = "shell --confirm 'open .'"
+desc = "Open the current directory in Finder"
