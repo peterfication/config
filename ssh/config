@@ -10,3 +10,6 @@ Host *
     UseKeychain yes
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_rsa
+
+# Mounting a remote directory using rclone
+# mkdir -p ~/tmp/ssh_mount && rclone nfsmount <remote>:/home/user ~/tmp/ssh_mount
