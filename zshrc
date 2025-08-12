@@ -60,6 +60,3 @@ if which direnv &> /dev/null; then
   #   fi
   # };
 fi
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/petermorgenstern/.cache/lm-studio/bin"
