@@ -13,3 +13,9 @@ Host *
 
 # Mounting a remote directory using rclone
 # mkdir -p ~/tmp/ssh_mount && rclone nfsmount <remote>:/home/user ~/tmp/ssh_mount
+#
+# Mounting a directory using sshfs
+# mkdir -p ~/tmp/ssh_mount && sshfs user@host:/home/user ~/tmp/ssh_mount
+# mkdir -p ~/tmp/ssh_mount && sshfs <SSH Host>:/home/user ~/tmp/ssh_mount
+# # Do some work
+# umount ~/tmp/ssh_mount

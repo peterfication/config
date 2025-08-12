@@ -59,6 +59,8 @@ brew 'fd' # find replacement
 brew 'ffmpeg'
 brew 'fluxcd/tap/flux', link: false
 brew 'flyctl'
+brew 'macos-fuse-t/homebrew-cask/fuse-t'
+brew 'macos-fuse-t/homebrew-cask/fuse-t-sshfs'
 brew 'fx'
 brew 'fzf'
 brew 'gh'
