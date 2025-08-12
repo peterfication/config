@@ -277,3 +277,4 @@ cask 'widelands'
 # https://github.com/upscayl/upscayl
 # https://homerow.app
 # https://alt-tab-macos.netlify.app/
+# mountain-duck https://mountainduck.io/ for mounting remote filesystems (alternative to sshfs)
