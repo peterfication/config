@@ -60,7 +60,7 @@ brew 'ffmpeg'
 brew 'fluxcd/tap/flux', link: false
 brew 'flyctl'
 brew 'macos-fuse-t/homebrew-cask/fuse-t'
-brew 'macos-fuse-t/homebrew-cask/fuse-t-sshfs'
+brew 'macos-fuse-t/homebrew-cask/fuse-t-sshfs' # Alternative to the normal sshfs from https://github.com/libfuse/sshfs
 brew 'fx'
 brew 'fzf'
 brew 'gh'
