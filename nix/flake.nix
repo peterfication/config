@@ -23,6 +23,8 @@
       environment.shellAliases = {
         # Run darwin-rebuild from the nix config directory
         nix-rebuild = "(cd ~/config/nix && just darwin-rebuild)";
+        # Open vim with the chezmoi config
+        conf = " cd $(chezmoi source-path) && vim";
       };
 
       # Necessary for using flakes on this system.
