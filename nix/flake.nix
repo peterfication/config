@@ -1,5 +1,5 @@
 {
-  description = "Example nix-darwin system flake";
+  description = "My nix-darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
@@ -9,6 +9,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs }:
   let
+    chezmoiUrl = "https://github.com/peterfication/config-moi.git";
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
@@ -42,6 +43,20 @@
 
       # Enable touch ID authentication for sudo.
       security.pam.services.sudo_local.touchIdAuth = true;
+
+      system.activationScripts = {
+        # See https://github.com/nix-darwin/nix-darwin/blob/master/modules/system/activation-scripts.nix#L154
+        # for available activation scripts.
+        postActivation = {
+          text = ''
+            echo ""
+            echo "Running chezmoi init ..."
+            sudo -u "$(logname)" env HOME="/Users/$(logname)"  ${pkgs.chezmoi}/bin/chezmoi init --apply "${chezmoiUrl}"
+            echo "Running chezmoi init done"
+            echo ""
+          '';
+        };
+      };
     };
   in
   {
