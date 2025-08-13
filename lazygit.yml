@@ -12,11 +12,13 @@ git:
     # externalDiffCommand: difft --color=always
   overrideGpg: true # Ignore GPG errors as I'm using a GPG agent
 os:
+  editPreset: nvim-remote
+  shellFunctionsFile: ~/config/lazygit_env.sh
   # editCommand: nvr -l -s
-  edit: 'nvr -l -s {{filename}}'
-  editAtLine: 'nvr -l -s +{{line}} {{filename}}'
-  editAtLineAndWait: 'nvr -l -s +{{line}} {{filename}}'
-  editInTerminal: true
+  # edit: 'nvr -l -s {{filename}}'
+  # editAtLine: 'nvr -l -s +{{line}} {{filename}}'
+  # editAtLineAndWait: 'nvr -l -s +{{line}} {{filename}}'
+  # editInTerminal: true
 keybinding:
   universal:
     nextTab: "<c-n>"
