@@ -117,21 +117,6 @@ return {
   },
 
   {
-    "kdheepak/lazygit.nvim",
-    -- Edit and close LazyGit broke in the next commit
-    -- https://github.com/kdheepak/lazygit.nvim/commit/541bc0d46e01a0a75b347ba065805a90034954c1
-    commit = "b4229a094bdebe82d6f0b9aa69fea23a9e4b6b61",
-    dependencies = {
-      "folke/which-key.nvim",
-    },
-    config = function()
-      require("which-key").add({
-        { "<Leader>gg", ":LazyGit<CR>", desc = "Open LazyGit" },
-      })
-    end,
-  },
-
-  {
     "rbong/vim-flog",
     dependencies = {
       "tpope/vim-fugitive",
