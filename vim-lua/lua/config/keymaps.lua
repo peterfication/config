@@ -48,3 +48,14 @@ vim.api.nvim_create_autocmd("FileType", {
   command = [[nnoremap <buffer><silent> q :close<CR>]],
 })
 vim.api.nvim_create_autocmd("FileType", { pattern = "man", command = [[nnoremap <buffer><silent> q :quit<CR>]] })
+
+function CloseAllFloatingWindows()
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local config = vim.api.nvim_win_get_config(win)
+    if config.relative ~= '' then
+      vim.api.nvim_win_close(win, true)
+    end
+  end
+end
+vim.api.nvim_create_user_command('CloseFloatingWindows', CloseAllFloatingWindows, { nargs = 0 })
+vim.keymap.set('n', '<Leader>cw', ':CloseFloatingWindows<CR>', { desc = 'Close all floating windows' })
