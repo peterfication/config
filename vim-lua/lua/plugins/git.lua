@@ -97,11 +97,6 @@ return {
       require("scrollbar.handlers.gitsigns").setup()
 
       require("which-key").add({
-        {
-          "<Leader>GB",
-          ':9TermExec cmd="tig blame %; exit" direction=float<CR>',
-          desc = "Open tig blame for the current file",
-        },
         { "<Leader>gb", ":Gitsigns toggle_current_line_blame<CR>", desc = "Toogle Git blame current line" },
       })
 
@@ -115,6 +110,20 @@ return {
       -- vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
 
       local Terminal = require("toggleterm.terminal").Terminal
+
+      vim.keymap.set("n", "<Leader>GB", function()
+        local file = vim.fn.expand("%")
+        local tig_term = Terminal:new({
+          cmd = "tig blame " .. file,
+          direction = "float",
+          close_on_exit = true,
+          count = 9,
+          on_open = function(term)
+            vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", { noremap = true, silent = true })
+          end,
+        })
+        tig_term:toggle()
+      end, { desc = "Open tig for current file" })
 
       local jjui_term = Terminal:new({
         cmd = "jjui",
