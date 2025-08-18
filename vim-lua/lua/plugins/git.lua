@@ -113,6 +113,28 @@ return {
       -- - Close commit: q
       -- - Close tig: q
       -- vim.keymap.set('n', '<Leader>GG', ':TermExec cmd="tig %; exit" direction=float<CR>', { noremap = true })
+
+      local Terminal = require("toggleterm.terminal").Terminal
+
+      local jjui_term = Terminal:new({
+        cmd = "jjui",
+        direction = "float",
+        close_on_exit = true,
+        count = 8,
+        on_open = function(term)
+          vim.api.nvim_buf_set_keymap(
+            term.bufnr,
+            "n",
+            "q",
+            "<cmd>close<CR>",
+            { noremap = true, silent = true, desc = "Close jjui terminal" }
+          )
+        end,
+      })
+
+      vim.keymap.set("n", "<Leader>gj", function()
+        jjui_term:toggle()
+      end, { desc = "Open jj UI" })
     end,
   },
 
