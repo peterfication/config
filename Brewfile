@@ -41,6 +41,7 @@ brew 'colima' # For easy local docker https://github.com/abiosoft/colima
 brew 'coreutils'
 brew 'ctags'
 brew 'curl'
+brew 'd2' # Diagramming tool https://d2lang.com/
 brew 'derailed/popeye/popeye'
 brew 'difftastic'
 brew 'direnv'
