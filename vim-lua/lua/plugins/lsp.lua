@@ -284,6 +284,10 @@ return {
         end,
       }
 
+      -- Command to set install Python neovim:
+      -- uv run pip install neovim
+      vim.g.python3_host_prog = vim.fn.expand("$HOME/.venv/bin/python3")
+
       local servers = {
         "bashls",
         "elixirls",
