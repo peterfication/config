@@ -156,8 +156,18 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = false, dependencies = { "nvim-lspconfig" } },
-      { "folke/neodev.nvim", opts = {} },
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = false },
+      {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
     },
     config = function()
       local plugin = require("lazy.core.config").spec.plugins["neoconf.nvim"]
@@ -249,8 +259,7 @@ return {
       }
       local root_dir = {
         pylsp = function(fname)
-          return nvim_lsp.util.root_pattern(".git")(fname)
-            or util.path.dirname(fname)
+          return nvim_lsp.util.root_pattern(".git")(fname) or util.path.dirname(fname)
         end,
       }
       local before_init = {
