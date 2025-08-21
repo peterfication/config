@@ -247,6 +247,12 @@ return {
       local cmd = {
         elixirls = { "elixir-ls" },
       }
+      local root_dir = {
+        pylsp = function(fname)
+          return nvim_lsp.util.root_pattern(".git")(fname)
+            or util.path.dirname(fname)
+        end,
+      }
       local before_init = {
         jedi_language_server = function(_, config)
           local match = vim.fn.glob(path.join(config.root_dir, "poetry.lock"))
@@ -286,7 +292,7 @@ return {
         "jsonls",
         "lua_ls",
         -- "pyright",
-        "jedi_language_server",
+        -- "jedi_language_server",
         "pylsp",
         -- "ruby_ls",
         "solargraph",
@@ -425,6 +431,26 @@ return {
           -- buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
           -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
           -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+          -- if client.name == "jedi_language_server" then
+          --   -- Use these things from pylsp
+          --   client.server_capabilities.definitionProvider = false
+          --   client.server_capabilities.documentSymbolProvider = false
+          --   client.server_capabilities.hoverProvider = false
+          --   client.server_capabilities.implementationProvider = false
+          --   client.server_capabilities.referencesProvider = false
+          --   client.server_capabilities.renameProvider = false
+          --
+          --   -- codeActionProvider = true,
+          --   -- codeLensProvider = { resolveProvider = false },
+          --   -- completionProvider = { resolveProvider = true, triggerCharacters = { "." } },
+          --   -- documentFormattingProvider = true,
+          --   -- documentHighlightProvider = true,
+          --   -- documentRangeFormattingProvider = true,
+          --   -- executeCommandProvider = { commands = {} },
+          --   -- foldingRangeProvider = true,
+          --   -- signatureHelpProvider = { triggerCharacters = { "(", ",", "=" } },
+          -- end
         end
 
         -- Use a loop to conveniently call 'setup' on multiple servers and
@@ -438,6 +464,7 @@ return {
           settings = settings[lsp],
           cmd = cmd[lsp],
           before_init = before_init[lsp],
+          root_dir = root_dir[lsp],
         })
 
         -- local options = { noremap = true }
@@ -457,8 +484,8 @@ return {
   },
 
   {
-    'mrcjkb/rustaceanvim',
-    version = '^6', -- Recommended
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
   },
 
@@ -514,11 +541,9 @@ return {
           null_ls.builtins.diagnostics.credo,
           null_ls.builtins.diagnostics.haml_lint,
           null_ls.builtins.diagnostics.mypy.with({
-            command = "uv",
+            command = "mypy",
             args = function(params)
               return {
-                "run",
-                "mypy",
                 "--hide-error-codes",
                 "--hide-error-context",
                 "--no-color-output",
