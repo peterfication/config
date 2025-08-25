@@ -1,5 +1,4 @@
 return {
-
   { "tpope/vim-abolish" },
   { "tpope/vim-repeat" },
   {
@@ -13,7 +12,50 @@ return {
       })
     end,
   },
-  { "mg979/vim-visual-multi" },
+  {
+    "jake-stewart/multicursor.nvim",
+    branch = "1.0",
+    config = function()
+      local mc = require("multicursor-nvim")
+      mc.setup()
+
+      local set = vim.keymap.set
+
+      set({ "n", "x" }, "<Leader>kn", function()
+        mc.matchAddCursor(1)
+      end, { desc = "Go into visual mode and select the current word under the cursor and go to the next" })
+      set({ "n", "x" }, "<Leader>kp", function()
+        mc.matchAddCursor(-1)
+      end, { desc = "Go into visual mode and select the current word under the cursor and go to the previous" })
+      set({ "n", "x" }, "<Leader>kj", function()
+        mc.lineAddCursor(1)
+      end, { desc = "Go into visual mode and select the current line/cursor position and go down" })
+      set({ "n", "x" }, "<Leader>kk", function()
+        mc.lineAddCursor(1)
+      end, { desc = "Go into visual mode and select the current line/cursor position and go up" })
+
+      -- Mappings defined in a keymap layer only apply when there are
+      -- multiple cursors. This lets you have overlapping mappings.
+      mc.addKeymapLayer(function(layerSet)
+        layerSet({ "n", "x" }, "<C-n>", function() mc.matchAddCursor(1) end)
+        layerSet({ "n", "x" }, "<C-p>", mc.deleteCursor)
+        layerSet({ "n", "x" }, "<C-j>", function() mc.lineAddCursor(1) end)
+        layerSet({ "n", "x" }, "<C-k>", mc.deleteCursor)
+        layerSet({ "n", "x" }, "<C-h>", mc.prevCursor)
+        layerSet({ "n", "x" }, "<C-l>", mc.nextCursor)
+        layerSet({ "n", "x" }, "<C-d>", mc.deleteCursor)
+
+        -- Enable and clear cursors using escape.
+        layerSet("n", "<esc>", function()
+          if not mc.cursorsEnabled() then
+            mc.enableCursors()
+          else
+            mc.clearCursors()
+          end
+        end)
+      end)
+    end,
+  },
   {
     "windwp/nvim-autopairs",
     config = function()
