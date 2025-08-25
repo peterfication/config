@@ -19,11 +19,23 @@ return {
       { "stevearc/aerial.nvim" },
       { "L3MON4D3/LuaSnip" },
       { "benfowler/telescope-luasnip.nvim" },
+      { "s1n7ax/nvim-window-picker" },
     },
     config = function()
       local actions = require("telescope.actions")
       local action_state = require("telescope.actions.state")
       -- local trouble = require("trouble.providers.telescope")
+      local action_window_picker = function(prompt_bufnr)
+        local picker = require("window-picker")
+        local winid = picker.pick_window()
+        if winid then
+          local entry = require("telescope.actions.state").get_selected_entry()
+          if entry and entry.filename then
+            vim.api.nvim_set_current_win(winid)
+            vim.cmd("edit " .. entry.filename)
+          end
+        end
+      end
 
       require("telescope").setup({
         defaults = {
@@ -37,6 +49,7 @@ return {
               ["<C-d>"] = actions.delete_buffer,
               ["<C-n>"] = actions.cycle_history_next,
               ["<C-p>"] = actions.cycle_history_prev,
+              ["<C-w>"] = action_window_picker,
               -- TODO: This prevents <C-x> to open a horizontal split
               -- ["<c-x>"] = trouble.open_with_trouble,
             },
@@ -45,6 +58,7 @@ return {
               ["<C-a>"] = actions.send_to_qflist + actions.open_qflist,
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["q"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["w"] = action_window_picker,
               -- TODO: This prevents <C-x> to open a horizontal split
               -- ["<c-x>"] = trouble.open_with_trouble,
             },
