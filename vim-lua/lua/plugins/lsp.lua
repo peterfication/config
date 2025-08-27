@@ -168,6 +168,7 @@ return {
           },
         },
       },
+      "SmiteshP/nvim-navic",
     },
     config = function()
       local plugin = require("lazy.core.config").spec.plugins["neoconf.nvim"]
@@ -179,6 +180,7 @@ return {
         dynamicRegistration = false,
         lineFoldingOnly = true,
       }
+      local navic = require("nvim-navic")
 
       local util = require("lspconfig/util")
       local path = util.path
@@ -403,6 +405,10 @@ return {
         local on_attach = function(client, bufnr)
           vim.notify("Buffer " .. bufnr .. " attached to lsp " .. lsp, vim.log.levels.INFO)
           require("illuminate").on_attach(client)
+
+          if client.server_capabilities.documentSymbolProvider then
+              navic.attach(client, bufnr)
+          end
 
           --Enable completion triggered by <c-x><c-o>
           vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -676,20 +682,6 @@ return {
     end,
   },
 
-  -- LSP breadcrumbs
-  {
-    "utilyre/barbecue.nvim",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-web-devicons",
-    },
-    config = function()
-      require("barbecue").setup({
-        attach_navic = false,
-        exclude_filetypes = { "netrw", "toggleterm", "graphql" },
-      })
-    end,
-  },
   -- Treesitter does not support slim templates
   { "slim-template/vim-slim" },
 }

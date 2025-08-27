@@ -256,9 +256,20 @@ return {
 
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons" },
+    dependencies = {
+      "kyazdani42/nvim-web-devicons",
+      "SmiteshP/nvim-navic",
+    },
     config = function()
       -- https://github.com/nvim-lualine/lualine.nvim#default-configuration
+
+      local file_status_symbol = {
+        modified = "",
+        readonly = "",
+        new = "",
+        unnamed = "󰽤",
+      }
+
       require("lualine").setup({
         options = {
           theme = "solarized_dark",
@@ -288,6 +299,35 @@ return {
             },
           },
         },
+        winbar = {
+          lualine_a = {
+            { "filename", path = 1, symbols = file_status_symbol },
+          },
+          lualine_c = {
+            {
+              "navic"
+            },
+          },
+          lualine_x = {
+            function()
+              return " "
+            end,
+            -- this is to avoid annoying highlight (high contrast color)
+            -- when no winbar_symbol, diagnostics and diff is available.
+            { "diagnostics", sources = { "nvim_diagnostic" } },
+            "diff",
+          },
+        },
+        inactive_winbar = {
+          lualine_a = {
+            { "filetype", icon_only = true },
+            { "filename", path = 0, symbols = file_status_symbol },
+          },
+          lualine_x = {
+            { "diagnostics", sources = { "nvim_diagnostic" } },
+            "diff",
+          },
+        },
       })
     end,
   },
@@ -297,7 +337,7 @@ return {
     config = function()
       require("scrollbar").setup({
         marks = {
-          -- The default GitSigns hightlight settings in nvim-scrollbar are not up to date anymore
+          -- The default GitSigns highlight settings in nvim-scrollbar are not up to date anymore
           GitAdd = {
             highlight = "GitAddSign",
           },
