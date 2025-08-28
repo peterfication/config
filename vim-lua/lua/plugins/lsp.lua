@@ -146,6 +146,27 @@ return {
       vim.keymap.set("n", "gltc", go_to_parent_repeat, { silent = true })
     end,
   },
+
+  {
+    "aaronik/treewalker.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    config = function()
+      -- movement: Alt + j/k/h/l
+      vim.keymap.set({ "n", "v" }, "∆", "<cmd>Treewalker Up<cr>", { silent = true })
+      vim.keymap.set({ "n", "v" }, "º", "<cmd>Treewalker Down<cr>", { silent = true })
+      vim.keymap.set({ "n", "v" }, "ª", "<cmd>Treewalker Left<cr>", { silent = true })
+      vim.keymap.set({ "n", "v" }, "@", "<cmd>Treewalker Right<cr>", { silent = true })
+
+      -- swapping: Alt + Shift + j/k/h/l
+      vim.keymap.set("n", "ˆ", "<cmd>Treewalker SwapUp<cr>", { silent = true })
+      vim.keymap.set("n", "ı", "<cmd>Treewalker SwapDown<cr>", { silent = true })
+      vim.keymap.set("n", "Ó", "<cmd>Treewalker SwapLeft<cr>", { silent = true })
+      vim.keymap.set("n", "ﬂ", "<cmd>Treewalker SwapRight<cr>", { silent = true })
+    end,
+  },
+
   -- E.g. for Terraform comments
   {
     "folke/ts-comments.nvim",
