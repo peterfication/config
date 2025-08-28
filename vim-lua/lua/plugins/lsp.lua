@@ -75,11 +75,31 @@ return {
             enable = true,
             set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
-              ["gfn"] = "@function.outer",
+              ["glfn"] = "@function.outer",
+              ["glcn"] = "@class.outer",
+              ["glkn"] = "@conditional.outer",
+              ["glln"] = "@loop.outer",
+              ["glbn"] = "@block.outer",
+              ["glhn"] = "@call.outer",
+              ["gljn"] = "@comment.outer",
             },
-            goto_next_end = {},
+            goto_next_end = {
+              ["glfe"] = "@function.outer",
+              ["glce"] = "@class.outer",
+              ["glke"] = "@conditional.outer",
+              ["glle"] = "@loop.outer",
+              ["glbe"] = "@block.outer",
+              ["glhe"] = "@call.outer",
+              ["glje"] = "@comment.outer",
+            },
             goto_previous_start = {
-              ["gfp"] = "@function.outer",
+              ["glfp"] = "@function.outer",
+              ["glcp"] = "@class.outer",
+              ["glkp"] = "@conditional.outer",
+              ["gllp"] = "@loop.outer",
+              ["glbp"] = "@block.outer",
+              ["glhp"] = "@call.outer",
+              ["gljp"] = "@comment.outer",
             },
             goto_previous_end = {},
           },
@@ -94,6 +114,10 @@ return {
           },
         },
       })
+
+      local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+      vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_next)
+      vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_previous)
 
       require("which-key").add({
         -- TODO: https://github.com/nvim-treesitter/playground
