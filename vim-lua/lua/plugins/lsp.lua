@@ -130,6 +130,22 @@ return {
     end,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    config = function()
+      local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+      local treesitter_context = require("treesitter-context")
+      local go_to_parent = function()
+        treesitter_context.go_to_context(vim.v.count1)
+      end
+      local go_to_parent_repeat, _go_to_parent_repeat =
+        ts_repeat_move.make_repeatable_move_pair(go_to_parent, go_to_parent)
+      vim.keymap.set("n", "gltc", go_to_parent_repeat, { silent = true })
+    end,
+  },
   -- E.g. for Terraform comments
   {
     "folke/ts-comments.nvim",
@@ -431,7 +447,7 @@ return {
           require("illuminate").on_attach(client)
 
           if client.server_capabilities.documentSymbolProvider then
-              navic.attach(client, bufnr)
+            navic.attach(client, bufnr)
           end
 
           --Enable completion triggered by <c-x><c-o>
