@@ -44,6 +44,7 @@ source ~/config/zsh/85_java.zsh
 source ~/config/zsh/98_base16_shell.zsh
 # source ~/config/zsh/99_p10k.zsh
 source ~/config/zsh/99_starship.zsh
+source ~/config/zsh/99_vscode.zsh
 
 [ -f ~/config/zsh/local.zsh ] && source ~/config/zsh/local.zsh
 
