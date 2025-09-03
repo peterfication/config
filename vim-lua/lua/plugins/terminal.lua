@@ -23,7 +23,6 @@ return {
         toggleterm.toggle(next_index)
       end
 
-
       require("which-key").add({
         { "<Leader>gd", ':8TermExec cmd="lazydocker; exit" direction=float<CR>', desc = "Open lazydocker" },
         { "<Leader>t1", "<CMD>ToggleTerm 1<CR>", desc = "Open terminal 1" },
@@ -115,19 +114,13 @@ return {
       -- In a floating terminal, go to a file under the cursor with gF
       -- but don't open the file in the floating terminal window, instead close the floating terminal
       -- and open the file in the previous window.
-      local function go_to_file()
-        local cursor = vim.api.nvim_win_get_cursor(0)
-        local bufnr = vim.api.nvim_get_current_buf()
-        toggleterm.toggle(0)
-        vim.api.nvim_win_set_buf(0, bufnr)
-        vim.api.nvim_win_set_cursor(0, cursor)
-        vim.cmd("norm! gf")
-      end
       vim.api.nvim_create_augroup("ToggleTerm", {})
       vim.api.nvim_create_autocmd("TermOpen", {
         pattern = "term://*toggleterm#*",
         callback = function()
-          vim.keymap.set("n", "gf", go_to_file, { buffer = true })
+          vim.keymap.set("n", "gf", function()
+            vim.cmd("tabedit " .. vim.fn.expand("<cfile>"))
+          end, { buffer = true })
         end,
         group = "ToggleTerm",
       })
