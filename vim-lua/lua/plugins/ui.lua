@@ -152,12 +152,12 @@ return {
 
       require("which-key").add({
         {
-          "<Leader><C-P",
+          "<C-p>",
           ':lua require("illuminate").goto_prev_reference()<CR>',
           desc = "Go to previous LSP reference (via illuminate)",
         },
         {
-          "<Leader><C-m>",
+          "<C-n>",
           ':lua require("illuminate").next_reference{wrap=true}<CR>',
           desc = "Go to next LSP reference (via illuminate)",
         },
