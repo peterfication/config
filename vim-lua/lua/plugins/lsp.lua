@@ -455,11 +455,14 @@ return {
         { "K", "<CMD>lua vim.lsp.buf.hover()<CR>", desc = "[LSP] Show documentation" },
         { "<Leader>K", show_line_diagnostics, desc = "[LSP] Show line diagnostics" },
         { "<Leader>K", "<CMD>lua vim.diagnostic.open_float()<CR>", desc = "[LSP] Show line diagnostics" },
+        -- { "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
+        -- { "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", desc = "[LSP] Go to implementation" },
+        -- { "gr", "<CMD>lua vim.lsp.buf.references()<CR>", desc = "[LSP] Find references" },
         { "gD", "<CMD>lua vim.lsp.buf.declaration()<CR>", desc = "[LSP] Go to declaration" },
-        { "gd", "<CMD>lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
-        { "gi", "<CMD>lua vim.lsp.buf.implementation()<CR>", desc = "[LSP] Go to implementation" },
         { "<Leader>tgd", "<CMD>tab split | lua vim.lsp.buf.definition()<CR>", desc = "[LSP] Go to definition " },
-        { "gr", "<CMD>lua vim.lsp.buf.references()<CR>", desc = "[LSP] Find references" },
+        { "gd", "<CMD>Telescope lsp_definitions<CR>", desc = "[LSP] Find definitions with Telescope" },
+        { "gr", "<CMD>Telescope lsp_references<CR>", desc = "[LSP] Find references with Telescope" },
+        { "gi", "<CMD>Telescope lsp_implementations<CR>", desc = "[LSP] Find implementations with Telescope" },
       })
 
       for _, lsp in ipairs(servers) do
