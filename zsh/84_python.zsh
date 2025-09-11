@@ -26,3 +26,5 @@ if command -v uv &> /dev/null; then
   }
   compdef _uv_run_mod uv
 fi
+
+alias npy_show="uv run ~/.config/scripts/npy_show.py"
