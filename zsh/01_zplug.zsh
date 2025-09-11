@@ -57,7 +57,7 @@ zplug "plugins/rails", from:oh-my-zsh
 zplug "plugins/rake-fast", from:oh-my-zsh
 zplug "plugins/thor", from:oh-my-zsh
 zplug "plugins/nvm", from:oh-my-zsh
-zplug "plugins/yarn", from:oh-my-zsh
+# zplug "plugins/yarn", from:oh-my-zsh # only aliases
 zplug "plugins/docker", from:oh-my-zsh
 # zplug "plugins/rustup", from:oh-my-zsh
 # zplug "plugins/rust", from:oh-my-zsh
