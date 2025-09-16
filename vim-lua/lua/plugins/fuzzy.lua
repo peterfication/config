@@ -20,6 +20,7 @@ return {
       { "L3MON4D3/LuaSnip" },
       { "benfowler/telescope-luasnip.nvim" },
       { "s1n7ax/nvim-window-picker" },
+      {'nvim-telescope/telescope-ui-select.nvim' },
     },
     config = function()
       local actions = require("telescope.actions")
@@ -122,6 +123,7 @@ return {
       require("telescope").load_extension("gh")
       require("telescope").load_extension("luasnip")
       require("telescope").load_extension("neoclip")
+      require("telescope").load_extension("ui-select")
 
       local function visual_paste(opts)
         local handlers = require("neoclip.handlers")
