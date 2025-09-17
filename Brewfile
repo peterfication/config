@@ -50,6 +50,7 @@ brew 'docker'
 brew 'dog' # Modern replacement for dig
 brew 'dos2unix'
 brew 'dua-cli' # Disk usage analyzer
+brew 'duckdb' # For JSON and CSV analysis
 brew 'duf'
 brew 'dust' # du -sh replacement
 brew 'elixir-ls'
