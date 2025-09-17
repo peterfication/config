@@ -43,3 +43,12 @@ bind p paste-buffer
 
 # Lazygit pop-up
 bind-key C-g display-popup -E -d "#{pane_current_path}" -xC -yC -w 90% -h 90% "lazygit"
+
+# FPP PathFinder
+# Disable default binding
+set -g @fpp-bind off
+# Bind 'p' to run FPP launching an editor
+bind-key p run-shell '~/.tmux/plugins/tmux-fpp/fpp.tmux start edit'
+
+# Bind 'o' to run FPP and paste the list of files in the initial pane
+bind-key o run-shell '~/.tmux/plugins/tmux-fpp/fpp.tmux start paste'

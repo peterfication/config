@@ -14,3 +14,4 @@ set -g @plugin 'sainnhe/tmux-fzf'
 
 set -g @plugin 'schasse/tmux-jump'
 set -g @plugin 'alexwforsythe/tmux-which-key'
+set -g @plugin 'tmux-plugins/tmux-fpp'
