@@ -123,6 +123,7 @@ brew 'nmap' # Network Mapper https://nmap.org/
 # - https://github.com/vi/websocat
 # - https://linux.die.net/man/1/socat
 brew 'nnn' # Terminal file manager
+brew 'peterfication/num-peek/num-peek' # Peek into *.npy files
 brew 'nvm'
 brew 'openjdk'
 brew 'openjdk@11'
