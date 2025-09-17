@@ -60,6 +60,7 @@ brew 'fd' # find replacement
 brew 'ffmpeg'
 brew 'fluxcd/tap/flux', link: false
 brew 'flyctl'
+brew 'fpp' # PathPicker
 brew 'macos-fuse-t/homebrew-cask/fuse-t'
 brew 'macos-fuse-t/homebrew-cask/fuse-t-sshfs' # Alternative to the normal sshfs from https://github.com/libfuse/sshfs
 brew 'fx'
