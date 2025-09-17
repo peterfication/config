@@ -126,4 +126,47 @@ return {
       })
     end,
   },
+  -- {
+  --   "stevearc/overseer.nvim",
+  --   opts = {},
+  --   config = function()
+  --     require("overseer").setup()
+  --     require("which-key").add({
+  --       { "<Leader>r", group = "Run" },
+  --       { "<Leader>rr", ":OverseerRun<CR>", desc = "Run a task" },
+  --       { "<Leader>rt", ":OverseerToggle<CR>", desc = "Toggle the overseer window" },
+  --       { "<Leader>rc", ":OverseerClose<CR>", desc = "Close the overseer window" },
+  --       { "<Leader>ro", ":OverseerOpen<CR>", desc = "Open the overseer window" },
+  --       { "<Leader>rl", ":OverseerLoadBundle!<CR>", desc = "Load a task bundle" },
+  --       { "<Leader>ru", ":OverseerUpdateBundle<CR>", desc = "Update a task bundle" },
+  --     })
+  --   end,
+  -- },
+  {
+    "samharju/yeet.nvim",
+    cmd = "Yeet",
+    opts = {},
+  },
+  {
+    "theprimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "samharju/yeet.nvim",
+    },
+    config = function()
+      local harpoon = require("harpoon")
+      harpoon:setup({
+        yeet = {
+          select = function(list_item, _, _)
+            require("yeet").execute(list_item.value)
+          end,
+        },
+      })
+
+      vim.keymap.set("n", "<Leader><BS>", function()
+        harpoon.ui:toggle_quick_menu(harpoon:list("yeet"))
+      end)
+    end,
+  },
 }
