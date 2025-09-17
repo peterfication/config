@@ -52,3 +52,6 @@ bind-key p run-shell '~/.tmux/plugins/tmux-fpp/fpp.tmux start edit'
 
 # Bind 'o' to run FPP and paste the list of files in the initial pane
 bind-key o run-shell '~/.tmux/plugins/tmux-fpp/fpp.tmux start paste'
+
+# Fingers https://github.com/Morantron/tmux-fingers
+set -g @fingers-key m
